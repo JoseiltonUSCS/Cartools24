@@ -1,0 +1,60 @@
+﻿<table border="0" width="100%">
+    <br />
+    <br />
+    <tr>
+        <td>
+            <form method="post" enctype="multipart/form-data" asp-controller="AdminImagens"
+                asp-action="UploadFiles">
+                <img src="~/images/upload.png" width="200" height="150" />
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <p><b>Selecione um ou mais arquivos para enviar: </b></p>
+                        <p>(Obs.: Arquivos com o mesmo nome serão sobrescritos)</p>
+                        <input type="file" name="files" multiple class="button btn-outline-primary" />
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="submit" value="Enviar Arquivo(s)" class="button btn-outline-primary" />
+                    </div>
+                </div>
+            </form>
+        </td>
+        <td>
+            <form method="post" enctype="multipart/form-data" asp-controller="AdminImagens"
+                  asp-action="GetImagens">
+                <img src="~/images/lupa.png" width="200" height="150" />
+
+                <!--
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <p><strong>Visualizar Imagens na pasta do servidor: </strong></p>
+                    </div>
+                </div>
+                -->
+                <br />
+                <br />
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="submit" value="Visualizar Arquivos no servidor" class="button btn-outline-primary" />
+                    </div>
+                </div>
+            </form>
+        </td>
+    </tr>
+</table>
+<div class="container">
+    @if(ViewData["Deletado"] != null)
+    {
+        <li>@ViewData["Deletado"]</li>
+    }    
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<hr>
+<a asp-controller="Admin" asp-action="Index">Voltar</a>
