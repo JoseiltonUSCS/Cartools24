@@ -16,10 +16,10 @@ namespace Cartools.Models
 
         public string Nome { get; set; }
 
-        [Required(ErrorMessage = "A descrição do servico deve ser informado")]
-        [Display(Name = "Descrição do serviço")]
-        [MinLength(10, ErrorMessage = "Descrição deve ter no mínimo {1} caractere")]
-        [MaxLength(200, ErrorMessage = "Descrição pode exceder {1} caractere")]
+        [Required(ErrorMessage = "Informe a descrição curta")]
+        [Display(Name = "Descrição curta: ")]
+        [MinLength(10, ErrorMessage = "Descrição curta deve ter no mínimo {1} caractere")]
+        [MaxLength(200, ErrorMessage = "Descrição curta pode exceder {1} caractere")]
         public string DescricaoCurta { get; set; }
 
        
@@ -41,22 +41,18 @@ namespace Cartools.Models
         [StringLength(200, ErrorMessage = "O {0} deve ter no máximo {1} caractere")]
         public string ImagemUrl { get; set; }
 
-
         [Display(Name = " Caminho Imagem Normal")]
         [StringLength(200, ErrorMessage = "O {0} deve ter no máximo {1} caractere")]
         public string ImagemThumbnailUrl { get; set; }
-
-
-        [Display(Name = "Preferido")]
         public bool IsServicoPreferido { get; set; }
-
-
-        [Display(Name = "Estoque")]
-        public bool EmEstoque { get; set; }
+        public string EmEstoque { get; set; }
 
         [Display(Name = "Categorias")]
         public int CategoriaId { get; set;}
         public virtual Categoria Categoria { get; set; }
+        public List<Endereco> Enderecos { get; set; }
+
+
 
     }
 }
