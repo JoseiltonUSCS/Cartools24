@@ -2,7 +2,6 @@
 using Cartools.Models;
 using Cartools.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using NPoco.Expressions;
 using System.Linq;
 
 namespace Cartools.Repositories

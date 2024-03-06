@@ -17,30 +17,8 @@ namespace Cartools.Controllers
 
         public IActionResult List(string categoria)
         {
-            IEnumerable<Servico> servicos;
-            string categoriaAtual = string.Empty;
-
-            if (string.IsNullOrEmpty(categoria))
-            {
-                servicos = _servicoRepository.Servicos.OrderBy(l => l.ServicoId);
-                categoriaAtual = "Todos os servicos";
-            }
-            else
-            {
-                servicos = _servicoRepository.Servicos
-                          .Where(l => l.Categoria.CategoriaNome.Equals(categoria))
-                          .OrderBy(c => c.Nome);
-
-                categoriaAtual = categoria;
-            }
-
-            var servicosListViewModel = new ServicoListViewModel
-            {
-                Servicos = servicos,
-                CategoriaAtual = categoriaAtual
-            };
-
-            return View(servicosListViewModel);
+            var servicos = _servicoRepository.Servicos;
+            return View(servicos);
         }
 
         public IActionResult Details(int servicoId)

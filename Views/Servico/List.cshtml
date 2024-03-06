@@ -1,18 +1,19 @@
-﻿@model ServicoListViewModel
-
-
-
+﻿@model IEnumerable<Cartools.Models.Servico>
+   
 <div>
-    <h2>@Model.CategoriaAtual</h2>
+    <h2>Todos os Serviços</h2>
 </div>
- 
-<div class="container">
-<div class="row">
 
- @foreach(var servico in Model.Servicos)
-{
-  <partial name="_ServicosResumo" for="@servico"/>
-}
+<div class="container">
+    <div class="row">
+        @foreach (var servico in Model)
+        {
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <p><img src="@servico.ImagemUrl" class="img-fluid" /></p>
+                <h3>@servico.Preco.ToString("c")</h3>
+                <h4>@servico.Nome</h4>
+                <p>@servico.DescricaoCurta</p>
+            </div>
+        }
+    </div>
 </div>
-</div>
- 
