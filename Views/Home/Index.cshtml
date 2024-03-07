@@ -1,3 +1,20 @@
 ﻿@model HomeViewModel
 
+<!--
+
 <partial name="_Inicial" />
+
+-->
+<partial name="_Inicial" />
+
+<div class="row">
+
+    <h2> Destaques da semana (IsServicoPreferido - true - BD)</h2>
+
+
+    @foreach (var servico in Model.ServicosPreferidos)
+    {
+        <partial name="_ServicosResumo" for="@servico" />
+    }
+
+</div>

@@ -140,7 +140,7 @@ public class Startup
             endpoints.MapControllerRoute(
                 name: "categoriaFiltro",
                 pattern: "Servico/{action}/{categoria?}",
-                defaults: new { controller = "Servico", action = "List" });
+                defaults: new { Controller = "Servico", action = "List" });
 
 
             endpoints.MapControllerRoute(

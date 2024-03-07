@@ -1,4 +1,7 @@
-﻿<!--
+﻿
+<!--Dropdown Categoria  -->
+
+
 <div class="dropdown">
 
     <a class="btn btn-secondary dropdown-toggle" role="button" 
@@ -10,17 +13,17 @@
          @foreach(var categoria in Model)
         {
              <li>
-                <a class="dropdown-item" asp-controller="Servico" asp-action="List" style="color:black"
-                   asp-route-categoria="@categoria.CategoriaNome">@categoria.CategoriaNome</a>
-            </li>        
-        }
-         <li class="dropdown-divider"></li>
-             <li>
-            <a class="dropdown-item" asp-controller="Servico" asp-action="List" asp-route-categoria="" 
-               style="color:black">Todos os Servicos</a>
-        </li>
-     </ul>
-  
+                <a class="dropdown-item" asp-controller="Servico" asp-action="List" style="color:black" asp-route-categoria="@categoria.CategoriaNome">
+                   @categoria.CategoriaNome
+                </a>
+            </li>  
+        }               
+            <li class="dropdown-divider"></li>
 
+            <li>
+                <a class="dropdown-item" asp-controller="Servico" asp-action="List" asp-route-categoria="" style="color:black">
+                    Todos os Servicos
+                </a>
+            </li>
+     </ul>
 </div>
-  -->

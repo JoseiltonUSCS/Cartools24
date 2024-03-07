@@ -18,7 +18,6 @@
 
                     <div class="md-6 justify-content-lg-around navbar-collapse collapse d-lg-inline-flex flex-lg-row ">
                         @await Component.InvokeAsync("CarrinhoCompraResumo")
-                        @await Component.InvokeAsync("CategoriaMenu")
 
                         <!-- <BarraNav"> -->
                          
@@ -37,11 +36,14 @@
                           class="space"></p><h2>Home</h2>
                           </a>
 
+                          <!--
                         <a class="nav-link text-light" asp-area=""
                            asp-controller="Servico" asp-action="List">
-                            <p class="space"></p><h2>Servico</h2>
+                            <p class="space"></p><h2>Serviços</h2>
                         </a>
+                        -->
 
+                        @await Component.InvokeAsync("CategoriaMenu")
 
                            <!--Loja mais próxima-->
                         <a class="nav-link-underline text-light" asp-area="" asp-controller="Busca" asp-action="Index">Encontre a loja mais próxima</a>

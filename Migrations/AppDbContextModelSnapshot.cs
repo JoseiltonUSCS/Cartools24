@@ -44,7 +44,7 @@ namespace Cartools.Migrations
 
                     b.HasIndex("ServicoId");
 
-                    b.ToTable("CarrinhoCompraItens");
+                    b.ToTable("CarrinhoCompraItens", (string)null);
                 });
 
             modelBuilder.Entity("Cartools.Models.Categoria", b =>
@@ -67,7 +67,7 @@ namespace Cartools.Migrations
 
                     b.HasKey("CategoriaId");
 
-                    b.ToTable("Categorias");
+                    b.ToTable("Categorias", (string)null);
                 });
 
             modelBuilder.Entity("Cartools.Models.EmailTicket", b =>
@@ -89,7 +89,7 @@ namespace Cartools.Migrations
 
                     b.HasKey("EmailTicketId");
 
-                    b.ToTable("EmailTickets");
+                    b.ToTable("EmailTickets", (string)null);
                 });
 
             modelBuilder.Entity("Cartools.Models.Endereco", b =>
@@ -128,7 +128,7 @@ namespace Cartools.Migrations
 
                     b.HasKey("EnderecoId");
 
-                    b.ToTable("Enderecos");
+                    b.ToTable("Enderecos", (string)null);
                 });
 
             modelBuilder.Entity("Cartools.Models.Pedido", b =>
@@ -195,7 +195,7 @@ namespace Cartools.Migrations
 
                     b.HasKey("PedidoId");
 
-                    b.ToTable("Pedidos");
+                    b.ToTable("Pedidos", (string)null);
                 });
 
             modelBuilder.Entity("Cartools.Models.PedidoDetalhe", b =>
@@ -224,7 +224,7 @@ namespace Cartools.Migrations
 
                     b.HasIndex("ServicoId");
 
-                    b.ToTable("PedidoDetalhes");
+                    b.ToTable("PedidoDetalhes", (string)null);
                 });
 
             modelBuilder.Entity("Cartools.Models.Servico", b =>
@@ -274,7 +274,7 @@ namespace Cartools.Migrations
 
                     b.HasIndex("CategoriaId");
 
-                    b.ToTable("Servicos");
+                    b.ToTable("Servicos", (string)null);
                 });
 
             modelBuilder.Entity("EnderecoServico", b =>
@@ -289,7 +289,7 @@ namespace Cartools.Migrations
 
                     b.HasIndex("ServicosServicoId");
 
-                    b.ToTable("EnderecoServico");
+                    b.ToTable("EnderecoServico", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

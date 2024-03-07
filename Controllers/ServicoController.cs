@@ -16,9 +16,53 @@ namespace Cartools.Controllers
         }
 
         public IActionResult List(string categoria)
-        {
-            var servicos = _servicoRepository.Servicos;
-            return View(servicos);
+        {    //Evolução do código - inicial
+            //var servicos = _servicoRepository.Servicos;
+            //return View(servicos);
+
+            //Evolução do código - lista todos os serviços
+            //var servicoListViewModel = new ServicoListViewModel();
+            //servicoListViewModel.Servicos = _servicoRepository.Servicos;
+            //servicoListViewModel.CategoriaAtual = "TextoFixo - Categoria Atual - TextFixo";
+            //return View(servicoListViewModel);
+
+            //Evolução do código - lista serviços por categoria
+            IEnumerable<Servico> servicos;
+            string categoriaAtual = string.Empty;
+
+            //Se eu não definir nenhuma categoria o retorno será todos os serviços, ordenado por ID,  do contrário o retorno trará apenas os serviços inclusos na categoria solicitada
+
+            if(string.IsNullOrEmpty(categoria))
+            {
+                servicos = _servicoRepository.Servicos.OrderBy(s => s.ServicoId);
+                categoriaAtual = "Todos os serviços";
+            }
+            else
+            {
+                if(string.Equals("Limpeza", categoria, StringComparison.OrdinalIgnoreCase))
+                {
+                    servicos = _servicoRepository.Servicos.Where(s => s.Categoria.CategoriaNome.Equals("Limpeza")).OrderBy(s => s.Nome);
+                }   
+                else
+                if (string.Equals("Pintura", categoria, StringComparison.OrdinalIgnoreCase))
+                {
+                    servicos = _servicoRepository.Servicos.Where(s => s.Categoria.CategoriaNome.Equals("Pintura")).OrderBy(s => s.Nome);
+                }
+                else
+                {
+                    servicos = _servicoRepository.Servicos.Where(s => s.Categoria.CategoriaNome.Equals("Manutencao")).OrderBy(s => s.Nome);
+                }
+
+                categoriaAtual = categoria;
+            }
+
+            var servicosListViewModel = new ServicoListViewModel
+            {
+                Servicos = servicos,
+                CategoriaAtual = categoriaAtual,
+            };
+
+            return View(servicosListViewModel);
         }
 
         public IActionResult Details(int servicoId)
@@ -31,6 +75,7 @@ namespace Cartools.Controllers
         {
             IEnumerable<Servico> servicos;
             string categoriaAtual = string.Empty;
+
 
             if (string.IsNullOrEmpty(searchString))
             {
