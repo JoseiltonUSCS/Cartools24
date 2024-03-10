@@ -16,11 +16,11 @@ namespace Cartools.Repositories
                 _context = contexto;
         }
 
-        public IEnumerable<Servico> Servicos => _context.Servicos.Include(c => c.Categoria);
+        public IEnumerable<Servico> Servicos => _context.Servicos.Include(l => l.Local);
 
         public IEnumerable<Servico> ServicoPreferido => _context.Servicos.
                                     Where(s => s.IsServicoPreferido)
-                                    .Include(c => c.Categoria);
+                                    .Include(l => l.Local);
 
         public Servico GetServicoById(int ServicoId)        
         {

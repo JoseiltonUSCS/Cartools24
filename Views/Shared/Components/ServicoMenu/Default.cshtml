@@ -1,0 +1,27 @@
+﻿<!--Dropdown Servico  -->
+
+
+<div class="dropdown">
+
+    <a class="btn btn-secondary dropdown-toggle" role="button"
+       id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+       Servico
+    </a>
+
+    <ul class="dropdown-menu">
+        @foreach (var servico in Model)
+        {
+            <li>
+                <a class="dropdown-item" asp-controller="Servico" asp-action="List" style="color:black" asp-route-servico="@servico.Nome">
+                    @servico.Nome
+                </a>
+            </li>
+        }
+        <li class="dropdown-divider"></li>
+        <li>
+            <a class="dropdown-item" asp-controller="Servico" asp-action="List" asp-route-servico="" style="color:black">
+                Todos os Servicos
+            </a>
+        </li>
+    </ul>
+</div>

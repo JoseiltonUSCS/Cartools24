@@ -53,6 +53,10 @@ public class Startup
         services.AddTransient<IServicoRepository, ServicoRepository>();
         services.AddTransient<ICategoriaRepository, CategoriaRepository>();
         services.AddTransient<IPedidoRepository, PedidoRepository>();
+
+        services.AddTransient<ILocalRepository, LocalRepository>();
+        services.AddTransient<IOficinaRepository, OficinaRepository>();
+
         services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
         services.AddScoped<RelatorioVendasService>();
 
@@ -138,10 +142,19 @@ public class Startup
 
 
             endpoints.MapControllerRoute(
+                name: "localFiltro",
+                pattern: "Servico/{action}/{local?}",
+                defaults: new { Controller = "Servico", action = "List" });
+
+            endpoints.MapControllerRoute(
+                name: "servicoFiltro",
+                pattern: "Servico/{action}/{servico?}",
+                defaults: new { Controller = "Servico", action = "List" });
+
+            endpoints.MapControllerRoute(
                 name: "categoriaFiltro",
                 pattern: "Servico/{action}/{categoria?}",
                 defaults: new { Controller = "Servico", action = "List" });
-
 
             endpoints.MapControllerRoute(
                 name: "default",

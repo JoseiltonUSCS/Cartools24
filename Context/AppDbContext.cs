@@ -17,7 +17,11 @@ namespace Cartools.Context
         public DbSet<Pedido> Pedidos { get; set; }
         public DbSet<PedidoDetalhe> PedidoDetalhes { get; set; }
         public DbSet<EmailTicket> EmailTickets { get; set; }
-        public DbSet<Endereco> Enderecos { get; set; }
+        public DbSet<Agendamento> Agendamentos { get; set; }
+        public DbSet<Local> Locals { get; set; }
+        public DbSet<Oficina> Oficinas { get; set; }
+
+
 
     }
 }

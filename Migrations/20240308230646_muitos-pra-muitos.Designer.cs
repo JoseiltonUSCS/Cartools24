@@ -4,6 +4,7 @@ using Cartools.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cartools.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240308230646_muitos-pra-muitos")]
+    partial class muitospramuitos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -134,6 +136,12 @@ namespace Cartools.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("OficinaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ServicoId")
+                        .HasColumnType("int");
+
                     b.HasKey("LocalId");
 
                     b.ToTable("Locals");
@@ -181,12 +189,13 @@ namespace Cartools.Migrations
                     b.Property<int>("Numero")
                         .HasColumnType("int");
 
+                    b.Property<int>("ServicoId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Telefone")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("OficinaId");
-
-                    b.HasIndex("LocalId");
 
                     b.ToTable("Oficinas");
                 });
@@ -340,11 +349,37 @@ namespace Cartools.Migrations
 
                     b.HasIndex("CategoriaId");
 
-                    b.HasIndex("LocalId");
-
-                    b.HasIndex("OficinaId");
-
                     b.ToTable("Servicos");
+                });
+
+            modelBuilder.Entity("LocalOficina", b =>
+                {
+                    b.Property<int>("LocalsLocalId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OficinasOficinaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("LocalsLocalId", "OficinasOficinaId");
+
+                    b.HasIndex("OficinasOficinaId");
+
+                    b.ToTable("LocalOficina");
+                });
+
+            modelBuilder.Entity("LocalServico", b =>
+                {
+                    b.Property<int>("LocalsLocalId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ServicosServicoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("LocalsLocalId", "ServicosServicoId");
+
+                    b.HasIndex("ServicosServicoId");
+
+                    b.ToTable("LocalServico");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -545,6 +580,21 @@ namespace Cartools.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("OficinaServico", b =>
+                {
+                    b.Property<int>("OficinasOficinaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ServicosServicoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("OficinasOficinaId", "ServicosServicoId");
+
+                    b.HasIndex("ServicosServicoId");
+
+                    b.ToTable("OficinaServico");
+                });
+
             modelBuilder.Entity("Cartools.Models.Agendamento", b =>
                 {
                     b.HasOne("Cartools.Models.Servico", "Servico")
@@ -563,17 +613,6 @@ namespace Cartools.Migrations
                         .HasForeignKey("ServicoId");
 
                     b.Navigation("Servico");
-                });
-
-            modelBuilder.Entity("Cartools.Models.Oficina", b =>
-                {
-                    b.HasOne("Cartools.Models.Local", "Local")
-                        .WithMany("Oficinas")
-                        .HasForeignKey("LocalId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Local");
                 });
 
             modelBuilder.Entity("Cartools.Models.PedidoDetalhe", b =>
@@ -603,23 +642,37 @@ namespace Cartools.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Cartools.Models.Local", "Local")
-                        .WithMany("Servicos")
-                        .HasForeignKey("LocalId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Cartools.Models.Oficina", "Oficina")
-                        .WithMany("Servicos")
-                        .HasForeignKey("OficinaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Categoria");
+                });
 
-                    b.Navigation("Local");
+            modelBuilder.Entity("LocalOficina", b =>
+                {
+                    b.HasOne("Cartools.Models.Local", null)
+                        .WithMany()
+                        .HasForeignKey("LocalsLocalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Oficina");
+                    b.HasOne("Cartools.Models.Oficina", null)
+                        .WithMany()
+                        .HasForeignKey("OficinasOficinaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("LocalServico", b =>
+                {
+                    b.HasOne("Cartools.Models.Local", null)
+                        .WithMany()
+                        .HasForeignKey("LocalsLocalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Cartools.Models.Servico", null)
+                        .WithMany()
+                        .HasForeignKey("ServicosServicoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -673,19 +726,22 @@ namespace Cartools.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("OficinaServico", b =>
+                {
+                    b.HasOne("Cartools.Models.Oficina", null)
+                        .WithMany()
+                        .HasForeignKey("OficinasOficinaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Cartools.Models.Servico", null)
+                        .WithMany()
+                        .HasForeignKey("ServicosServicoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Cartools.Models.Categoria", b =>
-                {
-                    b.Navigation("Servicos");
-                });
-
-            modelBuilder.Entity("Cartools.Models.Local", b =>
-                {
-                    b.Navigation("Oficinas");
-
-                    b.Navigation("Servicos");
-                });
-
-            modelBuilder.Entity("Cartools.Models.Oficina", b =>
                 {
                     b.Navigation("Servicos");
                 });

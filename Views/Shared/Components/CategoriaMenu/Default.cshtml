@@ -1,13 +1,12 @@
-﻿
-<!--Dropdown Categoria  -->
+﻿<!--Dropdown Categoria  -->
 
 
 <div class="dropdown">
 
     <a class="btn btn-secondary dropdown-toggle" role="button" 
         id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-     Servico
-  </a>
+        Categoria
+    </a>
   
      <ul class="dropdown-menu">
          @foreach(var categoria in Model)
@@ -22,7 +21,7 @@
 
             <li>
                 <a class="dropdown-item" asp-controller="Servico" asp-action="List" asp-route-categoria="" style="color:black">
-                    Todos os Servicos
+                    Todas as Categorias
                 </a>
             </li>
      </ul>

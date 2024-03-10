@@ -17,6 +17,7 @@
                     </a>
 
                     <div class="md-6 justify-content-lg-around navbar-collapse collapse d-lg-inline-flex flex-lg-row ">
+
                         @await Component.InvokeAsync("CarrinhoCompraResumo")
 
                         <!-- <BarraNav"> -->
@@ -35,16 +36,27 @@
                                 asp-controller="Home" asp-action="Index"><p 
                           class="space"></p><h2>Home</h2>
                           </a>
-
-                          <!--
+                        <a class="nav-link text-light" asp-area=""
+                           asp-controller="Local" asp-action="List">
+                            <p class="space"></p><h2>Local</h2>
+                        </a>
+                        <form class="navbar-form navbar-right" asp-controller="Servico" asp-action="Search" method="get">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Procurar serviço" name="searchString" value="@ViewData["searchString"]" />
+                            </div>
+                        </form>
+                        <!--
                         <a class="nav-link text-light" asp-area=""
                            asp-controller="Servico" asp-action="List">
                             <p class="space"></p><h2>Serviços</h2>
                         </a>
                         -->
 
-                        @await Component.InvokeAsync("CategoriaMenu")
+                        @await Component.InvokeAsync("LocalMenu")
 
+                        @await Component.InvokeAsync("ServicoMenu")
+
+                        
                            <!--Loja mais próxima-->
                         <a class="nav-link-underline text-light" asp-area="" asp-controller="Busca" asp-action="Index">Encontre a loja mais próxima</a>
 

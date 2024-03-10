@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Cartools.Models.Local>
+
+<div>
+    <h2>Todas as Cidades</h2><br />
+</div>
+
+<div class="container">
+    <div class="row">
+            @foreach (var local in Model)
+            {
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                <h4>@local.Cidade</h4><br />
+                </div>
+            }
+    </div>
+</div>

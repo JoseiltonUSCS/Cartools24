@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Cartools.Models
 {
@@ -50,9 +51,10 @@ namespace Cartools.Models
         [Display(Name = "Categorias")]
         public int CategoriaId { get; set;}
         public virtual Categoria Categoria { get; set; }
-        public List<Endereco> Enderecos { get; set; }
-
-
-
+        public int LocalId { get; set; }
+        public virtual Local Local { get; set; }
+        public int OficinaId { get; set; }
+        public virtual Oficina Oficina { get; set; }
+        public List<Agendamento> Agendamentos { get; set; }
     }
 }
