@@ -1,48 +1,112 @@
 ﻿
 <div class="parcPlans">
     <div class="jumbotron mt-5">
-        <h2>Planos Cartools</h2>
         <!--usar tabela com td e tr-->
         <div class="planos">
             <div class="plano">
-                <p> Cartools Parceiros</p> <br />
                 <h3>Mensal</h3><br />
                 <p>R$<strong>74,90</strong>/mês</p>
+                <p>Descrição: O plano mensal oferece...</p> <br />
                 <button class="btnPlano">Assinar</button>
             </div>
             <div class="plano">
-                <p> Cartools Parceiros</p> <br />
                 <h3>Semestral</h3><br />
                 <p>R$ <strong>64,90</strong>/mês</p>
+                <p>Descrição: O plano semestral oferece...</p> <br />
                 <button class="btnPlano">Assinar</button>
             </div>
-            <div class="plano">
-                <p> Cartools Parceiros</p> <br />
+            <div class="plano">                
                 <h3>Anual</h3><br />
                 <p>R$ <strong>49,90</strong>/mês</p>
+                <p>Descrição: O plano anual oferece...</p> <br />
                 <button class="btnPlano">Assinar</button>
             </div>
         </div>     
     </div>
     <div class="jumbotron">
-        <h2>Benefícios de ser Parceiro</h2>
         <div class="beneficios">
-            <p>
-                O objetivo da plataforma CarTools é ajudar as Empresas Parceiras a conseguir captar um maior número de clientes. Com o nosso sistema de planos você pode contratar o que for melhor para seu uso e se beneficiar do que temos a oferecer.Você terá a sua página, onde poderá incluir os serviços prestados pela sua empresa de estética automotiva.Não se preocupe pois é simples de utilizar!<br /><br />
-
-                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur.<br><br />
-                Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-            </p><br />
+            <div id="pagina">
+                <div class="anuncie">
+                    <h2>Cadastre-se e anuncie:</h2><br/>
+                    <h2>                
+                        Nossa motivação consiste em ajudar as empresas PARCEIRAS a conseguir captar um maior número de clientes com o menor esforço possível. <br /><br />  
+                
+                        O Sistema de anúncios da Cartools é totalmente automatizado. Você se cadastra e tem acesso a um painel de controle com uma área de membros onde você poderá:
+                    </h2><br />
+                    <h3>
+                        <ul>
+                            <li>&raquo; Cadastrar seus serviços </li>
+                            <li>&raquo; Editar seus Anúncios</li>
+                            <li>&raquo; Responder mensagens </li>
+                            <li>&raquo; Efetuar pagamentos </li>
+                            <li>&raquo; Alterar seus dados </li>
+                            <li>&raquo; e muito mais... </li>
+                        </ul>
+                    </h3>
+                    <h3>
+                        Assine agora e comece a anunciar seus serviços no maior portal de Estética Automotiva da web!<br />
+                        
+                    </h3>
+                </div>
+            </div>
             <img src="~/images/imgBeneficios.png"/>
-        </div>
-        <div class="beneficios">   
-            <p>
-                Você vai colocar basicamente alguns dados complementares da sua empresa e algumas imagens para represntar a sua empresa e os serviços prestados.Com os dados necesários e as imagens do seu negócio, você estará disponível para buscas na plataforma e os cleintes irão ver a sua empresa (envie as fotos que representem o seu negócio)<br /><br />
-               Você terá como consequência mais clientes devido à divulgação e intermediação, conseguindo ter uma mario visibilidade no mercado, sendo localizado com uma marior facilidade.
-                Hoje os clientes buscam coisas ágeis e simples de resolver, conseguimos trazê-los até o seu negócio, como resultado as pessoas interessadas vão visualizar os seus serviços detalhadamente e solicitar um agendamento com apenas alguns "clicks".<br /><br />
-                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.<br><br /> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur.
-            </p>
+
+            <form name="cadastra_cliente" id="cadastra_cliente" method="post" action="index.php?pg=anunciar_ok" enctype="multipart/form-data">
+
+                <fieldset>
+                    <legend>Cadastre-se e Anuncie</legend>
+
+                    <label>
+                        <span>Nome Completo:</span>
+                        <input type="text" name="nome" />
+                    </label>
+
+                    <label>
+                        <span>E-mail:</span>
+                        <input type="text" name="email" />
+                    </label>
+
+                    <label>
+                        <span>Senha:</span>
+                        <input type="password" name="senha" />
+                    </label>
+
+                    <label>
+                        <span>Telefone:</span>
+                        <input type="text" name="telefone" />
+                    </label>
+
+
+                    <input type="submit" name="cadastracliente" value="Cadastrar" class="btn" />
+
+
+                </fieldset>
+
+            </form>
         </div>
     </div>
-<a asp-area="" asp-controller="Home" asp-action="Index">Volta à Home Page</a>
+
+    <div class="jumbotron mt-5">
+        <div class="planos">
+            <div class="plano">
+                <h3>Mensal</h3><br />
+                <p>R$<strong>74,90</strong>/mês</p>
+                <p>Descrição: O plano mensal oferece...</p> <br />
+                <button class="btnPlano">Assinar</button>
+            </div>
+            <div class="plano">
+                <h3>Semestral</h3><br />
+                <p>R$ <strong>64,90</strong>/mês</p>
+                <p>Descrição: O plano semestral oferece...</p> <br />
+                <button class="btnPlano">Assinar</button>
+            </div>
+            <div class="plano">
+                <h3>Anual</h3><br />
+                <p>R$ <strong>49,90</strong>/mês</p>
+                <p>Descrição: O plano anual oferece...</p> <br />
+                <button class="btnPlano">Assinar</button>
+            </div>
+        </div>
+    </div>
 </div>
+<a asp-area="" asp-controller="Home" asp-action="Index">Voltar à Home</a>

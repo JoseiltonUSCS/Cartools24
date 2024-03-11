@@ -49,7 +49,7 @@ namespace Cartools.Controllers
              foreach (var item in items) 
              {
                 totalItensPedido += item.Quantidade;
-                precoTotalPedido += (item.Servico.Preco * item.Quantidade);
+                precoTotalPedido += (item.Plano.Preco * item.Quantidade);
              }
 
                 // atribui os valores obtidos ao pedido

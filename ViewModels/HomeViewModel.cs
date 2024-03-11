@@ -4,6 +4,6 @@ namespace Cartools.ViewModels
 {
     public class HomeViewModel
     {
-        public IEnumerable<Servico> ServicosPreferidos { get; set; }
+        public IEnumerable<Plano> Planos { get; set; }
     }
 }

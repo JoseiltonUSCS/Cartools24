@@ -16,7 +16,6 @@ namespace Cartools.Models
         public string CarrinhoCompraId { get; set; }
         public List<CarrinhoCompraItem> CarrinhoCompraItems { get; set; }
 
-        //public static CarrinhoCompra GetCarrinho(IServiceProvider services)
         public static CarrinhoCompra GetCarrinho(IServiceProvider services)
         {
             //define uma sessão
@@ -40,11 +39,11 @@ namespace Cartools.Models
 
         }
 
-        public void AdicionarAoCarrinho(Servico servico)
+        public void AdicionarAoCarrinho(Plano plano)
         {
             var carrinhoCompraItem = _context.CarrinhoCompraItens.SingleOrDefault(
 
-                s => s.Servico.ServicoId == servico.ServicoId &&
+                s => s.Plano.PlanoId == plano.PlanoId &&
                      s.CarrinhoCompraId == CarrinhoCompraId);
 
             if (carrinhoCompraItem == null)
@@ -52,7 +51,7 @@ namespace Cartools.Models
                 carrinhoCompraItem = new CarrinhoCompraItem
                 {
                     CarrinhoCompraId = CarrinhoCompraId,
-                    Servico = servico,
+                    Plano = plano,
                     Quantidade = 1
                 };
                 _context.CarrinhoCompraItens.Add(carrinhoCompraItem);
@@ -64,10 +63,10 @@ namespace Cartools.Models
             _context.SaveChanges();
         }
 
-        public int RemoverDoCarrinho(Servico servico)
+        public int RemoverDoCarrinho(Plano plano)
         {
             var carrinhoCompraItem = _context.CarrinhoCompraItens.SingleOrDefault(
-                s => s.Servico.ServicoId == servico.ServicoId &&
+                s => s.Plano.PlanoId == plano.PlanoId &&
                      s.CarrinhoCompraId == CarrinhoCompraId);
 
             var quantidadeLocal = 0;
@@ -96,7 +95,7 @@ namespace Cartools.Models
                 (CarrinhoCompraItems =
                 _context.CarrinhoCompraItens
                 .Where(c => c.CarrinhoCompraId == CarrinhoCompraId)
-                .Include(s => s.Servico)
+                .Include(s => s.Plano)
                 .ToList());
         }
 
@@ -113,7 +112,7 @@ namespace Cartools.Models
         {
             var total = _context.CarrinhoCompraItens
                         .Where(c => c.CarrinhoCompraId == CarrinhoCompraId)
-                        .Select(c => c.Servico.Preco * c.Quantidade).Sum();
+                        .Select(c => c.Plano.Preco * c.Quantidade).Sum();
 
             return total;   
         }

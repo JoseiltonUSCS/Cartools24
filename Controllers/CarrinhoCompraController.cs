@@ -3,18 +3,19 @@ using Cartools.Models;
 using Cartools.Repositories.Interfaces;
 using Cartools.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Cartools.Repositories;
 
 namespace Cartools.Controllers
 {
     public class CarrinhoCompraController : Controller
     {
-        private readonly IServicoRepository _servicoRepository;
+        private readonly IPlanoRepository _planoRepository;
         private readonly CarrinhoCompra _carrinhoCompra;
 
-        public CarrinhoCompraController(IServicoRepository servicoRepository,
+        public CarrinhoCompraController(IPlanoRepository planoRepository,
             CarrinhoCompra carrinhoCompra)
         {
-            _servicoRepository = servicoRepository;
+            _planoRepository = planoRepository;
             _carrinhoCompra = carrinhoCompra;
         }
 
@@ -33,26 +34,26 @@ namespace Cartools.Controllers
         }
 
         [Authorize]
-        public RedirectToActionResult AdicionarItemNoCarrinhoCompra(int servicoId)
+        public RedirectToActionResult AdicionarItemNoCarrinhoCompra(int planoId)
         {
-            var servicoSelecionado = _servicoRepository.Servicos
-                                    .FirstOrDefault(p => p.ServicoId == servicoId);
+            var planoSelecionado = _planoRepository.Planos
+                                    .FirstOrDefault(p => p.PlanoId == planoId);
 
-            if (servicoSelecionado != null)
+            if (planoSelecionado != null)
             {
-                _carrinhoCompra.AdicionarAoCarrinho(servicoSelecionado);
+                _carrinhoCompra.AdicionarAoCarrinho(planoSelecionado);
             }
             return RedirectToAction("Index");
         }
         [Authorize]
-        public IActionResult RemoverItemDoCarrinhoCompra(int servicoId)
+        public IActionResult RemoverItemDoCarrinhoCompra(int planoId)
         {
-            var servicoSelecionado = _servicoRepository.Servicos
-                                    .FirstOrDefault(p => p.ServicoId == servicoId);
+            var planoSelecionado = _planoRepository.Planos
+                                    .FirstOrDefault(p => p.PlanoId == planoId);
 
-            if (servicoSelecionado != null)
+            if (planoSelecionado != null)
             {
-                _carrinhoCompra.RemoverDoCarrinho(servicoSelecionado);
+                _carrinhoCompra.RemoverDoCarrinho(planoSelecionado);
             }
             return RedirectToAction("Index");
         }

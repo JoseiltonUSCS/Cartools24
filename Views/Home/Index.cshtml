@@ -1,16 +1,19 @@
-﻿@model HomeViewModel
+﻿@model HomeViewModel        
 
-<!--
 
-<partial name="_Inicial" />
+<h2>Os preferidos da semana</h2>
 
--->
-<partial name="_Inicial" />
+<h4>Estudando a pagina de Anuncio + Carrinho de Compras</h4>
+
+<h3>Ver aula 62 e anteriores </h3>
 
 <div class="row">
-
-    <h2> Destaques da semana (IsServicoPreferido - true - BD)</h2>
-
-
-    <partial name="_Inicial" />
+    @foreach(var plano in Model.Planos)
+    {
+        
+    }
 </div>
+
+
+
+<partial name="_Inicial" />

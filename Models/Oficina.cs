@@ -29,5 +29,6 @@ namespace Cartools.Models
         public int LocalId { get; set; }
         public virtual Local Local { get; set; }
         public ICollection<Servico> Servicos { get; set; }
+        public List<Plano> Planos { get; set; }
 }
 }
