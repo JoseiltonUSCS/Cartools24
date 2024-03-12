@@ -1,9 +1,12 @@
 ﻿using Cartools.Models;
+using Cartools.Repositories;
+using Cartools.Repositories.Interfaces;
 
 namespace Cartools.ViewModels
 {
     public class HomeViewModel
     {
-        public IEnumerable<Plano> Planos { get; set; }
+        public IEnumerable<Servico> ServicosPreferidos { get; set; }
     }
+
 }

@@ -20,9 +20,6 @@ namespace Cartools.Context
         public DbSet<Agendamento> Agendamentos { get; set; }
         public DbSet<Local> Locals { get; set; }
         public DbSet<Oficina> Oficinas { get; set; }
-        public DbSet<Plano> Planos { get; set; }
-
-
-
+        public DbSet<Plan> Plans { get; set; }
     }
 }

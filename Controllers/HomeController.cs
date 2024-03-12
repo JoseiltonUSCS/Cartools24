@@ -9,18 +9,18 @@ namespace Cartools.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IPlanoRepository _planoRepository;
+        private readonly IServicoRepository _servicoRepository;
 
-        public HomeController(IPlanoRepository planoRepository)
+        public HomeController(IServicoRepository servicoRepository)
         {
-            _planoRepository = planoRepository;
+            _servicoRepository = servicoRepository;
         }
 
         public IActionResult Index()
         {
             var homeViewModel = new HomeViewModel
             {
-                Planos = _planoRepository.Planos
+                ServicosPreferidos = _servicoRepository.ServicosPreferidos
             };
 
             return View(homeViewModel);

@@ -8,10 +8,7 @@ namespace Cartools.Models
     {
         public int CarrinhoCompraItemId { get; set; }
         public Servico Servico { get; set; }
-        public Plano Plano { get; set; }     
-
         public int Quantidade { get; set; }
-
 
         [StringLength(200)]
         public string CarrinhoCompraId { get; set; }

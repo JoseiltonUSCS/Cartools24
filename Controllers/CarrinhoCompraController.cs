@@ -9,13 +9,13 @@ namespace Cartools.Controllers
 {
     public class CarrinhoCompraController : Controller
     {
-        private readonly IPlanoRepository _planoRepository;
+        private readonly IServicoRepository _servicoRepository;
         private readonly CarrinhoCompra _carrinhoCompra;
 
-        public CarrinhoCompraController(IPlanoRepository planoRepository,
+        public CarrinhoCompraController(IServicoRepository servicoRepository,
             CarrinhoCompra carrinhoCompra)
         {
-            _planoRepository = planoRepository;
+            _servicoRepository = servicoRepository;
             _carrinhoCompra = carrinhoCompra;
         }
 
@@ -34,26 +34,26 @@ namespace Cartools.Controllers
         }
 
         [Authorize]
-        public RedirectToActionResult AdicionarItemNoCarrinhoCompra(int planoId)
+        public RedirectToActionResult AdicionarItemNoCarrinhoCompra(int servicoId)
         {
-            var planoSelecionado = _planoRepository.Planos
-                                    .FirstOrDefault(p => p.PlanoId == planoId);
+            var servicoSelecionado = _servicoRepository.Servicos
+                                    .FirstOrDefault(p => p.ServicoId == servicoId);
 
-            if (planoSelecionado != null)
+            if (servicoSelecionado != null)
             {
-                _carrinhoCompra.AdicionarAoCarrinho(planoSelecionado);
+                _carrinhoCompra.AdicionarAoCarrinho(servicoSelecionado);
             }
             return RedirectToAction("Index");
         }
         [Authorize]
-        public IActionResult RemoverItemDoCarrinhoCompra(int planoId)
+        public IActionResult RemoverItemDoCarrinhoCompra(int servicoId)
         {
-            var planoSelecionado = _planoRepository.Planos
-                                    .FirstOrDefault(p => p.PlanoId == planoId);
+            var servicoSelecionado = _servicoRepository.Servicos
+                                    .FirstOrDefault(p => p.ServicoId == servicoId);
 
-            if (planoSelecionado != null)
+            if (servicoSelecionado != null)
             {
-                _carrinhoCompra.RemoverDoCarrinho(planoSelecionado);
+                _carrinhoCompra.RemoverDoCarrinho(servicoSelecionado);
             }
             return RedirectToAction("Index");
         }

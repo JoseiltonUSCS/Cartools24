@@ -8,9 +8,9 @@
 <h3>Ver aula 62 e anteriores </h3>
 
 <div class="row">
-    @foreach(var plano in Model.Planos)
+    @foreach(var servico in Model.ServicosPreferidos)
     {
-        
+        <partial name="_ServicosResumo" for="@servico"/>
     }
 </div>
 

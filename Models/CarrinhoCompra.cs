@@ -39,11 +39,11 @@ namespace Cartools.Models
 
         }
 
-        public void AdicionarAoCarrinho(Plano plano)
+        public void AdicionarAoCarrinho(Servico servico)
         {
             var carrinhoCompraItem = _context.CarrinhoCompraItens.SingleOrDefault(
 
-                s => s.Plano.PlanoId == plano.PlanoId &&
+                s => s.Servico.ServicoId == servico.ServicoId &&
                      s.CarrinhoCompraId == CarrinhoCompraId);
 
             if (carrinhoCompraItem == null)
@@ -51,7 +51,7 @@ namespace Cartools.Models
                 carrinhoCompraItem = new CarrinhoCompraItem
                 {
                     CarrinhoCompraId = CarrinhoCompraId,
-                    Plano = plano,
+                    Servico = servico,
                     Quantidade = 1
                 };
                 _context.CarrinhoCompraItens.Add(carrinhoCompraItem);
@@ -63,10 +63,10 @@ namespace Cartools.Models
             _context.SaveChanges();
         }
 
-        public int RemoverDoCarrinho(Plano plano)
+        public int RemoverDoCarrinho(Servico servico)
         {
             var carrinhoCompraItem = _context.CarrinhoCompraItens.SingleOrDefault(
-                s => s.Plano.PlanoId == plano.PlanoId &&
+                s => s.Servico.ServicoId == servico.ServicoId &&
                      s.CarrinhoCompraId == CarrinhoCompraId);
 
             var quantidadeLocal = 0;
@@ -95,7 +95,7 @@ namespace Cartools.Models
                 (CarrinhoCompraItems =
                 _context.CarrinhoCompraItens
                 .Where(c => c.CarrinhoCompraId == CarrinhoCompraId)
-                .Include(s => s.Plano)
+                .Include(s => s.Servico)
                 .ToList());
         }
 
@@ -112,7 +112,7 @@ namespace Cartools.Models
         {
             var total = _context.CarrinhoCompraItens
                         .Where(c => c.CarrinhoCompraId == CarrinhoCompraId)
-                        .Select(c => c.Plano.Preco * c.Quantidade).Sum();
+                        .Select(c => c.Servico.Preco * c.Quantidade).Sum();
 
             return total;   
         }

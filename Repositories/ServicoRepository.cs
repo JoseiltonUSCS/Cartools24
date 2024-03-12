@@ -18,7 +18,7 @@ namespace Cartools.Repositories
 
         public IEnumerable<Servico> Servicos => _context.Servicos.Include(l => l.Local);
 
-        public IEnumerable<Servico> ServicoPreferido => _context.Servicos.
+        public IEnumerable<Servico> ServicosPreferidos => _context.Servicos.
                                     Where(s => s.IsServicoPreferido)
                                     .Include(l => l.Local);
 
