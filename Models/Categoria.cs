@@ -19,7 +19,6 @@ namespace Cartools.Models
         [Display(Name = "Descrição")]
         public string Descricao { get; set; }
         public List<Servico> Servicos { get; set; }
-        public List<Plan> Plans { get; set; }
 
     }
 }

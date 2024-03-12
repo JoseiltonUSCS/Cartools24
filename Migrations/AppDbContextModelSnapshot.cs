@@ -46,7 +46,7 @@ namespace Cartools.Migrations
 
                     b.HasIndex("ServicoId");
 
-                    b.ToTable("Agendamentos");
+                    b.ToTable("Agendamentos", (string)null);
                 });
 
             modelBuilder.Entity("Cartools.Models.CarrinhoCompraItem", b =>
@@ -76,7 +76,7 @@ namespace Cartools.Migrations
 
                     b.HasIndex("ServicoId");
 
-                    b.ToTable("CarrinhoCompraItens");
+                    b.ToTable("CarrinhoCompraItens", (string)null);
                 });
 
             modelBuilder.Entity("Cartools.Models.Categoria", b =>
@@ -99,7 +99,7 @@ namespace Cartools.Migrations
 
                     b.HasKey("CategoriaId");
 
-                    b.ToTable("Categorias");
+                    b.ToTable("Categorias", (string)null);
                 });
 
             modelBuilder.Entity("Cartools.Models.EmailTicket", b =>
@@ -121,7 +121,7 @@ namespace Cartools.Migrations
 
                     b.HasKey("EmailTicketId");
 
-                    b.ToTable("EmailTickets");
+                    b.ToTable("EmailTickets", (string)null);
                 });
 
             modelBuilder.Entity("Cartools.Models.Local", b =>
@@ -141,7 +141,7 @@ namespace Cartools.Migrations
 
                     b.HasKey("LocalId");
 
-                    b.ToTable("Locals");
+                    b.ToTable("Locals", (string)null);
                 });
 
             modelBuilder.Entity("Cartools.Models.Oficina", b =>
@@ -193,7 +193,7 @@ namespace Cartools.Migrations
 
                     b.HasIndex("LocalId");
 
-                    b.ToTable("Oficinas");
+                    b.ToTable("Oficinas", (string)null);
                 });
 
             modelBuilder.Entity("Cartools.Models.Pedido", b =>
@@ -260,7 +260,7 @@ namespace Cartools.Migrations
 
                     b.HasKey("PedidoId");
 
-                    b.ToTable("Pedidos");
+                    b.ToTable("Pedidos", (string)null);
                 });
 
             modelBuilder.Entity("Cartools.Models.PedidoDetalhe", b =>
@@ -289,60 +289,7 @@ namespace Cartools.Migrations
 
                     b.HasIndex("ServicoId");
 
-                    b.ToTable("PedidoDetalhes");
-                });
-
-            modelBuilder.Entity("Cartools.Models.Plan", b =>
-                {
-                    b.Property<int>("PlanId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PlanId"), 1L, 1);
-
-                    b.Property<int>("CategoriaId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("DescricaoCurta")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("DescricaoDetalhada")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageThumbnailUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsPlanPreferido")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("OficinaId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("PlanNome")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PlanStatus")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PlanTipo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Preco")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("PlanId");
-
-                    b.HasIndex("CategoriaId");
-
-                    b.HasIndex("OficinaId");
-
-                    b.ToTable("Plans");
+                    b.ToTable("PedidoDetalhes", (string)null);
                 });
 
             modelBuilder.Entity("Cartools.Models.Plano", b =>
@@ -353,37 +300,16 @@ namespace Cartools.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PlanoId"), 1L, 1);
 
-                    b.Property<int>("CategoriaId")
-                        .HasColumnType("int");
-
                     b.Property<string>("DescricaoCurta")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<string>("DescricaoDetalhada")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageThumbnailUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsPlanoPreferido")
-                        .HasColumnType("bit");
-
                     b.Property<int>("OficinaId")
                         .HasColumnType("int");
 
-                    b.Property<string>("PlanoNome")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PlanoStatus")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("PlanoTipo")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Preco")
@@ -391,11 +317,9 @@ namespace Cartools.Migrations
 
                     b.HasKey("PlanoId");
 
-                    b.HasIndex("CategoriaId");
-
                     b.HasIndex("OficinaId");
 
-                    b.ToTable("Planos");
+                    b.ToTable("Planos", (string)null);
                 });
 
             modelBuilder.Entity("Cartools.Models.Servico", b =>
@@ -455,7 +379,7 @@ namespace Cartools.Migrations
 
                     b.HasIndex("OficinaId");
 
-                    b.ToTable("Servicos");
+                    b.ToTable("Servicos", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -712,40 +636,13 @@ namespace Cartools.Migrations
                     b.Navigation("Servico");
                 });
 
-            modelBuilder.Entity("Cartools.Models.Plan", b =>
-                {
-                    b.HasOne("Cartools.Models.Categoria", "Categoria")
-                        .WithMany("Plans")
-                        .HasForeignKey("CategoriaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Cartools.Models.Oficina", "Oficina")
-                        .WithMany()
-                        .HasForeignKey("OficinaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Categoria");
-
-                    b.Navigation("Oficina");
-                });
-
             modelBuilder.Entity("Cartools.Models.Plano", b =>
                 {
-                    b.HasOne("Cartools.Models.Categoria", "Categoria")
-                        .WithMany()
-                        .HasForeignKey("CategoriaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Cartools.Models.Oficina", "Oficina")
                         .WithMany("Planos")
                         .HasForeignKey("OficinaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Categoria");
 
                     b.Navigation("Oficina");
                 });
@@ -830,8 +727,6 @@ namespace Cartools.Migrations
 
             modelBuilder.Entity("Cartools.Models.Categoria", b =>
                 {
-                    b.Navigation("Plans");
-
                     b.Navigation("Servicos");
                 });
 
