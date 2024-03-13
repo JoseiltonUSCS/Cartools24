@@ -16,7 +16,7 @@ namespace Cartools.Controllers
 
         public IActionResult List(string local)
         {
-
+            
             IEnumerable<Servico> servicos;
             string localAtual = string.Empty;
 
@@ -40,6 +40,7 @@ namespace Cartools.Controllers
                 LocalAtual = localAtual
             };
                     return View(servicosListViewModel);
+
         }
 
         public IActionResult Details(int servicoId)

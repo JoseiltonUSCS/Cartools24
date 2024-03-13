@@ -1,11 +1,52 @@
 ﻿@model HomeViewModel
+<br />
+<div class="row">
+    @foreach(var servico in Model.ServicosPreferidos)
+    {
+        <partial name="_ServicosResumo" for="@servico"/>
+    }
+</div>
+<hr />
+<div>
+<h1>Ver como funciona o datalist para usar nas buscas</h1>
+    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+        <option selected>Serviços</option>
+        <option value="12">Polimento</option>
+        <option value="14">Cristalização</option>
+        <option value="15">Lavagem Simples</option>
+        <option value="17">Martelinho de Ouro</option>
+        <option value="18">Envelopamento</option>
+        <option value="19">Pintura</option>
+        <option value="20">OxiSanitização</option>
+        <option value="21">Higienização</option>
+        <option value="22">Funilaria e Pintura</option>
+    </select>
+
+    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+        <option selected>Cidade</option>
+        <option value="1">Santo André</option>
+        <option value="2">São Bernardo</option>
+        <option value="3">São Caetano</option>
+        <option value="4">São Paulo</option>
+    </select>
+    <hr />
+    <h2>Os preferidos da semana</h2>
+    <h4>Estudando a pagina de Anuncio + Carrinho de Compras</h4>
+    <h3>Ver aula 62 e anteriores </h3>
+    <br />
+    <hr />
+</div>
+
+
+<!--
+-->
+    <partial name="_Inicial" />
+
 <!--Dropdown Agendamento - DataPicker  -->
 <div>
     <div class="dropdown">
         <input class="btn btn-success dropdown-toggle" type="datetime" id="calendario" placeholder="Agendar visita" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
-        <div class="dropdown-menu" aria-labelledby="calendario">
-            <!-- Adicione opções do dropdown aqui, se necessário -->
-        </div>
+
     </div>
     @section Scripts {
         <script type="text/javascript">
@@ -16,27 +57,6 @@
             });
         </script>
     }
+
 </div>
 
-
-
-
-
-
-<h2>Os preferidos da semana</h2>
-
-<h4>Estudando a pagina de Anuncio + Carrinho de Compras</h4>
-
-<h3>Ver aula 62 e anteriores </h3>
-
-<div class="row">
-    @foreach(var servico in Model.ServicosPreferidos)
-    {
-        <partial name="_ServicosResumo" for="@servico"/>
-    }
-</div>
-
-
-<!--
--->
-    <partial name="_Inicial" />

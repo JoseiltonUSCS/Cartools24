@@ -1,37 +1,40 @@
 ﻿@model Servico
 
-<div class="col-sm-4 col-md-4 col-lg-4">
-    <p><img src="@Model.ImagemUrl" class="img-fluid" /></p>
-    <h3>@Model.Preco.ToString("c")</h3>
+<div class="col-sm-4 col-md-4 col-lg-4" style="padding:25px;">
+    <p><img src="@Model.ImagemUrl" class="img-fluid" style="width:470px;"/></p>
 
     <h4>@Model.OficinaId</h4>
 
     <h4>
-        <a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId">@Model.Nome</a>
+        <a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId">@Model.Nome</a> -
+        <span>@Model.Local.Cidade</span>
     </h4>
-
-    <p>@Model.DescricaoCurta</p>
-    <p>@Model.Local.Cidade</p>
-    
+    <p>@Model.DescricaoDetalhada<br/>
+    <strong>@Model.Preco.ToString("c")</strong>
+    </p>
     <div>
+        <!--
         <p class="button">
             <a class="btn btn-primary" id="cartButton" asp-controller="CarrinhoCompra" asp-action="AdicionarItemNoCarrinhoCompra" asp-route-ServicoId="@Model.ServicoId">
                 Incluir no Carrinho
             </a>
-        </p>
-            <div>
-                <input class="btn btn-success dropdown-toggle" type="datetime" id="calendario" placeholder="Agendar visita" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
-                <div class="dropdown-menu" aria-labelledby="calendario">
-                    <!-- Adicione opções do dropdown aqui, se necessário -->
-                </div>
-            </div>
-            @section Scripts {
-                <script type="text/javascript">
-                    $(function () {
-                        $("#calendario").datepicker();
-                    });
-                </script>
-            }
+        </p>-->
+
+        <div>
+            <input class="btn btn-success dropdown-toggle" type="datetime" id="calendario" placeholder="Agendar visita" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
+
+            <a href="https://api.whatsapp.com/send?phone=5511953033392&text=Olá,%20me%20tira%20uma%20dúvida...%20" target="_blank" class="btn btn-success"><img src="~/images/whatsapp.jpg" alt="WhatsApp" /></a>
+
+        </div>
+        @section Scripts {
+            <script type="text/javascript">
+                $(function () {
+                    $("#calendario").datepicker();
+                });
+            </script>
+        }
+        <hr>
+        <br />
     </div>
 </div>
 

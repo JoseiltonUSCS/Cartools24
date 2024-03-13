@@ -32,44 +32,43 @@
                                                      
                         <a class="nav-link text-light" asp-area=""
                                 asp-controller="Home" asp-action="SobreNos"><p 
-                          class="space"></p><h2>Sobre nós</h2>
+                          class="space"></p><h4>Sobre nós</h4>
                         </a>
 
                         <a class="nav-link text-light" asp-area=""
                            asp-controller="Home"asp-action="SejaParceiro"><p 
-                          class="space"></p><h2>Anuncie Aqui</h2>
+                          class="space"></p><h4>Anunciar</h4>
                         </a>
 
                          <a class="nav-link text-light" asp-area="" 
                                 asp-controller="Home" asp-action="Index"><p 
-                          class="space"></p><h2>Home</h2>
+                          class="space"></p><h4>Home</h4>
                           </a>
 
                         <a class="nav-link text-light" asp-area=""
                            asp-controller="Contato" asp-action="Index">
-                            <p class="space"></p><h2>Contato</h2>
-                        </a>
-                        
+                            <p class="space"></p><h4>Contato</h4>
+                        </a>        
+
                         <form class="navbar-form navbar-right" asp-controller="Servico" asp-action="Search" method="get">
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Procurar serviço" name="searchString" value="@ViewData["searchString"]" />
                             </div>
                         </form>
+
                         <!--
                         <a class="nav-link text-light" asp-area=""
                            asp-controller="Servico" asp-action="List">
                             <p class="space"></p><h2>Serviços</h2>
                         </a>
+                        
                         -->
 
                         @await Component.InvokeAsync("LocalMenu")
-
-                        @await Component.InvokeAsync("ServicoMenu")
-
                         
-                           <!--Loja mais próxima-->
-                        <a class="nav-link-underline text-light" asp-area="" asp-controller="Busca" asp-action="Index">Encontre a loja mais próxima</a>
-
+                        <!--Loja mais próxima
+                            <a class="nav-link-underline text-light" asp-area="" asp-   controller="Busca" asp-action="Index">Encontre a loja mais próxima</a>
+                        -->
 
                         @await Html.PartialAsync("_LoginPartial")
 
@@ -106,3 +105,5 @@
 </body>
 </html>
 
+
+@await Component.InvokeAsync("ServicoMenu")
