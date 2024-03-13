@@ -44,7 +44,7 @@ namespace Cartools.Controllers
 
         public IActionResult Details(int servicoId)
         {
-            var servico = _servicoRepository.Servicos.FirstOrDefault(l => l.ServicoId == servicoId);
+            var servico = _servicoRepository.Servicos.FirstOrDefault(s => s.ServicoId == servicoId);
             return View(servico);
         }
 

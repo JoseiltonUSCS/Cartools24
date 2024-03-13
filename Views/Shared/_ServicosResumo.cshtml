@@ -3,16 +3,41 @@
 <div class="col-sm-4 col-md-4 col-lg-4">
     <p><img src="@Model.ImagemUrl" class="img-fluid" /></p>
     <h3>@Model.Preco.ToString("c")</h3>
-    <a asp-controller="Servico" asp-action="Details" asp-route-servicoId ="@Model.ServicoId">@Model.Nome</a>
+
+    <h4>@Model.OficinaId</h4>
+
+    <h4>
+        <a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId">@Model.Nome</a>
+    </h4>
+
     <p>@Model.DescricaoCurta</p>
     <p>@Model.Local.Cidade</p>
-
+    
     <div>
         <p class="button">
             <a class="btn btn-primary" id="cartButton" asp-controller="CarrinhoCompra" asp-action="AdicionarItemNoCarrinhoCompra" asp-route-ServicoId="@Model.ServicoId">
                 Incluir no Carrinho
             </a>
         </p>
+            <div>
+                <input class="btn btn-success dropdown-toggle" type="datetime" id="calendario" placeholder="Agendar visita" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
+                <div class="dropdown-menu" aria-labelledby="calendario">
+                    <!-- Adicione opções do dropdown aqui, se necessário -->
+                </div>
+            </div>
+            @section Scripts {
+                <script type="text/javascript">
+                    $(function () {
+                        $("#calendario").datepicker();
+                    });
+                </script>
+            }
     </div>
-
 </div>
+
+
+
+<!--Dropdown Agendamento - DataPicker
+   
+        
+-->

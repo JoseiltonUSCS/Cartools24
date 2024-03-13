@@ -1,0 +1,46 @@
+﻿@model Servico
+
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="text-center">
+                <img src="@Model.ImagemUrl" class="img-fluid" alt="">
+            </div>
+            <div class="card-block">
+                <h2 class="card-title">@Model.Nome</h2>
+                <p class="card-text"><h5>@Model.DescricaoDetalhada</h5></p>
+                <p class="btn btn-group align-content-lg-end">
+
+                    <a asp-controller="Servico" asp-action="List"
+                       class="btn btn-outline-info"> Ver todos os Serviços</a>
+
+                    <a class="btn btn-primary" id="cartButton" asp-controller="CarrinhoCompra"
+                       asp-action="AdicionarItemNoCarrinhoCompra" asp-route-ServicoId="@Model.ServicoId">
+                        Adicionar @Model.Nome ao carrinho
+
+                    </a>
+
+                    <div>
+                        <div class="dropdown">
+                            <input class="btn btn-success dropdown-toggle" type="datetime" id="calendario" placeholder="Agendar visita" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
+                            <div class="dropdown-menu" aria-labelledby="calendario">
+                                <!-- Adicione opções do dropdown aqui, se necessário -->
+                            </div>
+                        </div>
+                        @section Scripts {
+                            <script type="text/javascript">
+                                $(function () {
+                                    $("#calendario").datepicker({
+                                        dateFormat: "dd/mm/yy"
+                                    });
+                                });
+                            </script>
+                        }
+                    </div>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+

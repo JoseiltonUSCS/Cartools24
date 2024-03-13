@@ -116,3 +116,9 @@ main {
 .sobrenos img {
     width: 400px;
 }
+#calendario::placeholder {
+    color: white;
+    font-weight:bold;
+    font-size: 25px;
+}
+

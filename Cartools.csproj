@@ -36,6 +36,7 @@
   <ItemGroup>
     <Compile Remove="Areas\Admin\Controllers\AdminServicosController.cs" />
     <Compile Remove="Areas\Parceiro\Controllers\AdminServicosController.cs" />
+    <Compile Remove="Controllers\Oficina.cs" />
     <Compile Remove="Views\Shared\_PlanosResumo.cshtml.cs" />
   </ItemGroup>
 
@@ -92,6 +93,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Bootstrap.v3.Datetimepicker.CSS" Version="4.17.49" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.21" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.21">
       <PrivateAssets>all</PrivateAssets>

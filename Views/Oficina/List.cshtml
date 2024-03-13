@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Cartools.Models.Oficina>
+
+<div>
+    <h2>Todas as Oficinas</h2><br />
+</div>
+
+<div class="container">
+    <div class="row">
+        @foreach (var oficina in Model)
+        {
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <h4>@oficina.Nome</h4>
+            </div>
+        }
+    </div>
+</div>
