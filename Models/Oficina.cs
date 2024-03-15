@@ -7,27 +7,31 @@ namespace Cartools.Models
     public class Oficina
     {
         public int OficinaId { get; set; }
-        public string Nome { get; set; }
-        public string Telefone { get; set; }
-        public string Email { get; set; }
-        public string CEP { get; set; }
+        [Required(ErrorMessage ="Nome da oficina é obrigatório")]
+        public string OficinaNome { get; set; }
+        public bool IsOficinaPreferida { get; set; }
+        public string OficinaTelefone { get; set; }
+        public string OficinaEmail { get; set; }
+        public string OficinaCEP { get; set; }
 
         [Required(ErrorMessage = "Informe o nome da Rua/Avenida")]
-        public string Logradouro { get; set; }
+        public string OficinaLogradouro { get; set; }
         [Required(ErrorMessage = "Informe o número no endereço")]
-        public int Numero { get; set; }
-        public string Complemento { get; set; }
+        public int OficinaNumero { get; set; }
+        public string OficinaComplemento { get; set; }
 
         [Required(ErrorMessage = "Informe o nome do Bairro")]
-        public string Bairro { get; set; }
+        public string OficinaBairro { get; set; }
 
         [Required(ErrorMessage = "Informe o nome da Cidade")]
-        public string Cidade { get; set; }
+        public string OficinaCidade { get; set; }
 
         [Required(ErrorMessage = "Informe o nome do Estado")]
-        public string Estado { get; set; }
+        public string OficinaEstado { get; set; }
         public int LocalId { get; set; }
         public virtual Local Local { get; set; }
-        public ICollection<Servico> Servicos { get; set; }
-}
+        public ICollection<Servico> Servico { get; set; }
+        public int PlanoId { get; set; }
+        public virtual Plano Plano { get; set; }
+    }
 }

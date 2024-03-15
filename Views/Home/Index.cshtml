@@ -1,62 +1,104 @@
 ﻿@model HomeViewModel
 <br />
+
+
+    <h2>Ver como funciona o código do datalist para usar na busca dos 2 filtros se complementando e formatar o css da div abaixo baseado na foto e depois deletar a foto</h1>
+
+<div id="header">
+    <div id="header_navegar">        
+        <div id="header_navegar_central">            
+            <div id="header_navegar_central_login">
+                <form name="central_login" action="Login ?>" method="POST">
+                    <label>
+                        <span> E-mail:</span>
+                        <input type="text" name="usuario" />
+                    </label>
+                    <label>
+                        <span class="senha_txt">Senha:</span>
+                        <input type="password" name="senha" class="senha" />
+                        <input type="submit" name="Enviar" value="" class="btn" />
+                    </label>
+                </form>
+                <p><a href="#">[Esqueci minha senha]</a></p>
+            </div>
+            <div id="header_navegar_central_anuncie">
+                <div class="header_navegar_central_anuncie">
+                    <a href="#">Clique aqui e Anuncie</a>
+                    <p>Anuncie conosco. Esta é a melhor maneira de vender ou alugar o seu imóvel</p>
+                </div>
+            </div>
+        </div>
+        <div id="header_navegar_filtro">            
+            <h2>Encontre aqui a loja mais próxima!!</h2> 
+            <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
+                <option selected>Serviços</option>
+                <option value="12">Polimento</option>
+                <option value="14">Cristalização</option>
+                <option value="15">Lavagem Simples</option>
+                <option value="17">Martelinho de Ouro</option>
+                <option value="18">Envelopamento</option>
+                <option value="19">Pintura</option>
+                <option value="20">OxiSanitização</option>
+                <option value="21">Higienização</option>
+                <option value="22">Funilaria e Pintura</option>
+            </select>
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <option selected>Cidade</option>
+                <option value="1">Santo André</option>
+                <option value="2">São Bernardo</option>
+                <option value="3">São Caetano</option>
+                <option value="4">São Paulo</option>
+            </select>
+        </div>
+        <div id="header_navegar_publicidade">
+            <h1>Publicidade</h1>
+            <a href="#"><img src="~/images/71.png" alt="" title="" style="width:180px; height:200px" /></a>
+        </div>
+    </div>
+</div>
+
+<hr />
+    <div>
+        <img src="~/images/bannerPhp.jpg" />&nbsp;
+    </div><br/>
+<hr />
+            
+
 <div class="row">
-    @foreach(var servico in Model.ServicosPreferidos)
+    @foreach (var servico in Model.ServicosPreferidos)
     {
-        <partial name="_ServicosResumo" for="@servico"/>
+            <partial name="_ServicosResumo" for="@servico"/>
     }
 </div>
-<hr />
-<div>
-<h1>Ver como funciona o datalist para usar nas buscas</h1>
-    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-        <option selected>Serviços</option>
-        <option value="12">Polimento</option>
-        <option value="14">Cristalização</option>
-        <option value="15">Lavagem Simples</option>
-        <option value="17">Martelinho de Ouro</option>
-        <option value="18">Envelopamento</option>
-        <option value="19">Pintura</option>
-        <option value="20">OxiSanitização</option>
-        <option value="21">Higienização</option>
-        <option value="22">Funilaria e Pintura</option>
-    </select>
 
-    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-        <option selected>Cidade</option>
-        <option value="1">Santo André</option>
-        <option value="2">São Bernardo</option>
-        <option value="3">São Caetano</option>
-        <option value="4">São Paulo</option>
-    </select>
     <hr />
-    <h2>Os preferidos da semana</h2>
     <h4>Estudando a pagina de Anuncio + Carrinho de Compras</h4>
     <h3>Ver aula 62 e anteriores </h3>
-    <br />
     <hr />
-</div>
+<!--
+    <partial name="_Inicial" />
+
+-->
 
 
 <!--
--->
-    <partial name="_Inicial" />
+    <hr />
+Dropdown Agendamento - DataPicker  
+    <div>
+        <div class="dropdown">
+            <input class="btn btn-success dropdown-toggle" type="datetime" id="calendario" placeholder="Agendar visita" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
 
-<!--Dropdown Agendamento - DataPicker  -->
-<div>
-    <div class="dropdown">
-        <input class="btn btn-success dropdown-toggle" type="datetime" id="calendario" placeholder="Agendar visita" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
+        </div>
+        @section Scripts {
+            <script type="text/javascript">
+                $(function () {
+                    $("#calendario").datepicker({
+                        dateFormat: "dd/mm/yy"
+                    });
+                });
+            </script>
+        }
 
     </div>
-    @section Scripts {
-        <script type="text/javascript">
-            $(function () {
-                $("#calendario").datepicker({
-                    dateFormat: "dd/mm/yy"
-                });
-            });
-        </script>
-    }
-
-</div>
-
+    <hr />
+-->

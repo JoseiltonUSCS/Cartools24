@@ -42,7 +42,6 @@ namespace Cartools.Controllers
                     return View(servicosListViewModel);
 
         }
-
         public IActionResult Details(int servicoId)
         {
             var servico = _servicoRepository.Servicos.FirstOrDefault(s => s.ServicoId == servicoId);
@@ -57,7 +56,7 @@ namespace Cartools.Controllers
 
             if (string.IsNullOrEmpty(searchString))
             {
-                servicos = _servicoRepository.Servicos.OrderBy(l => l.ServicoId);
+                servicos = _servicoRepository.Servicos.OrderBy(s => s.ServicoId);
                 localAtual = "Todos os Servicos";
             }
             else
@@ -77,5 +76,8 @@ namespace Cartools.Controllers
                 LocalAtual = localAtual
             });
         }
+        
+
+       
     }
 }

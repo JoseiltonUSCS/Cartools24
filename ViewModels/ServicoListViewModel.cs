@@ -6,5 +6,8 @@ namespace Cartools.ViewModels
     {
         public IEnumerable<Servico> Servicos { get; set; }
         public string LocalAtual { get; set; }
+
+        public IEnumerable<Servico> ServicosOficinas { get; set; }
+        public string OficinaAtual { get; set; }
     }
 }

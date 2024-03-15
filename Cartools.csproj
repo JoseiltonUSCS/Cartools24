@@ -85,6 +85,7 @@
     <Content Remove="wwwroot\images\lupaPreta2.png" />
     <Content Remove="wwwroot\images\lupaPreta3.png" />
     <Content Remove="wwwroot\images\negado.png" />
+    <Content Remove="wwwroot\images\rascunhoPHP.jpg" />
     <Content Remove="wwwroot\images\texto12.PNG" />
   </ItemGroup>
 

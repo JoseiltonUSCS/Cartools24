@@ -1,6 +1,7 @@
 ﻿using Cartools.Context;
 using Cartools.Models;
 using Cartools.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cartools.Repositories
 {
@@ -8,11 +9,20 @@ namespace Cartools.Repositories
     {
         private readonly AppDbContext _context;
 
-        public OficinaRepository(AppDbContext context)
+        public OficinaRepository(AppDbContext contexto)
         {
-            _context = context;
+            _context = contexto;
         }
 
-        public IEnumerable<Oficina> Oficinas => _context.Oficinas;
+        public IEnumerable<Oficina> Oficinas => _context.Oficinas
+                                    .Include(s => s.Servico);
+        public IEnumerable<Oficina> OficinaPreferida => _context.Oficinas.
+                                    Where(o => o.IsOficinaPreferida)
+                                    .Include(o => o.Servico);
+
+        public Oficina GetOficinaById(int oficinaId)
+        {
+            return _context.Oficinas.FirstOrDefault(o => o.OficinaId == oficinaId);
+        }
     }
 }

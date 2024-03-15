@@ -14,8 +14,8 @@ namespace Cartools.Controllers
         }
         public ActionResult List()
         {
-            var oficina = _oficinaRepository.Oficinas;
-            return View(oficina);
+            var oficinas = _oficinaRepository.Oficinas;
+            return View(oficinas);
         }
     }
 }

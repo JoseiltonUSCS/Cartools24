@@ -53,7 +53,8 @@ public class Startup
         services.AddTransient<IServicoRepository, ServicoRepository>();
         services.AddTransient<ICategoriaRepository, CategoriaRepository>();
         services.AddTransient<IPedidoRepository, PedidoRepository>();
-
+        services.AddTransient<IPlanoRepository, PlanoRepository>();
+        services.AddTransient<ITipoRepository, TipoRepository>();
         services.AddTransient<ILocalRepository, LocalRepository>();
         services.AddTransient<IOficinaRepository, OficinaRepository>();
 
