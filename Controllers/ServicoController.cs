@@ -29,6 +29,7 @@ namespace Cartools.Controllers
             }
             else
             {   
+                //busca por cidade na barra de navegação
                 servicos = _servicoRepository.Servicos.Where( l => l.Local.Cidade.Equals(local)).OrderBy(s => s.Nome);
 
                 localAtual = local;
@@ -42,6 +43,8 @@ namespace Cartools.Controllers
                     return View(servicosListViewModel);
 
         }
+
+        // busca serviço por digitação no input do menu de navegação
         public IActionResult Details(int servicoId)
         {
             var servico = _servicoRepository.Servicos.FirstOrDefault(s => s.ServicoId == servicoId);

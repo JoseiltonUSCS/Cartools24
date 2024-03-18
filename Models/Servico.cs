@@ -49,12 +49,17 @@ namespace Cartools.Models
         public string EmEstoque { get; set; }
 
         [Display(Name = "Categorias")]
-        public int CategoriaId { get; set;}
-        public virtual Categoria Categoria { get; set; }
-        public int LocalId { get; set; }
-        public virtual Local Local { get; set; }
-        public ICollection<Oficina> Oficina { get; set; }
         public List<Agendamento> Agendamentos { get; set; }
         public virtual List<PedidoDetalhe> PedidoItens { get; set; }
+
+
+        public int CategoriaId { get; set;}
+        public virtual Categoria Categoria { get; set; }
+
+        public int LocalId { get; set; }
+        public virtual Local Local { get; set; }
+
+        public int OficinaId { get; set; }
+        public virtual Oficina Oficina { get; set; }
     }
 }

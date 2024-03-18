@@ -37,6 +37,7 @@
     <Compile Remove="Areas\Admin\Controllers\AdminServicosController.cs" />
     <Compile Remove="Areas\Parceiro\Controllers\AdminServicosController.cs" />
     <Compile Remove="Controllers\Oficina.cs" />
+    <Compile Remove="Models\AnuncioServico.cs" />
     <Compile Remove="Views\Shared\_PlanosResumo.cshtml.cs" />
   </ItemGroup>
 

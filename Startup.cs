@@ -60,11 +60,10 @@ public class Startup
 
         services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
         services.AddScoped<RelatorioVendasService>();
-
-        services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         services.AddScoped(sp => CarrinhoCompra.GetCarrinho(sp));
         services.AddScoped<BuscaServicoRegiao>();
 
+        services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
         services.AddAuthorization(options =>
         {
@@ -142,13 +141,9 @@ public class Startup
                   pattern: "{area:exists}/{controller=Admin}/{action=Index}/{id?}");
 
 
-            endpoints.MapControllerRoute(
-                name: "localFiltro",
-                pattern: "Servico/{action}/{local?}",
-                defaults: new { Controller = "Servico", action = "List" });
+           
 
-
-
+            
             endpoints.MapControllerRoute(
                 name: "servicoFiltro",
                 pattern: "Servico/{action}/{servico?}",

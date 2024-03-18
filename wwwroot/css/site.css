@@ -201,7 +201,8 @@ body {
 #header_navegar_central_login {
     width: 235px;
     height: 122px;
-    background-color: pink;
+    background-color: pink;0,
+
     margin-left: 10px;
     margin-top: 10px;
     float: left;

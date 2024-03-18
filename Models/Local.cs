@@ -13,8 +13,8 @@ namespace Cartools.Models
         [Display(Name = "Cidade")]
         public string Cidade { get; set; }
         public string Bairro { get; set; }
-        public List<Oficina> Oficinas { get; set; }
-        public List<Servico> Servicos { get; set; }
+        public List<Oficina> Oficina { get; set; }
+        public List<Servico> Servico { get; set; }
     }
 }
 

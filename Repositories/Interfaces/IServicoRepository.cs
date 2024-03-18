@@ -8,10 +8,6 @@ namespace Cartools.Repositories.Interfaces
 
         IEnumerable<Servico> ServicosPreferidos { get; }
 
-        IEnumerable<Servico> ServicosOficinas { get; }
-
-        IEnumerable<Servico> ServicosPreferidosOficina { get; }
-
         Servico GetServicoById(int ServicoId);
 
     }

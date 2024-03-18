@@ -22,6 +22,7 @@ namespace Cartools.Context
         public DbSet<Oficina> Oficinas { get; set; }
         public DbSet<Tipo> Tipos { get; set; }
         public DbSet<Plano> Planos { get; set; }
+            
     }
    
 }
