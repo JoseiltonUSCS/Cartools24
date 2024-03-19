@@ -1,15 +1,17 @@
-﻿using Cartools.Models;
+﻿using Cartools.Context;
+using Cartools.Models;
 using Cartools.Repositories.Interfaces;
 
 namespace Cartools.Repositories
 {
     public class TipoRepository : ITipoRepository
     {
-        public IEnumerable<Tipo> Tipos => throw new NotImplementedException();
+        private readonly AppDbContext _context;
 
-        public Plano GetTipoById(int tipoId)
+        public TipoRepository(AppDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
+        public IEnumerable<Tipo> Tipos => _context.Tipos;
     }
 }

@@ -18,6 +18,8 @@ namespace Cartools.Controllers
 
         public IActionResult Index()
         {
+            TempData["Nome"] = "Joseilton";
+
             var homeViewModel = new HomeViewModel
             {
                 ServicosPreferidos = _servicoRepository.ServicosPreferidos

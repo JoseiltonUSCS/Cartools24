@@ -27,7 +27,7 @@ namespace Cartools.Models
         [Required(ErrorMessage = "A descrição detalhada do servico deve ser informado")]
         [Display(Name = "Descrição detalhada do serviço")]
         [MinLength(10, ErrorMessage = "Descrição detalhada deve ter no mínimo {1} caractere")]
-        [MaxLength(200, ErrorMessage = "Descrição detalhada não pode exceder {1} caractere")] 
+        [MaxLength(600, ErrorMessage = "Descrição detalhada não pode exceder {1} caractere")] 
         public string DescricaoDetalhada { get; set; }       
 
 
