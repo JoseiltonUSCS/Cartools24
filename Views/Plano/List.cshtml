@@ -1,16 +1,22 @@
 ﻿@model IEnumerable<Cartools.Models.Plano>
 
-    <div>
-        <h2>Todos os planos</h2>    
-    </div>
-@foreach (var plano in Model)
-{
+<div>
+    <h2>Todos os planos...Lorem ipsum blá blá blá</h2>    
+</div>
 
-    <h4><img src=" @plano.PlanoImagem" /></h4>
-    <h4>@plano.PlanoNome</h4>
-    <h4>@plano.PlanoDescricao</h4>
-    <h4>@plano.PlanoPreco</h4>
-}
+<div class="container">
+    <div class="row">
+        @foreach (var plano in Model)
+        {
+            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <p><img src=" @plano.PlanoImagem" class="img-fluid" /></p>
+                <h3>@plano.PlanoNome</h3>
+                <h6>@plano.PlanoDescricao<span> lorem ipsum blá blá blá etic apa aemada a dafdfam adadfa </span></h6>
+                <h5><strong>@plano.PlanoPreco.ToString("c")</strong></h5>
+            </div>
+        }
+    </div>
+</div>
 
 
 <div class="jumbotron">
@@ -74,6 +80,20 @@
     </div>
 </div>
 
+<div class="container">
+    <div class="row">
+        @foreach (var plano in Model)
+        {
+            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <p><img src=" @plano.PlanoImagem" class="img-fluid" /></p>
+                <h3>@plano.PlanoNome</h3>
+                <h6>@plano.PlanoDescricao<span> lorem ipsum blá blá blá etic apa aemada a dafdfam adadfa </span></h6>
+                <h5><strong>@plano.PlanoPreco.ToString("c")</strong></h5>
+            </div>
+        }
+    </div>
+</div>
+
 <div class="jumbotron mt-5">
     <div class="planos">
         <div class="plano">
@@ -95,6 +115,5 @@
             <button class="btnPlano">Assinar</button>
         </div>
     </div>
-</div>
 </div>
 <a asp-area="" asp-controller="Home" asp-action="Index">Voltar à Home</a>

@@ -1,12 +1,10 @@
-﻿@model HomeViewModel
-<br />
+﻿@model Local
 
-<!--
-    <h2>Ver como funciona o código do datalist para usar na busca dos 2 filtros se complementando e formatar o css da div abaixo baseado na foto e depois deletar a foto</h2>
+<h2>Ver como funciona o código do datalist para usar na busca dos 2 filtros se complementando e formatar o css da div abaixo baseado na foto e depois deletar a foto</h2>
 
 <div id="header">
-    <div id="header_navegar">        
-        <div id="header_navegar_central">            
+    <div id="header_navegar">
+        <div id="header_navegar_central">
             <div id="header_navegar_central_login">
                 <form name="central_login" action="Login ?>" method="POST">
                     <label>
@@ -28,8 +26,8 @@
                 </div>
             </div>
         </div>
-        <div id="header_navegar_filtro">            
-            <h2>Encontre aqui a loja mais próxima!!</h2> 
+        <div id="header_navegar_filtro">
+            <h2>Encontre aqui a loja mais próxima!!</h2>
             <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
                 <option selected>Serviços</option>
                 <option value="12">Polimento</option>
@@ -44,10 +42,10 @@
             </select>
             <select class="form-select form-select-sm" aria-label=".form-select-sm example">
                 <option selected>Cidade</option>
-                <option value="1">Santo André</option>
-                <option value="2">São Bernardo</option>
-                <option value="3">São Caetano</option>
-                <option value="4">São Paulo</option>
+                <option value="1">@Model.Cidade</option>
+                <option value="2">@Model.Cidade</option>
+                <option value="3">@Model.Cidade</option>
+                <option value="4">@Model.Cidade</option>
             </select>
         </div>
         <div id="header_navegar_publicidade">
@@ -58,27 +56,8 @@
 </div>
 
 <hr />
-    <div>
-        <img src="~/images/bannerPhp.jpg" />&nbsp;
-    </div><br/>
-<hr />
-            
--->
-<div class="row">
-    @foreach (var servico in Model.ServicosPreferidos)
-    {
-            <partial name="_ServicosResumo" for="@servico"/>
-    }
+<div>
+    <img src="~/images/bannerPhp.jpg" />&nbsp;
 </div>
-
-    <hr />
-    <h4>Estudando a pagina de Anuncio + Carrinho de Compras</h4>
-    <h3>Ver aula 62 e anteriores </h3>
-    <hr />
-
-
-<!--
-    <partial name="_Inicial" />
-
--->
-
+<br />
+<hr />

@@ -1,15 +1,16 @@
-﻿@model IEnumerable<Cartools.Models.Local>
+﻿@model LocalListViewModel
 
 <div>
-    <h2>Todas as Cidades</h2><br />
+    <h2>@Model.ServicoAtual</h2><br />
 </div>
 
 <div class="container">
     <div class="row">
-            @foreach (var local in Model)
+            @foreach (var local in Model.Locals)
             {
                 <div class="col-sm-4 col-md-4 col-lg-4">
-                <h4>@local.Cidade</h4><br />
+                <h4>@local.Cidade</h4>
+                <h4>@local.Bairro</h4><br />
                 </div>
             }
     </div>

@@ -86,6 +86,98 @@
                     </div>
                 </div>
             </nav>
+            <!--Código usando select-->
+            <div class="card text-dark" style="padding:0;">
+                <div class="card-body" style="padding:0;">
+                    <img class="card-img" src="~/images/bannerRascunhoAltura (2).png" />
+                    <div class="card-img-overlay">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <h1 class="card-title mx-4">CarTools</h1>
+                          <p class="card-text mx-4">
+                            Lorem ipsum dolor sit amet consectetur !<br />
+                            A <strong>Cartools</strong> edipiscing elit donec vel egestas dolor, nec dignissim metus!
+                          </p>
+                        </div>
+                        <div class="col-md-4">
+                            <h2>Encontre a loja mais perto de você!</h2>
+                          <div class="d-flex flex-column">
+                                        <select class="form-select form-select-sm mb-4" aria-label=".form-select-sm example" style="margin-top:15px">
+                                            <option selected>Serviços</option>
+                                            <option value="12">Polimento</option>
+                                            <option value="14">Cristalização</option>
+                                            <option value="15">Lavagem Simples</option>
+                                            <option value="17">Martelinho de Ouro</option>
+                                            <option value="18">Envelopamento</option>
+                                            <option value="19">Pintura</option>
+                                            <option value="20">OxiSanitização</option>
+                                            <option value="21">Higienização</option>
+                                            <option value="22">Funilaria e Pintura</option>
+                                        </select>
+                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                            <option selected>Cidade</option>
+                                            <option value="1">Santo André</option>
+                                            <option value="2">São Bernardo</option>
+                                            <option value="3">São Caetano</option>
+                                            <option value="4">São Paulo</option>
+                                        </select>
+
+                          </div>
+                        </div>
+                        <div class="col-md-4"></div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            <!--Código usando datalis-->
+            <!--
+             <div class="card text-dark">
+              <div class="card-body">
+                <img class="card-img" src="~/images/bannerRascunhoAltura (2).png" />
+                <div class="card-img-overlay">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <h1 class="card-title mx-4">CarTools</h1>
+                      <p class="card-text mx-4">
+                        Lorem ipsum dolor sit amet consectetur !<br />
+                        A <strong>Cartools</strong> edipiscing elit donec vel egestas dolor, nec dignissim metus!
+                      </p>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="d-flex flex-column">
+                        <div class="mb-3">
+                                        <label for="servico" style="margin-top:20px">Selecione o serviço:</label>
+                                        <input type="datalist" id="servico" class="form-control" list="servicos" >
+                          <datalist id="servicos">
+                            <option value="Polimento"></option>
+                            <option value="Cristalização"></option>
+                            <option value="Lavagem Simples"></option>
+                            <option value="artelinho de Ouro">M</option>
+                            <option value="Envelopamento"></option>
+                            <option value="Pintura"></option>
+                            <option value="OxiSanitização"></option>
+                            <option value="Higienização"></option>
+                            <option value="Funilaria e Pintura"></option>
+                          </datalist>
+                        </div>
+                        <div>
+                          <label for="cidade">Selecione a cidade:</label>
+                          <input type="datalist" id="cidade" class="form-control" list="cidades">
+                          <datalist id="cidades">
+                            <option value="Santo André"></option>
+                            <option value="São Bernardo"></option>
+                            <option value="São Caetano"></option>
+                            <option value="São Paulo"></option>
+                          </datalist>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           -->
         </header>
         <main class="card border-0 mt-0 bg-light" role="main">
             @RenderBody()
@@ -96,8 +188,6 @@
             &copy; @DateTime.Now.Year - Cartools - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

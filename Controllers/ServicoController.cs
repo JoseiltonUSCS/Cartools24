@@ -50,14 +50,17 @@ namespace Cartools.Controllers
             var servico = _servicoRepository.Servicos.FirstOrDefault(s => s.ServicoId == servicoId);
             return View(servico);
         }
-
+        
         public ViewResult Search(string searchString)
         {
+            //searchString - a busca é realizada a partir do que for digitado no campo de busca, que neste caso é o serviço desejado.
+
             IEnumerable<Servico> servicos;
             string localAtual = string.Empty;
 
 
-            if (string.IsNullOrEmpty(searchString))
+            if (string.IsNullOrEmpty(searchString)) 
+                
             {
                 servicos = _servicoRepository.Servicos.OrderBy(s => s.ServicoId);
                 localAtual = "Todos os Servicos";
@@ -68,7 +71,7 @@ namespace Cartools.Controllers
                           .Where(s => s.Nome.ToLower().Contains(searchString.ToLower()));
 
                 if (servicos.Any())
-                    localAtual = "Servicos";
+                    localAtual = "Resultados para: " + searchString;
                 else
                     localAtual = "Nenhum servico foi encontrado";
             }
