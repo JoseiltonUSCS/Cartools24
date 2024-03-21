@@ -116,6 +116,7 @@
   <ItemGroup>
     <Folder Include="Areas\Parceiro\Data\" />
     <Folder Include="Areas\Parceiro\Models\" />
+    <Folder Include="Migrations\" />
     <Folder Include="wwwroot\images\imgParceiros\" />
     <Folder Include="wwwroot\images\produtos\" />
   </ItemGroup>
