@@ -71,7 +71,7 @@ namespace Cartools.Controllers
                           .Where(s => s.Nome.ToLower().Contains(searchString.ToLower()));
 
                 if (servicos.Any())
-                    localAtual = "Resultados para: " + searchString;
+                    localAtual = searchString;
                 else
                     localAtual = "Nenhum servico foi encontrado";
             }

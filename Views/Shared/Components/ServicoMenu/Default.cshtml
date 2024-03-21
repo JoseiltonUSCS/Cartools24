@@ -5,21 +5,21 @@
 
     <a class="btn btn-secondary dropdown-toggle" role="button"
        id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-       Serviço
+       Buscar por Serviço
     </a>
 
     <ul class="dropdown-menu">
         @foreach (var servico in Model)
         {
             <li>
-                <a class="dropdown-item" asp-controller="Servico" asp-action="List" style="color:black" asp-route-servico="@servico.Nome">
+                <a class="dropdown-item" asp-controller="Servico" asp-action="Search" style="color:black" asp-route-servico="@servico.Nome">
                     @servico.Nome
                 </a>
             </li>
         }
         <li class="dropdown-divider"></li>
         <li>
-            <a class="dropdown-item" asp-controller="Servico" asp-action="List" asp-route-servico="" style="color:black">
+            <a class="dropdown-item" asp-controller="Servico" asp-action="Search" asp-route-servico="" style="color:black">
                 Lista de todos os serviços do menu de busca por local
             </a>
         </li>

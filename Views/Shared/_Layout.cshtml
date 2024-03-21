@@ -12,24 +12,20 @@
     <link rel="stylesheet" href="~/CarrosMac.styles.css" asp-append-version="true" />
 
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
-
-
-
 </head>
 <body>
     <div class="container-fluid">
         <header>
+            <!-- <BarraNav"> -->
             <nav class="navbar navbar-expand-lg navbar-toggleable-lg navbar-black bg-black border-bottom box-shadow">
                 <div class="md-3 container-fluid">
                     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                         <img src="~/images/logo.png" />
                     </a>
-
                     <div class="md-6 justify-content-lg-around navbar-collapse collapse d-lg-inline-flex flex-lg-row ">
 
                         @await Component.InvokeAsync("CarrinhoCompraResumo")
 
-                        <!-- <BarraNav"> -->
 
                         <a class="nav-link text-light" asp-area=""
                            asp-controller="Home" asp-action="SobreNos">
@@ -51,133 +47,126 @@
                             <p class="space"></p><h4>Contato</h4>
                         </a>
 
-                        <form class="navbar-form navbar-right" asp-controller="Servico" asp-action="Search" method="get">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Procurar serviço" name="searchString" value="@ViewData["searchString"]" />
-                            </div>
-                        </form>
-
-                        <!--
-                        <a class="nav-link text-light" asp-area=""
-                           asp-controller="Servico" asp-action="List">
-                            <p class="space"></p><h2>Serviços</h2>
-                        </a>
-
-                        -->
-                        @await Component.InvokeAsync("LocalMenu")
-
-
-
-                        <!--Loja mais próxima
-                            <a class="nav-link-underline text-light" asp-area="" asp-   controller="Busca" asp-action="Index">Encontre a loja mais próxima</a>
-                        -->
+                        <!-- Formulário de login navbar -->
                         @await Html.PartialAsync("_LoginPartial")
 
+                        <!--Link de acesso à página do administrador-->
                         @if (User.IsInRole("Admin"))
                         {
                             <a class="nav-link-underline-primary text-light" asp-area="Admin" asp-controller="Admin" asp-action="Index">Admin</a>
                         }
-
+                        <!--Link de acesso à página do parceiro/lojista/oficina-->
                         @if (User.IsInRole("Parceiro"))
                         {
                             <a class="nav-link-underline-primary text-light" asp-area="Parceiro" asp-controller="Parceiro" asp-action="Index">Parceiro</a>
                         }
-
                     </div>
                 </div>
             </nav>
-            <!--Código usando select-->
+
+            <!--Campos de busca no banner - select -->
             <div class="card text-dark" style="padding:0;">
                 <div class="card-body" style="padding:0;">
                     <img class="card-img" src="~/images/bannerRascunhoAltura (2).png" />
                     <div class="card-img-overlay">
-                      <div class="row">
-                        <div class="col-md-4">
-                          <h1 class="card-title mx-4">CarTools</h1>
-                          <p class="card-text mx-4">
-                            Lorem ipsum dolor sit amet consectetur !<br />
-                            A <strong>Cartools</strong> edipiscing elit donec vel egestas dolor, nec dignissim metus!
-                          </p>
-                        </div>
-                        <div class="col-md-4">
-                            <h2>Encontre a loja mais perto de você!</h2>
-                          <div class="d-flex flex-column">
-                                        <select class="form-select form-select-sm mb-4" aria-label=".form-select-sm example" style="margin-top:15px">
-                                            <option selected>Serviços</option>
-                                            <option value="12">Polimento</option>
-                                            <option value="14">Cristalização</option>
-                                            <option value="15">Lavagem Simples</option>
-                                            <option value="17">Martelinho de Ouro</option>
-                                            <option value="18">Envelopamento</option>
-                                            <option value="19">Pintura</option>
-                                            <option value="20">OxiSanitização</option>
-                                            <option value="21">Higienização</option>
-                                            <option value="22">Funilaria e Pintura</option>
-                                        </select>
-                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                            <option selected>Cidade</option>
-                                            <option value="1">Santo André</option>
-                                            <option value="2">São Bernardo</option>
-                                            <option value="3">São Caetano</option>
-                                            <option value="4">São Paulo</option>
-                                        </select>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h1 class="card-title mx-4">CarTools</h1>
+                                <p class="card-text mx-4">
+                                    Lorem ipsum dolor sit amet consectetur !<br />
+                                    A <strong>Cartools</strong> edipiscing elit donec vel egestas dolor, nec dignissim metus!
+                                </p>
+                            </div>
+                            <div class="col-md-4">
+                                <h4>Encontre a loja mais perto de você!</h4>
 
-                          </div>
+                                <div class="d-flex flex-column">
+                                    <form asp-controller="Servico" asp-action="Search" method="get" name="searchString" value="@ViewData["searchString"]" class="form-inline pull-right" style="margin-top:15px;">
+                                        <select class="form-select form-select-sm mb-4" name="searchString" value="@ViewData["searchString"]" aria-label=".form-select-sm example" style="width: 300px; font-size:1em;">
+                                            <option selected>Serviços</option>
+                                            <option value="Polimento">Polimento</option>
+                                            <option value="Cristalização">Cristalização</option>
+                                            <option value="Lavagem Simples">Lavagem Simples</option>
+                                            <option value="Martelinho de Ouro">Martelinho de Ouro</option>
+                                            <option value="Envelopamento">Envelopamento</option>
+                                            <option value="Pintura">Pintura</option>
+                                            <option value="OxiSanitização">OxiSanitização</option>
+                                            <option value="Higienização">Higienização</option>
+                                            <option value="Funilaria e Pintura">Funilaria e Pintura</option>
+                                        </select>
+                                        <button class="btn btn-primary botaoBusca" type="submit">Ok</button>
+                                    </form>
+                                  
+                                        <form asp-controller="Servico" asp-action="List" method="get" name="local" value="@ViewData["local"]" class="form-inline pull-right">
+                                        <select class="form-select form-select-sm" name="local" value="@ViewData["local"]" aria-label=".form-select-sm example" style="width: 300px;font-size:1em; ">
+                                            <option selected>Cidade</option>
+                                            <option value="Santo André">Santo André</option>
+                                            <option value="São Bernardo do Campo">São Bernardo do Campo</option>
+                                            <option value="São Caetano do Sul">São Caetano do Sul</option>
+                                            <option value="São Paulo">São Paulo</option>
+                                        </select>
+                                        <button class="btn btn-primary botaoBusca" type="submit">Ok</button>
+                                    </form>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-4"></div>
                         </div>
-                        <div class="col-md-4"></div>
-                      </div>
                     </div>
-                  </div>
-              </div>
-            <!--Código usando datalis-->
-            <!--
-             <div class="card text-dark">
-              <div class="card-body">
-                <img class="card-img" src="~/images/bannerRascunhoAltura (2).png" />
-                <div class="card-img-overlay">
-                  <div class="row">
-                    <div class="col-md-4">
-                      <h1 class="card-title mx-4">CarTools</h1>
-                      <p class="card-text mx-4">
-                        Lorem ipsum dolor sit amet consectetur !<br />
-                        A <strong>Cartools</strong> edipiscing elit donec vel egestas dolor, nec dignissim metus!
-                      </p>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="d-flex flex-column">
-                        <div class="mb-3">
-                                        <label for="servico" style="margin-top:20px">Selecione o serviço:</label>
-                                        <input type="datalist" id="servico" class="form-control" list="servicos" >
-                          <datalist id="servicos">
-                            <option value="Polimento"></option>
-                            <option value="Cristalização"></option>
-                            <option value="Lavagem Simples"></option>
-                            <option value="artelinho de Ouro">M</option>
-                            <option value="Envelopamento"></option>
-                            <option value="Pintura"></option>
-                            <option value="OxiSanitização"></option>
-                            <option value="Higienização"></option>
-                            <option value="Funilaria e Pintura"></option>
-                          </datalist>
-                        </div>
-                        <div>
-                          <label for="cidade">Selecione a cidade:</label>
-                          <input type="datalist" id="cidade" class="form-control" list="cidades">
-                          <datalist id="cidades">
-                            <option value="Santo André"></option>
-                            <option value="São Bernardo"></option>
-                            <option value="São Caetano"></option>
-                            <option value="São Paulo"></option>
-                          </datalist>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4"></div>
-                  </div>
                 </div>
-              </div>
             </div>
-           -->
+
+            <!-- Opção 2 - Datalist -->
+            <!--
+              <div class="card text-dark">
+               <div class="card-body">
+                 <img class="card-img" src="~/images/bannerRascunhoAltura (2).png" />
+                 <div class="card-img-overlay">
+                   <div class="row">
+                     <div class="col-md-4">
+                       <h1 class="card-title mx-4">CarTools</h1>
+                       <p class="card-text mx-4">
+                         Lorem ipsum dolor sit amet consectetur !<br />
+                         A <strong>Cartools</strong> edipiscing elit donec vel egestas dolor, nec dignissim metus!
+                       </p>
+                     </div>
+                     <div class="col-md-4">
+                       <div class="d-flex flex-column">
+                         <div class="mb-3">
+                                         <label for="servico" style="margin-top:20px">Selecione o serviço:</label>
+                                         <input type="datalist" id="servico" class="form-control" list="servicos" >
+                           <datalist id="servicos">
+                             <option value="Polimento"></option>
+                             <option value="Cristalização"></option>
+                             <option value="Lavagem Simples"></option>
+                             <option value="artelinho de Ouro">M</option>
+                             <option value="Envelopamento"></option>
+                             <option value="Pintura"></option>
+                             <option value="OxiSanitização"></option>
+                             <option value="Higienização"></option>
+                             <option value="Funilaria e Pintura"></option>
+                           </datalist>
+                         </div>
+                         <div>
+                           <label for="cidade">Selecione a cidade:</label>
+                           <input type="datalist" id="cidade" class="form-control" list="cidades">
+                           <datalist id="cidades">
+                             <option value="Santo André"></option>
+                             <option value="São Bernardo"></option>
+                             <option value="São Caetano"></option>
+                             <option value="São Paulo"></option>
+                           </datalist>
+                         </div>
+                       </div>
+                     </div>
+                     <div class="col-md-4"></div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+            -->
+
         </header>
         <main class="card border-0 mt-0 bg-light" role="main">
             @RenderBody()
@@ -196,5 +185,5 @@
 </body>
 </html>
 
-
+<!--Lista suspensa para buscar serviços pelo dropdown-->
 @await Component.InvokeAsync("ServicoMenu")
