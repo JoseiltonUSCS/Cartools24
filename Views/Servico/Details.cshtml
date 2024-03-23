@@ -8,7 +8,13 @@
             </div>
             <div class="card-block">
                 <h2 class="card-title">@Model.Nome</h2>
-                <p class="card-text"><h5>@Model.DescricaoDetalhada</h5></p>
+                <p class="card-text">
+                    <h5>@Model.DescricaoDetalhada</h5>
+                    <span>
+                        <!--Lista suspensa para buscar serviços pelo dropdown-->
+                        @await Component.InvokeAsync("ServicoMenu")
+                    </span>
+                </p>
 
                 <p class="btn btn-group align-content-lg-end">
 
@@ -18,8 +24,7 @@
 
                     <input class="btn btn-success dropdown-toggle" type="datetime" id="calendario" placeholder="Agendar visita" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />&nbsp;
                     
-                    <a href="https://api.whatsapp.com/send?phone=5511953033392&text=Olá,%20me%20tira%20uma%20dúvida...%20" target="_blank" class="btn btn-success" ><img src="~/images/whatsapp.jpg" alt="WhatsApp" /></a>
-
+                    <a href="https://api.whatsapp.com/send?phone=5511953033392&text=Olá,%20me%20tira%20uma%20dúvida...%20" target="_blank" class="btn btn-success"><img src="~/images/whatsapp.jpg" alt="WhatsApp" /></a>
                     <div>
                         @section Scripts {
                             <script type="text/javascript">
@@ -31,6 +36,7 @@
                             </script>
                         }
                     </div>
+
             
                 </p>
             </div>

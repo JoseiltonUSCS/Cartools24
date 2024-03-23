@@ -1,18 +1,22 @@
 ﻿@model IEnumerable<Cartools.Models.Plano>
 
-    <div>
-        <h2>Todos os planos</h2>    
+<div>
+    <h2>Todos os planos</h2>    
+</div>
+
+<div class="container">
+    <div class="row">
+        @foreach (var plano in Model)
+        {
+            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 border text-center">
+                <p><img src="@plano.PlanoImagem" class="img-fluid" style="height: 200px; width: 300px; border-radius: 20px;" /></p>
+                <h3 class="mt-2">@plano.PlanoNome</h3>
+                <h6 class="mb-2">@plano.PlanoDescricao<span></span></h6>
+                <h5><strong>@plano.PlanoPreco.ToString("c")</strong></h5>
+            </div>
+        }
     </div>
-@foreach (var plano in Model)
-{
-
-    <h4><img src=" @plano.PlanoImagem" /></h4>
-    <h4>@plano.PlanoNome</h4>
-    <h4>@plano.PlanoDescricao</h4>
-    <h4>@plano.PlanoPreco</h4>
-}
-
-
+</div>
 <div class="jumbotron">
     <div class="beneficios">
         <div id="pagina">
@@ -73,5 +77,4 @@
         </form>
     </div>
 </div>
-
 <a asp-area="" asp-controller="Home" asp-action="Index">Voltar à Home</a>
