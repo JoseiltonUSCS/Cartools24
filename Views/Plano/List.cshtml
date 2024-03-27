@@ -1,17 +1,17 @@
 ﻿@model IEnumerable<Cartools.Models.Plano>
 
-<div>
-    <h2>Todos os planos</h2>    
+<div class="container-planos-titulo">
+    <h1>Todos os planos</h1>    
 </div>
 
 <div class="container">
     <div class="row">
         @foreach (var plano in Model)
         {
-            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 border text-center">
-                <p><img src="@plano.PlanoImagem" class="img-fluid" style="height: 200px; width: 300px; border-radius: 20px;" /></p>
+            <div class="col-sm-4 col-md-4 col-lg-3 col-xl-4 border border-dark p-3 text-center bg-white rounded-custom">
+                <p><img src="@plano.PlanoImagem" class="img-fluid" style="height: 200px; width: 300px; border-radius: 20px; margin-top: 20px"; /></p>
                 <h3 class="mt-2">@plano.PlanoNome</h3>
-                <h6 class="mb-2">@plano.PlanoDescricao<span></span></h6>
+                <h6 class="mb-2">@plano.PlanoDescricao</h6>
                 <h5><strong>@plano.PlanoPreco.ToString("c")</strong></h5>
             </div>
         }
@@ -21,60 +21,55 @@
     <div class="beneficios">
         <div id="pagina">
             <div class="anuncie">
-                <h2>Cadastre-se e anuncie:</h2><br />
-                <h2>
-                    Nossa motivação consiste em ajudar as empresas PARCEIRAS a conseguir captar um maior número de clientes com o menor esforço possível. <br /><br />
-
-                    O Sistema de anúncios da Cartools é totalmente automatizado. Você se cadastra e tem acesso a um painel de controle com uma área de membros onde você poderá:
-                </h2><br />
-                <ul>
-                    <li>&raquo; Cadastrar seus serviços </li>
-                    <li>&raquo; Editar seus Anúncios</li>
-                    <li>&raquo; Responder mensagens </li>
-                    <li>&raquo; Efetuar pagamentos </li>
-                    <li>&raquo; Alterar seus dados </li>
-                    <li>&raquo; e muito mais... </li>
-                </ul>
-                <h3>
-                    Assine agora e comece a anunciar seus serviços no maior portal de Estética Automotiva da web!<br />
-
-                </h3>
+             
+                    <h2>Benefícios de ser Parceiro</h2>
+                    <p>
+                        O objetivo da plataforma CarTools é ajudar as Empresas Parceiras  a conseguir captar um maior número de clientes. Com o nosso sistema de planos você pode contratar o que for melhor para o seu uso, 
+                        e se beneficiar do que temos a oferecer.
+                    </p>
+                    <p>
+                        Você terá a sua página, onde poderá incluir os serviços prestados pela sua empresa de estética automotiva, não se preocupe pois é simples de utilizar!
+                    </p>
+                    <p>
+                        O Sistema de anúncios da Cartools é totalmente automatizado. Você se cadastra e tem acesso a um painel de controle com uma área de membros onde você poderá:
+                    </p>
+                    <ul>
+                        <li>Cadastrar seus serviços </li>
+                        <li>Editar seus Anúncios</li>
+                        <li>Responder mensagens </li>
+                        <li>Efetuar pagamentos </li>
+                        <li>Alterar seus dados </li>
+                        <li>e muito mais... </li>
+                    </ul>
+                    <div class="anuncie-imagem">
+                        <img src="~/images/imgBeneficios.png" />
+                    </div>
+                <p>
+                    Assine agora e comece a anunciar seus serviços no Portal de Serviços de Estética Automotiva - CarTools, e conquiste novos clientes em potencial!
+                    <a asp-area="" asp-controller="Home" asp-action="Index">Clique aqui e cadastre-se</a>.
+                </p>
             </div>
         </div>
-        <img src="~/images/imgBeneficios.png" />
+    </div>
 
-        <form name="cadastra_cliente" id="cadastra_cliente" method="post" action="index.php?pg=anunciar_ok" enctype="multipart/form-data">
+    <div class="beneficios">
+        <div id="pagina">
+            <div class="anuncie">
 
-            <fieldset>
-                <legend>Cadastre-se e Anuncie</legend>
-
-                <label>
-                    <span>Nome Completo:</span>
-                    <input type="text" name="nome" />
-                </label>
-
-                <label>
-                    <span>E-mail:</span>
-                    <input type="text" name="email" />
-                </label>
-
-                <label>
-                    <span>Senha:</span>
-                    <input type="password" name="senha" />
-                </label>
-
-                <label>
-                    <span>Telefone:</span>
-                    <input type="text" name="telefone" />
-                </label>
-
-
-                <input type="submit" name="cadastracliente" value="Cadastrar" class="btn" />
-
-
-            </fieldset>
-
-        </form>
+                <h2>Como Funciona a CarTools para empresas?</h2>
+                <p>
+                    Você vai colocar basicamente alguns dados complementares da sua empresa e algumas imagens para representar a sua empresa e os  seus serviços prestados. 
+                    Com os dados necessários e as imagens do seu negócio, você estará disponível para buscas na plataforma e os clientes irão ver a sua empresa (envie as fotos que representem o seu negócio).
+                </p>
+                <p>
+                    Você poderá ter, como consequência, mais clientes devido a divulgação no portal CarTools, conseguindo ter uma maior visibilidade no mercado, sendo localizado com uma maior facilidade.
+                </p>
+                <p>
+                    Hoje em dia as pessoas buscam coisas ágeis e simples de resolver, conseguimos trazer ponteciais clientes até o seu negócio, como resultado as pessoas interessadas vão visualizar os seus serviços detalhadamente 
+                    e solicitar uma agendamento com apenas alguns “clicks”.
+                </p>
+            </div>
+        </div>
     </div>
 </div>
 <a asp-area="" asp-controller="Home" asp-action="Index">Voltar à Home</a>

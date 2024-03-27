@@ -1,7 +1,7 @@
 html {
     position: relative;
     min-height: 100%;
-  font-size: 14px;
+    font-size: 14px;
 }
 
 body {
@@ -20,16 +20,6 @@ body {
  border-radius: 15px;
 }
 
-.beneficios {
-    border-radius: 0 30px;
-    border: solid black 1px;
-    font-size: 18px;
-    margin: 20px 80px 30px 80px;
-    padding: 20px;
-    display: flex;
-    flex-direction: row;
-    background-color: #ffffff;
-}
 .btnempresa {
     background-color: black;
     border-radius: 9px;
@@ -671,120 +661,84 @@ body {
         width: 720px;
     }
 
-/*PÁGINA*/
-#pagina {
-    background: #fff;
-    padding: 10px;
-    margin-bottom: 5px;
-    float: left;
-    width: 840px;
+/* PÁGINA - Anunciar */
+
+/* Container para alinhar o título: 'Todos os Planos' */
+.container-planos-titulo {
+    display: flex;
+    justify-content: center;
+    margin: 10px 10px 10px 30px;
 }
 
-    #pagina h1 {
-        font: 18px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        color: #005789;
-        font-weight: bold;
-        padding: 5px;
-        background: #f4f4f4;
-        margin-bottom: 10px;
-        font-variant: small-caps;
+    .container-planos-titulo h1 {
+        font: 35px "Trebuchet MS", Arial, Helvetica, sans-serif;
+        font-weight: 800;
     }
 
-    #pagina form {
-        width: 500px;
-        padding: 10px;
-        background: #999;
-        float: right;
+/* Criando um rounded custom para configurar a borda dos cards de planos, para configurar na linha de estilização BootStrap */
+.rounded-custom {
+    border-radius: 10px;
+}
+
+/* Container abaixo dos tipos de planos, com as informações dos benefícios de ser parceiro CarTools */
+.beneficios {
+    border-radius: 0 30px;
+    border: solid black 2px;
+    font-size: 18px;
+    margin: 30px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+}
+
+#pagina {
+    background: #fff;
+    padding: 30px;
+    margin-bottom: 5px;
+    width: 100%;
+    font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    text-align: justify;
+}
+@media screen and (max-width: 600px) {
+    #pagina {
+        font: 12px "Trebuchet MS", Arial, Helvetica, sans-serif;
+        padding: 15px;
     }
-
-    #pagina a {
-        text-decoration: none;
-        color: #069;
-        font-weight: bold;
-        font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
-    }
-
-        #pagina a:hover {
-            text-decoration: underline;
-            color: #930;
-        }
-
-    #pagina label {
-        display: block;
-        margin-bottom: 5px;
-    }
-
-    #pagina span {
-        display: block;
-        font: 16px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        color: #fff;
-        font-weight: bold;
-    }
-
-    #pagina input {
-        border: 1px solid #333;
-        font: 16px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        color: #666;
-        padding: 3px;
-        width: 494px;
-    }
-
-    #pagina textarea {
-        border: 1px solid #333333;
-        font: 16px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        color: #666;
-        padding: 3px;
-        width: 494px;
-    }
-
-    #pagina fieldset {
-        font: 18px Georgia, "Times New Roman", Times, serif;
-        font-weight: bold;
-        color: #fff;
-        padding-bottom: 10px;
-        font-variant: small-caps;
-    }
-
-    #pagina .btn {
-        width: 100px;
-        padding: 3px;
-        display: block;
-        margin: 0 auto;
-        cursor: pointer;
-        color: #666;
-        background: #fff;
-    }
-
-        #pagina .btn:hover {
-            background: #999;
-            border: 1px solid #fff;
-            color: #333;
-        }
+}
 
     #pagina .anuncie {
-        width: 310px;
-        float: left;
-        font: 16px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        color: #666;
+        width: auto;
     }
-
-        #pagina .anuncie p {
-            margin: 10px 0;
-        }
-
         #pagina .anuncie h2 {
-            font: 16px "Trebuchet MS", Arial, Helvetica, sans-serif;
-            color: #333;
-            font-variant: small-caps;
+            font: 30px "Trebuchet MS", Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            margin-bottom: 20px;
         }
-
-        #pagina .anuncie a {
-            color: #063;
+        #pagina .anuncie p {
+            font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
+            font-weight: lighter;
+            text-align: justify;
         }
-
-            #pagina .anuncie a:hover {
-                color: #F60;
+        @media screen and (max-width: 600px) {
+            #pagina .anuncie h2 {
+                font: 16px "Trebuchet MS", Arial, Helvetica, sans-serif;
             }
+        }
+
+    /* Imagem - Benefícios, presente na página 'Anunciar' */
+    .anuncie-imagem {
+        display: flex;
+        justify-content: center;
+    }
+    .anuncie-imagem img {
+        width: 60%;
+        box-sizing: border-box;
+     }
+
+
+
     /*PÁGINA paginador*/
     #pagina .paginador {
         display: block;
@@ -866,7 +820,7 @@ body {
         list-style: none;
         margin: 0;
         padding: 0;
-        float: lef;
+        float: left;
     }
 
         #single .navegar ul li {
