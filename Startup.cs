@@ -61,7 +61,6 @@ public class Startup
         services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
         services.AddScoped<RelatorioVendasService>();
         services.AddScoped(sp => CarrinhoCompra.GetCarrinho(sp));
-        services.AddScoped<BuscaServicoRegiao>();
 
         services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 

@@ -1,5 +1,6 @@
 ﻿using Cartools.Context;
 using Cartools.Repositories.Interfaces;
+using Cartools.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cartools.Controllers
@@ -13,17 +14,27 @@ namespace Cartools.Controllers
             _planoRepository = planoRepository;
         }
 
+        public IActionResult Index()
+        {
+            var planoListViewModel = new PlanoListViewModel
+            {
+                PlanosPreferidos = _planoRepository.PlanosPreferidos
+            };
+
+            return View(planoListViewModel);
+        }
         public IActionResult List()
         {
-            ViewData["Titu"] = "Todos os 3 planos";
-            ViewData["DHoje"] = DateTime.Now;
-            var planos = _planoRepository.Planos;
+            var planosListViewModel = new PlanoListViewModel();
+            planosListViewModel.Planos = _planoRepository.Planos;
+            planosListViewModel.TipoAtual = "Tipo Atual";
 
-            var totalPlanos = planos.Count();
-            ViewBag.Planos = "Total de planos atualmente vendidos na plataforma: ";
-            ViewBag.TotalCount = totalPlanos;
-
-            return View(planos);
+            return View(planosListViewModel);
+        }
+        public IActionResult Details(int planoId)
+        {
+            var plano = _planoRepository.Planos.FirstOrDefault(p => p.PlanoId == planoId);
+            return View(plano);
         }
     }
 }

@@ -33,9 +33,9 @@ namespace Cartools.Repositories
                 var pedidoDetail = new PedidoDetalhe()
                 {
                     Quantidade = carrinhoItem.Quantidade,
-                    ServicoId = carrinhoItem.Servico.ServicoId,
+                    PlanoId = carrinhoItem.Plano.PlanoId,
                     PedidoId = pedido.PedidoId,
-                    Preco = carrinhoItem.Servico.Preco
+                    Preco = carrinhoItem.Plano.PlanoPreco
                 };
                 _appDbContext.PedidoDetalhes.Add(pedidoDetail);
             }

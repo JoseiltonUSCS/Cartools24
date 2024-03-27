@@ -13,7 +13,7 @@
             <thead>
                 <tr>
                     <th>Quantidade</th>
-                    <th>Servico</th>
+                    <th>Plano</th>
                     <th class="text-right">Preço</th>
                     <th class="text-right">Subtotal</th>
                     <th></th>
@@ -25,16 +25,16 @@
                 {
                     <tr>
                         <td class="text-center">@item.Quantidade</td>
-                        <td class="text-left">@item.Servico.Nome</td>
-                        <td class="text-right">@item.Servico.Preco.ToString("c")</td>
+                        <td class="text-left">@item.Plano.PlanoNome</td>
+                        <td class="text-right">@item.Plano.PlanoPreco.ToString("c")</td>
 
                         <td class="text-right">
-                            @((item.Quantidade * item.Servico.Preco).ToString("c"))
+                            @((item.Quantidade * item.Plano.PlanoPreco).ToString("c"))
                         </td>
 
                         <td class="text-center">
                             <a asp-controller="CarrinhoCompra" asp-action="RemoverItemDoCarrinhoCompra"
-                               asp-route-servicoId="@item.Servico.ServicoId">
+                               asp-route-planoId="@item.Plano.PlanoId">
                                 <img src="~/images/delete.png" width="20px" height="20px" />
                             </a>
                         </td>
@@ -56,7 +56,7 @@
             <div class="btn-group">
                 <a class="btn btn-success" asp-controller="Pedido" asp-action="Checkout">Encerrar Pedido</a>
                 &nbsp;&nbsp;&nbsp;
-                <a class="btn btn-primary" asp-controller="Servico" asp-action="List">Continuar Comprando</a>
+                <a class="btn btn-primary" asp-controller="Plano" asp-action="List">Continuarrrrrrrrrrrrrr Comprando</a>
             </div>
         </div>
         <br />

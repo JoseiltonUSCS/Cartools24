@@ -26,6 +26,7 @@ namespace Cartools.Models
             public virtual Tipo Tipo { get; set; }
             public List<Oficina> Oficinas { get; set; }
             public virtual List<PedidoDetalhe> PedidoItens { get; set; }
+        public virtual List<CarrinhoCompraItem> CarrinhoCompraItems { get; set; }
     }
 }
 

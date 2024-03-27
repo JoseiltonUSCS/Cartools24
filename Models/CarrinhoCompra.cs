@@ -39,11 +39,11 @@ namespace Cartools.Models
 
         }
 
-        public void AdicionarAoCarrinho(Servico servico)
+        public void AdicionarAoCarrinho(Plano plano)
         {
             var carrinhoCompraItem = _context.CarrinhoCompraItens.SingleOrDefault(
 
-                s => s.Servico.ServicoId == servico.ServicoId &&
+                s => s.Plano.PlanoId == plano.PlanoId &&
                      s.CarrinhoCompraId == CarrinhoCompraId);
 
             if (carrinhoCompraItem == null)
@@ -51,7 +51,7 @@ namespace Cartools.Models
                 carrinhoCompraItem = new CarrinhoCompraItem
                 {
                     CarrinhoCompraId = CarrinhoCompraId,
-                    Servico = servico,
+                    Plano = plano,
                     Quantidade = 1
                 };
                 _context.CarrinhoCompraItens.Add(carrinhoCompraItem);
@@ -63,10 +63,10 @@ namespace Cartools.Models
             _context.SaveChanges();
         }
 
-        public int RemoverDoCarrinho(Servico servico)
+        public int RemoverDoCarrinho(Plano plano)
         {
             var carrinhoCompraItem = _context.CarrinhoCompraItens.SingleOrDefault(
-                s => s.Servico.ServicoId == servico.ServicoId &&
+                s => s.Plano.PlanoId == plano.PlanoId &&
                      s.CarrinhoCompraId == CarrinhoCompraId);
 
             var quantidadeLocal = 0;
@@ -83,22 +83,19 @@ namespace Cartools.Models
                     _context.CarrinhoCompraItens.Remove(carrinhoCompraItem);
 
                 }
-
             }
             _context.SaveChanges();
             return quantidadeLocal;
         }
-
         public List<CarrinhoCompraItem> GetCarrinhoCompraItens()
         {
             return CarrinhoCompraItems ??
                 (CarrinhoCompraItems =
                 _context.CarrinhoCompraItens
                 .Where(c => c.CarrinhoCompraId == CarrinhoCompraId)
-                .Include(s => s.Servico)
+                .Include(s => s.Plano)
                 .ToList());
         }
-
         public void LimparCarrinho()
         {
             var carrinhoItens = _context.CarrinhoCompraItens
@@ -107,12 +104,11 @@ namespace Cartools.Models
             _context.CarrinhoCompraItens.RemoveRange(carrinhoItens);
             _context.SaveChanges();
         }
-
         public decimal GetCarrinhoCompraTotal()
         {
             var total = _context.CarrinhoCompraItens
                         .Where(c => c.CarrinhoCompraId == CarrinhoCompraId)
-                        .Select(c => c.Servico.Preco * c.Quantidade).Sum();
+                        .Select(c => c.Plano.PlanoPreco * c.Quantidade).Sum();
 
             return total;   
         }

@@ -20,16 +20,7 @@ body {
  border-radius: 15px;
 }
 
-.beneficios {
-    border-radius: 0 30px;
-    border: solid black 1px;
-    font-size: 18px;
-    margin: 20px 80px 30px 80px;
-    padding: 20px;
-    display: flex;
-    flex-direction: row;
-    background-color: #ffffff;
-}
+
 .btnempresa {
     background-color: black;
     border-radius: 9px;
@@ -677,7 +668,7 @@ body {
     padding: 10px;
     margin-bottom: 5px;
     float: left;
-    width: 840px;
+    width: 100%;
 }
 
     #pagina h1 {
@@ -691,7 +682,7 @@ body {
     }
 
     #pagina form {
-        width: 500px;
+        width:50%;
         padding: 10px;
         background: #999;
         float: right;
@@ -762,7 +753,7 @@ body {
         }
 
     #pagina .anuncie {
-        width: 310px;
+        width: 50%;
         float: left;
         font: 16px "Trebuchet MS", Arial, Helvetica, sans-serif;
         color: #666;
@@ -1105,4 +1096,9 @@ body {
     width: 50px;
     height:35px;
     margin-left:5px;
+}
+.benvindo {
+    width: 100%;
+    display:flex;
+    float:left;
 }

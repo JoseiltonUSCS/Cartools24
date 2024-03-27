@@ -1,4 +1,19 @@
-﻿
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model Plano
+
+<div class="planoCard col-sm-4 col-md-4 col-lg-4 col-xl-4 " style="margin-top:20px;">
+    <a asp-controller="Plano" asp-action="Details" asp-route-planoId="@Model.PlanoId"><img src=" @Model.PlanoImagem" class="img-fluid" /></a>
+    <div class="anuncioDetalhes" style="margin-left: 20px;">
+        <h3><a asp-controller="Plano" asp-action="Details" asp-route-planoId="@Model.PlanoId"> @Model.PlanoNome</a></h3>
+        <h6>@Model.PlanoDescricao</h6>
+        <h5><strong>@Model.PlanoPreco.ToString("c")</strong></h5>
+        <p class="button">
+            <a class=" btn btn-primary" id="cartButton" asp-controller="CarrinhoCompra" asp-action="AdicionarItemNoCarrinhoCompra" asp-route-PlanoId="@Model.PlanoId">Incluir no Carrinho</a>
+        </p>
+    </div>
+    
+</div>
+
+
+
+
+

@@ -1,0 +1,28 @@
+﻿@model Plano
+
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="text-center">
+                <img src="@Model.PlanoImagem" class="img-fluid" alt="">
+            </div>
+            <div class="card-block">
+                <h2 class="card-title">@Model.PlanoNome</h2>
+                <p class="card-text">
+                    <h5>@Model.PlanoDescricao</h5>                    
+                </p>
+
+                <p class="btn btn-group align-content-lg-end">
+
+                    <a asp-controller="Plano" asp-action="List"
+                       class="btn btn-outline-info"> Voltar para o menu de Planos     
+                   </a>
+
+                    <a class="btn btn-primary" id="cartButton" asp-controller="CarrinhoCompra" asp-action="AdicionarItemNoCarrinhoCompra" asp-route-planoId="Model.PlanoId">Adionar<strong> Plano @Model.PlanoNome</strong> ao carrinho</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+

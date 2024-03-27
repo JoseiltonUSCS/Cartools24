@@ -1,0 +1,68 @@
+﻿@model PlanoListViewModel
+
+<div class="container">
+    <div class="row">
+        @foreach (var plano in Model.PlanosPreferidos)
+        {
+            <partial name="_PlanosResumo" for="@plano" />
+        }
+    </div>
+
+    <div id="pagina">
+       
+        
+        <div class="anuncie">
+            <h1>Anuncie</h1>
+            <h2>Cadastre-se e anuncie:</h2>
+            <p>
+                Nossa motivação consiste em ajudar as empresas PARCEIRAS a conseguir captar um maior número de clientes com o menor esforço possível. <br /><br />
+
+                O Sistema de anúncios da Cartools é totalmente automatizado. Você se cadastra e tem acesso a um painel de controle com uma área de membros onde você poderá: <br /><br />
+                &raquo; Cadastrar seus serviços<br />
+                &raquo; Incluir fotos<br />
+                &raquo; Criar e Editar seus Anúncios<br />
+            </p>
+            <p>
+                Assine agora e comece a anunciar seus serviços no maior portal de Estética Automotiva da web!<br />
+            </p>
+        </div>
+
+    <form name="cadastra_cliente" id="cadastra_cliente" method="post" action="index.php?pg=anunciar_ok" enctype="multipart/form-data" style="align-content:center">
+
+        <fieldset>
+            <legend>Cadastre-se e Anuncie</legend>
+
+            <label>
+                <span>&nbsp;Nome:</span>
+                <input type="text" name="nome" />
+                </label>
+
+                <label>
+                    <span>&nbsp;Telefone:</span>
+                    <input type="text" name="telefone" />
+                </label>
+
+            <label>
+                    <span>&nbsp;E-mail:</span>
+                <input type="text" name="email" />
+            </label>
+
+            <label>
+                    <span>&nbsp;Senha:</span>
+                <input type="password" name="senha" />
+            </label>
+
+            <input type="submit" name="cadastracliente" value="Cadastrar" class="btn" />
+
+        </fieldset>
+        </form> 
+        
+    </div>
+    <!--
+    <div class="benvindo">
+        <img src="~/images/imgBenvindo.png" />
+    </div>
+    -->
+</div>
+
+<a asp-area="" asp-controller="Home" asp-action="Index">Voltar à Home</a>
