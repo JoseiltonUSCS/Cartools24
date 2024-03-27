@@ -90,22 +90,66 @@ main {
 #regiao {
     width: 100%;
 }
+
+/* Página - 'Sobre Nós' */
 .sobrenos {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    font-size: 20px;
+    font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
     background-color: #ffffff;
     border-radius: 0 30px;
     border: solid black 1px;
-    text-align: center;
     margin: 30px auto;
     padding: 30px;
-    align-content:center;
 }
-.sobrenos img {
-    width: 400px;
-}
+    .sobrenos .container-conteudo {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .container-conteudo > div {
+        flex: 1;
+        margin-right: 20px;
+    }
+
+    .sobrenos h2 {
+        font: 40px "Trebuchet MS", Arial, Helvetica, sans-serif;
+        font-weight: 800;
+        margin-bottom: 30px;
+    }
+    .sobrenos .container-conteudo p {
+        margin-bottom: 30px;
+        text-align: justify;
+    }
+    .sobrenos .container-conteudo img {
+        max-width: 80%;
+        width: 450px;
+        height: auto;
+    }
+
+    /* 'Media Query' - para telas menores que 800px */
+    @media screen and (max-width: 800px) {
+        .container-conteudo {
+            flex-direction: column;
+        }
+
+        .container-conteudo > div {
+             margin-right: 0; 
+         }
+
+        .sobrenos h2 {
+            font: 25px "Trebuchet MS", Arial, Helvetica, sans-serif;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .sobrenos {
+            font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
+        }
+    }
+
+/*--------------------------------------------------------------------------------------*/
+
 #calendario::placeholder {
     color: white;
     font-weight:bold;
@@ -661,12 +705,13 @@ body {
         width: 720px;
     }
 
+/*--------------------------------------------------------------------------------------*/
 /* PÁGINA - Anunciar */
 
 /* Container para alinhar o título: 'Todos os Planos' */
 .container-planos-titulo {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     margin: 10px 10px 10px 30px;
 }
 
@@ -701,18 +746,13 @@ body {
     font-weight: lighter;
     text-align: justify;
 }
-@media screen and (max-width: 600px) {
-    #pagina {
-        font: 12px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        padding: 15px;
-    }
-}
+
 
     #pagina .anuncie {
         width: auto;
     }
         #pagina .anuncie h2 {
-            font: 30px "Trebuchet MS", Arial, Helvetica, sans-serif;
+            font: 40px "Trebuchet MS", Arial, Helvetica, sans-serif;
             font-weight: 600;
             margin-bottom: 20px;
         }
@@ -721,11 +761,6 @@ body {
             font-weight: lighter;
             text-align: justify;
         }
-        @media screen and (max-width: 600px) {
-            #pagina .anuncie h2 {
-                font: 16px "Trebuchet MS", Arial, Helvetica, sans-serif;
-            }
-        }
 
     /* Imagem - Benefícios, presente na página 'Anunciar' */
     .anuncie-imagem {
@@ -733,9 +768,28 @@ body {
         justify-content: center;
     }
     .anuncie-imagem img {
-        width: 60%;
+        max-width: 80%;
+        width: 450px;
+        height: auto;
         box-sizing: border-box;
      }
+
+    /* 'Media Query' - para telas menores que 800px */
+    @media screen and (max-width: 800px) {
+
+        #pagina .anuncie h2 {
+            font: 25px "Trebuchet MS", Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        #pagina .anuncie p {
+            font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
+        }
+        #pagina .anuncie {
+            font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
+        }
+        
+    }
 
 
 
@@ -792,6 +846,8 @@ body {
         font-weight: bold;
         color: #900;
     }
+
+/*--------------------------------------------------------------------------------------*/
 
 #single .error {
     font: 14px Arial, Helvetica, sans-serif;
