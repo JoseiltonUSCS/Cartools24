@@ -12,7 +12,7 @@
         <span>@Model.Local.Bairro</span><br />
         <span>@Model.Oficina.OficinaTelefone</span>    
         <h5>
-            <a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId">@Model.Nome| Vitrificação | Higienização</a>
+            <a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId">@Model.Nome</a>
         </h5>
         <p>@Model.DescricaoDetalhada<br/>
         <strong>@Model.Preco.ToString("c")</strong>

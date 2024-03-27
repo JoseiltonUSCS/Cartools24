@@ -16,7 +16,9 @@ namespace Cartools.Repositories
 
         public IEnumerable<Plano> Planos => _context.Planos.Include(t => t.Tipo);
 
-        public IEnumerable<Plano> PlanosPreferidos => _context.Planos.Where(p => p.IsPlanoPreferido).Include(t => t.Tipo);
+        public IEnumerable<Plano> PlanosPreferidos => _context.Planos.
+                                  Where(p => p.IsPlanoPreferido)
+                                  .Include(t => t.Tipo);
 
         public Plano GetPlanoById(int planoId)
         {
