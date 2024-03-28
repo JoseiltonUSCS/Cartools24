@@ -26,6 +26,10 @@
 
                         @await Component.InvokeAsync("CarrinhoCompraResumo")
 
+                        <a class="nav-link text-light" asp-area=""
+                           asp-controller="Home" asp-action="Index">
+                            <p class="space"></p><h4>Home</h4>
+                        </a>
 
                         <a class="nav-link text-light" asp-area=""
                            asp-controller="Home" asp-action="SobreNos">
@@ -35,11 +39,6 @@
                         <a class="nav-link text-light" asp-area=""
                            asp-controller="Plano" asp-action="List">
                             <p class="space"></p><h4>Anunciar</h4>
-                        </a>
-
-                        <a class="nav-link text-light" asp-area=""
-                           asp-controller="Home" asp-action="Index">
-                            <p class="space"></p><h4>Home</h4>
                         </a>
 
                         <a class="nav-link text-light" asp-area=""
@@ -111,7 +110,6 @@
 
                                 </div>
                             </div>
-                            <div class="col-md-4"></div>
                         </div>
                     </div>
                 </div>
@@ -172,7 +170,7 @@
             @RenderBody()
         </main>
     </div>
-    <footer class="footer text-black">
+    <footer class="footer text-black bg-black">
         <div class="container">
             &copy; @DateTime.Now.Year - Cartools - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>

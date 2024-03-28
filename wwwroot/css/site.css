@@ -1,3 +1,18 @@
+:root {
+    --color-lightgray: #D9D9D9;
+    --color-white: #fff;
+    --color-darkgray: #383939;
+    --color-black: #1F2024;
+    --color-gray: #A6A6A6;
+    --color-greenbutton: #DBF227;
+    --color-bluebutton: #0087CC;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
 html {
     position: relative;
     min-height: 100%;
@@ -21,9 +36,9 @@ body {
 }
 
 .btnempresa {
-    background-color: black;
+    background-color: var(--color-black);
     border-radius: 9px;
-    color: white;
+    color: var(--color-white);
     margin-top: 20px;
     margin-left: 40px;
     width: 150px;
@@ -33,21 +48,19 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    color: black;
+    color: var(--color-black);
     background-color: deepskyblue;
 }
 .btnPlano {
-    background-color: yellow;
+    background-color: var(--color-greenbutton);
     width: 180px;
     height: 40px;
     border-radius: 5px;
 }
-footer {
-    /* background-color: pink; */
-}
+
 .form-busca {
     height: 50px;
-    border: solid black 2px;
+    border: solid var(--color-black) 2px;
     display: flex;
     flex-direction: row;
     object-fit: contain;
@@ -57,11 +70,13 @@ footer {
     margin: 10px 30px;
 }
 .informacoes a {
-        color: black;
+        color: var(--color-black);
 }
 main {
     display: flex;
-    flex-direction: row;}
+    flex-direction: row;
+}
+
 .planos {
     display: flex;
     flex-direction: row;
@@ -70,19 +85,19 @@ main {
     width: calc(100% - 30px);
 }
 .plano {
-    border: solid black 3px;
+    border: solid var(--color-black) 3px;
     width: 300px;
     text-align: center;
     margin: 15px auto;
     padding: 15px;
     font-size: 18px;
-    background-color: #ffffff;
+    background-color: var(--color-white);
 }
 .plano p:nth-of-type(2) {
     font-size:30px;
 }
 .parcPlans {
-    background-color: gray;
+    background-color: var(--color-gray);
 }
 .parcPlans h2{
     margin-left: 80px;
@@ -91,99 +106,32 @@ main {
     width: 100%;
 }
 
-/* Página - 'Sobre Nós' */
-.sobrenos {
-    font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
-    background-color: #ffffff;
-    border-radius: 0 30px;
-    border: solid black 1px;
-    margin: 30px auto;
-    padding: 30px;
-}
-    .sobrenos .container-conteudo {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-    .container-conteudo > div {
-        flex: 1;
-        margin-right: 20px;
-    }
-
-    .sobrenos h2 {
-        font: 40px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        font-weight: 800;
-        margin-bottom: 30px;
-    }
-    .sobrenos .container-conteudo p {
-        margin-bottom: 30px;
-        text-align: justify;
-    }
-    .sobrenos .container-conteudo img {
-        max-width: 80%;
-        width: 450px;
-        height: auto;
-    }
-
-    /* 'Media Query' - para telas menores que 800px */
-    @media screen and (max-width: 800px) {
-        .container-conteudo {
-            flex-direction: column;
-        }
-
-        .container-conteudo > div {
-             margin-right: 0; 
-         }
-
-        .sobrenos h2 {
-            font: 25px "Trebuchet MS", Arial, Helvetica, sans-serif;
-            font-weight: 800;
-            margin-bottom: 15px;
-        }
-
-        .sobrenos {
-            font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        }
-    }
-
-/*--------------------------------------------------------------------------------------*/
-
-#calendario::placeholder {
-    color: white;
-    font-weight:bold;
-    font-size: 15px;
-}
 
 /*--------------------------------------------------------------------------------------*/
 /*Página*/
-* {
-    margin: 0;
-    padding: 0;
-}
+
 
 body {
-    background-color: #383939;
+    background-color: var(--color-darkgray);
 }
 /* Conteúdo Página */
 #box {
     width: 860px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: var(--color-white);
 }
 
 
 /* Header*/
 #header {
-    border-bottom: 5px solid #383939;
+    border-bottom: 5px solid var(--color-darkgray);
     height: 316px;
     background-color: lightgreen;
 }
 
 #header_topo {
     height: 60px;
-    border-bottom: 5px solid black;
+    border-bottom: 5px solid var(--color-black);
 }
 
     #header_topo img {
@@ -210,11 +158,11 @@ body {
                 float: left;
                 text-decoration: none;
                 margin: 15px 10px;
-                color: #069;
+                color: var(--color-bluebutton);
             }
 
                 #header_topo ul li a:hover {
-                    background-color: #993300;
+                    background-color: var(--color-greenbutton);
                     color: #fff;
                 }
 
@@ -235,7 +183,7 @@ body {
 #header_navegar_central_login {
     width: 235px;
     height: 122px;
-    background-color: pink;0,
+    background-color: pink;
 
     margin-left: 10px;
     margin-top: 10px;
@@ -253,7 +201,7 @@ body {
 
     #header_navegar_central_login span {
         font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        color: #069;
+        color: var(--color-bluebutton);
         width: 55px;
         float: left;
         text-align: right;
@@ -262,12 +210,12 @@ body {
 
     #header_navegar_central_login input {
         font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        color: #069;
+        color: var(--color-bluebutton);
         width: 141px;
         height: 16px;
         border: 1px solid #069;
         padding: 2px;
-        background-color: #fff;
+        background-color: var(--color-white);
     }
 
     #header_navegar_central_login .senha {
@@ -297,12 +245,12 @@ body {
     #header_navegar_central_login p {
         text-align: center;
         font: 12px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        color: #069;
+        color: var(--color-bluebutton);
         margin: 5px 0 0 20px;
     }
 
         #header_navegar_central_login p a {
-            color: #069;
+            color: var(--color-bluebutton);
             text-decoration: none;
         }
 
@@ -333,7 +281,7 @@ body {
     text-decoration: none;
     font: 12px "Trebuchet MS", Arial, Helvetica, sans-serif;
     font-weight: bold;
-    color: #333;
+    color: var(--color-darkgray);
     padding: 7px 10px 5px 10px;
     margin-left: 50px;
     display: block;
@@ -368,21 +316,21 @@ body {
         margin: 15px 0 0 115px;
         font: 29px Georgia, "Times New Roman", Times, serif;
         font-weight: bold;
-        color: #069;
+        color: var(--color-bluebutton);
     }
 
     #header_navegar_filtro h2 {
         text-align: right;
         font: 16px "Trebuchet MS", Arial, Helvetica, sans-serif;
         font-weight: bold;
-        color: #069;
+        color: var(--color-bluebutton);
         margin-right: 5px;
     }
 
     #header_navegar_filtro form {
         float: left;
         margin: 20px 0 0 15px;
-        color: #069;
+        color: var(--color-bluebutton);
     }
 
     #header_navegar_filtro select {
@@ -413,7 +361,7 @@ body {
         cursor: pointer;
         font: 20px Georgia, "Times New Roman", Times, serif;
         font-weight: bold;
-        color: #069;
+        color: var(--color-bluebutton);
         font-variant: small-caps;
         float: right;
         margin: 5px 13px 0 0;
@@ -432,7 +380,7 @@ body {
         font: 16px Georgia, "Times New Roman", Times, serif;
         font-weight: bold;
         font-variant: small-caps;
-        color: #069;
+        color: var(--color-bluebutton);
         margin-bottom: 5px;
         padding-bottom: 5px;
         border-bottom: 2px solid #069;
@@ -451,7 +399,7 @@ body {
         float: left;
         margin: 5px 65px;
         font: 32px Arial, Helvetica, sans-serif;
-        color: #383939;
+        color: var(--color-darkgray);
         font-weight: bold;
     }
 
@@ -532,18 +480,18 @@ body {
 
             #imoveis_home .lista_um li h3 a {
                 font: 14px Arial, Helvetica, sans-serif;
-                color: #333;
+                color: var(--color-darkgray);
             }
 
             #imoveis_home .lista_um li .veja_mais {
                 font: 14px Arial, Helvetica, sans-serif;
                 font-weight: bold;
-                color: #333;
+                color: var(--color-darkgray);
                 width: 98px;
                 height: 15px;
                 float: left;
                 /* background: url(./imagens/lista_g_btn.png)  ;*/
-                background-color: #c6c0c0;
+                background-color: var(--color-lightgray);
                 padding: 5px;
                 margin: 4px 48px;
                 text-align: center;
@@ -581,18 +529,18 @@ body {
 
             #imoveis_home .lista_dois li h3 a {
                 font: 14px Arial, Helvetica, sans-serif;
-                color: #333;
+                color: var(--color-darkgray);
             }
 
             #imoveis_home .lista_dois li .veja_mais {
                 font: 14px Arial, Helvetica, sans-serif;
                 font-weight: bold;
-                color: #333;
+                color: var(--color-darkgray);
                 width: 98px;
                 height: 15px;
                 float: left;
                 /* background: url(./imagens/lista_g_btn.png)  ;*/
-                background-color: #c6c0c0;
+                background-color: var(--color-lightgray);
                 padding: 5px;
                 margin: 4px 48px;
                 text-align: center;
@@ -646,7 +594,7 @@ body {
 
             #imoveis_home_lista ul li h2 {
                 font: 14px Arial, Helvetica, sans-serif;
-                color: #333;
+                color: var(--color-darkgray);
             }
 
             #imoveis_home_lista ul li .veja_mais {
@@ -658,7 +606,7 @@ body {
                 height: 17px;
                 padding: 5px;
                 margin: 5px 37px 0 37px;
-                background-color: #c6c0c0;
+                background-color: var(--color-lightgray);
                 border-radius: 8px;
                 text-align: center;
             }
@@ -673,7 +621,7 @@ body {
     width: 860px;
     height: 100px;
     margin: 0 auto;
-    background: #fff;
+    background: var(--color-white);
 }
 
 #footer_bg {
@@ -682,7 +630,7 @@ body {
     float: left;
     margin: 5px 0 5px 10px;
     border-radius: 8px;
-    border: 1px solid #333;
+    border: 1px solid var(--color-darkgray);
 }
 
     #footer_bg .txt {
@@ -704,6 +652,154 @@ body {
         color: #9099;
         width: 720px;
     }
+
+
+
+
+
+/*--------------------------------------------------------------------------------------*/
+/* PÁGINA - 'Home' */
+
+/* Card-empresa - configurando apenas o texto da descrição detalhada */
+.conteudo-card-empresa .descricao-detalhada-empresa p {
+    text-align: justify;
+}
+
+.conteudo-card-empresa {
+    padding: 20px;
+}
+
+.conteudo-card-empresa h1 a {
+    text-decoration: none;
+    color: var(--color-black);
+    font-size: 2rem;
+}
+
+.conteudo-card-empresa h2 a {
+    text-decoration: none;
+    color: var(--color-black);
+    font-size: 1.2rem;
+}
+.conteudo-card-empresa h1 a:hover {
+    color: var(--color-gray);
+}
+.conteudo-card-empresa h2 a:hover {
+    color: var(--color-gray);
+}
+
+/*--------------------------------------------------------------------------------------*/
+/* PÁGINA - 'Ver Empresa' (Details.cshtml) */
+
+.conteudo-ver_empresa {
+    padding: 50px;
+}
+
+.conteudo-ver_empresa h1 {
+    font-size: 2rem;
+    margin-top: 10px;
+    font-weight: bold;
+}
+.card-block h2 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.label-para-nome_da_empresa,
+.label-para-nome_do_servico {
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-darkgray);
+    padding: 10px;
+}
+    .label-para-nome_da_empresa h1,
+    .label-para-nome_do_servico h1 {
+        color: var(--color-white);
+        font-size: 2.2rem;
+    }
+/*--------------------------------------------------------------------------------------*/
+/* PÁGINAS - 'Ver Empresa' e 'Home' -> utilizam essa estilização */
+/* Criando um rounded custom para configurar a borda da imagem, para configurar na linha de estilização BootStrap */
+.img-custom {
+    border-radius: 10px;
+    max-width: 100%;
+    width: 500px;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--color-black);
+}
+
+/*--------------------------------------------------------------------------------------*/
+/* Página - 'Sobre Nós' */
+.sobrenos {
+    font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    background-color: var(--color-white);
+    border-radius: 0 30px;
+    border: solid black 1px;
+    margin: 30px auto;
+    padding: 30px;
+}
+
+    .sobrenos .container-conteudo {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+.container-conteudo > div {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.sobrenos h2 {
+    font: 40px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.sobrenos .container-conteudo p {
+    margin-bottom: 30px;
+    text-align: justify;
+}
+
+.sobrenos .container-conteudo img {
+    max-width: 80%;
+    width: 450px;
+    height: auto;
+}
+
+/* 'Media Query' - para telas menores que 800px */
+@media screen and (max-width: 800px) {
+    .container-conteudo {
+        flex-direction: column;
+    }
+
+        .container-conteudo > div {
+            margin-right: 0;
+        }
+
+    .sobrenos h2 {
+        font: 25px "Trebuchet MS", Arial, Helvetica, sans-serif;
+        font-weight: 800;
+        margin-bottom: 15px;
+    }
+
+    .sobrenos {
+        font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    }
+}
+
+/*--------------------------------------------------------------------------------------*/
+
+#calendario::placeholder {
+    color: var(--color-white);
+    font-weight: bold;
+    font-size: 15px;
+}
+
 
 /*--------------------------------------------------------------------------------------*/
 /* PÁGINA - Anunciar */
@@ -728,17 +824,17 @@ body {
 /* Container abaixo dos tipos de planos, com as informações dos benefícios de ser parceiro CarTools */
 .beneficios {
     border-radius: 0 30px;
-    border: solid black 2px;
+    border: solid var(--color-black) 2px;
     font-size: 18px;
     margin: 30px;
     padding: 20px;
     display: flex;
     flex-direction: row;
-    background-color: white;
+    background-color: var(--color-white);
 }
 
 #pagina {
-    background: #fff;
+    background: var(--color-white);
     padding: 30px;
     margin-bottom: 5px;
     width: 100%;
@@ -790,10 +886,9 @@ body {
         }
         
     }
+/*--------------------------------------------------------------------------------------*/
 
-
-
-    /*PÁGINA paginador*/
+    /* PÁGINA - paginador */
     #pagina .paginador {
         display: block;
         float: right;
@@ -803,7 +898,7 @@ body {
     #pagina .anuncie_ok h2 {
         font: 18px "Trebuchet MS", Arial, Helvetica, sans-serif;
         font-weight: bold;
-        color: #069;
+        color: var(--color-bluebutton);
         text-transform: uppercase;
         margin: 0 0 5px 0;
     }
@@ -836,7 +931,7 @@ body {
         font: 16px Arial, Helvetica, sans-serif;
         font-weight: bold;
         padding: 5px;
-        color: #069;
+        color: var(--color-bluebutton);
         background: #fff;
         margin: 0 0 10px 0;
     }
@@ -849,6 +944,8 @@ body {
 
 /*--------------------------------------------------------------------------------------*/
 
+/* PÁGINA - '' */
+
 #single .error {
     font: 14px Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -857,7 +954,7 @@ body {
 /* SINGLE navegar */
 #single {
     padding: 10px;
-    background: #fff;
+    background: var(--color-white);
     margin-bottom: 5px;
     float: left;
     width: 840px;
@@ -884,11 +981,11 @@ body {
             float: left;
             margin: 5px 5px 15px;
             font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
-            color: #666;
+            color: var(--color-gray);
         }
 
             #single .navegar ul li a {
-                color: #666;
+                color: var(--color-gray);
             }
 
                 #single .navegar ul li a:hover {
@@ -930,7 +1027,7 @@ body {
             width: 65px;
             height: 49px;
             padding: 1px;
-            border: 1px solid #999;
+            border: 1px solid var(--color-gray);
             overflow: hidden;
             list-style: none;
         }
@@ -975,7 +1072,7 @@ body {
 
     #single .single_left .legend {
         font: 18px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        color: #666;
+        color: var(--color-gray);
         font-weight: bold;
         text-transform: uppercase;
         margin-bottom: 10px;
@@ -983,7 +1080,7 @@ body {
 
     #single .single_left span {
         font: 16px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        color: #333;
+        color: var(--color-darkgray);
         font-variant: small-caps;
         display: block;
     }
@@ -992,18 +1089,18 @@ body {
         display: block;
         padding: 5px;
         width: 384px;
-        border: 1px solid #999;
+        border: 1px solid var(--color-lightgray);
         font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        color: #999;
+        color: var(--color-gray);
     }
 
     #single .single_left textarea {
         display: block;
         padding: 5px;
         width: 384px;
-        border: 1px solid #999;
+        border: 1px solid var(--color-gray);
         font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        color: #999;
+        color: var(--color-gray);
     }
 
     #single .single_left label {
@@ -1014,15 +1111,15 @@ body {
     #single .single_left .btn {
         width: 100px;
         height: 30px;
-        color: #069;
+        color: var(--color-bluebutton);
         font-weight: bold;
         margin: 0 auto;
         cursor: pointer;
     }
 
         #single .single_left .btn:hover {
-            color: #FFF;
-            background: #069;
+            color: var(--color-white);
+            background: var(--color-bluebutton);
         }
 
     /* single right */
@@ -1034,7 +1131,7 @@ body {
 
         #single .single_right h4 {
             font: 18px "Trebuchet MS", Arial, Helvetica, sans-serif;
-            color: #999;
+            color: var(--color-gray);
             font-variant: small-caps;
         }
 
@@ -1048,7 +1145,7 @@ body {
     }
 
         #single .info strong {
-            color: #333;
+            color: var(--color-darkgray);
         }
 
     #single .descricao {
@@ -1063,7 +1160,7 @@ body {
         list-style: square;
         margin: 0 20px;
         font: 14px Georgia, "Times new Roman", times, serif;
-        color: #069;
+        color: var(--color-bluebutton);
         float: left;
         width: 400px;
     }
@@ -1074,7 +1171,7 @@ body {
 
     #single .facilidades {
         font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        color: #333;
+        color: var(--color-darkgray);
         float: left;
         width: 400px;
     }
@@ -1089,8 +1186,8 @@ body {
 
     #single .endereco {
         padding: 10px;
-        background: #333;
-        color: #FFF;
+        background: var(--color-darkgray);
+        color: var(--color-white);
         float: left;
         width: 380px;
         margin: 10px 0;
@@ -1101,8 +1198,12 @@ body {
         width: 336px;
         height: 280px;
         float: left;
-        padding: 0 32;
+        padding: 0;
     }
+
+/*--------------------------------------------------------------------------------------*/
+
+/* PÁGINA - '' */
 
 .form-inline {
     display:flex;
