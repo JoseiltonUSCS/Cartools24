@@ -50,7 +50,7 @@ namespace Cartools.Controllers
                 }
             }
 
-            ModelState.AddModelError("", "Falha ao realizar o login!!");
+            ModelState.AddModelError("", "Usuário ou senha inválida! Tente novamente ou cadastre-se logo abaixo.");
             return View(loginVM);
 
         } 
@@ -77,7 +77,7 @@ namespace Cartools.Controllers
 
                 if (result.Succeeded)
                 {
-                    //await _signInManager.SignInAsync(user, isPersistent: false);
+                    await _signInManager.SignInAsync(user, isPersistent: false);
                     await _userManager.AddToRoleAsync(user, "Member");
                     return RedirectToAction("Login", "Account");
                 }
@@ -102,7 +102,6 @@ namespace Cartools.Controllers
         public IActionResult AccessDenied()
         {
             return View();
-        }        
-
+        }           
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Cartools.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Cartools.Views.Shared.Components
+namespace Cartools.Views.Shared.Components.ServicoMenu
 {
     public class ServicoMenu : ViewComponent
     {

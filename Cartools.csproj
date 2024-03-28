@@ -55,6 +55,7 @@
 
   <ItemGroup>
     <Content Remove="Views\Shared\Components\_PlanoResumo.cshtml" />
+    <Content Remove="Views\Shared\_Inicial.cshtml" />
     <Content Remove="wwwroot\admin52.jpg" />
     <Content Remove="wwwroot\favicon.ico" />
     <Content Remove="wwwroot\images\3.1.jpg" />
@@ -127,6 +128,7 @@
   <ItemGroup>
     <Folder Include="Areas\Parceiro\Data\" />
     <Folder Include="Areas\Parceiro\Models\" />
+    <Folder Include="Migrations\" />
     <Folder Include="wwwroot\images\imgParceiros\" />
     <Folder Include="wwwroot\images\produtos\" />
   </ItemGroup>

@@ -58,7 +58,7 @@ namespace Cartools.Models
             }
             else
             {
-                carrinhoCompraItem.Quantidade++;
+                carrinhoCompraItem.Quantidade = 1;
             }
             _context.SaveChanges();
         }

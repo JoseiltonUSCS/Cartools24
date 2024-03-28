@@ -11,10 +11,16 @@
                 <p class="card-text">
                     <h5>@Model.DescricaoDetalhada</h5>
                     <span>
-                        <!--Lista suspensa para buscar serviços pelo dropdown-->
-                        @await Component.InvokeAsync("ServicoMenu")
                     </span>
                 </p>
+
+
+                @* Lista suspensa para buscar serviços pelo dropdown (desativada/comentada)  
+                   @await Component.InvokeAsync("ServicoMenu")
+                *@
+
+
+
 
                 <p class="btn btn-group align-content-lg-end">
 
@@ -35,13 +41,12 @@
                                 });
                             </script>
                         }
-                    </div>
-
-            
+                    </div>            
                 </p>
             </div>
         </div>
     </div>
 </div>
+
 
 

@@ -1,7 +1,7 @@
 html {
     position: relative;
     min-height: 100%;
-  font-size: 14px;
+    font-size: 14px;
 }
 
 body {
@@ -20,7 +20,10 @@ body {
  border-radius: 15px;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d4c2ddc323acd2c7fbac42daf6254f4e41331f42
 .btnempresa {
     background-color: black;
     border-radius: 9px;
@@ -91,22 +94,66 @@ main {
 #regiao {
     width: 100%;
 }
+
+/* Página - 'Sobre Nós' */
 .sobrenos {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    font-size: 20px;
+    font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
     background-color: #ffffff;
     border-radius: 0 30px;
     border: solid black 1px;
-    text-align: center;
     margin: 30px auto;
     padding: 30px;
-    align-content:center;
 }
-.sobrenos img {
-    width: 400px;
-}
+    .sobrenos .container-conteudo {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .container-conteudo > div {
+        flex: 1;
+        margin-right: 20px;
+    }
+
+    .sobrenos h2 {
+        font: 40px "Trebuchet MS", Arial, Helvetica, sans-serif;
+        font-weight: 800;
+        margin-bottom: 30px;
+    }
+    .sobrenos .container-conteudo p {
+        margin-bottom: 30px;
+        text-align: justify;
+    }
+    .sobrenos .container-conteudo img {
+        max-width: 80%;
+        width: 450px;
+        height: auto;
+    }
+
+    /* 'Media Query' - para telas menores que 800px */
+    @media screen and (max-width: 800px) {
+        .container-conteudo {
+            flex-direction: column;
+        }
+
+        .container-conteudo > div {
+             margin-right: 0; 
+         }
+
+        .sobrenos h2 {
+            font: 25px "Trebuchet MS", Arial, Helvetica, sans-serif;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .sobrenos {
+            font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
+        }
+    }
+
+/*--------------------------------------------------------------------------------------*/
+
 #calendario::placeholder {
     color: white;
     font-weight:bold;
@@ -662,6 +709,7 @@ body {
         width: 720px;
     }
 
+<<<<<<< HEAD
 /*PÁGINA*/
 #pagina {
     background: #fff;
@@ -669,113 +717,112 @@ body {
     margin-bottom: 5px;
     float: left;
     width: 100%;
+=======
+/*--------------------------------------------------------------------------------------*/
+/* PÁGINA - Anunciar */
+
+/* Container para alinhar o título: 'Todos os Planos' */
+.container-planos-titulo {
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px 10px 10px 30px;
+>>>>>>> d4c2ddc323acd2c7fbac42daf6254f4e41331f42
 }
 
-    #pagina h1 {
-        font: 18px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        color: #005789;
-        font-weight: bold;
-        padding: 5px;
-        background: #f4f4f4;
-        margin-bottom: 10px;
-        font-variant: small-caps;
+    .container-planos-titulo h1 {
+        font: 35px "Trebuchet MS", Arial, Helvetica, sans-serif;
+        font-weight: 800;
     }
 
+<<<<<<< HEAD
     #pagina form {
         width:50%;
         padding: 10px;
         background: #999;
         float: right;
     }
+=======
+/* Criando um rounded custom para configurar a borda dos cards de planos, para configurar na linha de estilização BootStrap */
+.rounded-custom {
+    border-radius: 10px;
+}
+>>>>>>> d4c2ddc323acd2c7fbac42daf6254f4e41331f42
 
-    #pagina a {
-        text-decoration: none;
-        color: #069;
-        font-weight: bold;
-        font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
-    }
+/* Container abaixo dos tipos de planos, com as informações dos benefícios de ser parceiro CarTools */
+.beneficios {
+    border-radius: 0 30px;
+    border: solid black 2px;
+    font-size: 18px;
+    margin: 30px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+}
 
-        #pagina a:hover {
-            text-decoration: underline;
-            color: #930;
-        }
+#pagina {
+    background: #fff;
+    padding: 30px;
+    margin-bottom: 5px;
+    width: 100%;
+    font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    text-align: justify;
+}
 
-    #pagina label {
-        display: block;
-        margin-bottom: 5px;
-    }
-
-    #pagina span {
-        display: block;
-        font: 16px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        color: #fff;
-        font-weight: bold;
-    }
-
-    #pagina input {
-        border: 1px solid #333;
-        font: 16px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        color: #666;
-        padding: 3px;
-        width: 494px;
-    }
-
-    #pagina textarea {
-        border: 1px solid #333333;
-        font: 16px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        color: #666;
-        padding: 3px;
-        width: 494px;
-    }
-
-    #pagina fieldset {
-        font: 18px Georgia, "Times New Roman", Times, serif;
-        font-weight: bold;
-        color: #fff;
-        padding-bottom: 10px;
-        font-variant: small-caps;
-    }
-
-    #pagina .btn {
-        width: 100px;
-        padding: 3px;
-        display: block;
-        margin: 0 auto;
-        cursor: pointer;
-        color: #666;
-        background: #fff;
-    }
-
-        #pagina .btn:hover {
-            background: #999;
-            border: 1px solid #fff;
-            color: #333;
-        }
 
     #pagina .anuncie {
+<<<<<<< HEAD
         width: 50%;
         float: left;
         font: 16px "Trebuchet MS", Arial, Helvetica, sans-serif;
         color: #666;
+=======
+        width: auto;
+>>>>>>> d4c2ddc323acd2c7fbac42daf6254f4e41331f42
     }
-
-        #pagina .anuncie p {
-            margin: 10px 0;
+        #pagina .anuncie h2 {
+            font: 40px "Trebuchet MS", Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            margin-bottom: 20px;
         }
+        #pagina .anuncie p {
+            font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
+            font-weight: lighter;
+            text-align: justify;
+        }
+
+    /* Imagem - Benefícios, presente na página 'Anunciar' */
+    .anuncie-imagem {
+        display: flex;
+        justify-content: center;
+    }
+    .anuncie-imagem img {
+        max-width: 80%;
+        width: 450px;
+        height: auto;
+        box-sizing: border-box;
+     }
+
+    /* 'Media Query' - para telas menores que 800px */
+    @media screen and (max-width: 800px) {
 
         #pagina .anuncie h2 {
-            font: 16px "Trebuchet MS", Arial, Helvetica, sans-serif;
-            color: #333;
-            font-variant: small-caps;
+            font: 25px "Trebuchet MS", Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            margin-bottom: 20px;
         }
-
-        #pagina .anuncie a {
-            color: #063;
+        #pagina .anuncie p {
+            font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
         }
+        #pagina .anuncie {
+            font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
+        }
+        
+    }
 
-            #pagina .anuncie a:hover {
-                color: #F60;
-            }
+
+
     /*PÁGINA paginador*/
     #pagina .paginador {
         display: block;
@@ -830,6 +877,8 @@ body {
         color: #900;
     }
 
+/*--------------------------------------------------------------------------------------*/
+
 #single .error {
     font: 14px Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -857,7 +906,7 @@ body {
         list-style: none;
         margin: 0;
         padding: 0;
-        float: lef;
+        float: left;
     }
 
         #single .navegar ul li {
@@ -1101,4 +1150,7 @@ body {
     width: 100%;
     display:flex;
     float:left;
+}
+.precoPlano {
+    font-size: 10px;
 }
