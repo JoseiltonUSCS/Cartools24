@@ -3,47 +3,55 @@
 <div class="container">
     <div class="row">
         <div class="card">
-            <div class="text-center">
-                <img src="@Model.ImagemUrl" class="img-fluid" alt="">
-            </div>
-            <div class="card-block">
-                <h2 class="card-title">@Model.Nome</h2>
-                <p class="card-text">
-                    <h5>@Model.DescricaoDetalhada</h5>
-                    <span>
-                    </span>
-                </p>
+            <div class="conteudo-ver_empresa">
+                <div class="label-para-nome_da_empresa">
+                    <h1>Empresa</h1>
+                </div>
 
+                <h1>@Model.Oficina.OficinaNome</h1>
 
-                @* Lista suspensa para buscar serviços pelo dropdown (desativada/comentada)  
-                   @await Component.InvokeAsync("ServicoMenu")
-                *@
+                <div class="text-center">
+                    <img src="@Model.ImagemUrl" class="img-fluid img-custom" alt="">
+                </div>
 
+                <div class="label-para-nome_do_servico">
+                    <h1>Especialidade</h1>
+                </div>
 
+                <div class="card-block">
+                    <h2 class="card-title">@Model.Nome</h2>
+                    <div class="card-text">
+                        <p>@Model.DescricaoDetalhada</p>
+                    </div>
 
+                    <div class="btn btn-group align-content-lg-end">
+                        <a asp-controller="Servico" asp-action="List"
+                           class="btn btn-outline-info">
+                            Voltar para o menu de Serviços
+                        </a>
 
-                <p class="btn btn-group align-content-lg-end">
+                        <input class="btn btn-success dropdown-toggle" type="datetime" id="calendario" placeholder="Agendar visita" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />&nbsp;
 
-                    <a asp-controller="Servico" asp-action="List"
-                       class="btn btn-outline-info"> Voltar para o menu de Serviços     
-                   </a>       
+                        <a href="https://api.whatsapp.com/send?phone=5511953033392&text=Olá,%20me%20tira%20uma%20dúvida...%20" target="_blank" class="btn btn-success"><img src="~/images/whatsapp.jpg" alt="WhatsApp" /></a>
 
-                    <input class="btn btn-success dropdown-toggle" type="datetime" id="calendario" placeholder="Agendar visita" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />&nbsp;
-                    
-                    <a href="https://api.whatsapp.com/send?phone=5511953033392&text=Olá,%20me%20tira%20uma%20dúvida...%20" target="_blank" class="btn btn-success"><img src="~/images/whatsapp.jpg" alt="WhatsApp" /></a>
-                    <div>
-                        @section Scripts {
-                            <script type="text/javascript">
-                                $(function () {
-                                    $("#calendario").datepicker({
-                                        dateFormat: "dd/mm/yy"
+                        <div>
+                            @section Scripts {
+                                <script type="text/javascript">
+                                    $(function () {
+                                        $("#calendario").datepicker({
+                                            dateFormat: "dd/mm/yy"
+                                        });
                                     });
-                                });
-                            </script>
-                        }
-                    </div>            
-                </p>
+                                </script>
+                            }
+                        </div>
+
+                    </div>
+
+
+                </div>
             </div>
+            
         </div>
     </div>
 </div>
