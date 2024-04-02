@@ -10,18 +10,24 @@
                 <img src="@Model.ImagemUrl" class="img-fluid img-custom" />
             </a>
         </div>
-
-        <div>
-            <span>@Model.Oficina.OficinaLogradouro</span>
-            <span> @Model.Oficina.OficinaNumero</span><br />
-            <span>@Model.Local.Cidade</span> -
-            <span>@Model.Local.Bairro</span><br />
-            <span>@Model.Oficina.OficinaTelefone</span>
-            <h2><a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId">@Model.Nome | Vitrificação | Higienização</a></h2>
-            <div class="descricao-detalhada-empresa">
-                <p>@Model.DescricaoDetalhada</p>
-            </div>
-        </div>
+      
+<div class="col-sm-4 col-md-4 col-lg-4" style="padding:25px;">
+    <p><a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId"><img src="@Model.ImagemUrl" class="img-fluid" /></a></p>
+    <h4><a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId">@Model.Oficina.OficinaNome</a></h4>
+    <p>
+        @Model.Oficina.OficinaLogradouro
+        <span> @Model.Oficina.OficinaNumero</span><br />
+        <span>@Model.Local.Cidade</span> -
+        <span>@Model.Local.Bairro</span><br />
+        <span>@Model.Oficina.OficinaTelefone</span>    
+        <h5>
+            <a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId">@Model.Nome</a>
+        </h5>
+        <p>@Model.DescricaoDetalhada<br/>
+        <strong>@Model.Preco.ToString("c")</strong>
+    </p>
+ 
+    <div>
 
         <div>
             <div>

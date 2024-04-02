@@ -7,7 +7,6 @@ namespace Cartools.Models
     public class CarrinhoCompraItem
     {
         public int CarrinhoCompraItemId { get; set; }
-        public Servico Servico { get; set; }
         public Plano Plano { get; set; }
         public int Quantidade { get; set; }
 

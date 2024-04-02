@@ -1217,3 +1217,8 @@ body {
     height:35px;
     margin-left:5px;
 }
+.benvindo {
+    width: 100%;
+    display:flex;
+    float:left;
+}

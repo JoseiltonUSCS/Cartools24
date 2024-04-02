@@ -55,7 +55,6 @@
 
   <ItemGroup>
     <Content Remove="Views\Shared\Components\_PlanoResumo.cshtml" />
-    <Content Remove="Views\Shared\_PlanosResumo.cshtml" />
     <Content Remove="wwwroot\admin52.jpg" />
     <Content Remove="wwwroot\favicon.ico" />
     <Content Remove="wwwroot\images\3.1.jpg" />
