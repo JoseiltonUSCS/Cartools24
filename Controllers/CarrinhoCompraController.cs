@@ -4,6 +4,7 @@ using Cartools.Repositories.Interfaces;
 using Cartools.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Cartools.Repositories;
+using System.Linq;
 
 namespace Cartools.Controllers
 {
@@ -31,8 +32,7 @@ namespace Cartools.Controllers
 
             return View(carrinhoCompraVM);
         }
-
-        [Authorize]
+       
         public IActionResult AdicionarItemNoCarrinhoCompra(int planoId)
         {
             var planoSelecionado = _planoRepository.Planos
@@ -40,11 +40,11 @@ namespace Cartools.Controllers
 
             if (planoSelecionado != null)
             {
+                _carrinhoCompra.LimparCarrinho();
                 _carrinhoCompra.AdicionarAoCarrinho(planoSelecionado);
             }
             return RedirectToAction("Index");
         }
-        [Authorize]
         public IActionResult RemoverItemDoCarrinhoCompra(int planoId)
         {
             var planoSelecionado = _planoRepository.Planos
@@ -55,6 +55,6 @@ namespace Cartools.Controllers
                 _carrinhoCompra.RemoverDoCarrinho(planoSelecionado);
             }
             return RedirectToAction("Index");
-        }        
+        }
     }
 }

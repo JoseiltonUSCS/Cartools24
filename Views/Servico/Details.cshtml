@@ -11,10 +11,16 @@
                 <p class="card-text">
                     <h5>@Model.DescricaoDetalhada</h5>
                     <span>
-                        <!--Lista suspensa para buscar serviços pelo dropdown-->
-                        @await Component.InvokeAsync("ServicoMenu")
                     </span>
                 </p>
+
+
+                @* Lista suspensa para buscar serviços pelo dropdown (desativada/comentada)  
+                   @await Component.InvokeAsync("ServicoMenu")
+                *@
+
+
+
 
                 <p class="btn btn-group align-content-lg-end">
 
@@ -22,10 +28,7 @@
                        class="btn btn-outline-info"> Voltar para o menu de Serviços     
                    </a>       
 
-                    <input class="btn btn-success dropdown-toggle" type="datetime" id="calendario" placeholder="Agendar visita" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />&nbsp;
-                    
-                    <a href="https://api.whatsapp.com/send?phone=5511953033392&text=Olá,%20me%20tira%20uma%20dúvida...%20" target="_blank" class="btn btn-success"><img src="~/images/whatsapp.jpg" alt="WhatsApp" /></a>
-                    <div>
+                    <input class="btn btn-primary dropdown-toggle" type="datetime" id="calendario" placeholder="Agendar visita" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />&nbsp;
                         @section Scripts {
                             <script type="text/javascript">
                                 $(function () {
@@ -35,13 +38,13 @@
                                 });
                             </script>
                         }
-                    </div>
 
-            
+                        <a href="https://api.whatsapp.com/send?phone=5511953033392&text=Olá,%20me%20tira%20uma%20dúvida...%20" target="_blank" class="btn btn-success"><img src="~/images/whatsapp.jpg" alt="WhatsApp" /></a>
                 </p>
             </div>
         </div>
     </div>
 </div>
+
 
 

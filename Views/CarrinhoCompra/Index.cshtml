@@ -1,62 +1,64 @@
 ﻿@model CarrinhoCompraViewModel
 
 <div class="Container">
-    <div class="row checkoutForm">
+    <div class="row checkoutForm" style="padding: 15px;">
 
         <div>
             <img src="~/images/Full-Cart-icon.png" width="30" height="35" /> 
             <h4>Seu carrinho de compras : </h4>
         </div>
 
-        <table class="table table-bordered table-striped">
+        <div class="text-dark">
+            <table class="table table-bordered table-striped">
 
-            <thead>
-                <tr>
-                    <th>Quantidade</th>
-                    <th>Plano</th>
-                    <th class="text-right">Preço</th>
-                    <th class="text-right">Subtotal</th>
-                    <th></th>
-                </tr>
-            </thead>
-
-            <tbody>
-                @foreach (var item in Model.CarrinhoCompra.CarrinhoCompraItems)
-                {
+                <thead>
                     <tr>
-                        <td class="text-center">@item.Quantidade</td>
-                        <td class="text-left">@item.Plano.PlanoNome</td>
-                        <td class="text-right">@item.Plano.PlanoPreco.ToString("c")</td>
+                        <th>Quantidade</th>
+                        <th>Plano</th>
+                        <th class="text-right">Preço</th>
+                        <th class="text-right">Subtotal</th>
+                        <th></th>
+                    </tr>
+                </thead>
 
+                <tbody>
+                    @foreach (var item in Model.CarrinhoCompra.CarrinhoCompraItems)
+                    {
+                        <tr>
+                            <td class="text-center">@item.Quantidade</td>
+                            <td class="text-left">@item.Plano.PlanoNome</td>
+                            <td class="text-right">@item.Plano.PlanoPreco.ToString("c")</td>
+
+                            <td class="text-right">
+                                @((item.Quantidade * item.Plano.PlanoPreco).ToString("c"))
+                            </td>
+
+                            <td class="text-center">
+                                <a asp-controller="CarrinhoCompra" asp-action="RemoverItemDoCarrinhoCompra"
+                                   asp-route-planoId="@item.Plano.PlanoId">
+                                    <img src="~/images/delete.png" width="20px" height="20px" />
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" class="text-right">Total:</td>
                         <td class="text-right">
-                            @((item.Quantidade * item.Plano.PlanoPreco).ToString("c"))
-                        </td>
-
-                        <td class="text-center">
-                            <a asp-controller="CarrinhoCompra" asp-action="RemoverItemDoCarrinhoCompra"
-                               asp-route-planoId="@item.Plano.PlanoId">
-                                <img src="~/images/delete.png" width="20px" height="20px" />
-                            </a>
+                            @Model.CarrinhoCompraTotal.ToString("c")
                         </td>
                     </tr>
-                }
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="3" class="text-right">Total:</td>
-                    <td class="text-right">
-                        @Model.CarrinhoCompraTotal.ToString("c")
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
+                </tfoot>
+            </table>
+        </div>
 
 
         <div class="text-right">
             <div class="btn-group">
                 <a class="btn btn-success" asp-controller="Pedido" asp-action="Checkout">Encerrar Pedido</a>
                 &nbsp;&nbsp;&nbsp;
-                <a class="btn btn-primary" asp-controller="Plano" asp-action="List">Continuarrrrrrrrrrrrrr Comprando</a>
+                <a class="btn btn-primary" asp-controller="Plano" asp-action="Index">Trocar de Plano</a>
             </div>
         </div>
         <br />

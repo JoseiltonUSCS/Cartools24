@@ -1,117 +1,32 @@
 ﻿@model PlanoListViewModel
 
-<div>
-    <h2>Todos os planos...Lorem ipsum blá blá blá</h2>    
-</div>
-
 <div class="container">
     <div class="row">
         @foreach (var plano in Model.Planos)
         {
-            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                <p><img src=" @plano.PlanoImagem" class="img-fluid" /></p>
-                <h3>@plano.PlanoNome</h3>
-                <h6>@plano.PlanoDescricao<span> lorem ipsum blá blá blá etic apa aemada a dafdfam adadfa </span></h6>
-                <h5><strong>@plano.PlanoPreco.ToString("c")</strong></h5>
-            </div>
+            <partial name="_PlanosResumo" for="@plano" />
         }
     </div>
-</div>
-<div class="jumbotron">
-    <div class="beneficios">
-        <div id="pagina">
-            <div class="anuncie">
-                <h2>Cadastre-se e anuncie:</h2><br />
-                <h2>
-                    Nossa motivação consiste em ajudar as empresas PARCEIRAS a conseguir captar um maior número de clientes com o menor esforço possível. <br /><br />
 
-                    O Sistema de anúncios da Cartools é totalmente automatizado. Você se cadastra e tem acesso a um painel de controle com uma área de membros onde você poderá:
-                </h2><br />
-                <ul>
-                    <li>&raquo; Cadastrar seus serviços </li>
-                    <li>&raquo; Editar seus Anúncios</li>
-                    <li>&raquo; Responder mensagens </li>
-                    <li>&raquo; Efetuar pagamentos </li>
-                    <li>&raquo; Alterar seus dados </li>
-                    <li>&raquo; e muito mais... </li>
-                </ul>
-                <h3>
-                    Assine agora e comece a anunciar seus serviços no maior portal de Estética Automotiva da web!<br />
+    <!--
+    <div id="pagina">
+        <div class="anuncie">
+            <h1>Anuncie</h1>
+            <h2>Cadastre-se e anuncie:</h2>
+            <p>
+                Nossa motivação consiste em ajudar as empresas PARCEIRAS a conseguir captar um maior número de clientes com o menor esforço possível. <br /><br />
 
-                </h3>
-            </div>
-        </div>
-        <img src="~/images/imgBeneficios.png" />
-
-        <form name="cadastra_cliente" id="cadastra_cliente" method="post" action="index.php?pg=anunciar_ok" enctype="multipart/form-data">
-
-            <fieldset>
-                <legend>Cadastre-se e Anuncie</legend>
-
-                <label>
-                    <span>Nome Completo:</span>
-                    <input type="text" name="nome" />
-                </label>
-
-                <label>
-                    <span>E-mail:</span>
-                    <input type="text" name="email" />
-                </label>
-
-                <label>
-                    <span>Senha:</span>
-                    <input type="password" name="senha" />
-                </label>
-
-                <label>
-                    <span>Telefone:</span>
-                    <input type="text" name="telefone" />
-                </label>
-
-
-                <input type="submit" name="cadastracliente" value="Cadastrar" class="btn" />
-
-
-            </fieldset>
-
-        </form>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        @foreach (var plano in Model)
-        {
-            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                <p><img src=" @plano.PlanoImagem" class="img-fluid" /></p>
-                <h3>@plano.PlanoNome</h3>
-                <h6>@plano.PlanoDescricao<span> lorem ipsum blá blá blá etic apa aemada a dafdfam adadfa </span></h6>
-                <h5><strong>@plano.PlanoPreco.ToString("c")</strong></h5>
-            </div>
-        }
-    </div>
-</div>
-
-<div class="jumbotron mt-5">
-    <div class="planos">
-        <div class="plano">
-            <h3>Mensal</h3><br />
-            <p>R$<strong>74,90</strong>/mês</p>
-            <p>Descrição: O plano mensal oferece...</p> <br />
-            <button class="btnPlano">Assinar</button>
-        </div>
-        <div class="plano">
-            <h3>Semestral</h3><br />
-            <p>R$ <strong>64,90</strong>/mês</p>
-            <p>Descrição: O plano semestral oferece...</p> <br />
-            <button class="btnPlano">Assinar</button>
-        </div>
-        <div class="plano">
-            <h3>Anual</h3><br />
-            <p>R$ <strong>49,90</strong>/mês</p>
-            <p>Descrição: O plano anual oferece...</p> <br />
-            <button class="btnPlano">Assinar</button>
+                O Sistema de anúncios da Cartools é totalmente automatizado. Você se cadastra e tem acesso a um painel de controle com uma área de membros onde você poderá: <br /><br />
+                &raquo; Cadastrar seus serviços<br />
+                &raquo; Incluir fotos<br />
+                &raquo; Criar e Editar seus Anúncios<br />
+            </p>
+            <p>
+                Assine agora e comece a anunciar seus serviços no maior portal de Estética Automotiva da web!<br />
+            </p>
         </div>
     </div>
+    -->
 </div>
+
 <a asp-area="" asp-controller="Home" asp-action="Index">Voltar à Home</a>

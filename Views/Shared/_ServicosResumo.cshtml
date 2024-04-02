@@ -2,7 +2,7 @@
 
 
 
-<div class="col-sm-4 col-md-4 col-lg-4" style="padding:25px;">
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" style="padding:25px;">
     <p><a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId"><img src="@Model.ImagemUrl" class="img-fluid" /></a></p>
     <h4><a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId">@Model.Oficina.OficinaNome</a></h4>
     <p>
@@ -17,25 +17,18 @@
         <p>@Model.DescricaoDetalhada<br/>
         <strong>@Model.Preco.ToString("c")</strong>
     </p>
- 
-    <div>
-        
-        <div>
-            <input class="btn btn-success dropdown-toggle" type="datetime" id="calendario" placeholder="Agendar visita" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
-
-            <a href="https://api.whatsapp.com/send?phone=5511960747570&text=Olá,%20me%20tira%20uma%20dúvida...%20" target="_blank" class="btn btn-success"><img src="~/images/whatsapp.jpg" alt="WhatsApp" /></a>
-            
-        </div>
-        @section Scripts {
+    <p>
+        <input class="btn btn-primary dropdown-toggle" type="datetime" id="calendario" placeholder="Agendar visita" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />&nbsp;
+            @section Scripts {
             <script type="text/javascript">
                 $(function () {
-                    $("#calendario").datepicker();
+                    $("#calendario").datepicker({
+                        dateFormat: "dd/mm/yy"
+                    });
                 });
             </script>
-        }
-        <hr>
-        <br />
-    </div>
-
-
+            }
+        <a href="https://api.whatsapp.com/send?phone=5511960747570&text=Olá,%20me%20tira%20uma%20dúvida...%20" target="_blank" class="btn btn-success"><img src="~/images/whatsapp.jpg" alt="WhatsApp" /></a>
+    </p>
+    <hr>  
 </div>

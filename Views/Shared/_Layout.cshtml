@@ -63,59 +63,6 @@
                 </div>
             </nav>
 
-            <!--Campos de busca no banner - select -->
-            <div class="card text-dark" style="padding:0;">
-                <div class="card-body" style="padding:0;">
-                    <img class="card-img" src="~/images/bannerRascunhoAltura (2).png" />
-                    <div class="card-img-overlay">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <h1 class="card-title mx-4">CarTools</h1>
-                                <p class="card-text mx-4">
-                                    Lorem ipsum dolor sit amet consectetur !<br />
-                                    A <strong>Cartools</strong> edipiscing elit donec vel egestas dolor, nec dignissim metus!
-                                </p>
-                            </div>
-                            <div class="col-md-4">
-                                <h4>Encontre a loja mais perto de você!</h4>
-
-                                <div class="d-flex flex-column">
-                                    <form asp-controller="Servico" asp-action="Search" method="get" name="searchString" value="@ViewData["searchString"]" class="form-inline pull-right" style="margin-top:15px;">
-                                        <select class="form-select form-select-sm mb-4" name="searchString" value="@ViewData["searchString"]" aria-label=".form-select-sm example" style="width: 300px; font-size:1em;">
-                                            <option selected>Serviços</option>
-                                            <option value="Polimento">Polimento</option>
-                                            <option value="Cristalização">Cristalização</option>
-                                            <option value="Lavagem Simples">Lavagem Simples</option>
-                                            <option value="Martelinho de Ouro">Martelinho de Ouro</option>
-                                            <option value="Envelopamento">Envelopamento</option>
-                                            <option value="Pintura">Pintura</option>
-                                            <option value="OxiSanitização">OxiSanitização</option>
-                                            <option value="Higienização">Higienização</option>
-                                            <option value="Funilaria e Pintura">Funilaria e Pintura</option>
-                                        </select>
-                                        <button class="btn btn-primary botaoBusca" type="submit">Ok</button>
-                                    </form>
-                                  
-                                        <form asp-controller="Servico" asp-action="List" method="get" name="local" value="@ViewData["local"]" class="form-inline pull-right">
-                                        <select class="form-select form-select-sm" name="local" value="@ViewData["local"]" aria-label=".form-select-sm example" style="width: 300px;font-size:1em; ">
-                                            <option selected>Cidade</option>
-                                            <option value="Santo André">Santo André</option>
-                                            <option value="São Bernardo do Campo">São Bernardo do Campo</option>
-                                            <option value="São Caetano do Sul">São Caetano do Sul</option>
-                                            <option value="São Paulo">São Paulo</option>
-                                        </select>
-                                        <button class="btn btn-primary botaoBusca" type="submit">Ok</button>
-                                    </form>
-
-
-                                </div>
-                            </div>
-                            <div class="col-md-4"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!-- Opção 2 - Datalist -->
             <!--
               <div class="card text-dark">

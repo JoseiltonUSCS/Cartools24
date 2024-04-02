@@ -1,6 +1,6 @@
 ﻿@model Plano
 
-<div class="planoCard col-sm-4 col-md-4 col-lg-4 col-xl-4 " style="margin-top:20px;">
+<div class="planoCard col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 " style="margin-top:20px;">
     <a asp-controller="Plano" asp-action="Details" asp-route-planoId="@Model.PlanoId"><img src=" @Model.PlanoImagem" class="img-fluid" /></a>
     <div class="anuncioDetalhes" style="margin-left: 20px;">
         <h3><a asp-controller="Plano" asp-action="Details" asp-route-planoId="@Model.PlanoId"> @Model.PlanoNome</a></h3>

@@ -1,88 +1,75 @@
 ﻿@model HomeViewModel
-<br />
-
-<!--
-    <h2>Ver como funciona o código do datalist para usar na busca dos 2 filtros se complementando e formatar o css da div abaixo baseado na foto e depois deletar a foto</h2>
-
-<div id="header">
-    <div id="header_navegar">        
-        <div id="header_navegar_central">            
-            <div id="header_navegar_central_login">
-                <form name="central_login" action="Login ?>" method="POST">
-                    <label>
-                        <span> E-mail:</span>
-                        <input type="text" name="usuario" />
-                    </label>
-                    <label>
-                        <span class="senha_txt">Senha:</span>
-                        <input type="password" name="senha" class="senha" />
-                        <input type="submit" name="Enviar" value="" class="btn" />
-                    </label>
-                </form>
-                <p><a href="#">[Esqueci minha senha]</a></p>
-            </div>
-            <div id="header_navegar_central_anuncie">
-                <div class="header_navegar_central_anuncie">
-                    <a href="#">Clique aqui e Anuncie</a>
-                    <p>Anuncie conosco. Esta é a melhor maneira de vender ou alugar o seu imóvel</p>
+<!--Banner com Campos de busca - select-->
+<div id="banner" class="card text-dark" style="padding:10px;">
+    <div class="card-body" style="padding:0;">
+        <!--
+        <img class="card-img" src="~/images/bannerRascunhoAltura (2).png" />
+        -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                    <h1 class="card-title mx-4">CarTools</h1>
+                    <p class="card-text mx-4">
+                        Lorem ipsum dolor sit amet consectetur !<br />
+                        A <strong>Cartools</strong> edipiscing elit donec vel egestas dolor, nec dignissim metus!
+                    </p>
                 </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                    <h4>Encontre a loja mais perto de você!</h4>
+
+                    <div class="d-flex flex-column">
+                        <form asp-controller="Servico" asp-action="Search" method="get" name="searchString" value="@ViewData["searchString"]" class="form-inline pull-right" style="margin-top:15px;">
+
+                            <div class="d-flex flex-row" style="align-items:center;">
+                                <select class="form-select form-select-sm mb-4" name="searchString" value="@ViewData["searchString"]" aria-label=".form-select-sm example" style="width: 300px; font-size:1.2em;">
+                                    <option selected>Serviços</option>
+                                    <option value="Polimento">Polimento</option>
+                                    <option value="Cristalização">Cristalização</option>
+                                    <option value="Lavagem Simples">Lavagem Simples</option>
+                                    <option value="Martelinho de Ouro">Martelinho de Ouro</option>
+                                    <option value="Envelopamento">Envelopamento</option>
+                                    <option value="Pintura">Pintura</option>
+                                    <option value="OxiSanitização">OxiSanitização</option>
+                                    <option value="Higienização">Higienização</option>
+                                    <option value="Funilaria e Pintura">Funilaria e Pintura</option>
+                                </select>
+                                <button class="btn btn-primary " type="submit" style="float:left; width:50px; height:35px; margin:0 0 22px 10px;">Ok</button>
+                            </div>
+                        </form>
+
+                            <form asp-controller="Servico" asp-action="List" method="get" name="local" value="@ViewData["local"]" class="form-inline pull-right">
+
+                                <div class="d-flex flex-row" style="align-items:center;">
+                                    <select class="form-select form-select-sm" name="local" value="@ViewData["local"]" aria-label=".form-select-sm example" style="width: 300px;font-size:1.2em; ">
+                                        <option selected>Cidade</option>
+                                        <option value="Santo André">Santo André</option>
+                                        <option value="São Bernardo do Campo">São Bernardo do Campo</option>
+                                        <option value="São Caetano do Sul">São Caetano do Sul</option>
+                                        <option value="São Paulo">São Paulo</option>
+                                    </select>
+                                    <button class="btn btn-primary " type="submit" style="float:left; width:50px; height:35px; margin-left:10px;">Ok</button>
+                                </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xl-4"></div>
             </div>
-        </div>
-        <div id="header_navegar_filtro">            
-            <h2>Encontre aqui a loja mais próxima!!</h2> 
-            <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
-                <option selected>Serviços</option>
-                <option value="12">Polimento</option>
-                <option value="14">Cristalização</option>
-                <option value="15">Lavagem Simples</option>
-                <option value="17">Martelinho de Ouro</option>
-                <option value="18">Envelopamento</option>
-                <option value="19">Pintura</option>
-                <option value="20">OxiSanitização</option>
-                <option value="21">Higienização</option>
-                <option value="22">Funilaria e Pintura</option>
-            </select>
-            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                <option selected>Cidade</option>
-                <option value="1">Santo André</option>
-                <option value="2">São Bernardo</option>
-                <option value="3">São Caetano</option>
-                <option value="4">São Paulo</option>
-            </select>
-        </div>
-        <div id="header_navegar_publicidade">
-            <h1>Publicidade</h1>
-            <a href="#"><img src="~/images/71.png" alt="" title="" style="width:180px; height:200px" /></a>
-        </div>
     </div>
 </div>
 
-<hr />
-    <div>
-        <img src="~/images/bannerPhp.jpg" />&nbsp;
-    </div><br/>
-<hr />
-            
--->
 <div class="row">
     @foreach (var servico in Model.ServicosPreferidos)
     {
             <partial name="_ServicosResumo" for="@servico"/>
     }
 </div>
-
-<!--Lembrete temporário-->
-    <hr />
-    <h4>Estudando a pagina de Anuncio + Carrinho de Compras</h4>
-    <h3>Ver aula 62 e anteriores </h3>
-    <hr />
-
-
-
-<!--Inicial(rascunho)
-    <partial name="_Inicial" />
-
--->
-<!--Carrossel(antigo)
-    <partial name="_Carousel" />
--->
+<div>
+    <nav aria-label="Page navigation">
+        <ul class="mt-4 pagination pagination-md d-flex justify-content-center">
+            <li class="page-item"><a class="page-link text-dark" href="#">Anterior</a></li>
+            <li class="page-item"><a class="page-link text-dark" href="#">1</a></li>
+            <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
+            <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
+            <li class="page-item"><a class="page-link text-dark" href="#">Próxima</a></li>
+        </ul>
+    </nav>
+</div>

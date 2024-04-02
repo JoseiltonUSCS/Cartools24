@@ -9,7 +9,6 @@ namespace Cartools.ViewModels
         public string UserName { get; set; }
 
 
-
         [Required(ErrorMessage ="Informe a senha")]
         [DataType(DataType.Password)]
         [Display(Name = "Senha")]
