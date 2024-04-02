@@ -1,8 +1,17 @@
 ﻿@model Servico
 
-
-
-<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" style="padding:25px;">
+<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 border border-dark p-3 text-center bg-white rounded-custom">
+    <div class="conteudo-card-empresa">
+        <h1>
+            <a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId">@Model.Oficina.OficinaNome</a>
+        </h1>
+        <div>
+            <a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId">
+                <img src="@Model.ImagemUrl" class="img-fluid img-custom" />
+            </a>
+        </div>
+      
+<div class="col-sm-4 col-md-4 col-lg-4" style="padding:25px;">
     <p><a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId"><img src="@Model.ImagemUrl" class="img-fluid" /></a></p>
     <h4><a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId">@Model.Oficina.OficinaNome</a></h4>
     <p>

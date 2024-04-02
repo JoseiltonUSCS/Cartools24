@@ -55,6 +55,6 @@ namespace Cartools.Controllers
                 _carrinhoCompra.RemoverDoCarrinho(planoSelecionado);
             }
             return RedirectToAction("Index");
-        }
+        }       
     }
 }

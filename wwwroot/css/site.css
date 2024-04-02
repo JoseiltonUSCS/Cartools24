@@ -1,3 +1,18 @@
+:root {
+    --color-lightgray: #D9D9D9;
+    --color-white: #fff;
+    --color-darkgray: #383939;
+    --color-black: #1F2024;
+    --color-gray: #A6A6A6;
+    --color-greenbutton: #DBF227;
+    --color-bluebutton: #0087CC;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
 html {
     position: relative;
     min-height: 100%;
@@ -21,9 +36,9 @@ body {
 }
 
 .btnempresa {
-    background-color: black;
+    background-color: var(--color-black);
     border-radius: 9px;
-    color: white;
+    color: var(--color-white);
     margin-top: 20px;
     margin-left: 40px;
     width: 150px;
@@ -33,21 +48,19 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    color: black;
+    color: var(--color-black);
     background-color: deepskyblue;
 }
 .btnPlano {
-    background-color: yellow;
+    background-color: var(--color-greenbutton);
     width: 180px;
     height: 40px;
     border-radius: 5px;
 }
-footer {
-    /* background-color: pink; */
-}
+
 .form-busca {
     height: 50px;
-    border: solid black 2px;
+    border: solid var(--color-black) 2px;
     display: flex;
     flex-direction: row;
     object-fit: contain;
@@ -57,11 +70,13 @@ footer {
     margin: 10px 30px;
 }
 .informacoes a {
-        color: black;
+        color: var(--color-black);
 }
 main {
     display: flex;
-    flex-direction: row;}
+    flex-direction: row;
+}
+
 .planos {
     display: flex;
     flex-direction: row;
@@ -70,19 +85,19 @@ main {
     width: calc(100% - 30px);
 }
 .plano {
-    border: solid black 3px;
+    border: solid var(--color-black) 3px;
     width: 300px;
     text-align: center;
     margin: 15px auto;
     padding: 15px;
     font-size: 18px;
-    background-color: #ffffff;
+    background-color: var(--color-white);
 }
 .plano p:nth-of-type(2) {
     font-size:30px;
 }
 .parcPlans {
-    background-color: gray;
+    background-color: var(--color-gray);
 }
 .parcPlans h2{
     margin-left: 80px;
@@ -91,86 +106,19 @@ main {
     width: 100%;
 }
 
-/* Página - 'Sobre Nós' */
-.sobrenos {
-    font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
-    background-color: #ffffff;
-    border-radius: 0 30px;
-    border: solid black 1px;
-    margin: 30px auto;
-    padding: 30px;
-}
-    .sobrenos .container-conteudo {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-    .container-conteudo > div {
-        flex: 1;
-        margin-right: 20px;
-    }
-
-    .sobrenos h2 {
-        font: 40px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        font-weight: 800;
-        margin-bottom: 30px;
-    }
-    .sobrenos .container-conteudo p {
-        margin-bottom: 30px;
-        text-align: justify;
-    }
-    .sobrenos .container-conteudo img {
-        max-width: 80%;
-        width: 450px;
-        height: auto;
-    }
-
-    /* 'Media Query' - para telas menores que 800px */
-    @media screen and (max-width: 800px) {
-        .container-conteudo {
-            flex-direction: column;
-        }
-
-        .container-conteudo > div {
-             margin-right: 0; 
-         }
-
-        .sobrenos h2 {
-            font: 25px "Trebuchet MS", Arial, Helvetica, sans-serif;
-            font-weight: 800;
-            margin-bottom: 15px;
-        }
-
-        .sobrenos {
-            font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        }
-    }
-
-/*--------------------------------------------------------------------------------------*/
-
-#calendario::placeholder {
-    color: white;
-    font-weight:bold;
-    font-size: 15px;
-}
 
 /*--------------------------------------------------------------------------------------*/
 /*Página*/
-* {
-    margin: 0;
-    padding: 0;
-}
+
 
 body {
-    background-color: #383939;
+    background-color: var(--color-darkgray);
 }
 /* Conteúdo Página */
 #box {
     width: 860px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: var(--color-white);
 }
 
 /*PÁGINA*/
@@ -181,6 +129,77 @@ body {
     float: left;
     width: 100%;
 }
+/*--------------------------------------------------------------------------------------*/
+/* Página - 'Sobre Nós' */
+.sobrenos {
+    font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    background-color: var(--color-white);
+    border-radius: 0 30px;
+    border: solid black 1px;
+    margin: 30px auto;
+    padding: 30px;
+}
+
+    .sobrenos .container-conteudo {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+.container-conteudo > div {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.sobrenos h2 {
+    font: 40px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.sobrenos .container-conteudo p {
+    margin-bottom: 30px;
+    text-align: justify;
+}
+
+.sobrenos .container-conteudo img {
+    max-width: 80%;
+    width: 450px;
+    height: auto;
+}
+
+/* 'Media Query' - para telas menores que 800px */
+@media screen and (max-width: 800px) {
+    .container-conteudo {
+        flex-direction: column;
+    }
+
+        .container-conteudo > div {
+            margin-right: 0;
+        }
+
+    .sobrenos h2 {
+        font: 25px "Trebuchet MS", Arial, Helvetica, sans-serif;
+        font-weight: 800;
+        margin-bottom: 15px;
+    }
+
+    .sobrenos {
+        font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    }
+}
+
+/*--------------------------------------------------------------------------------------*/
+
+#calendario::placeholder {
+    color: var(--color-white);
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
 /*--------------------------------------------------------------------------------------*/
 /* PÁGINA - Anunciar */
 
@@ -210,13 +229,13 @@ body {
 /* Container abaixo dos tipos de planos, com as informações dos benefícios de ser parceiro CarTools */
 .beneficios {
     border-radius: 0 30px;
-    border: solid black 2px;
+    border: solid var(--color-black) 2px;
     font-size: 18px;
     margin: 30px;
     padding: 20px;
     display: flex;
     flex-direction: row;
-    background-color: white;
+    background-color: var(--color-white);
 }
 
 #pagina {
@@ -274,10 +293,9 @@ body {
         }
         
     }
+/*--------------------------------------------------------------------------------------*/
 
-
-
-    /*PÁGINA paginador*/
+    /* PÁGINA - paginador */
     #pagina .paginador {
         display: block;
         float: right;
@@ -287,7 +305,7 @@ body {
     #pagina .anuncie_ok h2 {
         font: 18px "Trebuchet MS", Arial, Helvetica, sans-serif;
         font-weight: bold;
-        color: #069;
+        color: var(--color-bluebutton);
         text-transform: uppercase;
         margin: 0 0 5px 0;
     }
@@ -320,7 +338,7 @@ body {
         font: 16px Arial, Helvetica, sans-serif;
         font-weight: bold;
         padding: 5px;
-        color: #069;
+        color: var(--color-bluebutton);
         background: #fff;
         margin: 0 0 10px 0;
     }
