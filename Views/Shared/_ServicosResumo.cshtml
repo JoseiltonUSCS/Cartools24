@@ -1,7 +1,16 @@
 ﻿@model Servico
 
-
-
+<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 border border-dark p-3 text-center bg-white rounded-custom">
+    <div class="conteudo-card-empresa">
+        <h1>
+            <a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId">@Model.Oficina.OficinaNome</a>
+        </h1>
+        <div>
+            <a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId">
+                <img src="@Model.ImagemUrl" class="img-fluid img-custom" />
+            </a>
+        </div>
+      
 <div class="col-sm-4 col-md-4 col-lg-4" style="padding:25px;">
     <p><a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId"><img src="@Model.ImagemUrl" class="img-fluid" /></a></p>
     <h4><a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId">@Model.Oficina.OficinaNome</a></h4>
@@ -19,23 +28,20 @@
     </p>
  
     <div>
-        
+
         <div>
-            <input class="btn btn-success dropdown-toggle" type="datetime" id="calendario" placeholder="Agendar visita" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
-
-            <a href="https://api.whatsapp.com/send?phone=5511960747570&text=Olá,%20me%20tira%20uma%20dúvida...%20" target="_blank" class="btn btn-success"><img src="~/images/whatsapp.jpg" alt="WhatsApp" /></a>
-            
+            <div>
+                <input class="btn btn-success dropdown-toggle" type="datetime" id="calendario" placeholder="Agendar visita" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
+                <a href="https://api.whatsapp.com/send?phone=5511960747570&text=Olá,%20me%20tira%20uma%20dúvida...%20" target="_blank" class="btn btn-success"><img src="~/images/whatsapp.jpg" alt="WhatsApp" /></a>
+            </div>
+            @section Scripts {
+                <script type="text/javascript">
+                    $(function () {
+                        $("#calendario").datepicker();
+                    });
+                </script>
+            }
         </div>
-        @section Scripts {
-            <script type="text/javascript">
-                $(function () {
-                    $("#calendario").datepicker();
-                });
-            </script>
-        }
-        <hr>
-        <br />
     </div>
-
-
+    
 </div>
