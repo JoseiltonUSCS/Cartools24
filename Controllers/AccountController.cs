@@ -50,7 +50,7 @@ namespace Cartools.Controllers
                 }
             }
 
-            ModelState.AddModelError("", "Usuário ou senha inválida! Tente novamente ou cadastre-se logo abaixo.");
+            ModelState.AddModelError("", "Usuário ou senha não encontrados! Tente novamente ou cadastre-se logo abaixo.");
             return View(loginVM);
 
         } 
