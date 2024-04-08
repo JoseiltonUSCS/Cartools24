@@ -213,10 +213,22 @@ body {
     }
 
 
+    /* Configuração css do 'filtro ativo' para mostrar o filtro que foi aplicado na pesquisa */
+    .filtro-ativo {
+        padding: 10px;
+        margin-bottom: -10px;
+    }
+        .filtro-ativo p {
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+        .filtro-ativo h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
 
 /*--------------------------------------------------------------------------------------*/
 /* PÁGINA - 'Ver Empresa' (Details.cshtml) */
-
 .container-ver_empresa {
     padding: 35px;
 }
