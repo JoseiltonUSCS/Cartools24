@@ -18,7 +18,7 @@ namespace Cartools.Controllers
 
             var locaisListViewModel = new LocalListViewModel();
             locaisListViewModel.Locals = _localRepository.Locals;
-            locaisListViewModel.ServicoAtual = "Aqui será apresentada a lista das cidades de atuação. Isso está vindo de LocalController e será apresentado na Local/List que está referenciando LocalListViewModel que representa a minha ViewModel(lembrar de apagar depois e substituir por algo mais relevante.) ";
+            locaisListViewModel.ServicoAtual = "Aqui será apresentada...???";
 
             return View(locaisListViewModel);
 
