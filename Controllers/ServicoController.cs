@@ -60,12 +60,12 @@ namespace Cartools.Controllers
             IEnumerable<Servico> servicos;
             string localAtual = string.Empty;
            
-            if (string.IsNullOrEmpty(searchString) && string.IsNullOrEmpty(local))                 
+            if ((searchString == "Serviço") && (local == "Cidade"))                 
             {
                 servicos = _servicoRepository.Servicos.OrderBy(s => s.Nome);
                 localAtual = "Todos os Servicos encontrados";      
             }
-            else if(!string.IsNullOrEmpty(searchString) && string.IsNullOrEmpty(local))
+            else if(!(searchString == "Serviço") && (local == "Cidade"))
             {
                 //Filtrar por Serviço
                 servicos = _servicoRepository.Servicos
@@ -74,14 +74,14 @@ namespace Cartools.Controllers
                 if (servicos.Any())
                     localAtual = "Resultado da busca por Serviço:";
             }
-            else if(string.IsNullOrEmpty(searchString) && !string.IsNullOrEmpty(local))
+            else if((searchString == "Serviço") && !(local == "Cidade"))
             {
                 //Filtrar por Cidade
                 servicos = _servicoRepository.Servicos.Where(l => l.Local.Cidade.Contains(local)).OrderBy(l => l.Local.Cidade);
                 if (servicos.Any())
                     localAtual = "Resultado da busca por Cidade:";
                 else
-                    localAtual = "Nenhum servico foi encontrado";
+                    localAtual = "Nenhum serviço/cidade foi encontrado";
             }
             else //Filtrar por cidade e Serviço
             {
