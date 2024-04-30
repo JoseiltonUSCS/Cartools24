@@ -600,9 +600,66 @@ body {
             }
         }
 
-/*--------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------*/
+/* Criando configurações customizadas para modificar o Footer */
+.footer_global {
+    margin-left: 1%;
+    width: 98%;
+    height: 300px;
+    background-color: var(--color-black);
+    color: var(--color-lightgray);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 20px;
+    border: 2px solid var(--color-lightgray);
+    border-radius: 0 0px 10px 10px;
+}
 
-    /* PÁGINA - paginador */
+    .footer_global .conteudo h3 {
+        text-align: center;
+        font-size: 1.6rem;
+        margin-bottom: 30px;
+    }
+
+    .footer_global .item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+        .footer_global .item span {
+            margin-right: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Estilização dos ícones */
+        .container-buttons-ver_empresa {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-content: baseline;
+            margin-top: 20px;
+        }
+            .footer_global .item span img {
+                width: 30px;
+                height: auto;
+            }
+
+             .footer_global .item span img:hover {
+                opacity: 50%;
+                transition: 0.5s;
+            }
+
+         .footer_global .cc_footer{
+             text-align: center;
+              margin-top: 10px;
+         }
+
+
+
+
+
+/* ------------------------------------------------------------------------------------------------- */
+/* PÁGINA - paginador */
     #pagina .paginador {
         display: block;
         float: right;
@@ -656,11 +713,6 @@ body {
         color: #900;
     }
 
-/* Banner 
-#banner{
-    background-image: url(~/images/imgBeneficios.png)
-}
-*/
 /*--------------------------------------------------------------------------------------*/
 
 .form-inline {
