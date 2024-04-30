@@ -543,49 +543,63 @@ body {
         }
 
 /* Estilização da parte de Textual da página Anúnciar */
-#pagina {
-    padding: 30px;
-    margin-bottom: 10px;
-    font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
-    font-weight: lighter;
-    text-align: justify;
-    border: 1px solid var(--color-darkgray);
-    border-radius: 0 30px;
-}
+    .anunciar {
+        font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
+        background-color: var(--color-white);
+        border-radius: 0 30px;
+        border: solid black 1px;
+        margin: 30px auto;
+        padding: 30px;
+    }
 
+    .anunciar .cotainer_conteudo_anunciar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    }
+       
+    .anunciar h2 {
+        font: 40px "Trebuchet MS", Arial, Helvetica, sans-serif;
+        font-weight: 800;
+        margin-bottom: 30px;
+    }
 
-        #pagina .anuncie {
-            float: left;
-            font: 16px "Trebuchet MS", Arial, Helvetica, sans-serif;
-            color: var(--color-black);
+    .anunciar .container_conteudo_anunciar p {
+        margin-bottom: 30px;
+        text-align: justify;
+    }
+
+    .anunciar .container_img_anunciar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+    }
+        .anunciar .container_img_anunciar img {
+            width: 60%;
+            height: auto;
+        
         }
-            #pagina .anuncie h2 {
-                font: 40px "Trebuchet MS", Arial, Helvetica, sans-serif;
-                font-weight: 600;
-                margin-bottom: 20px;
-            }
-            #pagina .anuncie p {
-                font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
-                font-weight: lighter;
-                text-align: justify;
-            }
 
         /* 'Media Query' - para telas menores que 800px */
         @media screen and (max-width: 800px) {
+            .container_conteudo_anunciar {
+                flex-direction: column;
+            }
 
-            #pagina .anuncie h2 {
+            .anunciar h2 {
                 font: 25px "Trebuchet MS", Arial, Helvetica, sans-serif;
-                font-weight: 600;
-                margin-bottom: 20px;
+                font-weight: 800;
+                margin-bottom: 15px;
             }
-            #pagina .anuncie p {
+
+            .anunciar {
                 font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
             }
-            #pagina .anuncie {
-                font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
-            }
-        
         }
+
 /*--------------------------------------------------------------------------------------*/
 
     /* PÁGINA - paginador */
