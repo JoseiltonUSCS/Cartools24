@@ -44,12 +44,12 @@ namespace Cartools.Controllers
 
         }
         // busca serviço por digitação no input do menu de navegação
+        */
         public IActionResult Details(int servicoId)
         {
             var servico = _servicoRepository.Servicos.FirstOrDefault(s => s.ServicoId == servicoId);
             return View(servico);
         }
-        */
 
 
 
