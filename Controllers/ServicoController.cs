@@ -93,7 +93,7 @@ namespace Cartools.Controllers
                 if (servicos.Any())
                     localAtual = $"Resultado da busca por \"Serviço\" na \"Cidade\" de {local}";
                 else
-                    localAtual = "Nenhum servico foi encontrado";
+                    localAtual = "Nenhum serviço foi encontrado com esse filtro...";
             }
 
             return View("~/Views/Servico/List.cshtml", new ServicoListViewModel
