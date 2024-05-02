@@ -55,6 +55,33 @@
             <div class="col-lg-4 col-xl-4"></div>
         </div>
     </div>
+
+
+    <form asp-controller="Servico" asp-action="Search" method="get">
+        <div class="d-flex flex-row" style="align-items:center;">
+            <select class="form-select form-select-sm mb-4" name="searchString" aria-label=".form-select-sm example" style="width: 300px; font-size:1.2em;">
+                <option selected>Serviço</option>
+                <option value="Polimento">Polimento</option>
+                <option value="Cristalização">Cristalização</option>
+                <option value="Lavagem Simples">Lavagem Simples</option>
+                <option value="Martelinho de Ouro">Martelinho de Ouro</option>
+                <option value="Envelopamento">Envelopamento</option>
+                <option value="Pintura">Pintura</option>
+                <option value="OxiSanitização">OxiSanitização</option>
+                <option value="Higienização">Higienização</option>
+                <option value="Funilaria e Pintura">Funilaria e Pintura</option>
+            </select>
+            <select class="form-select form-select-sm mb-4" name="local" aria-label=".form-select-sm example" style="width: 300px;font-size:1.2em; ">
+                <option selected>Cidade</option>
+                <option value="Santo André">Santo André</option>
+                <option value="São Bernardo do Campo">São Bernardo do Campo</option>
+                <option value="São Caetano do Sul">São Caetano do Sul</option>
+                <option value="São Paulo">São Paulo</option>
+            </select>
+            <button class="btn btn-primary " type="submit" style="float:left; width:50px; height:35px; margin:0 0 22px 10px;">Ok</button>
+        </div>
+    </form>
+
 </div>
 
 <div class="filtro-ativo">
@@ -68,5 +95,16 @@
         {
             <partial name="_ServicosResumo" for="@servico" />
         }  
+    </div>
+    <div>
+        <nav aria-label="Page navigation">
+            <ul class="mt-4 pagination pagination-md d-flex justify-content-center">
+                <li class="page-item"><a class="page-link text-dark" href="#">Anterior</a></li>
+                <li class="page-item"><a class="page-link text-dark" href="#">1</a></li>
+                <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
+                <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
+                <li class="page-item"><a class="page-link text-dark" href="#">Próxima</a></li>
+            </ul>
+    </nav>
     </div>
 </div>
