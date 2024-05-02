@@ -41,10 +41,6 @@
                             <p class="space"></p><h4>Anunciar</h4>
                         </a>
 
-                        <a class="nav-link text-light" asp-area=""
-                           asp-controller="Contato" asp-action="Index">
-                            <p class="space"></p><h4>Contato</h4>
-                        </a>
 
                         <!-- Formulário de login navbar -->
                         @await Html.PartialAsync("_LoginPartial")
@@ -63,67 +59,42 @@
                     </div>
                 </div>
             </nav>
-
-            <!-- Opção 2 - Datalist -->
-            <!--
-              <div class="card text-dark">
-               <div class="card-body">
-                 <img class="card-img" src="~/images/bannerRascunhoAltura (2).png" />
-                 <div class="card-img-overlay">
-                   <div class="row">
-                     <div class="col-md-4">
-                       <h1 class="card-title mx-4">CarTools</h1>
-                       <p class="card-text mx-4">
-                         Lorem ipsum dolor sit amet consectetur !<br />
-                         A <strong>Cartools</strong> edipiscing elit donec vel egestas dolor, nec dignissim metus!
-                       </p>
-                     </div>
-                     <div class="col-md-4">
-                       <div class="d-flex flex-column">
-                         <div class="mb-3">
-                                         <label for="servico" style="margin-top:20px">Selecione o serviço:</label>
-                                         <input type="datalist" id="servico" class="form-control" list="servicos" >
-                           <datalist id="servicos">
-                             <option value="Polimento"></option>
-                             <option value="Cristalização"></option>
-                             <option value="Lavagem Simples"></option>
-                             <option value="artelinho de Ouro">M</option>
-                             <option value="Envelopamento"></option>
-                             <option value="Pintura"></option>
-                             <option value="OxiSanitização"></option>
-                             <option value="Higienização"></option>
-                             <option value="Funilaria e Pintura"></option>
-                           </datalist>
-                         </div>
-                         <div>
-                           <label for="cidade">Selecione a cidade:</label>
-                           <input type="datalist" id="cidade" class="form-control" list="cidades">
-                           <datalist id="cidades">
-                             <option value="Santo André"></option>
-                             <option value="São Bernardo"></option>
-                             <option value="São Caetano"></option>
-                             <option value="São Paulo"></option>
-                           </datalist>
-                         </div>
-                       </div>
-                     </div>
-                     <div class="col-md-4"></div>
-                   </div>
-                 </div>
-               </div>
-             </div>
-            -->
-
         </header>
+
         <main class="card border-0 mt-0 bg-light" role="main">
             @RenderBody()
         </main>
     </div>
-    <footer class="footer text-black bg-black">
+
+    <footer class="footer_global">
         <div class="container">
-            &copy; @DateTime.Now.Year - Cartools - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="conteudo">
+                <h3>Qualquer dúvida ou sugestão fale conosco!</h3>
+                <div class="item">
+                    <span><img src="~/images/Envelope-icon23.jpg" alt="Ícone de envelope" /></span>
+                    <span><a href="mailto:stefani.bispo@uscsonline.com.br">Fale conosco</a></span>
+                </div>
+                <div class="item">
+                    <span>
+                        <a href="https://api.whatsapp.com/send?phone=5511953033392&text=Olá,%20tudo%20bem?%20" target="_blank" class="btn btn-whats">
+                            <img src="~/images/logo_whats.png" alt="Ícone do WhatsApp" />
+                        </a>
+                    </span>
+                    <span>(11) 99999-8888</span>
+                </div>
+                <div class="item">
+                    <span><img src="~/images/Home-iconred.png" alt="Ícone de casa" /></span>
+                    <span>Av. Presidente Kennedy - São Caetano do Sul</span>
+                </div>
+            </div>
+            <div class="cc_footer">
+                &copy; @DateTime.Now.Year - Cartools - <a href="/Home/Privacy">Privacy</a>
+            </div>
         </div>
+        
     </footer>
+
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
