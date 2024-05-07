@@ -13,7 +13,7 @@ namespace Cartools.Controllers
         {
             _servicoRepository = servicoRepository;
         }
-
+        /*
         public IActionResult List(string local)
         {
             
@@ -43,47 +43,66 @@ namespace Cartools.Controllers
                     return View(servicosListViewModel);
 
         }
-
         // busca serviço por digitação no input do menu de navegação
+        */
         public IActionResult Details(int servicoId)
         {
             var servico = _servicoRepository.Servicos.FirstOrDefault(s => s.ServicoId == servicoId);
             return View(servico);
         }
-        
-        public ViewResult Search(string searchString)
-        {
-            //searchString - a busca é realizada a partir do que for digitado no campo de busca, que neste caso é o serviço desejado.
 
+
+
+
+        //Filtra por Serviço e Cidade
+        public ViewResult Search(string searchString, string local)
+        {   
             IEnumerable<Servico> servicos;
             string localAtual = string.Empty;
-
-
-            if (string.IsNullOrEmpty(searchString)) 
-                
+           
+            if ((searchString == "Serviço") && (local == "Cidade"))                 
             {
-                servicos = _servicoRepository.Servicos.OrderBy(s => s.ServicoId);
-                localAtual = "Todos os Servicos";
+                servicos = _servicoRepository.Servicos.OrderBy(s => s.Nome);
+                localAtual = "Todos os Servicos encontrados";      
             }
-            else
+            else if(!(searchString == "Serviço") && (local == "Cidade"))
             {
+                //Filtrar por Serviço
                 servicos = _servicoRepository.Servicos
                           .Where(s => s.Nome.ToLower().Contains(searchString.ToLower()));
 
                 if (servicos.Any())
-                    localAtual = searchString;
-                else
-                    localAtual = "Nenhum servico foi encontrado";
+                    localAtual = "Resultado da busca por Serviço:";
             }
+            else if((searchString == "Serviço") && !(local == "Cidade"))
+            {
+                //Filtrar por Cidade
+                servicos = _servicoRepository.Servicos.Where(l => l.Local.Cidade.Contains(local)).OrderBy(l => l.Local.Cidade);
+                if (servicos.Any())
+                    localAtual = "Resultado da busca por Cidade:";
+                else
+                    localAtual = "Nenhum serviço/cidade foi encontrado";
+            }
+            else //Filtrar por cidade e Serviço
+            {
+                //Filtrar por cidade
+                servicos = _servicoRepository.Servicos.Where(l => l.Local.Cidade.Equals(local)).OrderBy(l => l.Local.Cidade);
+
+                //Filtrar por serviço
+                servicos = servicos.Where(s => s.Nome.Contains(searchString)).OrderBy(s => s.Nome);
+                if (servicos.Any())
+                    localAtual = $"Resultado da busca por \"Serviço\" na \"Cidade\" de {local}";
+                else
+                    localAtual = "Nenhum serviço foi encontrado com esse filtro...";
+            }
+
             return View("~/Views/Servico/List.cshtml", new ServicoListViewModel
             {
-                
-                Servicos = servicos.OrderBy(l => l.LocalId),
+
+                Servicos = servicos.OrderBy(s => s.Nome),
                 LocalAtual = localAtual
             });
         }
-        
-
-       
     }
 }
+

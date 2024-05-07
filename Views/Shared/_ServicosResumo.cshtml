@@ -8,7 +8,33 @@
                 </h1>
                 <div>
                     <a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId">
-                        <img src="@Model.ImagemUrl" class="img-fluid img-custom" />
+                        <img src="@Model.ImagemUrl" class="img-fluid img-custom_servicoCard" />
+                    </a>
+                </div>
+
+                <div>
+                    <span>Localização:</span><br />
+                    <span><strong>@Model.Local.Cidade</strong></span> -
+                    <span>@Model.Local.Bairro</span><br/>
+                </div>
+
+                <h2><a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId">@Model.Nome</a></h2>
+
+                <hr />
+
+                <div class="descricao-detalhada-empresa">
+                    <p>Para ver mais informações sobre a empresa parceira, clique no <ins>nome da empresa</ins>, <ins>imagem</ins> ou <ins>nome do serviço principal</ins> presentes no respectivo card.</p>
+                </div>
+
+                <div class="preco-estimado-servico-empresa">
+                    <span>Preços a partir de: <strong>@Model.Preco.ToString("c")</strong></span>
+                </div>
+
+                <div class="container-buttons">
+                    <input type="submit" class="btn btn-primary btn_custom-agendar_servico" value="Agendar serviço" />
+
+                    <a class="btn-whats" href="https://api.whatsapp.com/send?phone=5511960747570&text=Olá,%20me%20tira%20uma%20dúvida...%20" target="_blank">
+                        <img src="~/images/logo_whats.png" alt="WhatsAppLogo" />
                     </a>
                 </div>
 
@@ -37,6 +63,7 @@
                     }
                     <a href="https://api.whatsapp.com/send?phone=5511960747570&text=Olá,%20me%20tira%20uma%20dúvida...%20" target="_blank" class="btn btn-success"><img src="~/images/whatsapp.jpg" alt="WhatsApp" /></a>
                 </p>
+
             </div>
 
         </div>

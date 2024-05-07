@@ -1,27 +1,35 @@
 ﻿@model Plano
 
-<div class="container">
-    <div class="row">
-        <div class="card">
-            <div class="text-center">
-                <img src="@Model.PlanoImagem" class="img-fluid" alt="">
-            </div>
-            <div class="card-block">
-                <h2 class="card-title">@Model.PlanoNome<span class="precoPlano" style="font-size:22px;"> - @Model.PlanoPreco.ToString("c")</span></h2>
-                <p class="card-text">
-                    <h5>@Model.PlanoDescricao</h5>                    
-                </p>
+<div class="container-ver_plano">
+    <div class="conteudo-ver_plano">
+        <div class="label-para-nome_do_plano">
+            <h1>Plano - @Model.PlanoNome</h1>
+        </div>
 
-                <p class="btn btn-group align-content-lg-end">
+        <div class="text-center">
+            <img src="@Model.PlanoImagem" class="img-fluid img-custom" alt="imgPlano">
+        </div>
 
-                    <a asp-controller="Plano" asp-action="Index"
-                       class="btn btn-outline-info"> Voltar para o menu de Planos     
-                   </a>
+        <div class="text-center">
+            <p>Apenas: <strong>@Model.PlanoPreco.ToString("c")</strong> por mês!</p>
+        </div>
 
-                    <a class="btn btn-primary" id="cartButton" asp-controller="CarrinhoCompra" asp-action="AdicionarItemNoCarrinhoCompra" asp-route-planoId="@Model.PlanoId">Adicionar<strong> Plano @Model.PlanoNome</strong> ao carrinho</a>
-                </p>
+        <div class="label-para-descricao_plano">
+            <h1>Descrição do Plano</h1>
+        </div>
+
+        <div class="card-block_plano">
+            <div class="card-text">
+                <p>@Model.PlanoDescricao</p>
             </div>
         </div>
+           
+    </div>
+
+    <div class="container-buttons-ver_plano">
+        <a asp-controller="Plano" asp-action="Index" class="btn btn-outline-info btn_custom-voltar">Voltar</a>
+
+        <a class="btn btn-primary btn_custom-plano" id="cartButton" asp-controller="CarrinhoCompra" asp-action="AdicionarItemNoCarrinhoCompra" asp-route-planoId="@Model.PlanoId">Adicionar ao carrinho</a>
     </div>
 </div>
 
