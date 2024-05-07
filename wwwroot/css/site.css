@@ -6,9 +6,6 @@
     --color-gray: #A6A6A6;
     --color-greenbutton: #DBF227;
     --color-bluebutton: #0087CC;
-    --color-lightblue: #59B5D9;
-    --color-greendark: #157347;
-    --color-greenlight: #568C54;
 }
 
 * {
@@ -111,20 +108,20 @@ main {
 
 
 /*--------------------------------------------------------------------------------------*/
-/*P·gina*/
+/*P√°gina*/
 
 
 body {
     background-color: var(--color-darkgray);
 }
-/* Conte˙do P·gina */
+/* Conte√∫do P√°gina */
 #box {
     width: 860px;
     margin: 0 auto;
     background-color: var(--color-white);
 }
 
-/*P¡GINA*/
+/*P√ÅGINA*/
 #pagina {
     background: #fff;
     padding: 10px;
@@ -134,9 +131,9 @@ body {
 }
 
 /*--------------------------------------------------------------------------------------*/
-/* P¡GINA - 'Home' */
+/* P√ÅGINA - 'Home' */
 
-/* Card-empresa - configurando apenas o texto da descriÁ„o detalhada */
+/* Card-empresa - configurando apenas o texto da descri√ß√£o detalhada */
 
 .conteudo-card-empresa {
     padding: 10px;
@@ -177,7 +174,7 @@ body {
         margin-bottom: 15px;
     }
 
-    /* Criando um rounded custom para configurar a borda da imagem, para configurar na linha de estilizaÁ„o BootStrap */
+    /* Criando um rounded custom para configurar a borda da imagem, para configurar na linha de estiliza√ß√£o BootStrap */
     .img-custom_servicoCard {
         border-radius: 10px;
         max-width: 100%;
@@ -192,7 +189,7 @@ body {
             transition: 0.5s;
         }
 
-    /* EstilaizaÁ„o dos botıes 'Agendar ServiÁo' e "Õcone do Whats" no card de ServiÁos da P·gina Home */
+    /* Estilaiza√ß√£o dos bot√µes 'Agendar Servi√ßo' e "√çcone do Whats" no card de Servi√ßos da P√°gina Home */
     .container-buttons {
         display: flex;
         flex-direction: row;
@@ -208,7 +205,7 @@ body {
                 transition: 0.5s;
             }
 
-        /* Criando um configuraÁıes customizadas para modificar a estilizaÁ„o do bot„o 'Agendar ServiÁo', para configurar na linha de estilizaÁ„o BootStrap */
+        /* Criando um configura√ß√µes customizadas para modificar a estiliza√ß√£o do bot√£o 'Agendar Servi√ßo', para configurar na linha de estiliza√ß√£o BootStrap */
         .btn_custom-agendar_servico {
            width: 200px;
            height: 50px;
@@ -225,15 +222,15 @@ body {
                 transition: 0.5s;
             }
 
-    /* Criando um display custom para configurar a div-container dos cards, na linha de estilizaÁ„o BootStrap, 
-        para padronizar o tamanho dos cards independente do tamanho dos conte˙dos de cada um.
+    /* Criando um display custom para configurar a div-container dos cards, na linha de estiliza√ß√£o BootStrap, 
+        para padronizar o tamanho dos cards independente do tamanho dos conte√∫dos de cada um.
     */
     .div-card_custom {
         display: flex;
     }
 
 
-    /* ConfiguraÁ„o css do 'filtro ativo' para mostrar o filtro que foi aplicado na pesquisa */
+    /* Configura√ß√£o css do 'filtro ativo' para mostrar o filtro que foi aplicado na pesquisa */
     .filtro-ativo {
         padding: 10px;
         margin-bottom: -10px;
@@ -248,7 +245,7 @@ body {
         }
 
 /*--------------------------------------------------------------------------------------*/
-/* P¡GINA - 'Ver Empresa' (Details.cshtml) */
+/* P√ÅGINA - 'Ver Empresa' (Details.cshtml) */
 .container-ver_empresa {
     padding: 35px;
 }
@@ -306,7 +303,7 @@ body {
         }
 
     
-    /* EstilaizaÁ„o dos botıes 'Voltar ao menu de serviÁos', 'Agendar ServiÁo' e "Õcone do Whats" no card de ServiÁos da P·gina Ver Empresa */
+    /* Estilaiza√ß√£o dos bot√µes 'Voltar ao menu de servi√ßos', 'Agendar Servi√ßo' e "√çcone do Whats" no card de Servi√ßos da P√°gina Ver Empresa */
     .container-buttons-ver_empresa {
         display: flex;
         flex-direction: row;
@@ -326,7 +323,7 @@ body {
             transition: 0.5s;
         }
 
-/* Criando um configuraÁıes customizadas para modificar a estilizaÁ„o do bot„o 'Voltar' e 'Agendar ServiÁo', para configurar na linha de estilizaÁ„o BootStrap */
+/* Criando um configura√ß√µes customizadas para modificar a estiliza√ß√£o do bot√£o 'Voltar' e 'Agendar Servi√ßo', para configurar na linha de estiliza√ß√£o BootStrap */
     .btn_custom-voltar {
         width: 200px;
         height: 50px;
@@ -347,8 +344,8 @@ body {
 
 
 
-        /* P¡GINA - 'Ver Empresa'  -> utiliza essa estilizaÁ„o */
-        /* Criando um rounded custom para configurar a borda da imagem, para configurar na linha de estilizaÁ„o BootStrap */
+        /* P√ÅGINA - 'Ver Empresa'  -> utiliza essa estiliza√ß√£o */
+        /* Criando um rounded custom para configurar a borda da imagem, para configurar na linha de estiliza√ß√£o BootStrap */
         .img-custom {
             border-radius: 10px;
             max-width: 100%;
@@ -360,7 +357,7 @@ body {
         }
 
 /*--------------------------------------------------------------------------------------*/
-/* P·gina - 'Sobre NÛs' */
+/* P√°gina - 'Sobre N√≥s' */
 .sobrenos {
     font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
     background-color: var(--color-white);
@@ -431,9 +428,9 @@ body {
 
 
 /*--------------------------------------------------------------------------------------*/
-/* P¡GINA - Anunciar */
+/* P√ÅGINA - Anunciar */
 
-/* Card Planos - estilizaÁ„o */
+/* Card Planos - estiliza√ß√£o */
 .conteudo-card-plano {
     padding: 5px;
     height: 100%;
@@ -492,13 +489,13 @@ body {
         }
     
 
-     /* Criando um rounded custom para configurar a borda dos cards de 'Empresas - Home' 'Planos - Anunciar', para configurar na linha de estilizaÁ„o BootStrap */
+     /* Criando um rounded custom para configurar a borda dos cards de 'Empresas - Home' 'Planos - Anunciar', para configurar na linha de estiliza√ß√£o BootStrap */
      .rounded-custom {
          border-radius: 10px;
          border: 2px solid var(--color-black);
      }
 
-    /* EstilizaÁ„o de 'Ver Planos' ao clicar no plano (imagem ou link) aparecer· essa p·gina com os detalhes do plano */
+    /* Estiliza√ß√£o de 'Ver Planos' ao clicar no plano (imagem ou link) aparecer√° essa p√°gina com os detalhes do plano */
     .container-ver_plano {
         padding: 35px;
     }
@@ -564,7 +561,7 @@ body {
             padding: 15px;
         }
 
-/* EstilizaÁ„o da parte de Textual da p·gina An˙nciar */
+/* Estiliza√ß√£o da parte de Textual da p√°gina An√∫nciar */
     .anunciar {
         font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
         background-color: var(--color-white);
@@ -623,7 +620,7 @@ body {
         }
 
 /*-------------------------------------------------------------------------------------*/
-/* Criando configuraÁıes customizadas para modificar o Footer */
+/* Criando configura√ß√µes customizadas para modificar o Footer */
 .footer_global {
     margin-left: 1%;
     width: 98%;
@@ -653,7 +650,7 @@ body {
             margin-bottom: 20px;
         }
 
-        /* EstilizaÁ„o dos Ìcones */
+        /* Estiliza√ß√£o dos √≠cones */
         .container-buttons-ver_empresa {
             display: flex;
             flex-direction: row;
@@ -681,7 +678,7 @@ body {
 
 
 /* ------------------------------------------------------------------------------------------------- */
-/* P¡GINA - paginador */
+/* P√ÅGINA - paginador */
     #pagina .paginador {
         display: block;
         float: right;
