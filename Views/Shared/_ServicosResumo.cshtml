@@ -7,26 +7,26 @@
 
                 <div>
                     <a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId">
-                        <img src="@Model.ImagemUrl" class="img-fluid img-custom" />
+                        <img src="@Model.ImagemUrl" class="img-fluid img-custom_servicoCard" />
                     </a>
                 </div>
 
                 <div>
-                    <span>@Model.Oficina.OficinaLogradouro</span>
-                    <span>@Model.Oficina.OficinaNumero</span><br />
-                    <span>@Model.Local.Cidade</span> -
-                    <span>@Model.Local.Bairro</span><br />
-                    <span>@Model.Oficina.OficinaTelefone</span>
+                    <span>Localização:</span><br />
+                    <span><strong>@Model.Local.Cidade</strong></span> -
+                    <span>@Model.Local.Bairro</span><br/>
                 </div>
 
                 <h2><a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId">@Model.Nome</a></h2>
 
+                <hr />
+
                 <div class="descricao-detalhada-empresa">
-                    <p>@Model.DescricaoDetalhada</p>
+                    <p>Para ver mais informações sobre a empresa parceira, clique no <ins>nome da empresa</ins>, <ins>imagem</ins> ou <ins>nome do serviço principal</ins> presentes no respectivo card.</p>
                 </div>
 
                 <div class="preco-estimado-servico-empresa">
-                    <span>Preço estimado: <strong>@Model.Preco.ToString("c")</strong></span>
+                    <span>Preços a partir de: <strong>@Model.Preco.ToString("c")</strong></span>
                 </div>
 
                 <div class="container-buttons">

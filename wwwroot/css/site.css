@@ -145,14 +145,15 @@ body {
 
     .conteudo-card-empresa h1 a {
         text-decoration: none;
-        color: var(--color-black);
-        font-size: 2rem;
+        color: var(--color-bluebutton);
+        font-size: 1.8rem;
         font-weight: 700;
     }
+   
     .conteudo-card-empresa h2 a {
         text-decoration: none;
-        color: var(--color-black);
-        font-size: 1.5rem;
+        color: var(--color-bluebutton);
+        font-size: 1.2rem;
         font-weight: 600;
     }
         .conteudo-card-empresa h1 a:hover,
@@ -170,10 +171,26 @@ body {
 
     .conteudo-card-empresa .descricao-detalhada-empresa p {
         text-align: justify;
+        font-size: 0.8rem;
     }
     .conteudo-card-empresa .preco-estimado-servico-empresa {
         margin-bottom: 15px;
     }
+
+    /* Criando um rounded custom para configurar a borda da imagem, para configurar na linha de estilização BootStrap */
+    .img-custom_servicoCard {
+        border-radius: 10px;
+        max-width: 100%;
+        width: 280px;
+        height: 195px;
+        margin-bottom: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        border: 1px solid var(--color-darkgray);
+    }
+        .img-custom_servicoCard:hover {
+            opacity: 70%;
+            transition: 0.5s;
+        }
 
     /* Estilaização dos botões 'Agendar Serviço' e "Ícone do Whats" no card de Serviços da Página Home */
     .container-buttons {
@@ -281,9 +298,14 @@ body {
         margin-top: 15px;
         font-weight: 600;
     }
+        .card-block .card-adress {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; 
+        }
 
     
-
     /* Estilaização dos botões 'Voltar ao menu de serviços', 'Agendar Serviço' e "Ícone do Whats" no card de Serviços da Página Ver Empresa */
     .container-buttons-ver_empresa {
         display: flex;
@@ -324,18 +346,18 @@ body {
         }
 
 
-/*--------------------------------------------------------------------------------------*/
-/* PÁGINAS - 'Home', 'Ver Empresa'  -> utilizam essa estilização */
-/* Criando um rounded custom para configurar a borda da imagem, para configurar na linha de estilização BootStrap */
-.img-custom {
-    border-radius: 10px;
-    max-width: 100%;
-    width: 500px;
-    height: auto;
-    margin-bottom: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border: 1px solid var(--color-darkgray);
-}
+
+        /* PÁGINA - 'Ver Empresa'  -> utiliza essa estilização */
+        /* Criando um rounded custom para configurar a borda da imagem, para configurar na linha de estilização BootStrap */
+        .img-custom {
+            border-radius: 10px;
+            max-width: 100%;
+            width: 500px;
+            height: auto;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--color-darkgray);
+        }
 
 /*--------------------------------------------------------------------------------------*/
 /* Página - 'Sobre Nós' */
