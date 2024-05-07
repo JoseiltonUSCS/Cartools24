@@ -14,14 +14,12 @@
                 <p>@Model.PlanoDescricao</p> 
             </div>
           
-            <h2>@Model.PlanoPreco.ToString("c")</h2>
-            
+            <h2>@Model.PlanoPreco.ToString("c")</h2>            
             
             <div class="button">
                 <a class=" btn btn-primary btn_custom-plano" id="cartButton" asp-controller="CarrinhoCompra" asp-action="AdicionarItemNoCarrinhoCompra" asp-route-PlanoId="@Model.PlanoId">Incluir no Carrinho</a>
             </div>
-        </div>
-        
+        </div>        
     </div>
 </div>
 
