@@ -69,6 +69,8 @@ namespace Cartools.Models
         public DateTime? PedidoEntregueEm { get; set; }
         
         public virtual List<PedidoDetalhe> PedidoItens { get; set; }
+        public int OficinaId { get; set; }
+        public Oficina Oficina { get; set; }
         
     }
 }
