@@ -97,6 +97,7 @@
     <Content Remove="wwwroot\images\loginEntrar3.png" />
     <Content Remove="wwwroot\images\loginEntrar4.png" />
     <Content Remove="wwwroot\images\loginPrestador.png" />
+    <Content Remove="wwwroot\images\logOut2.png" />
     <Content Remove="wwwroot\images\lupa2.png" />
     <Content Remove="wwwroot\images\lupaBusca.PNG" />
     <Content Remove="wwwroot\images\lupaPreta2.png" />
@@ -104,6 +105,11 @@
     <Content Remove="wwwroot\images\negado.png" />
     <Content Remove="wwwroot\images\rascunhoPHP.jpg" />
     <Content Remove="wwwroot\images\texto12.PNG" />
+    <Content Remove="wwwroot\images\whatsapp.jpg" />
+    <Content Remove="wwwroot\images\whatsapp.png" />
+    <Content Remove="wwwroot\images\whatsapp1.png" />
+    <Content Remove="wwwroot\images\whatsapp2.png" />
+    <Content Remove="wwwroot\images\whats_logo.png" />
   </ItemGroup>
 
   <ItemGroup>
