@@ -43,11 +43,12 @@ Essa solução visa não apenas otimizar a visibilidade e a gestão dos serviço
 
 ## Layout (Figma) 🔖 
 
-Você pode visualizar o layout do projeto através do link abaixo:
+>Você pode visualizar o layout do projeto através do link abaixo:
 
-- [Layout](https://www.figma.com/file/7hzvJpZKKQtGdojjmWESdx/Habits-(i)-(Community)?node-id=6%3A343&t=3tNzqQmebZdu7qlG-0)
+- [Layout](https://www.figma.com/design/U62wmxOMy3z8U2Tt03GbRC/CarTools-Web_fluxo?node-id=0-1&t=mUnPXOJI6CcpGpdg-0)
 
-Lembrando que você precisa ter uma conta no [Figma](http://figma.com/).
+> Lembrando que você precisa ter uma conta no [Figma](http://figma.com/).
+
 
 
 ## Contribuintes 👨🏽‍🎓
