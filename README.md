@@ -1,6 +1,10 @@
 # CarTools
 >Plataforma de anúncios de serviços de estética automotiva
 
+<p align="center">
+  <img alt="cursoemvideo" src="images/logo.png" />
+</p>
+
 <p align="justify">
 O projeto consiste na criação de um sistema de intermediação de serviços de estética automotiva, em resposta à necessidade de oferecer praticidade e     otimização nas buscas por serviços nesse segmento. A plataforma CarTools proporcionará benefícios significativos tanto para as empresas desse nicho quanto para os consumidores desses serviços.
 </p>
