@@ -10,6 +10,8 @@ namespace Cartools.Models
 
         [Required(ErrorMessage ="Nome da oficina é obrigatório")]
         [StringLength(50)]
+
+        [Display(Name = "Oficina")]
         public string OficinaNome { get; set; }
 
         public bool IsOficinaPreferida { get; set; }
