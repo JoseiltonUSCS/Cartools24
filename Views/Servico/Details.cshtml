@@ -36,17 +36,17 @@
         <div class="container-buttons-ver_empresa ">
             <a asp-controller="Servico" asp-action="List" class="btn btn-outline-info btn_custom-voltar">Voltar</a>
 
-            <input class="btn btn-success dropdown-toggle btn_custom-agendar_servico" type="datetime" id="calendario" placeholder="Agendar serviço" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
+        <input type="submit" class="btn btn-success dropdown-toggle btn_custom-agendar_servico" id="btnAgendarServico" value="Agendar serviço" />
 
             <a class="btn-whats" href="https://api.whatsapp.com/send?phone=5511953033392&text=Olá,%20me%20tira%20uma%20dúvida...%20" target="_blank">
                 <img src="~/images/logo_whats.png" alt="WhatsAppLogo" />
             </a>
                 <div>
                     @section Scripts {
-                        <script type="text/javascript">
-                            $(function () {
-                                $("#calendario").datepicker({
-                                    dateFormat: "dd/mm/yy"
+                    <script type="text/javascript">
+                        $(function () {
+                            $("#btnAgendarServico").click(function () {
+                                window.location.href = "/Agendamento";
                                 });
                             });
                         </script>

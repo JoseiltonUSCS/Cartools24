@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CarrosMac.styles.css" asp-append-version="true" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
@@ -21,17 +23,17 @@
                     <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     <a class="nav-link text-light" asp-area="Parceiro" asp-controller="ParceiroServProd" asp-action="Index">Servicos</a>
                     <a class="nav-link text-light" asp-area="Parceiro" asp-controller="ParceiroImagens" asp-action="Index">Gerenciar Imagens</a>
+                    <a class="nav-link text-light" asp-area="Parceiro" asp-controller="ParceiroDefinirDisponibilidade" asp-action="Index">Definir Disponibilidade</a>
+                    <a class="nav-link text-light" asp-area="Parceiro" asp-controller="Agendamento" asp-action="Index">Agendamentos</a>
                 </div>
             </div>
         </nav>
     </header>
     <div class="container">
-        
         <main class="card mt-0 p-5 border-0" role="main">
             @RenderBody()
         </main>
     </div>
-
     <footer class="footer text-muted">
         <div class="container">
             &copy; 2023 - CarrosMac - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
@@ -40,6 +42,10 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.0/main.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

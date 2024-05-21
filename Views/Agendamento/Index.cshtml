@@ -1,0 +1,160 @@
+﻿@model IEnumerable<Cartools.Models.Agendamento>
+
+@{
+    ViewBag.Title = "Calendário de Agendamento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Agendamento de serviços</h2>
+
+<div style="overflow: hidden;">
+    <div id="calendario" style="float: left;"></div>
+
+    <select id="horarios" disabled>
+        <option value="">Selecione um horário</option>
+    </select>
+</div>
+
+<button id="enviarAgendamento" disabled>Enviar Agendamento</button>
+
+@section Scripts {
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+    <style>
+        /* Estilo personalizado para o botão de envio */
+        #enviarAgendamento {
+            margin-top: 10px;
+            padding: 6px;
+            font-size: 14px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 15%;
+            margin-left: 65vh;
+            margin-top: -20px;
+            margin-bottom: 20px;
+        }
+
+            #enviarAgendamento:disabled {
+                background-color: #ccc;
+                color: #666;
+                cursor: not-allowed;
+            }
+
+        /* Estilo personalizado para o calendário */
+        #calendario {
+            font-family: Arial, sans-serif;
+            width: 300px;
+            margin: 30px;
+        }
+
+        /* Estilo para o cabeçalho do calendário */
+        .ui-datepicker-header {
+            background-color: black;
+            color: white;
+            font-size: 18px;
+            padding: 10px;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        /* Estilo para os dias da semana */
+        .ui-datepicker-week-end, .ui-datepicker-week-end a {
+            color: #66bb6a; /* Verde */
+        }
+
+        /* Estilo para os dias do calendário */
+        .ui-datepicker-calendar {
+            background-color: white;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        /* Estilo para os dias selecionáveis */
+        .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+            color: black;
+        }
+
+        /* Estilo para o dia atual */
+        .ui-datepicker-today {
+            background-color: #66bb6a; /* Verde */
+            color: white;
+        }
+
+        /* Estilo para os links de navegação */
+        .ui-datepicker-prev span, .ui-datepicker-next span {
+            background-color: black;
+            color: white;
+            padding: 3px;
+            border-radius: 3px;
+        }
+
+        /* Estilo para o seletor de horas */
+        #horarios {
+            margin-top: 30px; /* Adiciona espaço entre o calendário e o seletor de horas */
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: white;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var horarios = [
+                "08:00", "08:30", "09:00", "09:30", "10:00", "10:30",
+                "11:00", "11:30", "12:00", "12:30", "13:00", "13:30",
+                "14:00", "14:30", "15:00", "15:30", "16:00", "16:30",
+                "17:00", "17:30", "18:00"
+            ];
+
+            function formatDate(date) {
+                var day = date.getDate();
+                var month = date.getMonth() + 1;
+                var year = date.getFullYear();
+                return year + "-" + (month < 10 ? "0" : "") + month + "-" + (day < 10 ? "0" : "") + day;
+            }
+
+            // Desabilita o seletor de horas e o botão de envio até que uma data seja selecionada
+            $("#horarios, #enviarAgendamento").prop("disabled", true);
+
+            $("#calendario").datepicker({
+                dateFormat: "yy-mm-dd",
+                minDate: 0,
+                onSelect: function (dateText, inst) {
+                    var selectedDate = new Date(dateText);
+                    var formattedDate = formatDate(selectedDate);
+
+                    // Habilita o seletor de horas após selecionar uma data
+                    $("#horarios").prop("disabled", false);
+                    $("#horarios").focus();
+
+                    // Verifica se um dia e uma hora foram selecionados para habilitar o botão de envio
+                    verificarSelecao();
+                }
+            });
+
+            $("#horarios").change(function () {
+                // Verifica se um dia e uma hora foram selecionados para habilitar o botão de envio
+                verificarSelecao();
+            });
+
+            function verificarSelecao() {
+                var selectedDate = $("#calendario").datepicker("getDate");
+                var selectedTime = $("#horarios").val();
+
+                if (selectedDate != null && selectedTime != "") {
+                    $("#enviarAgendamento").prop("disabled", false);
+                } else {
+                    $("#enviarAgendamento").prop("disabled", true);
+                }
+            }
+        });
+    </script>
+}

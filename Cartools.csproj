@@ -14,6 +14,8 @@
     <Compile Remove="NovaPasta2\**" />
     <Compile Remove="NovaPasta\**" />
     <Compile Remove="Views\Contato\**" />
+    <Compile Remove="Views\NovaPasta1\**" />
+    <Compile Remove="Views\NovaPasta2\**" />
     <Compile Remove="Views\Shared\Components\NovaPasta1\**" />
     <Compile Remove="Views\Shared\Components\NovaPasta2\**" />
     <Compile Remove="Views\Shared\Components\NovaPasta\**" />
@@ -24,6 +26,8 @@
     <Content Remove="NovaPasta2\**" />
     <Content Remove="NovaPasta\**" />
     <Content Remove="Views\Contato\**" />
+    <Content Remove="Views\NovaPasta1\**" />
+    <Content Remove="Views\NovaPasta2\**" />
     <Content Remove="Views\Shared\Components\NovaPasta1\**" />
     <Content Remove="Views\Shared\Components\NovaPasta2\**" />
     <Content Remove="Views\Shared\Components\NovaPasta\**" />
@@ -34,6 +38,8 @@
     <EmbeddedResource Remove="NovaPasta2\**" />
     <EmbeddedResource Remove="NovaPasta\**" />
     <EmbeddedResource Remove="Views\Contato\**" />
+    <EmbeddedResource Remove="Views\NovaPasta1\**" />
+    <EmbeddedResource Remove="Views\NovaPasta2\**" />
     <EmbeddedResource Remove="Views\Shared\Components\NovaPasta1\**" />
     <EmbeddedResource Remove="Views\Shared\Components\NovaPasta2\**" />
     <EmbeddedResource Remove="Views\Shared\Components\NovaPasta\**" />
@@ -44,6 +50,8 @@
     <None Remove="NovaPasta2\**" />
     <None Remove="NovaPasta\**" />
     <None Remove="Views\Contato\**" />
+    <None Remove="Views\NovaPasta1\**" />
+    <None Remove="Views\NovaPasta2\**" />
     <None Remove="Views\Shared\Components\NovaPasta1\**" />
     <None Remove="Views\Shared\Components\NovaPasta2\**" />
     <None Remove="Views\Shared\Components\NovaPasta\**" />
@@ -54,10 +62,13 @@
     <Compile Remove="Areas\Parceiro\Controllers\AdminServicosController.cs" />
     <Compile Remove="Controllers\Oficina.cs" />
     <Compile Remove="Models\AnuncioServico.cs" />
+    <Compile Remove="Views\Agendamento\Layout.cs" />
+    <Compile Remove="Views\Agendamento\Layout.cshtml.cs" />
     <Compile Remove="Views\Shared\_PlanosResumo.cshtml.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Agendamento\Layout.cshtml" />
     <Content Remove="Views\Shared\Components\_PlanoResumo.cshtml" />
     <Content Remove="Views\Shared\_Inicial.cshtml" />
     <Content Remove="wwwroot\admin52.jpg" />
@@ -112,6 +123,7 @@
 
   <ItemGroup>
     <PackageReference Include="Bootstrap.v3.Datetimepicker.CSS" Version="4.17.49" />
+    <PackageReference Include="jQuery.UI.Combined" Version="1.13.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.21" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.21">
       <PrivateAssets>all</PrivateAssets>

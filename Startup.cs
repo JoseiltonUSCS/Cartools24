@@ -128,7 +128,6 @@ public class Startup
         app.UseAuthentication();
         app.UseAuthorization();
 
-
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllerRoute(
@@ -138,7 +137,7 @@ public class Startup
             endpoints.MapControllerRoute(
                   name: "areas",
                   pattern: "{area:exists}/{controller=Admin}/{action=Index}/{id?}");
-            
+
             endpoints.MapControllerRoute(
                 name: "servicoFiltro",
                 pattern: "Servico/{action}/{servico?}",
@@ -152,6 +151,13 @@ public class Startup
             endpoints.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            endpoints.MapControllerRoute(
+                name: "agendamento",
+                pattern: "Agendamento/{action=Index}/{id?}",
+                defaults: new { Controller = "Agendamentos" });
+
         });
+
     }
 }

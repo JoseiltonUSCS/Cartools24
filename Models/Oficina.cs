@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Cartools.Services;
+using Microsoft.AspNetCore.Identity;
 
 
 namespace Cartools.Models
@@ -33,5 +35,7 @@ namespace Cartools.Models
         public int PlanoId { get; set; }
         public virtual Plano Plano { get; set; }
         public List<Servico> Servico { get; set; }
+        public string UserId { get; set; }
+        public virtual IdentityUser User { get; set; }
     }
 }

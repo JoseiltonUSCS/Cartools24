@@ -4,19 +4,19 @@ namespace Cartools.Services
 {
     public class SeedUserRoleInitial : ISeedUserRoleInitial
     {
-        private readonly UserManager<IdentityUser>  _userManager;
+        private readonly UserManager<IdentityUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
-        public SeedUserRoleInitial(UserManager<IdentityUser> userManager, 
+        public SeedUserRoleInitial(UserManager<IdentityUser> userManager,
                 RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
         }
-        
+
         public void SeedRoles()
         {
-            if ( !_roleManager.RoleExistsAsync("Member").Result)
+            if (!_roleManager.RoleExistsAsync("Member").Result)
             {
                 IdentityRole role = new IdentityRole();
                 role.Name = "Member";
@@ -38,11 +38,11 @@ namespace Cartools.Services
                 IdentityResult roleResult = _roleManager.CreateAsync(role).Result;
             }
         }
-        
-       
+
+
         public void SeedUsers()
         {
-            if(_userManager.FindByEmailAsync("usuario@localhost").Result == null)
+            if (_userManager.FindByEmailAsync("usuario@localhost").Result == null)
             {
                 IdentityUser user = new IdentityUser();
                 user.UserName = "usuario@localhost";
@@ -55,7 +55,7 @@ namespace Cartools.Services
 
                 IdentityResult result = _userManager.CreateAsync(user, "Numsey@2022").Result;
 
-                if(result.Succeeded)
+                if (result.Succeeded)
                 {
                     _userManager.AddToRoleAsync(user, "Member").Wait();
                 }

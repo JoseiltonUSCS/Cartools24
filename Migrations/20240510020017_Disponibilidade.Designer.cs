@@ -4,6 +4,7 @@ using Cartools.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cartools.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240510020017_Disponibilidade")]
+    partial class Disponibilidade
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,7 +48,7 @@ namespace Cartools.Migrations
 
                     b.HasIndex("ServicoId");
 
-                    b.ToTable("Agendamentos", (string)null);
+                    b.ToTable("Agendamentos");
                 });
 
             modelBuilder.Entity("Cartools.Models.CarrinhoCompraItem", b =>
@@ -71,7 +73,7 @@ namespace Cartools.Migrations
 
                     b.HasIndex("PlanoId");
 
-                    b.ToTable("CarrinhoCompraItens", (string)null);
+                    b.ToTable("CarrinhoCompraItens");
                 });
 
             modelBuilder.Entity("Cartools.Models.Categoria", b =>
@@ -94,7 +96,7 @@ namespace Cartools.Migrations
 
                     b.HasKey("CategoriaId");
 
-                    b.ToTable("Categorias", (string)null);
+                    b.ToTable("Categorias");
                 });
 
             modelBuilder.Entity("Cartools.Models.Disponibilidade", b =>
@@ -121,7 +123,7 @@ namespace Cartools.Migrations
 
                     b.HasIndex("OficinaId");
 
-                    b.ToTable("Disponibilidades", (string)null);
+                    b.ToTable("Disponibilidades");
                 });
 
             modelBuilder.Entity("Cartools.Models.EmailTicket", b =>
@@ -143,7 +145,7 @@ namespace Cartools.Migrations
 
                     b.HasKey("EmailTicketId");
 
-                    b.ToTable("EmailTickets", (string)null);
+                    b.ToTable("EmailTickets");
                 });
 
             modelBuilder.Entity("Cartools.Models.Local", b =>
@@ -163,7 +165,7 @@ namespace Cartools.Migrations
 
                     b.HasKey("LocalId");
 
-                    b.ToTable("Locals", (string)null);
+                    b.ToTable("Locals");
                 });
 
             modelBuilder.Entity("Cartools.Models.Oficina", b =>
@@ -224,7 +226,7 @@ namespace Cartools.Migrations
 
                     b.HasIndex("PlanoId");
 
-                    b.ToTable("Oficinas", (string)null);
+                    b.ToTable("Oficinas");
                 });
 
             modelBuilder.Entity("Cartools.Models.Pedido", b =>
@@ -291,7 +293,7 @@ namespace Cartools.Migrations
 
                     b.HasKey("PedidoId");
 
-                    b.ToTable("Pedidos", (string)null);
+                    b.ToTable("Pedidos");
                 });
 
             modelBuilder.Entity("Cartools.Models.PedidoDetalhe", b =>
@@ -325,7 +327,7 @@ namespace Cartools.Migrations
 
                     b.HasIndex("ServicoId");
 
-                    b.ToTable("PedidoDetalhes", (string)null);
+                    b.ToTable("PedidoDetalhes");
                 });
 
             modelBuilder.Entity("Cartools.Models.Plano", b =>
@@ -361,7 +363,7 @@ namespace Cartools.Migrations
 
                     b.HasIndex("TipoId");
 
-                    b.ToTable("Planos", (string)null);
+                    b.ToTable("Planos");
                 });
 
             modelBuilder.Entity("Cartools.Models.Servico", b =>
@@ -421,7 +423,7 @@ namespace Cartools.Migrations
 
                     b.HasIndex("OficinaId");
 
-                    b.ToTable("Servicos", (string)null);
+                    b.ToTable("Servicos");
                 });
 
             modelBuilder.Entity("Cartools.Models.Tipo", b =>
@@ -441,7 +443,7 @@ namespace Cartools.Migrations
 
                     b.HasKey("TipoId");
 
-                    b.ToTable("Tipos", (string)null);
+                    b.ToTable("Tipos");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

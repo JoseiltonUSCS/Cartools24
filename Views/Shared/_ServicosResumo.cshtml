@@ -30,11 +30,20 @@
                 </div>
 
                 <div class="container-buttons">
-                    <input type="submit" class="btn btn-primary btn_custom-agendar_servico" value="Agendar serviço" />
+                    <input type="submit" class="btn btn-success dropdown-toggle btn_custom-agendar_servico" id="btnAgendarServico" value="Agendar serviço" />
 
                     <a class="btn-whats" href="https://api.whatsapp.com/send?phone=5511960747570&text=Olá,%20me%20tira%20uma%20dúvida...%20" target="_blank">
                         <img src="~/images/logo_whats.png" alt="WhatsAppLogo" />
                     </a>
+
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <script type="text/javascript">
+                        $(function () {
+                            $("#btnAgendarServico").click(function () {
+                                window.location.href = "/Agendamento";
+                            });
+                        });
+                    </script>
                 </div>
 
             </div>
