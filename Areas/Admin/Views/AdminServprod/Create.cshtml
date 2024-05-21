@@ -12,7 +12,6 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="ServicoId" />
             <div class="form-group-col-sm-4">
                 <label asp-for="Categoria" class="control-label"></label>
                 <select asp-for="CategoriaId" class="form-control" asp-items="ViewBag.CategoriaId"></select>
