@@ -1,3 +1,4 @@
+/* Configurações globais */
 :root {
     --color-lightgray: #D9D9D9;
     --color-white: #fff;
@@ -34,10 +35,11 @@ body {
   html {font-size: 16px;}
 }
 
-.anuncianteBusca{
- border-radius: 15px;
-}
+/*--------------------------------------------------------------------------------------*/
 
+.anuncianteBusca{
+ border-radius: 30px;
+}
 .btnempresa {
     background-color: var(--color-black);
     border-radius: 9px;
@@ -47,6 +49,9 @@ body {
     width: 150px;
     height: 50px;
 }
+
+/*--------------------------------------------------------------------------------------*/
+/* Navbar - main */
 .barraNav {
     display: flex;
     flex-direction: row;
@@ -54,6 +59,56 @@ body {
     color: var(--color-black);
     background-color: deepskyblue;
 }
+.navbar-brand img {
+    width: 50px;
+    height: auto;
+}
+
+.information-middle_banner {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    text-align: center;
+}
+    .information-middle_banner p {
+        font-size: 0.9rem;
+    }
+    .information-middle_banner p:first-child {
+        font-weight: bold;
+    }
+
+.input_servico_custom-banner {
+    width: 300px;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+    .input_servico_custom-banner:hover {
+        border: solid var(--color-black) 1px;
+    }
+
+.input_cidade_custom-banner {
+    width: 300px;
+    font-size: 1rem;
+}
+    .input_cidade_custom-banner:hover {
+        border: solid var(--color-black) 1px;
+    }
+
+/* 'Media Query - inputs' - para telas menores que 800px */
+@media screen and (max-width: 800px) {
+    .input_servico_custom-banner {
+        width: 145px;
+        font-size: 1rem;
+        margin-right: 10px;
+    }
+    .input_cidade_custom-banner {
+        width: 175px;
+        font-size: 1rem;
+    }
+}
+
+/*--------------------------------------------------------------------------------------*/
+
 .btnPlano {
     background-color: var(--color-greenbutton);
     width: 180px;
@@ -109,11 +164,8 @@ main {
     width: 100%;
 }
 
-
 /*--------------------------------------------------------------------------------------*/
 /*Página*/
-
-
 body {
     background-color: var(--color-darkgray);
 }
@@ -124,7 +176,6 @@ body {
     background-color: var(--color-white);
 }
 
-/*PÁGINA*/
 #pagina {
     background: #fff;
     padding: 10px;
@@ -224,10 +275,6 @@ body {
         padding: 10px;
         margin-bottom: -10px;
     }
-        .filtro-ativo p {
-            font-size: 1.2rem;
-            font-weight: 400;
-        }
         .filtro-ativo h2 {
             font-size: 1.5rem;
             font-weight: 600;
@@ -556,10 +603,12 @@ body {
                 font-weight: bold;
             }
 
-        .conteudo-ver_plano .card-text p {
-            text-align: justify;
+        .conteudo-ver_plano .card-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-
+           
         .container-buttons-ver_plano{
             display: flex;
             flex-direction: row;
@@ -572,7 +621,7 @@ body {
             padding: 15px;
         }
 
-/* Estilização da parte de Textual da página Anúnciar */
+    /* Estilização da parte de Textual da página Anúnciar */
     .anunciar {
         font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
         background-color: var(--color-white);
@@ -685,9 +734,6 @@ body {
          }
 
 
-
-
-
 /* ------------------------------------------------------------------------------------------------- */
 /* PÁGINA - paginador */
     #pagina .paginador {
@@ -695,7 +741,6 @@ body {
         float: right;
         margin: 10px 0 5px 0;
     }
-
     #pagina .anuncie_ok h2 {
         font: 18px "Trebuchet MS", Arial, Helvetica, sans-serif;
         font-weight: bold;
@@ -703,31 +748,26 @@ body {
         text-transform: uppercase;
         margin: 0 0 5px 0;
     }
-
     #pagina .anuncie_ok p {
         font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
         color: #392a5e;
         margin: 10px;
     }
-
     #pagina .anuncie_ok a {
         font-weight: bold;
         color: #f30;
     }
-
     #pagina .paginador a {
         padding: 3px 5px;
         margin: 0 1px;
         border: 1px solid #069;
         font-weight: bold;
     }
-
         #pagina .paginador a:hover {
             background: #069;
             color: #571515;
             text-decoration: none;
         }
-
     #pagina .enviado {
         font: 16px Arial, Helvetica, sans-serif;
         font-weight: bold;
@@ -736,7 +776,6 @@ body {
         background: #fff;
         margin: 0 0 10px 0;
     }
-
     #pagina .error {
         font: 14px Arial, Helvetica, sans-serif;
         font-weight: bold;

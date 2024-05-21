@@ -98,6 +98,7 @@
     <Content Remove="wwwroot\images\loginEntrar4.png" />
     <Content Remove="wwwroot\images\loginPrestador.png" />
     <Content Remove="wwwroot\images\logOut2.png" />
+    <Content Remove="wwwroot\images\logo_cartools-github.png" />
     <Content Remove="wwwroot\images\lupa2.png" />
     <Content Remove="wwwroot\images\lupaBusca.PNG" />
     <Content Remove="wwwroot\images\lupaPreta2.png" />
