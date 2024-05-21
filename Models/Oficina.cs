@@ -52,9 +52,6 @@ namespace Cartools.Models
         public string OficinaEstado { get; set; }
         public int LocalId { get; set; }
         public virtual Local Local { get; set; }
-        public int PlanoId { get; set; }
-        public virtual Plano Plano { get; set; }
         public List<Servico> Servico { get; set; }
-        public List<Pedido> Pedido { get; set; }
     }
 }
