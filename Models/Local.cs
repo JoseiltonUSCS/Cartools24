@@ -8,6 +8,7 @@ namespace Cartools.Models
     public class Local
     {
         [Key]
+
         public int LocalId { get; set; }
         [Required(ErrorMessage = "Por favor, informe a cidade!!")]
         [Display(Name = "Cidade")]

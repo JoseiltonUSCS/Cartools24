@@ -11,7 +11,7 @@
 <h3>Pedido  : @Html.DisplayFor(model => @Model.Pedido.PedidoId)</h3>
 <h3>Cliente : @Html.DisplayFor(model => @Model.Pedido.Nome)</h3>
 <h3>Data    : @Html.DisplayFor(model => @Model.Pedido.PedidoEnviado)</h3>
-<h3>Entrega : @Html.DisplayFor(model => @Model.Pedido.PedidoEntregueEm)</h3>
+<h3>Entrega : @Html.DisplayFor(model => @Model.Pedido.Validade)</h3>
 
 <table class="table">
     @foreach (var item in @Model.Pedido.PedidoItens)

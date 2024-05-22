@@ -22,7 +22,7 @@ namespace Cartools.Repositories
         {
             pedido.PedidoEnviado = DateTime.Now;
             _appDbContext.Pedidos.Add(pedido);
-            pedido.PedidoEntregueEm = DateTime.Now;
+            pedido.Validade = DateTime.Now;
             _appDbContext.Pedidos.Add(pedido);
             _appDbContext.SaveChanges();
 

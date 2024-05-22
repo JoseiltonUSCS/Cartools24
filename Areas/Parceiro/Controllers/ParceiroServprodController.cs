@@ -58,7 +58,7 @@ namespace Cartools.Areas.Parceiro.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ServicoId,Nome,DescricaoCurta,DescricaoDetalhada,Preco,ImagemUrl,ImagemThumbnailUrl,IsServicoPreferido,EmEstoque,CategoriaId")] Servico servico)
+        public async Task<IActionResult> Create([Bind("ServicoId,Nome,DescricaoCurta,DescricaoDetalhada,Preco,ImagemUrl,ImagemThumbnailUrl,IsServicoPreferido,EmEstoque,CategoriaId, LocalId, OficinaId")] Servico servico)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +92,7 @@ namespace Cartools.Areas.Parceiro.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ServicoId,Nome,DescricaoCurta,DescricaoDetalhada,Preco,ImagemUrl,ImagemThumbnailUrl,IsServicoPreferido,EmEstoque,CategoriaId")] Servico servico)
+        public async Task<IActionResult> Edit(int id, [Bind("ServicoId,Nome,DescricaoCurta,DescricaoDetalhada,Preco,ImagemUrl,ImagemThumbnailUrl,IsServicoPreferido,EmEstoque,CategoriaId, LocalId, OficinaId")] Servico servico)
         {
             if (id != servico.ServicoId)
             {

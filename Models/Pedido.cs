@@ -63,14 +63,13 @@ namespace Cartools.Models
         [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy hh:mm}", ApplyFormatInEditMode = true)]
         public DateTime PedidoEnviado { get; set; }
 
-        [Display(Name = "Data Envio Pedido")]
+        [Display(Name = "Validade")]
         [DataType(DataType.Text)]
         [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy hh:mm}", ApplyFormatInEditMode = true)]
-        public DateTime? PedidoEntregueEm { get; set; }
-        
+        public DateTime? Validade { get; set; }
+        public DateTime? DataValide => Validade?.AddDays(30);
+
         public virtual List<PedidoDetalhe> PedidoItens { get; set; }
-        public int OficinaId { get; set; }
-        public Oficina Oficina { get; set; }
         
     }
 }
