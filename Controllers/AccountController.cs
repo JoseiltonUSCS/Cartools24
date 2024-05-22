@@ -102,7 +102,6 @@ namespace Cartools.Controllers
         public IActionResult AccessDenied()
         {
             return View();
-        }        
-
+        }           
     }
 }
