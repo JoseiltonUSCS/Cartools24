@@ -1,6 +1,6 @@
 ﻿@model HomeViewModel
 <!--Banner com Campos de busca - select-->
-<div id="banner" class="card text-dark" style="padding:10px;">
+<div id="banner" class="card text-dark" style="padding:10px; background-color:#CDD5C6;">
 
     <div class="card-body" style="padding:0;">
         <!--
@@ -47,7 +47,6 @@
                     </form>
                 </div>
             </div>
-            <div class="col-xs-11 col-sm-11 col-md-5 col-lg-3 col-xl-3"></div>
         </div>
     </div>
 </div>
@@ -58,16 +57,5 @@
         {
             <partial name="_ServicosResumo" for="@servico" />
         }
-    </div>
-    <div>
-        <nav aria-label="Page navigation">
-            <ul class="mt-4 pagination pagination-md d-flex justify-content-center">
-                <li class="page-item"><a class="page-link text-dark" href="#">Anterior</a></li>
-                <li class="page-item"><a class="page-link text-dark" href="#">1</a></li>
-                <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
-                <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
-                <li class="page-item"><a class="page-link text-dark" href="#">Próxima</a></li>
-            </ul>
-        </nav>
     </div>
 </div>
