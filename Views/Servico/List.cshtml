@@ -51,22 +51,10 @@
     </div>
 </div>
 
-    <div class="filtro-ativo">
-        <h2>@Model.LocalAtual</h2>
-    </div>
 <div class="filtro-ativo">
     <h2>@Model.LocalAtual</h2>
 </div>
 
-    <div class="container">
-        <div class="row">
-            @foreach (var servico in Model.Servicos)
-            {
-                <partial name="_ServicosResumo" for="@servico" />
-            }
-        </div>
-    </div>
-</div>
 <div class="container">
     <div class="row">
         @foreach (var servico in Model.Servicos)
@@ -74,16 +62,7 @@
             <partial name="_ServicosResumo" for="@servico" />
         }
     </div>
-    <div>
-        <nav aria-label="Page navigation">
-            <ul class="mt-4 pagination pagination-md d-flex justify-content-center">
-                <li class="page-item"><a class="page-link text-dark" href="#">Anterior</a></li>
-                <li class="page-item"><a class="page-link text-dark" href="#">1</a></li>
-                <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
-                <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
-                <li class="page-item"><a class="page-link text-dark" href="#">Próxima</a></li>
-            </ul>
-        </nav>
-    </div>
 </div>
+</div>
+
 
