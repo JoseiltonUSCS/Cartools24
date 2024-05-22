@@ -12,12 +12,12 @@ namespace Cartools.Models
         public int ServicoId { get; set; }
 
         [Required(ErrorMessage="O nome do serviço deve ser informado")]
-        [Display(Name = "Nome do serviço")]
+        [Display(Name = "Nome do serviço  ")]
         [StringLength(80, MinimumLength = 4, ErrorMessage = "O {0} deve ter no máximo {1} e no  mínimo  {2}")]
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "Informe a descrição curta")]
-        [Display(Name = "Descrição curta: ")]
+        [Display(Name = "Descrição:  ")]
         [MinLength(4, ErrorMessage = "Descrição curta deve ter no mínimo {1} caractere")]
         [MaxLength(200, ErrorMessage = "Descrição curta não pode exceder {1} caractere")]
         public string DescricaoCurta { get; set; }
@@ -37,7 +37,7 @@ namespace Cartools.Models
         public decimal Preco { get; set; }
 
 
-        [Display(Name = " Caminho Imagem Normal")]
+        [Display(Name = " Imagem")]
         [StringLength(200, ErrorMessage = "O {0} deve ter no máximo {1} caractere")]
         public string ImagemUrl { get; set; }
 
