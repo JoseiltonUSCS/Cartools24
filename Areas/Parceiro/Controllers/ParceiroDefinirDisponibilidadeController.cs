@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using Cartools.Models;
 using Cartools.Context;
 using Microsoft.Extensions.Logging;
-using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
+using Newtonsoft.Json;
 
 namespace Cartools.Areas.Parceiro.Controllers
 {
@@ -28,58 +29,82 @@ namespace Cartools.Areas.Parceiro.Controllers
         public IActionResult Index()
         {
             _logger.LogInformation("Entrando na controller");
-
             return View();
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        [Route("DefinirDisponibilidade")]
-        public async Task<IActionResult> DefinirDisponibilidade(Disponibilidade disponibilidade)
+        [Route("Parceiro/ParceiroDefinirDisponibilidadeAjax")]
+        public async Task<IActionResult> DefinirDisponibilidadeAjax([Bind("Data,HorasDisponibilidade")] List<Disponibilidade> disponibilidades)
         {
-            _logger.LogInformation("Chamando a função DefinirDisponibilidade");
+            _logger.LogInformation("Chamando a função DefinirDisponibilidadeAjax");
 
             if (!User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Login", "Account");
+                return Unauthorized();
             }
 
-            // Obter o ID do usuário atualmente logado
-            var userId = _userManager.GetUserId(User);
+            if (disponibilidades == null || !disponibilidades.Any())
+            {
+                _logger.LogWarning("A lista de disponibilidades está vazia ou nula.");
+                return BadRequest(new { success = false, message = "A lista de disponibilidades não pode estar vazia." });
+            }
 
-            // Obter a oficina associada ao usuário
+            var userId = _userManager.GetUserId(User);
             var oficina = _context.Oficinas.FirstOrDefault(o => o.UserId == userId);
 
-            // Verificar se a oficina foi encontrada
             if (oficina == null)
             {
-                return NotFound();
+                _logger.LogWarning("Oficina não encontrada para o usuário com ID: {UserId}", userId);
+                return NotFound(new { success = false, message = "Oficina não encontrada." });
             }
 
-            // Configurar o ID da oficina na disponibilidade
-            disponibilidade.OficinaId = oficina.OficinaId;
-
-            // Adicionar a disponibilidade ao contexto e salvar as mudanças
-            _context.Disponibilidades.Add(disponibilidade);
-            await _context.SaveChangesAsync();
-
-            // Salvar as horas de disponibilidade
-            foreach (var hora in disponibilidade.HorasDisponibilidade)
+            try
             {
-                hora.DisponibilidadeId = disponibilidade.DisponibilidadeId;
-                _context.HoraDisponibilidade.Add(hora);
+                foreach (var disponibilidade in disponibilidades)
+                {
+                    // Validação: Verificar se a data é válida
+                    if (disponibilidade.Data == default(DateTime))
+                    {
+                        _logger.LogWarning("Data inválida recebida: {Data}", disponibilidade.Data);
+                        return BadRequest(new { success = false, message = "Uma ou mais datas são inválidas." });
+                    }
+
+                    // Validação: Verificar se há horas disponíveis
+                    if (disponibilidade.HorasDisponibilidade == null || !disponibilidade.HorasDisponibilidade.Any())
+                    {
+                        _logger.LogWarning("Nenhuma hora disponível para a data: {Data}", disponibilidade.Data);
+                        return BadRequest(new { success = false, message = "Uma ou mais datas não possuem horas disponíveis." });
+                    }
+
+                    disponibilidade.OficinaId = oficina.OficinaId;
+                    _context.Disponibilidades.Add(disponibilidade);
+                    await _context.SaveChangesAsync();
+
+                    foreach (var hora in disponibilidade.HorasDisponibilidade)
+                    {
+                        // Validação: Verificar se a hora é válida
+                        if (hora.Hora == default(TimeSpan))
+                        {
+                            _logger.LogWarning("Hora inválida recebida: {Hora}", hora.Hora);
+                            return BadRequest(new { success = false, message = "Uma ou mais horas são inválidas." });
+                        }
+
+                        hora.DisponibilidadeId = disponibilidade.DisponibilidadeId;
+                        hora.Data = disponibilidade.Data.Date.Add(hora.Hora); // Combina a data da disponibilidade com a hora selecionada
+                        _context.HoraDisponibilidade.Add(hora);
+                    }
+
+                    await _context.SaveChangesAsync();
+                }
+
+                _logger.LogInformation("Disponibilidades e horas de disponibilidade salvas com sucesso.");
+                return Ok(new { success = true });
             }
-            await _context.SaveChangesAsync();
-
-            _logger.LogInformation("Disponibilidade adicionada e horas de disponibilidade salvas.");
-
-            // Adicionando um log para verificar se as horas de disponibilidade foram salvas corretamente
-            foreach (var hora in disponibilidade.HorasDisponibilidade)
+            catch (Exception ex)
             {
-                _logger.LogInformation($"Hora de disponibilidade salva: {hora.Hora}");
+                _logger.LogError(ex, "Erro ao salvar disponibilidades e horas.");
+                return StatusCode(500, new { success = false, message = "Erro interno ao processar a solicitação." });
             }
-
-            return RedirectToAction(nameof(Index));
         }
     }
 }

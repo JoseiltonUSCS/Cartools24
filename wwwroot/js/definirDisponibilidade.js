@@ -24,7 +24,6 @@ $(document).ready(function () {
     });
 
     $('#btnSelecionarHoras').click(function () {
-        console.log('Clicou no botão de salvar');
         $('#modalBody').empty();
         Object.keys(diasSelecionados).forEach(function (data) {
             var divData = $('<div></div>').text(data + ':');
@@ -45,126 +44,117 @@ $(document).ready(function () {
     });
 
     $('#btnSalvarHoras').click(function () {
-
+        var dataToSend = [];
         Object.keys(diasSelecionados).forEach(function (data) {
-            var disponibilidade = {
-                Data: data,
-                HorasDisponibilidade: diasSelecionados[data]
-            };
-            console.log("Passando pela disponibilidade ==> ", disponibilidade)
-            console.log('Enviando requisição AJAX...');
-            $.ajax({
-                url: 'DefinirDisponibilidade',
-                type: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify(disponibilidade),
-                success: function (response) {
-                    console.log('Disponibilidade e horas definidas com sucesso', response);
-                    if (response.success) {
-                    } else {
-                        console.error('Erro ao definir disponibilidade e horas');
-                    }
-                },
-                error: function () {
-                    console.log('Erro na requisição AJAX');
-                    console.error('Erro ao enviar dados para o servidor');
-                }
-            });
+            var horas = diasSelecionados[data].filter(hora => hora !== "");
+            if (horas.length > 0) {
+                var parts = data.split('/');
+                var isoDate = new Date(parts[2], parts[1] - 1, parts[0]).toISOString(); // Converte para formato ISO
+
+                dataToSend.push({
+                    Data: isoDate,
+                    HorasDisponibilidade: horas.map(hora => ({ Hora: hora }))
+                });
+            }
         });
 
-        // Exibir modal de sucesso
-        $('#modalHoras').modal('hide');
-        $('#modalSucesso').modal('show');
+        // Validação: Verifica se há dados a serem enviados
+        if (dataToSend.length === 0) {
+            alert("Por favor, selecione pelo menos uma data e horário.");
+            return;
+        }
 
-        // Fechar o modal e limpar os dias selecionados
-        $('#modalHoras').modal('hide');
-        diasSelecionados = {};
-        $('#calendar').find('.selected-day').removeClass('selected-day');
-        $('#column1').empty();
-        $('#column2').empty();
-        $('#btnSelecionarHoras').prop('disabled', Object.keys(diasSelecionados).length === 0);
+        // Log para verificar dados antes do envio
+        console.log('Dados a serem enviados:', JSON.stringify(dataToSend, null, 2));
+
+        $.ajax({
+            url: 'ParceiroDefinirDisponibilidadeAjax',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(dataToSend),
+            success: function (response) {
+                console.log('Disponibilidade e horas definidas com sucesso', response);
+                if (response.success) {
+                    $('#modalHoras').modal('hide');
+                    $('#modalSucesso').modal('show');
+                    diasSelecionados = {};
+                    $('#calendar').find('.selected-day').removeClass('selected-day');
+                    $('#column1').empty();
+                    $('#column2').empty();
+                    $('#btnSelecionarHoras').prop('disabled', true);
+                } else {
+                    console.error('Erro ao definir disponibilidade e horas', response.message);
+                    $('#modalErro').modal('show');
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('Erro ao enviar dados para o servidor:', xhr.responseText);
+                $('#modalErro').modal('show');
+            }
+        });
     });
 
-    // Fechar o modal de sucesso ao clicar no botão "OK"
     $('#btnSucessoOK').click(function () {
         $('#modalSucesso').modal('hide');
     });
 
-    // Fechar o modal de erro ao clicar no botão "OK"
     $('#btnErroOK').click(function () {
         $('#modalErro').modal('hide');
     });
 
-    // Fechar o modal ao clicar no botão "X"
-    $('#modalHoras .modal-header .close').click(function () {
+    $('#modalHoras .modal-header .close, #btnCancelarHoras').click(function () {
         $('#modalHoras').modal('hide');
     });
 
-    $('#modalSucesso .modal-header .close').click(function () {
-        $('#modalSucesso').modal('hide');
-    });
+    function updateDiasSelecionados() {
+        $('#column1').empty();
+        $('#column2').empty();
 
-    $('#modalErro .modal-header .close').click(function () {
-        $('#modalErro').modal('hide');
-    });
+        var colunaAtual = 1;
+        Object.keys(diasSelecionados).forEach(function (data, index) {
+            var horarios = diasSelecionados[data];
+            var column = colunaAtual === 1 ? $('#column1') : $('#column2');
+            var item = $('<div class="data-item"></div>');
+            var texto = $('<span>' + data + ': ' + horarios.join(', ') + '</span>');
+            var remover = $('<button class="remover-dia">X</button>');
+            remover.click(function () {
+                delete diasSelecionados[data];
+                updateDiasSelecionados();
+            });
+            item.append(texto);
+            item.append(remover);
+            column.append(item);
 
-    // Fechar o modal de horas ao clicar no botão "Cancelar"
-    $('#btnCancelarHoras').click(function () {
-        $('#modalHoras').modal('hide');
-    });
-});
-
-function updateDiasSelecionados() {
-    $('#column1').empty();
-    $('#column2').empty();
-
-    var colunaAtual = 1;
-    Object.keys(diasSelecionados).forEach(function (data, index) {
-        var horarios = diasSelecionados[data];
-        var column = colunaAtual === 1 ? $('#column1') : $('#column2');
-        var item = $('<div class="data-item"></div>');
-        var texto = $('<span>' + data + ': ' + horarios.join(', ') + '</span>');
-        var remover = $('<button class="remover-dia">X</button>');
-        remover.click(function () {
-            delete diasSelecionados[data];
-            updateDiasSelecionados();
+            if (colunaAtual === 1 && Object.keys(diasSelecionados).indexOf(data) === 9) {
+                colunaAtual = 2;
+            }
         });
-        item.append(texto);
-        item.append(remover);
-        column.append(item);
 
-        if (colunaAtual === 1 && Object.keys(diasSelecionados).indexOf(data) === 9) {
-            colunaAtual = 2;
-        }
-    });
+        $('#btnSelecionarHoras').prop('disabled', Object.keys(diasSelecionados).length === 0);
+    }
 
-    // Habilitar o botão se pelo menos uma data estiver selecionada
-    $('#btnSelecionarHoras').prop('disabled', Object.keys(diasSelecionados).length === 0);
-}
+    function adicionarHoraParaData(data, container) {
+        var inputHora = $('<input type="time" class="form-control">');
+        var divHora = $('<div class="hora-selecionada"></div>');
+        var inputHoraContainer = $('<div></div>').append(inputHora);
+        var removerHora = $('<button class="remover-hora">Remover</button>');
+        removerHora.click(function () {
+            var hora = inputHora.val();
+            $(this).parent().remove();
+            var index = diasSelecionados[data].indexOf(hora);
+            if (index !== -1) {
+                diasSelecionados[data].splice(index, 1);
+            }
+        });
+        divHora.append(inputHoraContainer).append(removerHora);
+        container.after(divHora);
 
-function adicionarHoraParaData(data, container) {
-    var inputHora = $('<input type="time" class="form-control">');
-    var divHora = $('<div class="hora-selecionada"></div>');
-    var inputHoraContainer = $('<div></div>').append(inputHora);
-    var removerHora = $('<button class="remover-hora">Remover</button>');
-    removerHora.click(function () {
-        $(this).parent().remove();
-        var hora = inputHora.val();
-        var index = diasSelecionados[data].indexOf(hora);
-        if (index !== -1) {
-            diasSelecionados[data].splice(index, 1);
-        }
-    });
-    divHora.append(inputHoraContainer).append(removerHora);
-    container.after(divHora);
-
-    // Adicionar a hora à lista de horas de disponibilidade
-    inputHora.change(function () {
-        var hora = $(this).val();
-        var index = diasSelecionados[data].indexOf(hora);
-        if (index === -1) {
-            diasSelecionados[data].push(hora);
-        }
-    });
-}
-
+        inputHora.change(function () {
+            var hora = $(this).val();
+            var index = diasSelecionados[data].indexOf(hora);
+            if (index === -1 && hora !== "") {
+                diasSelecionados[data].push(hora);
+            }
+        });
+    }
+});

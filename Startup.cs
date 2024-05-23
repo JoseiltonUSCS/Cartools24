@@ -1,4 +1,5 @@
-﻿using Cartools.Areas.Admin.Services;
+﻿using Calendario.Repositories.Interfaces;
+using Cartools.Areas.Admin.Services;
 using Cartools.Context;
 using Cartools.Models;
 using Cartools.Repositories;
@@ -57,6 +58,8 @@ public class Startup
         services.AddTransient<ITipoRepository, TipoRepository>();
         services.AddTransient<ILocalRepository, LocalRepository>();
         services.AddTransient<IOficinaRepository, OficinaRepository>();
+
+        services.AddTransient<IAgendamentoRepository, AgendamentoRepository>();
 
         services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
         services.AddScoped<RelatorioVendasService>();
@@ -133,6 +136,10 @@ public class Startup
             endpoints.MapControllerRoute(
                  name: "areas",
                  pattern: "{area:exists}/{controller=Parceiro}/{action=Index}/{id?}");
+
+            endpoints.MapControllerRoute(
+          name: "parceiro_ajax",
+          pattern: "{area:exists}/{controller=ParceiroDefinirDisponibilidade}/{action=DefinirDisponibilidadeAjax}");
 
             endpoints.MapControllerRoute(
                   name: "areas",
