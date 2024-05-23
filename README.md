@@ -2,7 +2,7 @@
 >Plataforma de anúncios de serviços de estética automotiva
 
 <p align="center">
-  <img alt="logo-cartools" src="wwwroot/images/logo.png" />
+  <img border-radius="50%" alt="logo-cartools" src="wwwroot/images/logo.png" />
 </p>
 
 <p align="justify">
