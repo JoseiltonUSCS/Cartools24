@@ -1,7 +1,7 @@
 # CarTools
 >Plataforma de anúncios de serviços de estética automotiva
 
-<p align="center">
+<p align="center" style="width:350px; height:auto;">
   <img alt="logo-cartools" src="wwwroot/images/logo.png" />
 </p>
 
