@@ -20,15 +20,22 @@ A plataforma permitirá que empresas parceiras apresentem seus serviços de form
   
 ## IDE 🏗️
 - Visual Studio 2022
+
+
+## Banco de Dados 🏦🎲
 - Microsoft SQL Server 2019
 
 
-## Tecnologias 🛠
+## Frameworks e Bibliotecas 🛠
 
 - ASP .NET CORE
-- C#
 - Entity Framework Core
-- SQL Server
+- BootStrap
+
+
+## Linguagens 🛠
+
+- CSharp
 - HTML
 - CSS
 - JavaScript
@@ -56,6 +63,6 @@ A plataforma permitirá que empresas parceiras apresentem seus serviços de form
 ## Contribuintes 👨🏽‍🎓
 
 - <a target="_blank" href="*">Alan Leal</a>
-- <a target="_blank" href="*">Joseilton Ferreira</a>
+- <a target="_blank" href="https://github.com/JoseiltonUSCS">Joseilton Ferreira</a>
 - <a target="_blank" href="https://www.linkedin.com/in/ramon-barreto-076191180/">Ramon Barreto</a>
 - <a target="_blank" href="*">Stefani Bispo</a>
