@@ -1,7 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Cartools.Services;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace Cartools.Models
@@ -9,7 +7,7 @@ namespace Cartools.Models
     public class Oficina
     {
         public int OficinaId { get; set; }
-        [Required(ErrorMessage ="Nome da oficina é obrigatório")]
+        [Required(ErrorMessage = "Nome da oficina é obrigatório")]
         public string OficinaNome { get; set; }
         public bool IsOficinaPreferida { get; set; }
         public string OficinaTelefone { get; set; }

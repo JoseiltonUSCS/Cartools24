@@ -2,7 +2,6 @@
 using Cartools.Context;
 using Cartools.Models;
 using Cartools.Repositories.Interfaces;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Cartools.Repositories
 {

@@ -2,8 +2,6 @@
 using Cartools.Repositories.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
-using System.Diagnostics.Contracts;
 
 namespace Cartools.Controllers
 {
@@ -21,7 +19,7 @@ namespace Cartools.Controllers
 
         [Authorize]
         [HttpGet]
-        public IActionResult Checkout() 
+        public IActionResult Checkout()
         {
             return View();
         }
@@ -37,30 +35,30 @@ namespace Cartools.Controllers
             List<CarrinhoCompraItem> items = _carrinhoCompra.GetCarrinhoCompraItens();
             _carrinhoCompra.CarrinhoCompraItems = items;
 
-                //verifica se existem itens do pedido
+            //verifica se existem itens do pedido
 
-            if(_carrinhoCompra.CarrinhoCompraItems.Count == 0) 
+            if (_carrinhoCompra.CarrinhoCompraItems.Count == 0)
             {
                 ModelState.AddModelError("", "Seu carrinho está vazio. Que tal incluir alguns itens...");
             }
             else
 
-             //calcula o total de itens e o total do pedido
-             foreach (var item in items) 
-             {
-                totalItensPedido += item.Quantidade;
-                precoTotalPedido += (item.Plano.PlanoPreco * item.Quantidade);
-             }
+                //calcula o total de itens e o total do pedido
+                foreach (var item in items)
+                {
+                    totalItensPedido += item.Quantidade;
+                    precoTotalPedido += (item.Plano.PlanoPreco * item.Quantidade);
+                }
 
-                // atribui os valores obtidos ao pedido
-                pedido.TotalItensPedido = totalItensPedido;
-                pedido.PedidoTotal = precoTotalPedido;
+            // atribui os valores obtidos ao pedido
+            pedido.TotalItensPedido = totalItensPedido;
+            pedido.PedidoTotal = precoTotalPedido;
 
             //valida os dados do pedido
             if (ModelState.IsValid)
-                {
-                 //cria o pedido e os detalhes 
-                 _pedidoRepository.CriarPedido(pedido);
+            {
+                //cria o pedido e os detalhes 
+                _pedidoRepository.CriarPedido(pedido);
 
                 //define mensagens ao cliente
                 ViewBag.CheckoutCompletoMensagem = "Pedido realizado com sucesso.";

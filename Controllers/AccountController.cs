@@ -1,12 +1,11 @@
 ﻿using Cartools.ViewModels;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cartools.Controllers
-{   
+{
 
-   
+
     public class AccountController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
@@ -28,7 +27,7 @@ namespace Cartools.Controllers
                 ReturnUrl = returnUrl
             });
         }
-       
+
         [HttpPost]
         public async Task<ActionResult> Login(LoginViewModel loginVM)
         {
@@ -53,9 +52,9 @@ namespace Cartools.Controllers
             ModelState.AddModelError("", "Usuário ou senha não encontrados! Tente novamente ou cadastre-se logo abaixo.");
             return View(loginVM);
 
-        } 
+        }
 
-      
+
         [HttpGet]
         public IActionResult Register()
         {
@@ -89,7 +88,7 @@ namespace Cartools.Controllers
             return View(registroVM);
 
         }
-       
+
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
@@ -102,7 +101,7 @@ namespace Cartools.Controllers
         public IActionResult AccessDenied()
         {
             return View();
-        }        
+        }
 
     }
 }

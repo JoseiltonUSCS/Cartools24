@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Cartools.Context;
+﻿using Cartools.Context;
 using Cartools.Models;
 using Microsoft.AspNetCore.Authorization;
-using ReflectionIT.Mvc.Paging;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cartools.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles="Admin")]
+    [Authorize(Roles = "Admin")]
     public class AdminCategoriasController : Controller
     {
         private readonly AppDbContext _context;
@@ -152,14 +146,14 @@ namespace Cartools.Areas.Admin.Controllers
             {
                 _context.Categorias.Remove(categoria);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CategoriaExists(int id)
         {
-          return _context.Categorias.Any(e => e.CategoriaId == id);
+            return _context.Categorias.Any(e => e.CategoriaId == id);
         }
     }
 }

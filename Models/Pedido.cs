@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Cartools.Repositories.Interfaces;
 
 namespace Cartools.Models
 {
@@ -8,7 +7,7 @@ namespace Cartools.Models
     {
         public int PedidoId { get; set; }
 
-        
+
         [Required(ErrorMessage = "Informe o nome")]
         [StringLength(50)]
         public string Nome { get; set; }
@@ -67,8 +66,8 @@ namespace Cartools.Models
         [DataType(DataType.Text)]
         [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy hh:mm}", ApplyFormatInEditMode = true)]
         public DateTime? PedidoEntregueEm { get; set; }
-        
+
         public virtual List<PedidoDetalhe> PedidoItens { get; set; }
-        
+
     }
 }

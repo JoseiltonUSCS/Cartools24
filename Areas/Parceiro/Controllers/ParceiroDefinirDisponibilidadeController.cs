@@ -1,12 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Identity;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Cartools.Context;
 using Cartools.Models;
-using Cartools.Context;
-using Microsoft.Extensions.Logging;
-using System;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Cartools.Areas.Parceiro.Controllers
 {
@@ -76,10 +72,11 @@ namespace Cartools.Areas.Parceiro.Controllers
             // Adicionando um log para verificar se as horas de disponibilidade foram salvas corretamente
             foreach (var hora in disponibilidade.HorasDisponibilidade)
             {
-                _logger.LogInformation($"Hora de disponibilidade salva: {hora.Hora}");
+                _logger.LogInformation($"Hora de disponibilidade salva: {hora.Horario}");
             }
 
             return RedirectToAction(nameof(Index));
+
         }
     }
 }

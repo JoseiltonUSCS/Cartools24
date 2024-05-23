@@ -1,6 +1,4 @@
 ﻿using Cartools.Models;
-using Cartools.Repositories;
-using Cartools.Repositories.Interfaces;
 
 namespace Cartools.ViewModels
 {

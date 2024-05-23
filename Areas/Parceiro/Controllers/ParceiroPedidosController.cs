@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Cartools.Context;
+using Cartools.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Cartools.Context;
-using Cartools.Models;
 
 namespace Cartools.Areas.Parceiro.Controllers
 {
@@ -156,14 +152,14 @@ namespace Cartools.Areas.Parceiro.Controllers
             {
                 _context.Servicos.Remove(servico);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ServicoExists(int id)
         {
-          return _context.Servicos.Any(e => e.ServicoId == id);
+            return _context.Servicos.Any(e => e.ServicoId == id);
         }
     }
 }

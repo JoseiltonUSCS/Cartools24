@@ -1,9 +1,6 @@
 ﻿using Cartools.Context;
 using Cartools.Models;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using SQLitePCL;
-using System.Linq;
 
 namespace Cartools.Services
 {
@@ -20,11 +17,11 @@ namespace Cartools.Services
         {
             var resultado = from obj in context.Categorias select obj;
 
-                     
+
 
             return await resultado
                         .Include(s => s.CategoriaNome)
-                        .OrderByDescending( x => x.CategoriaId)
+                        .OrderByDescending(x => x.CategoriaId)
                         .ToListAsync();
         }
     }

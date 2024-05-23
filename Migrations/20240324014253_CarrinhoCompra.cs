@@ -7,7 +7,7 @@ namespace Cartools.Migrations
     public partial class CarrinhoCompra : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
-        {            
+        {
             migrationBuilder.AlterColumn<string>(
                 name: "DescricaoDetalhada",
                 table: "Servicos",
@@ -24,7 +24,7 @@ namespace Cartools.Migrations
                 type: "int",
                 nullable: false,
                 defaultValue: 0);
-           
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

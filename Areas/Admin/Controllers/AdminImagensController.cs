@@ -1,10 +1,7 @@
 ﻿using Cartools.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Options;
-using System.Security.Cryptography.Xml;
-using DocumentFormat.OpenXml.Drawing.Charts;
 
 namespace Cartools.Areas.Admin.Controllers
 {
@@ -32,7 +29,7 @@ namespace Cartools.Areas.Admin.Controllers
             if (files == null || files.Count == 0)
             {
                 ViewData["Erro"] = "Error: Arquivo(s) não selecionados(s)";
-                return View(ViewData);  
+                return View(ViewData);
             }
             if (files.Count > 10)
             {
@@ -49,24 +46,24 @@ namespace Cartools.Areas.Admin.Controllers
 
             foreach (var formFile in files)
             {
-                if (formFile.FileName.Contains(".jpg") || formFile.FileName.Contains(".jpeg") 
-                    || formFile.FileName.Contains(".gif") || formFile.FileName.Contains(".png")) 
+                if (formFile.FileName.Contains(".jpg") || formFile.FileName.Contains(".jpeg")
+                    || formFile.FileName.Contains(".gif") || formFile.FileName.Contains(".png"))
                 {
                     var fileNameWithPath = string.Concat(filePath, "\\", formFile.FileName);
-                        filePathsName.Add(fileNameWithPath);
+                    filePathsName.Add(fileNameWithPath);
                     using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
                     {
                         await formFile.CopyToAsync(stream);
                     }
                 }
             }
-            ViewData["Resultado"] = $"{files.Count} Arquivo(s) enviado(s) ao servidor. " + 
+            ViewData["Resultado"] = $"{files.Count} Arquivo(s) enviado(s) ao servidor. " +
                                     $" Tamanho do arquivo: {size} bytes";
-          
-                
-           
+
+
+
             ViewBag.Arquivos = filePathsName;
-        
+
             return View(ViewData);
         }
 
@@ -95,7 +92,7 @@ namespace Cartools.Areas.Admin.Controllers
             string _imagemDeleta = Path.Combine(_hostingEnvironment.WebRootPath,
                 _myConfig.NomePastaImagensProdutos + "\\", fname);
 
-            if((System.IO.File.Exists(_imagemDeleta)))
+            if ((System.IO.File.Exists(_imagemDeleta)))
             {
                 System.IO.File.Delete(_imagemDeleta);
 

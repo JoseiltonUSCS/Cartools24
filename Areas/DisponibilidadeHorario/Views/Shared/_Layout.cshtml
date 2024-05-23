@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]Cartools</title>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" type="text/css" />
+    <link rel="stylesheet" href="~/CarrosMac.styles.css" asp-append-version="true" />
+
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <header>
+            <!-- <BarraNav"> -->
+            <nav class="navbar navbar-expand-lg navbar-toggleable-lg navbar-black bg-black border-bottom box-shadow">
+                <div class="md-3 container-fluid">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="~/images/logo.png" />
+                    </a>
+                    <div class="md-6 justify-content-lg-around navbar-collapse collapse d-lg-inline-flex flex-lg-row ">
+
+                        @await Component.InvokeAsync("CarrinhoCompraResumo")
+
+                        <a class="nav-link text-light" asp-area="Disponibilidade"
+                           asp-controller="Home" asp-action="Index">
+                            <p class="space"></p><h4>Data</h4>
+                        </a>
+
+                        <a class="nav-link text-light" asp-area="Disponibilidade"
+                           asp-controller="Home" asp-action="SobreNos">
+                            <p class="space"></p><h4>Agendados</h4>
+                        </a>
+
+                        <a class="nav-link text-light" asp-area="Disponibilidade"
+                           asp-controller="Plano" asp-action="Index">
+                            <p class="space"></p><h4>Outros</h4>
+                        </a>
+
+
+                        <!-- Formulário de login navbar -->
+                        @await Html.PartialAsync("_LoginPartial")
+
+                        <!--Link de acesso à página do administrador-->
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a class="nav-link-underline-primary text-light" asp-area="Admin" asp-controller="Admin" asp-action="Index">Admin</a>
+                        }
+                        <!--Link de acesso à página do parceiro/lojista/oficina-->
+                        @if (User.IsInRole("Parceiro"))
+                        {
+                            <a class="nav-link-underline-primary text-light" asp-area="Parceiro" asp-controller="Parceiro" asp-action="Index">Parceiro</a>
+                        }
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="card border-0 mt-0 bg-light" role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer_global">
+        <div class="container">
+            <div class="conteudo">
+                <h3>Qualquer dúvida ou sugestão fale conosco!</h3>
+                <div class="item">
+                    <span><img src="~/images/Envelope-icon24.png" alt="Ícone de envelope" /></span>
+                    <span><a href="mailto:stefani.bispo@uscsonline.com.br">Fale conosco</a></span>
+                </div>
+                <div class="item">
+                    <span>
+                        <a href="https://api.whatsapp.com/send?phone=5511953033392&text=Olá,%20tudo%20bem?%20" target="_blank" class="btn btn-whats">
+                            <img src="~/images/logo_whats.png" alt="Ícone do WhatsApp" />
+                        </a>
+                    </span>
+                    <span>(11) 99999-8888</span>
+                </div>
+                <div class="item">
+                    <span><img src="~/images/Home-iconred.png" alt="Ícone de casa" /></span>
+                    <span>Av. Presidente Kennedy - São Caetano do Sul</span>
+                </div>
+            </div>
+            <div class="cc_footer">
+                &copy; @DateTime.Now.Year - Cartools - <a href="/Home/Privacy">Privacy</a>
+            </div>
+        </div>
+
+    </footer>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+

@@ -110,7 +110,7 @@ namespace Cartools.Models
                         .Where(c => c.CarrinhoCompraId == CarrinhoCompraId)
                         .Select(c => c.Plano.PlanoPreco * c.Quantidade).Sum();
 
-            return total;   
+            return total;
         }
     }
 }

@@ -9,7 +9,6 @@
   <ItemGroup>
     <Compile Remove="Areas\Admin\Views\AdminProdutos\**" />
     <Compile Remove="Areas\Admin\Views\AdminServicos\**" />
-    <Compile Remove="Areas\NovaPasta\**" />
     <Compile Remove="NovaPasta1\**" />
     <Compile Remove="NovaPasta2\**" />
     <Compile Remove="NovaPasta\**" />
@@ -21,7 +20,6 @@
     <Compile Remove="Views\Shared\Components\NovaPasta\**" />
     <Content Remove="Areas\Admin\Views\AdminProdutos\**" />
     <Content Remove="Areas\Admin\Views\AdminServicos\**" />
-    <Content Remove="Areas\NovaPasta\**" />
     <Content Remove="NovaPasta1\**" />
     <Content Remove="NovaPasta2\**" />
     <Content Remove="NovaPasta\**" />
@@ -33,7 +31,6 @@
     <Content Remove="Views\Shared\Components\NovaPasta\**" />
     <EmbeddedResource Remove="Areas\Admin\Views\AdminProdutos\**" />
     <EmbeddedResource Remove="Areas\Admin\Views\AdminServicos\**" />
-    <EmbeddedResource Remove="Areas\NovaPasta\**" />
     <EmbeddedResource Remove="NovaPasta1\**" />
     <EmbeddedResource Remove="NovaPasta2\**" />
     <EmbeddedResource Remove="NovaPasta\**" />
@@ -45,7 +42,6 @@
     <EmbeddedResource Remove="Views\Shared\Components\NovaPasta\**" />
     <None Remove="Areas\Admin\Views\AdminProdutos\**" />
     <None Remove="Areas\Admin\Views\AdminServicos\**" />
-    <None Remove="Areas\NovaPasta\**" />
     <None Remove="NovaPasta1\**" />
     <None Remove="NovaPasta2\**" />
     <None Remove="NovaPasta\**" />
@@ -125,19 +121,9 @@
     <PackageReference Include="Bootstrap.v3.Datetimepicker.CSS" Version="4.17.49" />
     <PackageReference Include="jQuery.UI.Combined" Version="1.13.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.21" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.21">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.21" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.21" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.21">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.29" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.29" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
-    <PackageReference Include="NPoco" Version="5.7.1" />
-    <PackageReference Include="OpenXmlPowerTools" Version="4.5.3.2" />
     <PackageReference Include="ReflectionIT.Mvc.Paging" Version="6.0.1" />
   </ItemGroup>
 

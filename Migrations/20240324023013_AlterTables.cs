@@ -16,17 +16,17 @@ namespace Cartools.Migrations
                 name: "IX_CarrinhoCompraItens_ServicoId",
                 table: "CarrinhoCompraItens");
 
-                       migrationBuilder.AlterColumn<string>(
-                name: "DescricaoDetalhada",
-                table: "Servicos",
-                type: "nvarchar(600)",
-                maxLength: 600,
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(200)",
-                oldMaxLength: 200);
+            migrationBuilder.AlterColumn<string>(
+     name: "DescricaoDetalhada",
+     table: "Servicos",
+     type: "nvarchar(600)",
+     maxLength: 600,
+     nullable: false,
+     oldClrType: typeof(string),
+     oldType: "nvarchar(200)",
+     oldMaxLength: 200);
 
-          
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

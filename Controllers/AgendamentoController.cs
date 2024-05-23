@@ -1,9 +1,5 @@
 ﻿using Calendario.Repositories.Interfaces;
-using Cartools.Context;
-using Cartools.Repositories.Interfaces;
-using Cartools.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace Cartools.Controllers
 {

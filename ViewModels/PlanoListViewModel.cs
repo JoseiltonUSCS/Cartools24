@@ -7,6 +7,6 @@ namespace Cartools.ViewModels
         public IEnumerable<Plano> Planos { get; set; }
 
         public IEnumerable<Plano> PlanosPreferidos { get; set; }
-        public string TipoAtual {  get; set; }
+        public string TipoAtual { get; set; }
     }
 }

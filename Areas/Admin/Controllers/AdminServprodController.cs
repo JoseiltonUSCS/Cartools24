@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Cartools.Context;
+using Cartools.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Cartools.Context;
-using Cartools.Models;
 using ReflectionIT.Mvc.Paging;
 
 namespace Cartools.Areas.Admin.Controllers
@@ -28,7 +24,7 @@ namespace Cartools.Areas.Admin.Controllers
         //    return View(await appDbContext.ToListAsync());
         //}
 
-        public async Task<IActionResult> Index(string filter, int pageindex=1, string sort = "Nome")
+        public async Task<IActionResult> Index(string filter, int pageindex = 1, string sort = "Nome")
         {
             var resultado = _context.Servicos.Include(s => s.Categoria).AsQueryable();
             if (!string.IsNullOrWhiteSpace(filter))
@@ -170,14 +166,14 @@ namespace Cartools.Areas.Admin.Controllers
             {
                 _context.Servicos.Remove(servico);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ServicoExists(int id)
         {
-          return _context.Servicos.Any(e => e.ServicoId == id);
+            return _context.Servicos.Any(e => e.ServicoId == id);
         }
     }
 }

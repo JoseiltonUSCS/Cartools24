@@ -1,6 +1,5 @@
 ﻿using Cartools.Areas.Admin.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualBasic;
 
 namespace Cartools.Areas.Admin.Controllers
 {
@@ -19,7 +18,7 @@ namespace Cartools.Areas.Admin.Controllers
             return View();
         }
 
-        public async Task<IActionResult> RelatorioVendasSimples(DateTime? minDate, 
+        public async Task<IActionResult> RelatorioVendasSimples(DateTime? minDate,
             DateTime? maxDate)
         {
             if (!minDate.HasValue)

@@ -1,6 +1,5 @@
 ﻿using Cartools.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Data;
 
 namespace Cartools.Controllers
 {

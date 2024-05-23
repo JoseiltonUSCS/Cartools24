@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -336,7 +335,7 @@ namespace Cartools.Migrations
                         principalTable: "Oficinas",
                         principalColumn: "OficinaId",
                         onDelete: ReferentialAction.NoAction,
-                        onUpdate:  ReferentialAction.NoAction);
+                        onUpdate: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(

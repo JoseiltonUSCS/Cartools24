@@ -15,7 +15,7 @@ namespace Cartools.Repositories
         }
 
         public IEnumerable<Oficina> Oficinas => _context.Oficinas;
-        public IEnumerable<Oficina> OficinasPreferidas => _context.Oficinas.Where(o=> o.IsOficinaPreferida).Include(o=> o.OficinaNome);
+        public IEnumerable<Oficina> OficinasPreferidas => _context.Oficinas.Where(o => o.IsOficinaPreferida).Include(o => o.OficinaNome);
 
         /*
 public IEnumerable<Oficina> Oficinas => _context.Oficinas
@@ -26,7 +26,7 @@ Where(o => o.IsOficinaPreferida)
 */
         public Oficina GetOficinaById(int oficinaId)
         {
-            return _context.Oficinas.FirstOrDefault(o=> o.OficinaId == oficinaId);
+            return _context.Oficinas.FirstOrDefault(o => o.OficinaId == oficinaId);
         }
 
     }

@@ -2,19 +2,17 @@
 using Cartools.Models;
 using Cartools.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using OpenXmlPowerTools;
-using System.Linq;
 
 namespace Cartools.Repositories
 {
-    
+
     public class ServicoRepository : IServicoRepository
     {
         private readonly AppDbContext _context;
 
         public ServicoRepository(AppDbContext context)
         {
-                _context = context;
+            _context = context;
         }
 
         public IEnumerable<Servico> Servicos => _context.Servicos
@@ -22,9 +20,9 @@ namespace Cartools.Repositories
 
         public IEnumerable<Servico> ServicosPreferidos => _context.Servicos.
                                     Where(s => s.IsServicoPreferido)
-                                    .Include(l => l.Local).ThenInclude(o => o.Oficina);   
-       
-        public Servico GetServicoById(int ServicoId)        
+                                    .Include(l => l.Local).ThenInclude(o => o.Oficina);
+
+        public Servico GetServicoById(int ServicoId)
         {
             return _context.Servicos.FirstOrDefault(s => s.ServicoId == ServicoId);
         }

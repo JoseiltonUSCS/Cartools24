@@ -2,10 +2,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using Microsoft.AspNetCore.Hosting;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 
 namespace Cartools.Areas.Parceiro.Controllers
 {
@@ -16,7 +12,7 @@ namespace Cartools.Areas.Parceiro.Controllers
         private readonly ConfigurationImagensParceiros _parcConfig;
         private readonly IWebHostEnvironment _parcHostingEnvironment;
 
-        public ParceiroImagensController(IWebHostEnvironment parcHostingEnvironment, IOptions<ConfigurationImagensParceiros>parcConfiguration)
+        public ParceiroImagensController(IWebHostEnvironment parcHostingEnvironment, IOptions<ConfigurationImagensParceiros> parcConfiguration)
         {
             _parcHostingEnvironment = parcHostingEnvironment;
             _parcConfig = parcConfiguration.Value;
@@ -29,7 +25,7 @@ namespace Cartools.Areas.Parceiro.Controllers
 
         public async Task<IActionResult> UploadFiles(List<IFormFile> files)
         {
-            if (files == null || files.Count == 0 )
+            if (files == null || files.Count == 0)
             {
                 ViewData["Erro"] = "Error: Arquivo(s) não selecionado(s)";
                 return View(ViewData);

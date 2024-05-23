@@ -2,7 +2,6 @@
 using Cartools.Repositories.Interfaces;
 using Cartools.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using NPoco;
 
 namespace Cartools.Controllers
 {
@@ -16,7 +15,7 @@ namespace Cartools.Controllers
 
         public IActionResult List(string local)
         {
-            
+
             IEnumerable<Servico> servicos;
             string localAtual = string.Empty;
 
@@ -28,9 +27,9 @@ namespace Cartools.Controllers
                 localAtual = "Todos os serviços";
             }
             else
-            {   
+            {
                 //busca por cidade na barra de navegação
-                servicos = _servicoRepository.Servicos.Where( l => l.Local.Cidade.Equals(local)).OrderBy(s => s.Nome);
+                servicos = _servicoRepository.Servicos.Where(l => l.Local.Cidade.Equals(local)).OrderBy(s => s.Nome);
 
                 localAtual = local;
             }
@@ -40,7 +39,7 @@ namespace Cartools.Controllers
                 Servicos = servicos,
                 LocalAtual = localAtual
             };
-                    return View(servicosListViewModel);
+            return View(servicosListViewModel);
 
         }
 
@@ -50,7 +49,7 @@ namespace Cartools.Controllers
             var servico = _servicoRepository.Servicos.FirstOrDefault(s => s.ServicoId == servicoId);
             return View(servico);
         }
-        
+
         public ViewResult Search(string searchString)
         {
             //searchString - a busca é realizada a partir do que for digitado no campo de busca, que neste caso é o serviço desejado.
@@ -59,8 +58,8 @@ namespace Cartools.Controllers
             string localAtual = string.Empty;
 
 
-            if (string.IsNullOrEmpty(searchString)) 
-                
+            if (string.IsNullOrEmpty(searchString))
+
             {
                 servicos = _servicoRepository.Servicos.OrderBy(s => s.ServicoId);
                 localAtual = "Todos os Servicos";
@@ -77,13 +76,13 @@ namespace Cartools.Controllers
             }
             return View("~/Views/Servico/List.cshtml", new ServicoListViewModel
             {
-                
+
                 Servicos = servicos.OrderBy(l => l.LocalId),
                 LocalAtual = localAtual
             });
         }
-        
 
-       
+
+
     }
 }

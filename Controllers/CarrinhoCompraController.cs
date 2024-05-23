@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Cartools.Models;
+﻿using Cartools.Models;
 using Cartools.Repositories.Interfaces;
 using Cartools.ViewModels;
-using Microsoft.AspNetCore.Authorization;
-using Cartools.Repositories;
-using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Cartools.Controllers
 {
@@ -19,7 +16,7 @@ namespace Cartools.Controllers
             _planoRepository = planoRepository;
             _carrinhoCompra = carrinhoCompra;
         }
-                public IActionResult Index()
+        public IActionResult Index()
         {
             var itens = _carrinhoCompra.GetCarrinhoCompraItens();
             _carrinhoCompra.CarrinhoCompraItems = itens;
@@ -32,7 +29,7 @@ namespace Cartools.Controllers
 
             return View(carrinhoCompraVM);
         }
-       
+
         public IActionResult AdicionarItemNoCarrinhoCompra(int planoId)
         {
             var planoSelecionado = _planoRepository.Planos
@@ -55,6 +52,6 @@ namespace Cartools.Controllers
                 _carrinhoCompra.RemoverDoCarrinho(planoSelecionado);
             }
             return RedirectToAction("Index");
-        }       
+        }
     }
 }
