@@ -46,7 +46,8 @@ A plataforma permitirá que empresas parceiras apresentem seus serviços de form
 - [x] Baixe em sua máquina o Microsoft SQL Server 2019
 - [x] Abra o Microsoft Visual Studio 2022
 - [x] Em "Get Started", clique na opção "Clone a repository"
-- [x] Após isso, vai pedir o local que o repositório está ("Repository location"). Então cole o link do repositório remoto do projeto CarTools a seguir: https://github.com/JoseiltonUSCS/Cartools24.git 
+- [x] Após isso, vai pedir o local que o repositório está ("Repository location")
+- [x] Então cole o link do repositório remoto: https://github.com/JoseiltonUSCS/Cartools24.git 
 - [x] E por fim é só clicar no botão "Clonar" para concluir, e o projeto estará em sua máquina
 
 
