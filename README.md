@@ -41,16 +41,16 @@ A plataforma permitirá que empresas parceiras apresentem seus serviços de form
 - JavaScript
 
 
-## Passos para Startar a Aplicação 🛫
-- [x] 1- slslsklkslksl
-- [x] 2- slslsklkslksl
-- [x] 3- slslsklkslksl
-- [x] 4- slslsklkslksl
-- [x] 5- slslsklkslksl
+## Passos para iniciar a Aplicação 🛫
+- [x] Baixe em sua máquina o Microsoft Visual Studio 2022
+- [x] Baixe em sua máquina o Microsoft SQL Server 2019
+- [x] Abra o Microsoft Visual Studio 2022
+- [x] Em "Get Started", clique na opção "Clone a repository"
+- [x] Após isso, vai pedir o local que o repositório está "Repository location". Então cole o link do repositório remoto a seguir para prosseguir: 
 - [x] 6- slslsklkslksl
 
 
-## Layout (Figma) 🔖 
+## Layout (Figma) 🖌️
 
 >Você pode visualizar o layout do projeto através do link abaixo:
 
