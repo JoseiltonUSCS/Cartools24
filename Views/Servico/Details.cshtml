@@ -30,10 +30,36 @@
                 <p>@Model.DescricaoDetalhada</p>
             </div>
         </div>
+
+        <div class="label-para-nome_do_servico">
+            <h1>Margem de preço</h1>
+        </div>
+
+        <div class="card-block">
+            <div class="card-detail">
+                <p>Preços a partir de: <strong>@Model.Preco.ToString("c")</strong></p>
+            </div>
+        </div>
+
+        <div class="label-para-nome_do_servico">
+            <h1>Localização</h1>
+        </div>
+
+        <div class="card-block">
+            <div class="container-title-ver_empresa">
+                <h2 class="card-title">Estamos presente no Endereço abaixo:</h2>
+            </div>
+            <hr />
+            <div class="card-detail">
+                <p><strong>Cidade:</strong> @Model.Local.Cidade</p>
+                <p><strong>Bairro:</strong> @Model.Local.Bairro</p>
+                <p><strong>Logradouro:</strong> @Model.Oficina.OficinaLogradouro - @Model.Oficina.OficinaNumero</p>
+            </div>
+        </div>
     </div>
     
 
-        <div class="container-buttons-ver_empresa ">
+        <div class="container-buttons-ver_empresa">
             <a asp-controller="Home" asp-action="Index" class="btn btn-outline-info btn_custom-voltar">Voltar</a>
 
             <input class="btn btn-success dropdown-toggle btn_custom-agendar_servico" type="datetime" id="calendario" placeholder="Agendar serviço" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
@@ -53,6 +79,7 @@
                     }
                 </div>
         </div>
-
-    
 </div>
+
+
+

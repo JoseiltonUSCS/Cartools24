@@ -10,6 +10,8 @@ namespace Cartools.Models
 
         [Required(ErrorMessage ="Nome da oficina é obrigatório")]
         [StringLength(50)]
+
+        [Display(Name = "Oficina")]
         public string OficinaNome { get; set; }
 
         public bool IsOficinaPreferida { get; set; }
@@ -52,9 +54,6 @@ namespace Cartools.Models
         public string OficinaEstado { get; set; }
         public int LocalId { get; set; }
         public virtual Local Local { get; set; }
-        public int PlanoId { get; set; }
-        public virtual Plano Plano { get; set; }
         public List<Servico> Servico { get; set; }
-        public List<Pedido> Pedido { get; set; }
     }
 }

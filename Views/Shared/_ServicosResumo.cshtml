@@ -1,42 +1,30 @@
 ﻿@model Servico
 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 div-card_custom">
     <div class="row p-3">
-        <div class="card card-body border-dark text-center bg-white rounded-custom">
+        <div class="card card-body  border-dark text-center bg-white rounded-custom">
             <div class="conteudo-card-empresa">
-                <h1><a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId">@Model.Oficina.OficinaNome</a></h1>
-
+                <h1>
+                    <a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId">@Model.Oficina.OficinaNome</a>
+                </h1>
                 <div>
                     <a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId">
-                        <img src="@Model.ImagemUrl" class="img-fluid img-custom" />
+                        <img src="@Model.ImagemUrl" class="img-fluid img-custom_servicoCard" />
                     </a>
                 </div>
 
                 <div>
-                    <span>@Model.Oficina.OficinaLogradouro</span>
-                    <span>@Model.Oficina.OficinaNumero</span><br />
-                    <span>@Model.Local.Cidade</span> -
-                    <span>@Model.Local.Bairro</span><br />
-                    <span>@Model.Oficina.OficinaTelefone</span>
+                    <span><strong>@Model.Local.Cidade</strong></span> -
+                    <span>@Model.Local.Bairro</span><br/>
                 </div>
 
                 <h2><a asp-controller="Servico" asp-action="Details" asp-route-servicoId="@Model.ServicoId">@Model.Nome</a></h2>
 
-                <div class="descricao-detalhada-empresa">
-                    <p>@Model.DescricaoDetalhada</p>
+                <div class="container-button">
+                    <input type="submit" class="btn btn-primary btn_custom-agendar_servico_home" value="Agendar serviço" />
                 </div>
 
-                <div class="preco-estimado-servico-empresa">
-                    <span>Preço estimado: <strong>@Model.Preco.ToString("c")</strong></span>
-                </div>
-
-                <div class="container-buttons">
-                    <input type="submit" class="btn btn-primary btn_custom-agendar_servico" value="Agendar serviço" />
-
-                    <a class="btn-whats" href="https://api.whatsapp.com/send?phone=5511960747570&text=Olá,%20me%20tira%20uma%20dúvida...%20" target="_blank">
-                        <img src="~/images/logo_whats.png" alt="WhatsAppLogo" />
-                    </a>
-                </div>
             </div>
+
         </div>
     </div>
 </div>

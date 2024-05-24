@@ -8,7 +8,7 @@
 
 <form method="get" class="form-inline">
     <input name="filter" class="form-control" placeholder="filtro"
-            value="@Model.RouteValue["Filter"]" />
+           value="@Model.RouteValue["Filter"]" />
     <button type="submit" class="btn btn-info">Procurar</button>
 </form>
 
@@ -33,7 +33,7 @@ Total de Serviços: @Model.TotalRecordCount
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Preco)
-                    </th>               
+                    </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Categoria)
                     </th>
@@ -41,26 +41,28 @@ Total de Serviços: @Model.TotalRecordCount
                 </tr>
             </thead>
             <tbody>
- @foreach (var item in Model) {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nome)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DescricaoCurta)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Preco)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Categoria.CategoriaNome)
-                    </td>
-                    <td>
-                    <a asp-action="Edit" asp-route-id="@item.ServicoId">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.ServicoId">Detalhes</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ServicoId">Excluir</a>
-                    </td>
-                </tr>}
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DescricaoCurta)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Preco)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Categoria.CategoriaNome)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.ServicoId">Editar</a> |
+                            <a asp-action="Details" asp-route-id="@item.ServicoId">Detalhes</a> |
+                            <a asp-action="Delete" asp-route-id="@item.ServicoId">Excluir</a>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>
