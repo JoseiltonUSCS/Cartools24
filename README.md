@@ -10,7 +10,7 @@ O projeto consiste na criação de um sistema de anúncios de serviços de esté
 </p>
 
 <p align="justify">
-A plataforma permitirá que empresas apresentem os seus serviços de forma detalhada e atraente. Cada empresa terá seu perfil personalizado, no qual poderá atualizar as informações exibidas. Os clientes, por sua vez, terão acesso a essas informações de maneira intuitiva e poderão buscar e agendar serviços com facilidade. 
+A plataforma permitirá que as empresas apresentem os seus serviços de forma detalhada e atraente. Cada empresa terá seu perfil personalizado, no qual poderá atualizar as informações exibidas. Os clientes, por sua vez, terão acesso a essas informações de maneira intuitiva e poderão buscar e agendar serviços com facilidade. 
 </p>
 
 
