@@ -6,11 +6,11 @@
 </p>
 
 <p align="justify">
-O projeto consiste na criação de um sistema de anúncios de serviços de estética automotiva, em resposta à necessidade de oferecer praticidade e     otimização nas buscas por serviços nesse segmento. A plataforma CarTools proporcionará benefícios significativos tanto para as empresas desse nicho quanto para os consumidores desses serviços.
+O projeto consiste na criação de um sistema de anúncios de serviços de estética automotiva, em resposta à necessidade de oferecer praticidade e     otimização para os usuários que buscam serviços desse nicho. A plataforma CarTools proporcionará benefícios significativos tanto para as empresas que prestam estes serviços, quanto para os consumidores que buscam empresas desse ramo.
 </p>
 
 <p align="justify">
-A plataforma permitirá que empresas parceiras apresentem seus serviços de forma detalhada e atraente. Cada empresa terá seu perfil personalizado, no qual poderá atualizar as informações exibidas. Os clientes, por sua vez, terão acesso a essas informações de maneira intuitiva e poderão buscar e agendar serviços com facilidade. 
+A plataforma permitirá que empresas apresentem os seus serviços de forma detalhada e atraente. Cada empresa terá seu perfil personalizado, no qual poderá atualizar as informações exibidas. Os clientes, por sua vez, terão acesso a essas informações de maneira intuitiva e poderão buscar e agendar serviços com facilidade. 
 </p>
 
 
