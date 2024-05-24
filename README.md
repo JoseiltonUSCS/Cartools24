@@ -36,9 +36,10 @@ A plataforma permitirá que empresas apresentem os seus serviços de forma detal
 ## Linguagens 🛠
 
 - CSharp
+- JavaScript
 - HTML
 - CSS
-- JavaScript
+
 
 
 ## Passos para iniciar a Aplicação 🛫
