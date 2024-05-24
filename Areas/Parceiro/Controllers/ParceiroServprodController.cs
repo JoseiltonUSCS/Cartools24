@@ -49,6 +49,8 @@ namespace Cartools.Areas.Parceiro.Controllers
         // GET: Parceiro/ParceiroServprod/Create
         public IActionResult Create()
         {
+            ViewBag.LocalId = new SelectList(_context.Locals, "LocalId", "Cidade");
+            ViewBag.OficinaId = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome");
             ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaNome");
             return View();
         }
@@ -66,6 +68,9 @@ namespace Cartools.Areas.Parceiro.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewData["LocalsId"] = new SelectList(_context.Locals, "LocalId", "Cidade");
+            ViewData["OficinasId"] = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome");
             ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaNome", servico.CategoriaId);
             return View(servico);
         }
@@ -83,6 +88,8 @@ namespace Cartools.Areas.Parceiro.Controllers
             {
                 return NotFound();
             }
+            ViewBag.LocalId = new SelectList(_context.Locals, "LocalId", "Cidade", servico.LocalId);
+            ViewBag.OficinaId = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome", servico.OficinaId);
             ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaNome", servico.CategoriaId);
             return View(servico);
         }
@@ -120,6 +127,9 @@ namespace Cartools.Areas.Parceiro.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaNome", servico.CategoriaId);
+            ViewData["LocalId"] = new SelectList(_context.Locals, "LocalId", "Cidade", servico.LocalId);
+            ViewData["OficinaId"] = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome", servico.OficinaId);
+
             return View(servico);
         }
 
