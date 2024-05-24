@@ -28,7 +28,7 @@ A plataforma permitirá que empresas parceiras apresentem seus serviços de form
 
 ## Frameworks e Bibliotecas 🛠
 
-- ASP .NET CORE
+- ASP .NET Core
 - Entity Framework Core
 - BootStrap
 
