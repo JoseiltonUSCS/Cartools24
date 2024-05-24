@@ -1,3 +1,4 @@
+/* ConfiguraÁıes globais */
 :root {
     --color-lightgray: #D9D9D9;
     --color-white: #fff;
@@ -34,10 +35,11 @@ body {
   html {font-size: 16px;}
 }
 
-.anuncianteBusca{
- border-radius: 15px;
-}
+/*--------------------------------------------------------------------------------------*/
 
+.anuncianteBusca{
+ border-radius: 30px;
+}
 .btnempresa {
     background-color: var(--color-black);
     border-radius: 9px;
@@ -47,6 +49,9 @@ body {
     width: 150px;
     height: 50px;
 }
+
+/*--------------------------------------------------------------------------------------*/
+/* Navbar - main */
 .barraNav {
     display: flex;
     flex-direction: row;
@@ -54,6 +59,58 @@ body {
     color: var(--color-black);
     background-color: deepskyblue;
 }
+.navbar-brand img {
+    width: 50px;
+    height: auto;
+}
+
+.information-middle_banner {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    text-align: center;
+}
+    .information-middle_banner p {
+        font-size: 0.9rem;
+    }
+    .information-middle_banner p:first-child {
+        font-weight: bold;
+    }
+
+.input_servico_custom-banner {
+    width: 300px;
+    font-size: 1rem;
+    margin-right: 10px;
+    border: solid var(--color-black) 1px;
+}
+    .input_servico_custom-banner:hover {
+        border: solid var(--color-black) 2px;
+    }
+
+.input_cidade_custom-banner {
+    width: 300px;
+    font-size: 1rem;
+    border: solid var(--color-black) 1px;
+}
+    .input_cidade_custom-banner:hover {
+        border: solid var(--color-black) 2px;
+    }
+
+/* 'Media Query - inputs' - para telas menores que 800px */
+@media screen and (max-width: 800px) {
+    .input_servico_custom-banner {
+        width: 145px;
+        font-size: 1rem;
+        margin-right: 10px;
+    }
+    .input_cidade_custom-banner {
+        width: 175px;
+        font-size: 1rem;
+    }
+}
+
+/*--------------------------------------------------------------------------------------*/
+
 .btnPlano {
     background-color: var(--color-greenbutton);
     width: 180px;
@@ -109,87 +166,19 @@ main {
     width: 100%;
 }
 
-/* P·gina - 'Sobre NÛs' */
-.sobrenos {
-    font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
-    background-color: #ffffff;
-    border-radius: 0 30px;
-    border: solid black 1px;
-    margin: 30px auto;
-    padding: 30px;
-}
-    .sobrenos .container-conteudo {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-    .container-conteudo > div {
-        flex: 1;
-        margin-right: 20px;
-    }
-
-    .sobrenos h2 {
-        font: 40px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        font-weight: 800;
-        margin-bottom: 30px;
-    }
-    .sobrenos .container-conteudo p {
-        margin-bottom: 30px;
-        text-align: justify;
-    }
-    .sobrenos .container-conteudo img {
-        max-width: 80%;
-        width: 450px;
-        height: auto;
-    }
-
-    /* 'Media Query' - para telas menores que 800px */
-    @media screen and (max-width: 800px) {
-        .container-conteudo {
-            flex-direction: column;
-        }
-
-        .container-conteudo > div {
-             margin-right: 0; 
-         }
-
-        .sobrenos h2 {
-            font: 25px "Trebuchet MS", Arial, Helvetica, sans-serif;
-            font-weight: 800;
-            margin-bottom: 15px;
-        }
-
-        .sobrenos {
-            font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        }
-    }
 
 /*--------------------------------------------------------------------------------------*/
-
-#calendario::placeholder {
-    color: white;
-    font-weight:bold;
-    font-size: 15px;
-}
-
-
-/*--------------------------------------------------------------------------------------*/
-/*P√°gina*/
-
-
+/*P·gina*/
 body {
     background-color: var(--color-darkgray);
 }
-/* Conte√∫do P√°gina */
+/* Conte˙do P·gina */
 #box {
     width: 860px;
     margin: 0 auto;
     background-color: var(--color-white);
 }
 
-/*P√ÅGINA*/
 #pagina {
     background: #fff;
     padding: 10px;
@@ -199,9 +188,9 @@ body {
 }
 
 /*--------------------------------------------------------------------------------------*/
-/* P√ÅGINA - 'Home' */
+/* P¡GINA - 'Home' */
 
-/* Card-empresa - configurando apenas o texto da descri√ß√£o detalhada */
+/* Card-empresa - configurando apenas o texto da descriÁ„o detalhada */
 .conteudo-card-empresa {
     padding: 5px;
     height: 100%;
@@ -238,7 +227,7 @@ body {
         font-size: 0.8rem;
     }
 
-    /* Criando um rounded custom para configurar a borda da imagem, para configurar na linha de estiliza√ß√£o BootStrap */
+    /* Criando um rounded custom para configurar a borda da imagem, para configurar na linha de estilizaÁ„o BootStrap */
     .img-custom_servicoCard {
         border-radius: 10px;
         max-width: 100%;
@@ -253,14 +242,14 @@ body {
             transition: 0.5s;
         }
 
-    /* Estilaiza√ß√£o dos bot√µes 'Agendar Servi√ßo' e "√çcone do Whats" no card de Servi√ßos da P√°gina Home */
+    /* EstilaizaÁ„o dos botıes 'Agendar ServiÁo' e "Õcone do Whats" no card de ServiÁos da P·gina Home */
     .container-button {
         display: flex;
         justify-content: center;
         align-content: center;
     }
 
-        /* Criando um configura√ß√µes customizadas para modificar a estiliza√ß√£o do bot√£o 'Agendar Servi√ßo', para configurar na linha de estiliza√ß√£o BootStrap */
+        /* Criando um configuraÁıes customizadas para modificar a estilizaÁ„o do bot„o 'Agendar ServiÁo', para configurar na linha de estilizaÁ„o BootStrap */
         .btn_custom-agendar_servico_home {
            width: 200px;
            height: 50px;
@@ -276,30 +265,26 @@ body {
                 transition: 0.5s;
             }
 
-    /* Criando um display custom para configurar a div-container dos cards, na linha de estiliza√ß√£o BootStrap, 
-        para padronizar o tamanho dos cards independente do tamanho dos conte√∫dos de cada um.
+    /* Criando um display custom para configurar a div-container dos cards, na linha de estilizaÁ„o BootStrap, 
+        para padronizar o tamanho dos cards independente do tamanho dos conte˙dos de cada um.
     */
     .div-card_custom {
         display: flex;
     }
 
 
-    /* Configura√ß√£o css do 'filtro ativo' para mostrar o filtro que foi aplicado na pesquisa */
+    /* ConfiguraÁ„o css do 'filtro ativo' para mostrar o filtro que foi aplicado na pesquisa */
     .filtro-ativo {
         padding: 10px;
         margin-bottom: -10px;
     }
-        .filtro-ativo p {
-            font-size: 1.2rem;
-            font-weight: 400;
-        }
         .filtro-ativo h2 {
             font-size: 1.5rem;
             font-weight: 600;
         }
 
 /*--------------------------------------------------------------------------------------*/
-/* P√ÅGINA - 'Ver Empresa' (Details.cshtml) */
+/* P¡GINA - 'Ver Empresa' (Details.cshtml) */
 .container-ver_empresa {
     padding: 35px;
 }
@@ -357,7 +342,7 @@ body {
         }
 
     
-    /* Estilaiza√ß√£o dos bot√µes 'Voltar ao menu de servi√ßos', 'Agendar Servi√ßo' e "√çcone do Whats" no card de Servi√ßos da P√°gina Ver Empresa */
+    /* EstilaizaÁ„o dos botıes 'Voltar ao menu de serviÁos', 'Agendar ServiÁo' e "Õcone do Whats" no card de ServiÁos da P·gina Ver Empresa */
     .container-buttons-ver_empresa {
         display: flex;
         flex-direction: row;
@@ -366,7 +351,7 @@ body {
         margin-top: 20px;
     }
 
-        /* Criando um configura√ß√µes customizadas para modificar a estiliza√ß√£o do bot√£o 'Agendar Servi√ßo', para configurar na linha de estiliza√ß√£o BootStrap */
+        /* Criando um configuraÁıes customizadas para modificar a estilizaÁ„o do bot„o 'Agendar ServiÁo', para configurar na linha de estilizaÁ„o BootStrap */
         .container-buttons-ver_empresa {
             display: flex;
             justify-content: center; 
@@ -400,7 +385,7 @@ body {
                 transition: 0.5s;
             }
 
-        /* Criando um configura√ß√µes customizadas para modificar a estiliza√ß√£o do bot√£o 'Voltar' e 'Agendar Servi√ßo', para configurar na linha de estiliza√ß√£o BootStrap */
+        /* Criando um configuraÁıes customizadas para modificar a estilizaÁ„o do bot„o 'Voltar' e 'Agendar ServiÁo', para configurar na linha de estilizaÁ„o BootStrap */
         .btn_custom-voltar {
             width: 200px;
             height: 50px;
@@ -421,7 +406,7 @@ body {
             }
 
    
-        /* Criando um rounded custom para configurar a borda da imagem, para configurar na linha de estiliza√ß√£o BootStrap */
+        /* Criando um rounded custom para configurar a borda da imagem, para configurar na linha de estilizaÁ„o BootStrap */
         .img-custom {
             border-radius: 10px;
             max-width: 100%;
@@ -433,7 +418,7 @@ body {
         }
 
 /*--------------------------------------------------------------------------------------*/
-/* P√°gina - 'Sobre N√≥s' */
+/* P·gina - 'Sobre NÛs' */
 .sobrenos {
     font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
     background-color: var(--color-white);
@@ -504,9 +489,9 @@ body {
 
 
 /*--------------------------------------------------------------------------------------*/
-/* P√ÅGINA - Anunciar */
+/* P¡GINA - Anunciar */
 
-/* Card Planos - estiliza√ß√£o */
+/* Card Planos - estilizaÁ„o */
 .conteudo-card-plano {
     padding: 5px;
     height: 100%;
@@ -565,13 +550,13 @@ body {
         }
     
 
-     /* Criando um rounded custom para configurar a borda dos cards de 'Empresas - Home' 'Planos - Anunciar', para configurar na linha de estiliza√ß√£o BootStrap */
+     /* Criando um rounded custom para configurar a borda dos cards de 'Empresas - Home' 'Planos - Anunciar', para configurar na linha de estilizaÁ„o BootStrap */
      .rounded-custom {
          border-radius: 10px;
          border: 2px solid var(--color-black);
      }
 
-    /* Estiliza√ß√£o de 'Ver Planos' ao clicar no plano (imagem ou link) aparecer√° essa p√°gina com os detalhes do plano */
+    /* EstilizaÁ„o de 'Ver Planos' ao clicar no plano (imagem ou link) aparecer· essa p·gina com os detalhes do plano */
     .container-ver_plano {
         padding: 35px;
     }
@@ -621,10 +606,12 @@ body {
                 font-weight: bold;
             }
 
-        .conteudo-ver_plano .card-text p {
-            text-align: justify;
+        .conteudo-ver_plano .card-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-
+           
         .container-buttons-ver_plano{
             display: flex;
             flex-direction: row;
@@ -637,7 +624,7 @@ body {
             padding: 15px;
         }
 
-/* Estiliza√ß√£o da parte de Textual da p√°gina An√∫nciar */
+    /* EstilizaÁ„o da parte de Textual da p·gina An˙nciar */
     .anunciar {
         font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
         background-color: var(--color-white);
@@ -696,7 +683,7 @@ body {
         }
 
 /*-------------------------------------------------------------------------------------*/
-/* Criando configura√ß√µes customizadas para modificar o Footer */
+/* Criando configuraÁıes customizadas para modificar o Footer */
 .footer_global {
     margin-left: 1%;
     width: 98%;
@@ -726,7 +713,7 @@ body {
             margin-bottom: 20px;
         }
 
-        /* Estiliza√ß√£o dos √≠cones */
+        /* EstilizaÁ„o dos Ìcones */
         .container-buttons-ver_empresa {
             display: flex;
             flex-direction: row;
@@ -750,17 +737,13 @@ body {
          }
 
 
-
-
-
 /* ------------------------------------------------------------------------------------------------- */
-/* P√ÅGINA - paginador */
+/* P¡GINA - paginador */
     #pagina .paginador {
         display: block;
         float: right;
         margin: 10px 0 5px 0;
     }
-
     #pagina .anuncie_ok h2 {
         font: 18px "Trebuchet MS", Arial, Helvetica, sans-serif;
         font-weight: bold;
@@ -768,31 +751,26 @@ body {
         text-transform: uppercase;
         margin: 0 0 5px 0;
     }
-
     #pagina .anuncie_ok p {
         font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
         color: #392a5e;
         margin: 10px;
     }
-
     #pagina .anuncie_ok a {
         font-weight: bold;
         color: #f30;
     }
-
     #pagina .paginador a {
         padding: 3px 5px;
         margin: 0 1px;
         border: 1px solid #069;
         font-weight: bold;
     }
-
         #pagina .paginador a:hover {
             background: #069;
             color: #571515;
             text-decoration: none;
         }
-
     #pagina .enviado {
         font: 16px Arial, Helvetica, sans-serif;
         font-weight: bold;
@@ -801,7 +779,6 @@ body {
         background: #fff;
         margin: 0 0 10px 0;
     }
-
     #pagina .error {
         font: 14px Arial, Helvetica, sans-serif;
         font-weight: bold;
