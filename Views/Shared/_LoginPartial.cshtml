@@ -9,29 +9,20 @@
          class="navbar-right">
         <ul class="nav navbar-nav">
             <button type="submit" style="width:auto" class="nav-link-underline-primary btn btn-link py-0 text-light">
-                Sair
+                @User.Identity.Name<span>/Sair</span>
             </button>
         </ul>
     </form>
 }
 else
 {
-    <!--Link Entrar(img)-->
+    <!--Log in-->
     <ul class="nav navbar-nav navbar-right ">
-
-        <a class="nav-link-underline text-light" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@string.Format("{0}{1}", Context.Request.Path, Context.Request.QueryString)" style="color:black">Entrar</a>
+        <a class="nav-link-underline text-light" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@string.Format("{0}{1}", Context.Request.Path, Context.Request.QueryString)" style="color:black"><h4>Login</h4></a>
     </ul>
 
-
-    <!--Dropdown Cadastro-->
-    <div class="dropdown">
-        <button class="btn btn-alert dropdown-toggle text-light" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Cadastre-se</button>
-
-        <!-- Lista suspensa para selecionar ao cadastrar (clientes, parceiros, admin)-->
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" asp-controller="Account" asp-action="Register">Cliente</a></li>
-            <li><a class="dropdown-item" asp-controller="Account" asp-action="Register">Parceiro</a></li>
-        </ul>
-    </div>
-
+    <!--Sign in -->
+    <ul class="nav navbar-nav navbar-right ">
+        <a class="nav-link-underline text-light" asp-controller="Account" asp-action="Register" asp-route-returnUrl="@string.Format("{0}{1}", Context.Request.Path, Context.Request.QueryString)" style="color:black"><h4>Sign in</h4></a>
+    </ul>
 }

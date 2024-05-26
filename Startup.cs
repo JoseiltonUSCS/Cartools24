@@ -79,9 +79,6 @@ public class Startup
                 politica_parceiro.RequireRole("Parceiro");
             });
         });
-
-
-
         services.AddControllersWithViews();
 
         services.AddPaging(options =>
@@ -92,8 +89,6 @@ public class Startup
 
         services.AddMemoryCache();
         services.AddSession();
-
-
     }
 
     //This method gets called by the runtime. Use this method to configure
