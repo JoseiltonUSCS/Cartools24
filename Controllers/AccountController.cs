@@ -5,8 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Cartools.Controllers
 {   
-
-   
     public class AccountController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
@@ -18,8 +16,6 @@ namespace Cartools.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
-
-
         [HttpGet]
         public IActionResult Login(string returnUrl)
         {
@@ -28,7 +24,6 @@ namespace Cartools.Controllers
                 ReturnUrl = returnUrl
             });
         }
-       
         [HttpPost]
         public async Task<ActionResult> Login(LoginViewModel loginVM)
         {
@@ -42,33 +37,42 @@ namespace Cartools.Controllers
                 var result = await _signInManager.PasswordSignInAsync(user, loginVM.Password, false, false);
                 if (result.Succeeded)
                 {
-                    if (string.IsNullOrEmpty(loginVM.ReturnUrl))
+
+                    var userRoles = await _userManager.GetRolesAsync(user);
+
+                    if (userRoles.Contains("Admin"))
+                    {
+                        return RedirectToAction("Index", "Admin", new { area = "Admin" });
+                    }
+                    else if (userRoles.Contains("Parceiro"))
+                    {
+                        return RedirectToAction("Index", "Parceiro", new { area = "Parceiro" });
+                    }
+                    else
                     {
                         return RedirectToAction("Index", "Home");
                     }
-                    return Redirect(loginVM.ReturnUrl);
+
+
+
+                    //if (string.IsNullOrEmpty(loginVM.ReturnUrl))
+                    //{
+                    //    return RedirectToAction("Index", "Home");
+                    //}
+                    //return Redirect(loginVM.ReturnUrl);
                 }
             }
-
             ModelState.AddModelError("", "Usuário ou senha não encontrados! Tente novamente ou cadastre-se logo abaixo.");
             return View(loginVM);
-
         } 
-
-      
         [HttpGet]
         public IActionResult Register()
         {
-            return View();
+            return View(new LoginViewModel());
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        // AntiForgeryToken - evita ataques CSRF (Cross Site Request Forgery)
-        // Tradução: "Falsificação de requisições entre sites.
-        // É uma técnica usada por hackers para tentar roubar identidades e
-        // privilégios de usuários que estão autenticados de forma legítima no site.. 
-        public async Task<IActionResult> Register(LoginViewModel registroVM)
+        public async Task<IActionResult> Register(LoginViewModel registroVM, string selectedRole)
         {
             if (ModelState.IsValid)
             {
@@ -77,8 +81,8 @@ namespace Cartools.Controllers
 
                 if (result.Succeeded)
                 {
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    await _userManager.AddToRoleAsync(user, "Member");
+                    //await _signInManager.SignInAsync(user, isPersistent: false);
+                    await _userManager.AddToRoleAsync(user, registroVM.SelectedRole);
                     return RedirectToAction("Login", "Account");
                 }
                 else
@@ -87,9 +91,7 @@ namespace Cartools.Controllers
                 }
             }
             return View(registroVM);
-
         }
-       
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
@@ -98,7 +100,6 @@ namespace Cartools.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
-
         public IActionResult AccessDenied()
         {
             return View();

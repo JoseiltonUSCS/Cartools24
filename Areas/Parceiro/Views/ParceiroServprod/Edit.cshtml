@@ -10,25 +10,16 @@
 <form asp-action="Edit" role="form" class="col-lg-8" style="justify-items:center">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <input type="hidden" asp-for="ServicoId" />
-    <div class="form-group-col-sm-4">
-        <label asp-for="Categoria" class="control-label"></label>
-        <select asp-for="CategoriaId" class="form-control" asp-items="ViewBag.CategoriaId"></select>
-        <span asp-validation-for="CategoriaId" class="text-danger"></span>
-    </div><br />
-    <div class="form-group-col-sm-4">
-        <label asp-for="Local" class="control-label"></label>
-        <select asp-for="LocalId" class="form-control" asp-items="ViewBag.LocalId"></select>
-        <span asp-validation-for="LocalId" class="text-danger"></span>
-    </div><br />
-    <div class="form-group-col-sm-4">
-        <label asp-for="Oficina" class="control-label"></label>
-        <select asp-for="OficinaId" class="form-control" asp-items="ViewBag.OficinaId"></select>
-        <span asp-validation-for="OficinaId" class="text-danger"></span>
-    </div><br />
+
     <div class="form-group">
         <label asp-for="Nome" class="control-label"></label>
         <input asp-for="Nome" class="form-control" />
         <span asp-validation-for="Nome" class="text-danger"></span>
+    </div><br />
+    <div class="form-group-col-sm-4">
+        <label asp-for="Categoria" class="control-label"></label>
+        <select asp-for="CategoriaId" class="form-control" asp-items="ViewBag.CategoriaId"></select>
+        <span asp-validation-for="CategoriaId" class="text-danger"></span>
     </div><br />
     <div class="form-group">
         <label asp-for="DescricaoCurta" class="control-label"></label>
@@ -39,6 +30,16 @@
         <label asp-for="Preco" class="control-label"></label>
         <input asp-for="Preco" class="form-control" />
         <span asp-validation-for="Preco" class="text-danger"></span>
+    </div><br />
+    <div class="form-group-col-sm-4">
+        <label asp-for="Oficina" class="control-label"></label>
+        <select asp-for="OficinaId" class="form-control" asp-items="ViewBag.OficinaId"></select>
+        <span asp-validation-for="OficinaId" class="text-danger"></span>
+    </div><br />
+    <div class="form-group-col-sm-4">
+        <label asp-for="Local" class="control-label"></label>
+        <select asp-for="LocalId" class="form-control" asp-items="ViewBag.LocalId"></select>
+        <span asp-validation-for="LocalId" class="text-danger"></span>
     </div><br />
     <div class="col-md-6">
         <div class="form-group ">
