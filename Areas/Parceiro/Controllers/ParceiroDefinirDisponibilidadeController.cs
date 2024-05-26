@@ -33,7 +33,7 @@ namespace Cartools.Areas.Parceiro.Controllers
         }
 
         [HttpPost]
-        [Route("Parceiro/ParceiroDefinirDisponibilidadeAjax")]
+        [Route("Parceiro/ParceiroDefinirDisponibilidade/DefinirDisponibilidadeAjax")]
         public async Task<IActionResult> DefinirDisponibilidadeAjax([Bind("Data,HorasDisponibilidade")] List<Disponibilidade> disponibilidades)
         {
             _logger.LogInformation("Chamando a função DefinirDisponibilidadeAjax");
@@ -105,6 +105,17 @@ namespace Cartools.Areas.Parceiro.Controllers
                 _logger.LogError(ex, "Erro ao salvar disponibilidades e horas.");
                 return StatusCode(500, new { success = false, message = "Erro interno ao processar a solicitação." });
             }
+        }
+
+        public class DisponibilidadeDTO
+        {
+            public DateTime Data { get; set; }
+            public List<HoraDisponibilidadeDTO> HorasDisponibilidade { get; set; }
+        }
+
+        public class HoraDisponibilidadeDTO
+        {
+            public TimeSpan Hora { get; set; }
         }
     }
 }

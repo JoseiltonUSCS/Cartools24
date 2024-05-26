@@ -68,7 +68,7 @@ $(document).ready(function () {
         console.log('Dados a serem enviados:', JSON.stringify(dataToSend, null, 2));
 
         $.ajax({
-            url: 'ParceiroDefinirDisponibilidadeAjax',
+            url: 'ParceiroDefinirDisponibilidade/DefinirDisponibilidadeAjax',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(dataToSend),
