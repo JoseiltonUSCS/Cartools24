@@ -50,7 +50,7 @@
                         @if (User.IsInRole("Admin"))
                         {
                             <a class="nav-link-underline-primary text-light" asp-area="Admin" asp-controller="Admin" asp-action="Index">
-                                Admin <!-- Exibe o nome de usuário -->
+                                Administração <!-- Exibe o nome de usuário -->
                             </a>
                         }
                                 
@@ -58,7 +58,7 @@
                         @if (User.IsInRole("Parceiro"))
                         {
                             <a class="nav-link-underline-primary text-light" asp-area="Parceiro" asp-controller="Parceiro" asp-action="Index">
-                                Parceiro <!-- Exibe o nome de usuário -->
+                               Área do Parceiro <!-- Exibe o nome de usuário -->
                             </a>
                         }
                             <!--Link de acesso à página do cliente-->
