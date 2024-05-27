@@ -4,7 +4,7 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <!--Botão Log out-->
+    <!-- Log out -->
     <form asp-area="" asp-controller="Account" asp-action="Logout" id="logoutForm" method="post"
          class="navbar-right">
         <ul class="nav navbar-nav">
@@ -16,13 +16,13 @@
 }
 else
 {
-    <!--Log in-->
+    <!-- Log in-->
     <ul class="nav navbar-nav navbar-right ">
-        <a class="nav-link-underline text-light" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@string.Format("{0}{1}", Context.Request.Path, Context.Request.QueryString)" style="color:black"><h4>Login</h4></a>
+        <a class="nav-link-underline text-light" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@string.Format("{0}{1}", Context.Request.Path, Context.Request.QueryString)" style="color:black"><h4>Entrar</h4></a>
     </ul>
 
-    <!--Sign in -->
+    <!--Sign in-->
     <ul class="nav navbar-nav navbar-right ">
-        <a class="nav-link-underline text-light" asp-controller="Account" asp-action="Register" asp-route-returnUrl="@string.Format("{0}{1}", Context.Request.Path, Context.Request.QueryString)" style="color:black"><h4>Sign in</h4></a>
+        <a class="nav-link-underline text-light" asp-controller="Account" asp-action="Register" asp-route-returnUrl="@string.Format("{0}{1}", Context.Request.Path, Context.Request.QueryString)" style="color:black"><h4>Cadastrar</h4></a>
     </ul>
 }

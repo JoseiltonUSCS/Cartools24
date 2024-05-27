@@ -1,11 +1,8 @@
 ﻿@model ServicoListViewModel
 
-<!--Banner com Campos de busca - select-->
-<div id="banner" class="card text-dark" style="padding:10px; background-color:#CDD5C6;">
+<!--Banner de Busca -->
+<div id="banner" class="card text-dark fixed-top" style="padding-top:10px; background-color:#CDD5C6; margin:85px 31px 0 31px;">
     <div class="card-body" style="padding:0;">
-        <!--
-        <img class="card-img" src="~/images/bannerRascunhoAltura (2).png" />
-        -->
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
                 <h1 class="card-title mx-4">CarTools</h1>
@@ -51,12 +48,12 @@
     </div>
 </div>
 
-<div class="filtro-ativo">
-    <h2>@Model.LocalAtual</h2>
+<div class="filtro-ativo" style="margin-top: 175px;">
+    <h5>@Model.ResultadoBusca</h5>
 </div>
 
 <div class="container">
-    <div class="row">
+    <div class="row" style="height:80%;">
         @foreach (var servico in Model.Servicos)
         {
             <partial name="_ServicosResumo" for="@servico" />
