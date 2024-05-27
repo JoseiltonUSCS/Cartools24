@@ -79,6 +79,16 @@ public class Startup
                 politica_parceiro.RequireRole("Parceiro");
             });
         });
+
+        services.AddAuthorization(options =>
+        {
+            options.AddPolicy("Member", politica_parceiro =>
+            {
+                politica_parceiro.RequireRole("Member");
+            });
+        });
+
+
         services.AddControllersWithViews();
 
         services.AddPaging(options =>
@@ -127,12 +137,16 @@ public class Startup
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllerRoute(
-                 name: "AdminArea",
-                 pattern: "{area:exists}/{controller=Parceiro}/{action=Index}/{id?}");
+                 name: "areas",
+                 pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
             endpoints.MapControllerRoute(
-                  name: "ParceiroArea",
-                  pattern: "{area:exists}/{controller=Admin}/{action=Index}/{id?}");
+                 name: "Admin",
+                 pattern: "{area:exists}/{controller=Admin}/{action=Index}/{id?}");
+
+            endpoints.MapControllerRoute(
+                  name: "Parceiro",
+                  pattern: "{area:exists}/{controller=Parceiro}/{action=Index}/{id?}");
             
             endpoints.MapControllerRoute(
                 name: "servicoFiltro",

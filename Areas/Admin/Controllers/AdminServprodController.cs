@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using Cartools.Context;
 using Cartools.Models;
 using ReflectionIT.Mvc.Paging;
-using DocumentFormat.OpenXml.InkML;
 
 namespace Cartools.Areas.Admin.Controllers
 {
@@ -29,7 +28,7 @@ namespace Cartools.Areas.Admin.Controllers
         //    return View(await appDbContext.ToListAsync());
         //}
 
-        public async Task<IActionResult> Index(string filter, int pageindex=1, string sort = "Nome")
+        public async Task<IActionResult> Index(string filter, int pageindex = 1, string sort = "Nome")
         {
             var resultado = _context.Servicos.Include(s => s.Categoria).AsQueryable();
             if (!string.IsNullOrWhiteSpace(filter))
@@ -51,33 +50,27 @@ namespace Cartools.Areas.Admin.Controllers
             }
 
             var servico = await _context.Servicos
-                .Include(c => c.Categoria)
+                .Include(l => l.Local).ThenInclude(o => o.Oficina).ThenInclude(s => s.Servico).ThenInclude(c => c.Categoria)
                 .FirstOrDefaultAsync(m => m.ServicoId == id);
             if (servico == null)
             {
                 return NotFound();
             }
-               
-            var servicoLocalOficina = await _context.Servicos
-                .Include(l => l.Local).ThenInclude(o => o.Oficina)
-                .FirstOrDefaultAsync(s => s.ServicoId == id);
-            if (servico == null)
-            {
-                return NotFound();
-            }
+
+            ViewBag.LocalId = new SelectList(_context.Locals, "LocalId", "Cidade");
+            ViewBag.OficinaId = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome");
+            ViewBag.CategoriaId = new SelectList(_context.Categorias, "CategoriaId", "CategoriaNome");
             return View(servico);
         }
 
         // GET: Admin/AdminServprod/Create
         public IActionResult Create()
         {
-            ViewBag.LocalId = new SelectList(_context.Locals, "LocalId", "Cidade");
-            ViewBag.OficinaId = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome");
-            ViewBag.CategoriaId = new SelectList(_context.Categorias, "CategoriaId", "CategoriaNome");
+            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaNome");
+            ViewData["LocalId"] = new SelectList(_context.Locals, "LocalId", "Cidade");
+            ViewData["OficinaId"] = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome");
             return View();
         }
-
-
 
         // POST: Admin/AdminServprod/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -92,16 +85,17 @@ namespace Cartools.Areas.Admin.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaNome");
-            ViewData["LocalsId"] = new SelectList(_context.Locals, "LocalId", "Cidade");
-            ViewData["OficinasId"] = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome");
+
+            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaNome", servico.CategoriaId);
+            ViewData["LocalId"] = new SelectList(_context.Locals, "LocalId", "Cidade", servico.LocalId);
+            ViewData["OficinaId"] = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome", servico.OficinaId);
+
             return View(servico);
         }
-
-        // GET: Admin/AdminServprod/Edit/5
+        // GET: Parceiro/ParceiroServprod/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
+            if (id == null || _context.Servicos == null)
             {
                 return NotFound();
             }
@@ -111,13 +105,13 @@ namespace Cartools.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewBag.LocalId = new SelectList(_context.Locals, "LocalId", "Cidade", servico.LocalId);
-            ViewBag.OficinaId = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome", servico.OficinaId);
-            ViewBag.CategoriaId = new SelectList(_context.Categorias, "CategoriaId", "CategoriaNome", servico.CategoriaId);
+            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaNome", servico.CategoriaId);
+            ViewData["LocalId"] = new SelectList(_context.Locals, "LocalId", "Cidade", servico.LocalId);
+            ViewData["OficinaId"] = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome", servico.OficinaId);
             return View(servico);
         }
 
-        // POST: Admin/AdminServprod/Edit/5
+        // POST: Parceiro/ParceiroServprod/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -155,7 +149,6 @@ namespace Cartools.Areas.Admin.Controllers
             return View(servico);
         }
 
-
         // GET: Admin/AdminServprod/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -189,14 +182,14 @@ namespace Cartools.Areas.Admin.Controllers
             {
                 _context.Servicos.Remove(servico);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ServicoExists(int id)
         {
-          return _context.Servicos.Any(e => e.ServicoId == id);
+            return _context.Servicos.Any(e => e.ServicoId == id);
         }
     }
 }

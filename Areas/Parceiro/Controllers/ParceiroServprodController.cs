@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Cartools.Context;
@@ -27,7 +23,7 @@ namespace Cartools.Areas.Parceiro.Controllers
             return View(await appDbContext.ToListAsync());
         }
 
-        // GET: Parceiro/ParceiroServprod/Details/5
+        // GET: Admin/AdminServprod/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Servicos == null)
@@ -36,16 +32,16 @@ namespace Cartools.Areas.Parceiro.Controllers
             }
 
             var servico = await _context.Servicos
-                .Include(s => s.Categoria)
-                .FirstOrDefaultAsync(m => m.ServicoId == id);
-            var servicoLocalOficina = await _context.Servicos
-                .Include(l => l.Local).ThenInclude( o => o.Oficina)
+                .Include(l => l.Local).ThenInclude(o => o.Oficina).ThenInclude(s => s.Servico).ThenInclude(c => c.Categoria)
                 .FirstOrDefaultAsync(m => m.ServicoId == id);
             if (servico == null)
             {
                 return NotFound();
             }
 
+            ViewBag.LocalId = new SelectList(_context.Locals, "LocalId", "Cidade");
+            ViewBag.OficinaId = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome");
+            ViewBag.CategoriaId = new SelectList(_context.Categorias, "CategoriaId", "CategoriaNome");
             return View(servico);
         }
 
@@ -53,11 +49,11 @@ namespace Cartools.Areas.Parceiro.Controllers
         public IActionResult Create()
         {
 
-            ViewBag.LocalId = new SelectList(_context.Locals, "LocalId", "Cidade");
-            ViewBag.OficinaId = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome");
-            ViewBag.CategoriaId = new SelectList(_context.Categorias, "CategoriaId", "CategoriaNome");
+            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaNome");
+            ViewData["LocalId"] = new SelectList(_context.Locals, "LocalId", "Cidade");
+            ViewData["OficinaId"] = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome");
             return View();
-        }
+        } 
 
         // POST: Parceiro/ParceiroServprod/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -72,12 +68,13 @@ namespace Cartools.Areas.Parceiro.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaNome");
-            ViewData["LocalsId"] = new SelectList(_context.Locals, "LocalId", "Cidade");
-            ViewData["OficinasId"] = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome");
+            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaNome", servico.CategoriaId);
+            ViewData["LocalId"] = new SelectList(_context.Locals, "LocalId", "Cidade", servico.LocalId);
+            ViewData["OficinaId"] = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome", servico.OficinaId);
+
             return View(servico);
         }
-
+        
         // GET: Parceiro/ParceiroServprod/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -91,9 +88,9 @@ namespace Cartools.Areas.Parceiro.Controllers
             {
                 return NotFound();
             }
-            ViewBag.LocalId = new SelectList(_context.Locals, "LocalId", "Cidade", servico.LocalId);
-            ViewBag.OficinaId = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome", servico.OficinaId);
-            ViewBag.CategoriaId = new SelectList(_context.Categorias, "CategoriaId", "CategoriaNome", servico.CategoriaId);
+            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaNome", servico.CategoriaId);
+            ViewData["LocalId"] = new SelectList(_context.Locals, "LocalId", "Cidade", servico.LocalId);
+            ViewData["OficinaId"] = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome", servico.OficinaId);
             return View(servico);
         }
 
@@ -134,7 +131,6 @@ namespace Cartools.Areas.Parceiro.Controllers
             ViewData["OficinaId"] = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome", servico.OficinaId);
             return View(servico);
         }
-
         // GET: Parceiro/ParceiroServprod/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

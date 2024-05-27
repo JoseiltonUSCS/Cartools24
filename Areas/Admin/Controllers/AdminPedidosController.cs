@@ -14,7 +14,6 @@ using Cartools.ViewModels;
 namespace Cartools.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
     public class AdminPedidosController : Controller
     {
         private readonly AppDbContext _context;
