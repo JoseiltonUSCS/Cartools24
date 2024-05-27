@@ -13,13 +13,13 @@ namespace Cartools.Areas.Parceiro.Controllers
 {
     [Area("Parceiro")]
     [Authorize(Roles = "Parceiro")]
-    public class ParceiroDefinirDisponibilidadeController : Controller
+    public class ParceiroConsultaAgendamentoController : Controller
     {
         private readonly AppDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly ILogger<ParceiroDefinirDisponibilidadeController> _logger;
+        private readonly ILogger<ParceiroConsultaAgendamentoController> _logger;
 
-        public ParceiroDefinirDisponibilidadeController(AppDbContext context, UserManager<IdentityUser> userManager, ILogger<ParceiroDefinirDisponibilidadeController> logger)
+        public ParceiroConsultaAgendamentoController(AppDbContext context, UserManager<IdentityUser> userManager, ILogger<ParceiroConsultaAgendamentoController> logger)
         {
             _context = context;
             _userManager = userManager;
@@ -28,7 +28,6 @@ namespace Cartools.Areas.Parceiro.Controllers
 
         public IActionResult Index()
         {
-            _logger.LogInformation("Entrando na controller");
             return View();
         }
     }

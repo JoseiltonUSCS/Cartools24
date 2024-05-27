@@ -5,12 +5,23 @@
 }
 
 <style>
-
     .datas-selecionadas {
-        display: flex;
         gap: 10px;
-        max-width: 300px;
+        max-width: 130px;
+        background-color: #f0f0f0; /* Cinza */
+        border-radius: 10px; /* Bordas arredondadas */
+        padding: 10px; /* Espaçamento interno */
     }
+
+    .remover-data {
+        background: none;
+        border: none;
+        font-size: 12px;
+        cursor: pointer;
+        padding: 10px;
+        margin: 0;
+    }
+
 
     .data-column {
         width: 50%;
@@ -77,17 +88,62 @@
 
 <div style="display: flex;">
     <div>
-        @Html.Partial("_Calendar")
+        <p>Selecione os dias disponíveis para agendamento:</p>
+        <div id="calendar"></div>
+        <!-- Adicione o botão abaixo do calendário -->
+        <button id="btnSalvarDisponibilidade" class="btn btn-primary" style="margin-top: 20px;">Salvar Disponibilidade</button>
     </div>
     <div style="flex: 1; margin-left: 20vh; margin-top: 5vh;">
-        @Html.Partial("_SelectedDates")
+        <p style="margin-top: 7px; margin-bottom: 7px;">Datas selecionadas:</p>
+        <div class="datas-selecionadas" id="diasSelecionados">
+            <div class="data-column" id="column1"></div>
+            <div class="data-column" id="column2"></div>
+        </div>
+        <button id="btnSelecionarHoras" class="btn btn-primary" style="margin-top: 20px;" disabled>Definir horários</button>
     </div>
 </div>
 
-@Html.Partial("_ModalHours")
-@Html.Partial("_SuccessModal")
-@Html.Partial("_ErrorModal")
-@Html.Partial("_SelectedDates")
+<!-- _ModalHours.cshtml -->
+<div id="modalHoras" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Definir horários disponíveis</h5>
+                <button type="button" class="close" aria-label="Close" id="btnFecharModal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <button id="btnAdicionarHora" class="btn btn-primary" disabled title="Clique para adicionar campos de horas" style="cursor: not-allowed;">+</button>
+            </div>
+            <div class="modal-footer">
+                <button id="btnCancelarHoras" type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button id="btnConfirmarHoras" type="button" class="btn btn-primary">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal de sucesso -->
+<div id="modalSucesso" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Sucesso!</h5>
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                As datas e horários foram salvos com sucesso.
+            </div>
+            <div class="modal-footer">
+                <button id="btnSucessoOK" type="button" class="btn btn-primary">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 @section Scripts {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
@@ -143,4 +199,3 @@
     </style>
     <script src="~/js/definirDisponibilidade.js"></script>
 }
-

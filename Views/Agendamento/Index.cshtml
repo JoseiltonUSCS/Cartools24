@@ -17,6 +17,11 @@
 
 <button id="enviarAgendamento" disabled>Enviar Agendamento</button>
 
+<!-- Modal de sucesso -->
+<div id="modalSucesso" title="Sucesso" style="display:none;">
+    <p>Seu agendamento foi realizado com sucesso!</p>
+</div>
+
 @section Scripts {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
     <style>
@@ -32,8 +37,8 @@
             cursor: pointer;
             width: 15%;
             margin-left: 65vh;
-            margin-top: -20px;
-            margin-bottom: 20px;
+            margin-top: -90px;
+            margin-bottom: 60px;
         }
 
             #enviarAgendamento:disabled {
@@ -93,7 +98,7 @@
 
         /* Estilo para o seletor de horas */
         #horarios {
-            margin-top: 30px; /* Adiciona espaço entre o calendário e o seletor de horas */
+            margin-top: 60px; /* Adiciona espaço entre o calendário e o seletor de horas */
             padding: 5px;
             border-radius: 5px;
             border: 1px solid #ccc;
@@ -107,6 +112,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script>
         $(document).ready(function () {
+            // Define os horários desejados
             var horarios = [
                 "08:00", "08:30", "09:00", "09:30", "10:00", "10:30",
                 "11:00", "11:30", "12:00", "12:30", "13:00", "13:30",
@@ -132,8 +138,11 @@
                     var formattedDate = formatDate(selectedDate);
 
                     // Habilita o seletor de horas após selecionar uma data
-                    $("#horarios").prop("disabled", false);
-                    $("#horarios").focus();
+                    $("#horarios").prop("disabled", false).empty();
+                    $("#horarios").append('<option value="">Selecione um horário</option>');
+                    horarios.forEach(function (hora) {
+                        $("#horarios").append('<option value="' + hora + '">' + hora + '</option>');
+                    });
 
                     // Verifica se um dia e uma hora foram selecionados para habilitar o botão de envio
                     verificarSelecao();
@@ -143,6 +152,20 @@
             $("#horarios").change(function () {
                 // Verifica se um dia e uma hora foram selecionados para habilitar o botão de envio
                 verificarSelecao();
+            });
+
+            $("#enviarAgendamento").click(function () {
+                // Mostra o modal de sucesso
+                $("#modalSucesso").dialog({
+                    modal: true,
+                    buttons: {
+                        Ok: function () {
+                            $(this).dialog("close");
+                            // Redireciona para a página desejada
+                            window.location.href = "https://localhost:7283/"; // Substitua "/Caminho/Para/SuaPagina" pela URL desejada
+                        }
+                    }
+                });
             });
 
             function verificarSelecao() {

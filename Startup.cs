@@ -134,11 +134,6 @@ public class Startup
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllerRoute(
-                name: "parceiro_ajax",
-                pattern: "Parceiro/ParceiroDefinirDisponibilidade/DefinirDisponibilidadeAjax",
-                defaults: new { controller = "ParceiroDefinirDisponibilidade", action = "DefinirDisponibilidadeAjax" });
-
-            endpoints.MapControllerRoute(
                 name: "areas",
                 pattern: "{area:exists}/{controller=Parceiro}/{action=Index}/{id?}");
 
@@ -160,10 +155,10 @@ public class Startup
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
-            endpoints.MapControllerRoute(
-                name: "agendamento",
-                pattern: "Agendamento/{action=Index}/{id?}",
-                defaults: new { Controller = "Agendamentos" });
+            //endpoints.MapControllerRoute(
+              //  name: "agendamento",
+                //pattern: "Agendamento/{action=Index}/{id?}",
+                //defaults: new { Controller = "Agendamentos" });
 
         });
 

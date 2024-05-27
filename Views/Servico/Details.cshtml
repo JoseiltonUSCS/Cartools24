@@ -1,18 +1,17 @@
 ﻿@model Servico
-
 <div class="container-ver_empresa">
     <div class="conteudo-ver_empresa">
         <div class="label-para-nome_da_empresa">
             <h1>Empresa</h1>
         </div>
 
-        <div class="card-block"> 
+        <div class="card-block">
             <div class="container-title-ver_empresa">
                 <h1>@Model.Oficina.OficinaNome</h1>
             </div>
             <hr />
         </div>
-        
+
         <div class="text-center">
             <img src="@Model.ImagemUrl" class="img-fluid img-custom" alt="">
         </div>
@@ -31,28 +30,309 @@
             </div>
         </div>
     </div>
-    
 
-        <div class="container-buttons-ver_empresa ">
-            <a asp-controller="Servico" asp-action="List" class="btn btn-outline-info btn_custom-voltar">Voltar</a>
+    <div class="container-buttons-ver_empresa">
+        <a asp-controller="Servico" asp-action="List" class="btn btn-outline-info btn_custom-voltar">Voltar</a>
 
-        <input type="submit" class="btn btn-success dropdown-toggle btn_custom-agendar_servico" id="btnAgendarServico" value="Agendar serviço" />
+        <button type="button" class="btn btn-success btn_custom-agendar_servico" id="btnAgendarServico" data-nome-empresa="@Model.Oficina.OficinaNome" data-nome-servico="@Model.Nome">Agendar serviço</button>
 
-            <a class="btn-whats" href="https://api.whatsapp.com/send?phone=5511953033392&text=Olá,%20me%20tira%20uma%20dúvida...%20" target="_blank">
-                <img src="~/images/logo_whats.png" alt="WhatsAppLogo" />
-            </a>
-                <div>
-                    @section Scripts {
-                    <script type="text/javascript">
-                        $(function () {
-                            $("#btnAgendarServico").click(function () {
-                                window.location.href = "/Agendamento";
-                                });
-                            });
-                        </script>
-                    }
-                </div>
-        </div>
-
-    
+        <a class="btn-whats" href="https://api.whatsapp.com/send?phone=5511953033392&text=Olá,%20me%20tira%20uma%20dúvida...%20" target="_blank">
+            <img src="~/images/logo_whats.png" alt="WhatsAppLogo" />
+        </a>
+    </div>
 </div>
+
+<!-- Modal para seleção de horários -->
+<div class="modal fade" id="modalAgendarServico" tabindex="-1" role="dialog" aria-labelledby="modalAgendarServicoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalAgendarServicoLabel">Selecione uma data e horário</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="calendario"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="empresa">Oficina:</label>
+                            <p class="form-control" id="empresa" style="background-color: #f8f9fa; border: none;"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="servico">Serviço:</label>
+                            <p class="form-control" id="servico" style="background-color: #f8f9fa; border: none;"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="horarios">Horário:</label>
+                    <select id="horarios" class="form-control">
+                        <option value="">Selecione um horário</option>                      
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="confirmarHorario">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalSucesso" tabindex="-1" role="dialog" aria-labelledby="modalSucessoLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalSucessoLabel">Sucesso!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Seu agendamento foi realizado com sucesso!
+                <br />
+                <br />
+                <strong>Dia:</strong> <span id="dataSelecionada"></span>
+                <br />
+                <strong>Hora:</strong> <span id="horaSelecionada"></span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnOk">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+    <style>
+
+        #modalAgendarServico .modal-dialog {
+            max-width: 600px; /* Define a largura máxima do modal */
+        }
+
+        /* Estilo para o modal */
+        #modalAgendarServico .modal-content {
+            border-radius: 10px;
+        }
+
+        #modalAgendarServico .modal-header {
+            border-radius: 10px 10px 0 0;
+        }
+
+        #modalAgendarServico .modal-body {
+            padding: 20px;
+        }
+
+        #modalAgendarServico .modal-footer {
+            background-color: #f8f9fa;
+            border-radius: 0 0 10px 10px;
+            border-top: 1px solid #e9ecef;
+        }
+
+        /* Estilo para os campos empresa e serviço */
+        #modalAgendarServico .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Estilo para o campo horários */
+        #modalAgendarServico select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            background-color: #f8f9fa;
+        }
+
+        /* Estilizando os campos empresa e serviço */
+        #modalAgendarServico label {
+            font-weight: bold;
+        }
+
+        #modalAgendarServico input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            background-color: #f8f9fa;
+            cursor: not-allowed;
+        }
+
+        #modalAgendarServico select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+        }
+
+        /* Adicionando margem superior para os campos */
+        #modalAgendarServico .mt-3 {
+            margin-top: 15px;
+        }
+
+        /* Estilo personalizado para o calendário */
+        .ui-datepicker {
+            border: none; /* Remove a borda do calendário */
+            background-color: #fff; /* Define a cor de fundo do calendário */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil */
+        }
+
+        /* Estilo personalizado para o botão de fechar (X) */
+        .ui-datepicker-header .ui-datepicker-close {
+            background: none; /* Remove o fundo do botão */
+            border: none; /* Remove a borda do botão */
+            cursor: pointer; /* Muda o cursor para indicar que é clicável */
+            font-size: 14px; /* Define o tamanho da fonte do botão */
+        }
+
+        .close {
+            background-color: transparent !important; /* Remove a cor de fundo */
+            border: none !important; /* Remove a borda */
+            color: #000 !important; /* Define a cor do ícone para preto */
+            opacity: 1 !important; /* Define a opacidade para garantir que o ícone seja visível */
+            font-size: 1.5rem; /* Define o tamanho do ícone */
+            line-height: 1; /* Ajusta a linha para centralizar o ícone verticalmente */
+            position: absolute; /* Define a posição absoluta para alinhar o ícone */
+            top: 10px; /* Ajusta a posição vertical do ícone */
+            right: 15px; /* Ajusta a posição horizontal do ícone */
+        }
+
+        /* Estilo personalizado para o calendário */
+        #calendario {
+            font-family: Arial, sans-serif;
+            width: 300px;
+            margin: 20px auto;
+        }
+
+        /* Estilo para o cabeçalho do calendário */
+        .ui-datepicker-header {
+            background-color: black;
+            color: white;
+            font-size: 18px;
+            padding: 10px;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        /* Estilo para os dias da semana */
+        .ui-datepicker-week-end, .ui-datepicker-week-end a {
+            color: #66bb6a; /* Verde */
+        }
+
+        /* Estilo para os dias do calendário */
+        .ui-datepicker-calendar {
+            background-color: white;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        /* Estilo para os dias selecionáveis */
+        .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+            color: black;
+        }
+
+        /* Estilo para o dia atual */
+        .ui-datepicker-today {
+            background-color: #66bb6a; /* Verde */
+            color: white;
+        }
+
+        /* Estilo para os links de navegação */
+        .ui-datepicker-prev span, .ui-datepicker-next span {
+            background-color: black;
+            color: white;
+            padding: 3px;
+            border-radius: 3px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var horariosPorDia = {
+                "2024-05-27": ["08:00", "09:00", "10:00", "14:00", "15:00"],
+                "2024-05-28": ["09:00", "10:00", "11:00", "15:00", "16:00"],
+                "2024-05-30": ["08:30", "09:30", "10:30", "14:30", "15:30"]
+            };
+
+            $("#btnAgendarServico").click(function () {
+                $("#modalAgendarServico").modal("show");
+                var nomeEmpresa = $(this).data("nome-empresa");
+                var nomeServico = $(this).data("nome-servico");
+                $("#empresa").text(nomeEmpresa);
+                $("#servico").text(nomeServico);
+
+                $("#calendario").datepicker({
+                    dateFormat: "yy-mm-dd",
+                    minDate: 0,
+                    beforeShowDay: function (date) {
+                        var formattedDate = $.datepicker.formatDate("yy-mm-dd", date);
+                        var horarios = horariosPorDia[formattedDate];
+
+                        if (horarios && horarios.length > 0) {
+                            return [true, "", "Horários disponíveis: " + horarios.join(", ")];
+                        } else if (date.getTime() >= new Date().getTime()) {
+                            return [true, "", "Sem agenda para este dia"];
+                        } else {
+                            return [false, "", ""];
+                        }
+                    },
+                    onSelect: function (dateText, inst) {
+                        var horarios = horariosPorDia[dateText];
+                        $("#horarios").empty();
+
+                        if (horarios) {
+                            $.each(horarios, function (index, value) {
+                                $("#horarios").append($("<option>", {
+                                    value: value,
+                                    text: value
+                                }));
+                            });
+                        } else {
+                            $("#horarios").append($("<option>", {
+                                value: "",
+                                text: "Sem agenda disponível"
+                            }));
+                        }
+                    }
+                });
+            });
+
+            $("#modalAgendarServico").on("click", "[data-dismiss='modal']", function () {
+                $("#modalAgendarServico").modal("hide");
+            });
+
+            $("#confirmarHorario").click(function () {
+                var selectedDate = $("#calendario").datepicker("getDate");
+                var selectedTime = $("#horarios").val();
+
+                if (selectedDate && selectedTime) {
+                    var formattedDate = $.datepicker.formatDate("dd/mm/yy", selectedDate);
+                    // Realizar a lógica de agendamento com a data e o horário selecionados
+
+                    $("#dataSelecionada").text(formattedDate);
+                    $("#horaSelecionada").text(selectedTime);
+
+                    $("#modalAgendarServico").modal("hide");
+                    $("#modalSucesso").modal("show");
+
+                    $("#btnOk").on('click', function () {
+                        window.location.href = "https://localhost:7283/";
+                    });
+                } else {
+                    alert("Por favor, selecione uma data e um horário.");
+                }
+            });
+        });
+
+    </script>
+}
+

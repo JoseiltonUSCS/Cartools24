@@ -1,6 +1,6 @@
-﻿var diasSelecionados = {};
+﻿$(document).ready(function () {
+    var diasSelecionados = {};
 
-$(document).ready(function () {
     $('#calendar').datepicker({
         dateFormat: 'dd/mm/yy',
         beforeShowDay: function (date) {
@@ -17,9 +17,14 @@ $(document).ready(function () {
                 return;
             }
 
-            diasSelecionados[dateText] = [];
+            if (!diasSelecionados[dateText]) {
+                diasSelecionados[dateText] = [];
+            }
             updateDiasSelecionados();
             $(this).datepicker('refresh');
+
+            $('#btnSelecionarHoras').prop('disabled', Object.keys(diasSelecionados).length === 0);
+            atualizarBotaoSalvar(); // Atualiza o estado do botão
         }
     });
 
@@ -39,99 +44,68 @@ $(document).ready(function () {
                 $('#modalBody').find('input[type="time"]').last().val(hora);
             });
         });
-
         $('#modalHoras').modal('show');
     });
 
-    $('#btnSalvarHoras').click(function () {
-        var dataToSend = [];
-        Object.keys(diasSelecionados).forEach(function (data) {
-            var horas = diasSelecionados[data].filter(hora => hora !== "");
-            if (horas.length > 0) {
-                var parts = data.split('/');
-                var isoDate = new Date(parts[2], parts[1] - 1, parts[0]).toISOString(); // Converte para formato ISO
-
-                dataToSend.push({
-                    Data: isoDate,
-                    HorasDisponibilidade: horas.map(hora => ({ Hora: hora }))
-                });
-            }
-        });
-
-        // Validação: Verifica se há dados a serem enviados
-        if (dataToSend.length === 0) {
-            alert("Por favor, selecione pelo menos uma data e horário.");
-            return;
-        }
-
-        // Log para verificar dados antes do envio
-        console.log('Dados a serem enviados:', JSON.stringify(dataToSend, null, 2));
-
-        $.ajax({
-            url: 'ParceiroDefinirDisponibilidade/DefinirDisponibilidadeAjax',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(dataToSend),
-            success: function (response) {
-                console.log('Disponibilidade e horas definidas com sucesso', response);
-                if (response.success) {
-                    $('#modalHoras').modal('hide');
-                    $('#modalSucesso').modal('show');
-                    diasSelecionados = {};
-                    $('#calendar').find('.selected-day').removeClass('selected-day');
-                    $('#column1').empty();
-                    $('#column2').empty();
-                    $('#btnSelecionarHoras').prop('disabled', true);
-                } else {
-                    console.error('Erro ao definir disponibilidade e horas', response.message);
-                    $('#modalErro').modal('show');
-                }
-            },
-            error: function (xhr, status, error) {
-                console.error('Erro ao enviar dados para o servidor:', xhr.responseText);
-                $('#modalErro').modal('show');
-            }
-        });
+    $('#btnConfirmarHoras').click(function () {
+        updateDiasSelecionados();
+        $('#modalHoras').modal('hide');
     });
 
-    $('#btnSucessoOK').click(function () {
-        $('#modalSucesso').modal('hide');
-    });
-
-    $('#btnErroOK').click(function () {
-        $('#modalErro').modal('hide');
+    $('#btnSalvarDisponibilidade').click(function () {
+        updateDiasSelecionados();
+        $('#modalSucesso').modal('show');
     });
 
     $('#modalHoras .modal-header .close, #btnCancelarHoras').click(function () {
         $('#modalHoras').modal('hide');
     });
 
-    function updateDiasSelecionados() {
-        $('#column1').empty();
-        $('#column2').empty();
+    $('#modalHoras').on('hidden.bs.modal', function () {
+        updateDiasSelecionados();
+    });
 
-        var colunaAtual = 1;
+    // Fechar o modal ao clicar no "x" do modal de sucesso
+    $('#modalSucesso .close').click(function () {
+        $('#modalSucesso').modal('hide');
+    });
+
+    // Redirecionar ao clicar em "OK" do modal de sucesso
+    $('#btnSucessoOK').click(function () {
+        window.location.href = 'https://localhost:7283/Parceiro/ParceiroDefinirDisponibilidade';
+    });
+
+    // Função para habilitar/desabilitar o botão "Salvar Disponibilidade"
+    function atualizarBotaoSalvar() {
+        var temSelecao = Object.keys(diasSelecionados).length > 0 &&
+            Object.values(diasSelecionados).some(horas => horas.length > 0);
+        $('#btnSalvarDisponibilidade').prop('disabled', !temSelecao);
+    }
+
+    function updateDiasSelecionados() {
+        $('#diasSelecionados').empty();
+
         Object.keys(diasSelecionados).forEach(function (data, index) {
             var horarios = diasSelecionados[data];
-            var column = colunaAtual === 1 ? $('#column1') : $('#column2');
-            var item = $('<div class="data-item"></div>');
-            var texto = $('<span>' + data + ': ' + horarios.join(', ') + '</span>');
-            var remover = $('<button class="remover-dia">X</button>');
-            remover.click(function () {
+            var divData = $('<div></div>').addClass('data-selecionada').text(data);
+
+            var removerData = $('<button class="remover-data">X</button>');
+            removerData.click(function () {
                 delete diasSelecionados[data];
                 updateDiasSelecionados();
+                atualizarBotaoSalvar(); // Atualiza o estado do botão
             });
-            item.append(texto);
-            item.append(remover);
-            column.append(item);
+            divData.append(removerData);
 
-            if (colunaAtual === 1 && Object.keys(diasSelecionados).indexOf(data) === 9) {
-                colunaAtual = 2;
-            }
+            horarios.forEach(function (hora) {
+                var divHora = $('<div class="hora-selecionada"></div>').text(hora);
+                divData.append(divHora);
+            });
+
+            $('#diasSelecionados').append(divData);
         });
-
-        $('#btnSelecionarHoras').prop('disabled', Object.keys(diasSelecionados).length === 0);
     }
+
 
     function adicionarHoraParaData(data, container) {
         var inputHora = $('<input type="time" class="form-control">');
@@ -141,20 +115,28 @@ $(document).ready(function () {
         removerHora.click(function () {
             var hora = inputHora.val();
             $(this).parent().remove();
-            var index = diasSelecionados[data].indexOf(hora);
-            if (index !== -1) {
-                diasSelecionados[data].splice(index, 1);
+            if (diasSelecionados[data]) {
+                var index = diasSelecionados[data].indexOf(hora);
+                if (index !== -1) {
+                    diasSelecionados[data].splice(index, 1);
+                }
             }
+            atualizarBotaoSalvar(); // Atualiza o estado do botão
         });
         divHora.append(inputHoraContainer).append(removerHora);
         container.after(divHora);
 
         inputHora.change(function () {
             var hora = $(this).val();
+            if (!diasSelecionados[data]) {
+                diasSelecionados[data] = [];
+            }
             var index = diasSelecionados[data].indexOf(hora);
             if (index === -1 && hora !== "") {
                 diasSelecionados[data].push(hora);
             }
+            atualizarBotaoSalvar(); // Atualiza o estado do botão
         });
     }
+
 });
