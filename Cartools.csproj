@@ -10,36 +10,48 @@
     <Compile Remove="Areas\Admin\Views\AdminProdutos\**" />
     <Compile Remove="Areas\Admin\Views\AdminServicos\**" />
     <Compile Remove="Areas\NovaPasta\**" />
+    <Compile Remove="Areas\Parceiro\Data\**" />
+    <Compile Remove="Areas\Parceiro\Models\**" />
     <Compile Remove="NovaPasta1\**" />
     <Compile Remove="NovaPasta2\**" />
     <Compile Remove="NovaPasta\**" />
+    <Compile Remove="Views\Contato\**" />
     <Compile Remove="Views\Shared\Components\NovaPasta1\**" />
     <Compile Remove="Views\Shared\Components\NovaPasta2\**" />
     <Compile Remove="Views\Shared\Components\NovaPasta\**" />
     <Content Remove="Areas\Admin\Views\AdminProdutos\**" />
     <Content Remove="Areas\Admin\Views\AdminServicos\**" />
     <Content Remove="Areas\NovaPasta\**" />
+    <Content Remove="Areas\Parceiro\Data\**" />
+    <Content Remove="Areas\Parceiro\Models\**" />
     <Content Remove="NovaPasta1\**" />
     <Content Remove="NovaPasta2\**" />
     <Content Remove="NovaPasta\**" />
+    <Content Remove="Views\Contato\**" />
     <Content Remove="Views\Shared\Components\NovaPasta1\**" />
     <Content Remove="Views\Shared\Components\NovaPasta2\**" />
     <Content Remove="Views\Shared\Components\NovaPasta\**" />
     <EmbeddedResource Remove="Areas\Admin\Views\AdminProdutos\**" />
     <EmbeddedResource Remove="Areas\Admin\Views\AdminServicos\**" />
     <EmbeddedResource Remove="Areas\NovaPasta\**" />
+    <EmbeddedResource Remove="Areas\Parceiro\Data\**" />
+    <EmbeddedResource Remove="Areas\Parceiro\Models\**" />
     <EmbeddedResource Remove="NovaPasta1\**" />
     <EmbeddedResource Remove="NovaPasta2\**" />
     <EmbeddedResource Remove="NovaPasta\**" />
+    <EmbeddedResource Remove="Views\Contato\**" />
     <EmbeddedResource Remove="Views\Shared\Components\NovaPasta1\**" />
     <EmbeddedResource Remove="Views\Shared\Components\NovaPasta2\**" />
     <EmbeddedResource Remove="Views\Shared\Components\NovaPasta\**" />
     <None Remove="Areas\Admin\Views\AdminProdutos\**" />
     <None Remove="Areas\Admin\Views\AdminServicos\**" />
     <None Remove="Areas\NovaPasta\**" />
+    <None Remove="Areas\Parceiro\Data\**" />
+    <None Remove="Areas\Parceiro\Models\**" />
     <None Remove="NovaPasta1\**" />
     <None Remove="NovaPasta2\**" />
     <None Remove="NovaPasta\**" />
+    <None Remove="Views\Contato\**" />
     <None Remove="Views\Shared\Components\NovaPasta1\**" />
     <None Remove="Views\Shared\Components\NovaPasta2\**" />
     <None Remove="Views\Shared\Components\NovaPasta\**" />
@@ -93,6 +105,8 @@
     <Content Remove="wwwroot\images\loginEntrar3.png" />
     <Content Remove="wwwroot\images\loginEntrar4.png" />
     <Content Remove="wwwroot\images\loginPrestador.png" />
+    <Content Remove="wwwroot\images\logOut2.png" />
+    <Content Remove="wwwroot\images\logo_cartools-github.png" />
     <Content Remove="wwwroot\images\lupa2.png" />
     <Content Remove="wwwroot\images\lupaBusca.PNG" />
     <Content Remove="wwwroot\images\lupaPreta2.png" />
@@ -100,6 +114,11 @@
     <Content Remove="wwwroot\images\negado.png" />
     <Content Remove="wwwroot\images\rascunhoPHP.jpg" />
     <Content Remove="wwwroot\images\texto12.PNG" />
+    <Content Remove="wwwroot\images\whatsapp.jpg" />
+    <Content Remove="wwwroot\images\whatsapp.png" />
+    <Content Remove="wwwroot\images\whatsapp1.png" />
+    <Content Remove="wwwroot\images\whatsapp2.png" />
+    <Content Remove="wwwroot\images\whats_logo.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -126,8 +145,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Parceiro\Data\" />
-    <Folder Include="Areas\Parceiro\Models\" />
     <Folder Include="Migrations\" />
     <Folder Include="wwwroot\images\imgParceiros\" />
     <Folder Include="wwwroot\images\produtos\" />

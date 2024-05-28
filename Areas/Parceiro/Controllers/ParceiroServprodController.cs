@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Cartools.Context;
@@ -27,7 +23,7 @@ namespace Cartools.Areas.Parceiro.Controllers
             return View(await appDbContext.ToListAsync());
         }
 
-        // GET: Parceiro/ParceiroServprod/Details/5
+        // GET: Admin/AdminServprod/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Servicos == null)
@@ -36,29 +32,35 @@ namespace Cartools.Areas.Parceiro.Controllers
             }
 
             var servico = await _context.Servicos
-                .Include(s => s.Categoria)
+                .Include(l => l.Local).ThenInclude(o => o.Oficina).ThenInclude(s => s.Servico).ThenInclude(c => c.Categoria)
                 .FirstOrDefaultAsync(m => m.ServicoId == id);
             if (servico == null)
             {
                 return NotFound();
             }
 
+            ViewBag.LocalId = new SelectList(_context.Locals, "LocalId", "Cidade");
+            ViewBag.OficinaId = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome");
+            ViewBag.CategoriaId = new SelectList(_context.Categorias, "CategoriaId", "CategoriaNome");
             return View(servico);
         }
 
         // GET: Parceiro/ParceiroServprod/Create
         public IActionResult Create()
         {
+
             ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaNome");
+            ViewData["LocalId"] = new SelectList(_context.Locals, "LocalId", "Cidade");
+            ViewData["OficinaId"] = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome");
             return View();
-        }
+        } 
 
         // POST: Parceiro/ParceiroServprod/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ServicoId,Nome,DescricaoCurta,DescricaoDetalhada,Preco,ImagemUrl,ImagemThumbnailUrl,IsServicoPreferido,EmEstoque,CategoriaId")] Servico servico)
+        public async Task<IActionResult> Create([Bind("ServicoId,Nome,DescricaoCurta,DescricaoDetalhada,Preco,ImagemUrl,ImagemThumbnailUrl,IsServicoPreferido,EmEstoque,CategoriaId, LocalId, OficinaId")] Servico servico)
         {
             if (ModelState.IsValid)
             {
@@ -67,9 +69,12 @@ namespace Cartools.Areas.Parceiro.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaNome", servico.CategoriaId);
+            ViewData["LocalId"] = new SelectList(_context.Locals, "LocalId", "Cidade", servico.LocalId);
+            ViewData["OficinaId"] = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome", servico.OficinaId);
+
             return View(servico);
         }
-
+        
         // GET: Parceiro/ParceiroServprod/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -84,6 +89,8 @@ namespace Cartools.Areas.Parceiro.Controllers
                 return NotFound();
             }
             ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaNome", servico.CategoriaId);
+            ViewData["LocalId"] = new SelectList(_context.Locals, "LocalId", "Cidade", servico.LocalId);
+            ViewData["OficinaId"] = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome", servico.OficinaId);
             return View(servico);
         }
 
@@ -92,7 +99,7 @@ namespace Cartools.Areas.Parceiro.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ServicoId,Nome,DescricaoCurta,DescricaoDetalhada,Preco,ImagemUrl,ImagemThumbnailUrl,IsServicoPreferido,EmEstoque,CategoriaId")] Servico servico)
+        public async Task<IActionResult> Edit(int id, [Bind("ServicoId,Nome,DescricaoCurta,DescricaoDetalhada,Preco,ImagemUrl,ImagemThumbnailUrl,IsServicoPreferido,EmEstoque,CategoriaId, LocalId, OficinaId")] Servico servico)
         {
             if (id != servico.ServicoId)
             {
@@ -120,9 +127,10 @@ namespace Cartools.Areas.Parceiro.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaNome", servico.CategoriaId);
+            ViewData["LocalId"] = new SelectList(_context.Locals, "LocalId", "Cidade", servico.LocalId);
+            ViewData["OficinaId"] = new SelectList(_context.Oficinas, "OficinaId", "OficinaNome", servico.OficinaId);
             return View(servico);
         }
-
         // GET: Parceiro/ParceiroServprod/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

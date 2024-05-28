@@ -10,7 +10,6 @@ using System.Collections.Generic;
 namespace Cartools.Areas.Parceiro.Controllers
 {
     [Area("Parceiro")]
-    [Authorize(Roles = "Parceiro")]
     public class ParceiroImagensController : Controller
     {
         private readonly ConfigurationImagensParceiros _parcConfig;

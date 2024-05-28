@@ -109,7 +109,7 @@ namespace Cartools.Migrations
                     PedidoTotal = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     TotalItensPedido = table.Column<int>(type: "int", nullable: false),
                     PedidoEnviado = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PedidoEntregueEm = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    Validade = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {

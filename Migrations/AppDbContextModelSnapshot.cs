@@ -67,9 +67,14 @@ namespace Cartools.Migrations
                     b.Property<int>("Quantidade")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ServicoId")
+                        .HasColumnType("int");
+
                     b.HasKey("CarrinhoCompraItemId");
 
                     b.HasIndex("PlanoId");
+
+                    b.HasIndex("ServicoId");
 
                     b.ToTable("CarrinhoCompraItens", (string)null);
                 });
@@ -240,9 +245,6 @@ namespace Cartools.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<DateTime?>("PedidoEntregueEm")
-                        .HasColumnType("datetime2");
-
                     b.Property<DateTime>("PedidoEnviado")
                         .HasColumnType("datetime2");
 
@@ -261,6 +263,9 @@ namespace Cartools.Migrations
 
                     b.Property<int>("TotalItensPedido")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("Validade")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("PedidoId");
 
@@ -629,10 +634,16 @@ namespace Cartools.Migrations
             modelBuilder.Entity("Cartools.Models.CarrinhoCompraItem", b =>
                 {
                     b.HasOne("Cartools.Models.Plano", "Plano")
-                        .WithMany("CarrinhoCompraItems")
+                        .WithMany()
                         .HasForeignKey("PlanoId");
 
+                    b.HasOne("Cartools.Models.Servico", "Servico")
+                        .WithMany()
+                        .HasForeignKey("ServicoId");
+
                     b.Navigation("Plano");
+
+                    b.Navigation("Servico");
                 });
 
             modelBuilder.Entity("Cartools.Models.Oficina", b =>
@@ -794,8 +805,6 @@ namespace Cartools.Migrations
 
             modelBuilder.Entity("Cartools.Models.Plano", b =>
                 {
-                    b.Navigation("CarrinhoCompraItems");
-
                     b.Navigation("Oficinas");
 
                     b.Navigation("PedidoItens");

@@ -6,8 +6,11 @@ namespace Cartools.Controllers
     {
         public IActionResult Index()
         {
-
+            if(User.Identity.IsAuthenticated)
+            { 
             return View();
+            }
+            return RedirectToAction("Login", "Account");
         }
     }
 }

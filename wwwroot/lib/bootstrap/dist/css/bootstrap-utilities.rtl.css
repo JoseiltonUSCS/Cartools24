@@ -355,7 +355,7 @@
 }
 
 .position-fixed {
-  position: fixed !important;
+  position: 80px !important;
 }
 
 .position-sticky {

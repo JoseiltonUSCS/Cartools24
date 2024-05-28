@@ -1,3 +1,4 @@
+/* Configurações globais */
 :root {
     --color-lightgray: #D9D9D9;
     --color-white: #fff;
@@ -6,6 +7,9 @@
     --color-gray: #A6A6A6;
     --color-greenbutton: #DBF227;
     --color-bluebutton: #0087CC;
+    --color-lightblue: #59B5D9;
+    --color-greendark: #157347;
+    --color-greenlight: #568C54;
 }
 
 * {
@@ -27,14 +31,19 @@ body {
     padding: 0 20px;
 }
 
+main {
+    margin-top: 80px;
+}
+
 @media (min-width: 768px) {
   html {font-size: 16px;}
 }
 
-.anuncianteBusca{
- border-radius: 15px;
-}
+/*--------------------------------------------------------------------------------------*/
 
+.anuncianteBusca{
+ border-radius: 30px;
+}
 .btnempresa {
     background-color: var(--color-black);
     border-radius: 9px;
@@ -44,6 +53,9 @@ body {
     width: 150px;
     height: 50px;
 }
+
+/*--------------------------------------------------------------------------------------*/
+/* Navbar - main */
 .barraNav {
     display: flex;
     flex-direction: row;
@@ -51,6 +63,58 @@ body {
     color: var(--color-black);
     background-color: deepskyblue;
 }
+.navbar-brand img {
+    width: 50px;
+    height: auto;
+}
+
+.information-middle_banner {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    text-align: center;
+}
+    .information-middle_banner p {
+        font-size: 0.9rem;
+    }
+    .information-middle_banner p:first-child {
+        font-weight: bold;
+    }
+
+.input_servico_custom-banner {
+    width: 300px;
+    font-size: 1rem;
+    margin-right: 10px;
+    border: solid var(--color-black) 1px;
+}
+    .input_servico_custom-banner:hover {
+        border: solid var(--color-black) 2px;
+    }
+
+.input_cidade_custom-banner {
+    width: 300px;
+    font-size: 1rem;
+    border: solid var(--color-black) 1px;
+}
+    .input_cidade_custom-banner:hover {
+        border: solid var(--color-black) 2px;
+    }
+
+/* 'Media Query - inputs' - para telas menores que 800px */
+@media screen and (max-width: 800px) {
+    .input_servico_custom-banner {
+        width: 145px;
+        font-size: 1rem;
+        margin-right: 10px;
+    }
+    .input_cidade_custom-banner {
+        width: 175px;
+        font-size: 1rem;
+    }
+}
+
+/*--------------------------------------------------------------------------------------*/
+
 .btnPlano {
     background-color: var(--color-greenbutton);
     width: 180px;
@@ -109,8 +173,6 @@ main {
 
 /*--------------------------------------------------------------------------------------*/
 /*Página*/
-
-
 body {
     background-color: var(--color-darkgray);
 }
@@ -121,7 +183,6 @@ body {
     background-color: var(--color-white);
 }
 
-/*PÁGINA*/
 #pagina {
     background: #fff;
     padding: 10px;
@@ -129,6 +190,235 @@ body {
     float: left;
     width: 100%;
 }
+
+/*--------------------------------------------------------------------------------------*/
+/* PÁGINA - 'Home' */
+
+/* Card-empresa - configurando apenas o texto da descrição detalhada */
+.conteudo-card-empresa {
+    padding: 5px;
+    height: 100%;
+}
+
+    .conteudo-card-empresa h1 a {
+        text-decoration: none;
+        color: var(--color-darkgray);
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+   
+    .conteudo-card-empresa h2 a {
+        text-decoration: none;
+        color: var(--color-darkgray);
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+        .conteudo-card-empresa h1 a:hover,
+        .conteudo-card-empresa h2 a:hover {
+            color: var(--color-gray);
+            transition: 0.5s;
+        }
+
+    .conteudo-card-empresa h1 {
+        margin-bottom: 15px;
+    }
+    .conteudo-card-empresa h2 {
+        margin-bottom: 15px;
+    }
+
+    .conteudo-card-empresa .descricao-detalhada-empresa p {
+        text-align: justify;
+        font-size: 0.8rem;
+    }
+    
+    .img-custom_servicoCard {
+        border-radius: 10px;
+        max-width: 100%;
+        width: 280px;
+        height: 180px;
+        margin-bottom: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        border: 1px solid var(--color-darkgray);
+    }
+        .img-custom_servicoCard:hover {
+            opacity: 70%;
+            transition: 0.5s;
+        }
+
+    /* Estilaização dos botões 'Agendar Serviço' e "Ícone do Whats" no card de Serviços da Página Home */
+    .container-button {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+        /* Criando um configurações customizadas para modificar a estilização do botão 'Agendar Serviço', para configurar na linha de estilização BootStrap */
+        .btn_custom-agendar_servico_home {
+           width: 200px;
+           height: 50px;
+           font-size: 1rem;
+           font-weight: 600;
+           padding: 8px;
+           background-color: var(--color-bluebutton);
+           border: 2px solid var(--color-bluebutton);
+        }
+            .btn_custom-agendar_servico_home:hover {
+                background-color: var(--color-lightblue);
+                border: 2px solid var(--color-bluebutton);
+                transition: 0.5s;
+            }
+
+    /* Criando um display custom para configurar a div-container dos cards, na linha de estilização BootStrap, 
+        para padronizar o tamanho dos cards independente do tamanho dos conteúdos de cada um.
+    */
+    .div-card_custom {
+        display: flex;
+    }
+
+
+    /* Configuração css do 'filtro ativo' para mostrar o filtro que foi aplicado na pesquisa */
+
+.filtro-ativo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: -10px;
+    margin-left: 120px;
+}
+
+/*--------------------------------------------------------------------------------------*/
+/* PÁGINA - 'Ver Empresa' (Details.cshtml) */
+.container-ver_empresa {
+    padding: 35px;
+}
+
+    .conteudo-ver_empresa .container-title-ver_empresa h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-top: 15px;
+    }
+
+    .conteudo-ver_empresa {
+        background-color: var(--color-lightgray);
+        border-radius: 10px;
+    }
+
+    .container-title-ver_empresa {
+        display: flex;
+        justify-content: center;
+    }
+
+    .label-para-nome_da_empresa,
+    .label-para-nome_do_servico {
+        display: flex;
+        justify-content: center;
+        background-color: var(--color-darkgray);
+        padding: 10px;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .label-para-nome_do_servico {
+        margin-top: 20px;
+    }
+
+    .label-para-nome_da_empresa h1,
+    .label-para-nome_do_servico h1 {
+        color: var(--color-white);
+        font-size: 2.2rem;
+        font-weight: bold;
+    }
+
+    .card-block {
+        padding: 25px 50px 5px 50px;
+    }
+
+    .card-block .container-title-ver_empresa h2 {
+        font-size: 1.6rem;
+        margin-top: 15px;
+        font-weight: 600;
+    }
+        .card-block .card-detail {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; 
+        }
+
+    
+    /* Estilaização dos botões 'Voltar ao menu de serviços', 'Agendar Serviço' e "Ícone do Whats" no card de Serviços da Página Ver Empresa */
+    .container-buttons-ver_empresa {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        margin-top: 20px;
+    }
+
+        /* Criando um configurações customizadas para modificar a estilização do botão 'Agendar Serviço', para configurar na linha de estilização BootStrap */
+        .container-buttons-ver_empresa {
+            display: flex;
+            justify-content: center; 
+            align-items: baseline; 
+        }
+
+        .btn_custom-agendar_servico {
+            width: 200px;
+            height: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 10px;
+            margin-right: 15px;
+            background-color: var(--color-bluebutton);
+            border: 2px solid var(--color-bluebutton);
+        }
+
+            .btn_custom-agendar_servico:hover {
+                background-color: var(--color-lightblue);
+                border: 2px solid var(--color-bluebutton);
+                transition: 0.5s;
+            }
+
+        .container-buttons-ver_empresa .btn-whats img {
+            width: auto;
+            height: 40px;
+        }
+
+            .container-buttons-ver_empresa .btn-whats img:hover {
+                opacity: 50%;
+                transition: 0.5s;
+            }
+
+        /* Criando um configurações customizadas para modificar a estilização do botão 'Voltar' e 'Agendar Serviço', para configurar na linha de estilização BootStrap */
+        .btn_custom-voltar {
+            width: 200px;
+            height: 50px;
+            background-color: var(--color-darkgray);
+            color: var(--color-white);
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 10px;
+            margin-right: 15px;
+            border: 2px solid var(--color-gray);
+        }
+
+            .btn_custom-voltar:hover {
+                background-color: var(--color-lightgray);
+                border: 2px solid var(--color-gray);
+                color: var(--color-black);
+                transition: 0.5s;
+            }
+
+   
+        /* Criando um rounded custom para configurar a borda da imagem, para configurar na linha de estilização BootStrap */
+        .img-custom {
+            border-radius: 10px;
+            max-width: 100%;
+            width: 500px;
+            height: 290px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--color-darkgray);
+        }
+
 /*--------------------------------------------------------------------------------------*/
 /* Página - 'Sobre Nós' */
 .sobrenos {
@@ -203,105 +493,259 @@ body {
 /*--------------------------------------------------------------------------------------*/
 /* PÁGINA - Anunciar */
 
-/* Container para alinhar o título: 'Todos os Planos' */
-.container-planos-titulo {
-    display: flex;
-    justify-content: flex-start;
-    margin: 10px 10px 10px 30px;
+/* Card Planos - estilização */
+.conteudo-card-plano {
+    padding: 5px;
+    height: 100%;
 }
 
-    .container-planos-titulo h1 {
-        font: 35px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        font-weight: 800;
+    .conteudo-card-plano h1 a {
+        text-decoration: none;
+        color: var(--color-black);
+        font-size: 2rem;
+        font-weight: 700;
+    }
+        .conteudo-card-plano h1 a:hover {
+            color: var(--color-gray);
+            transition: 0.5s;
+        }
+
+    .img-custom_plano {
+        border-radius: 10px;
+        max-width: 100%;
+        width: 500px;
+        height: 200px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        border: 1px solid var(--color-darkgray);
     }
 
-    #pagina form {
-        width:50%;
+    .conteudo-card-plano .descricao-detalhada-plano p {
+        text-align: justify;
+    }
+
+
+    .conteudo-card-plano h2 {
+        color: var(--color-black);
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .btn_custom-plano {
+        width: 200px;
+        height: 50px;
+        background-color: var(--color-bluebutton);
+        color: var(--color-white);
+        font-size: 1rem;
+        font-weight: 600;
         padding: 10px;
-        background: #999;
-        float: right;
+        margin-right: 15px;
+        border: 2px solid var(--color-bluebutton);
     }
-/* Criando um rounded custom para configurar a borda dos cards de planos, para configurar na linha de estilização BootStrap */
-.rounded-custom {
-    border-radius: 10px;
-}
+        .btn_custom-plano:hover {
+            background-color: var(--color-lightblue);
+            border: 2px solid var(--color-bluebutton);
+            transition: 0.5s;
+        }
+    
 
-/* Container abaixo dos tipos de planos, com as informações dos benefícios de ser parceiro CarTools */
-.beneficios {
-    border-radius: 0 30px;
-    border: solid var(--color-black) 2px;
-    font-size: 18px;
-    margin: 30px;
-    padding: 20px;
-    display: flex;
-    flex-direction: row;
-    background-color: var(--color-white);
-}
+     /* Criando um rounded custom para configurar a borda dos cards de 'Empresas - Home' 'Planos - Anunciar', para configurar na linha de estilização BootStrap */
+     .rounded-custom {
+         border-radius: 10px;
+         border: 2px solid var(--color-black);
+     }
 
-#pagina {
-    background: pink;
-    padding: 30px;
-    margin-bottom: 5px;
-    font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
-    font-weight: lighter;
-    text-align: justify;
-}
-
-
-    #pagina .anuncie {
-        float: left;
-        font: 16px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        color: #666;
-        background: pink;
+    /* Estilização de 'Ver Planos' ao clicar no plano (imagem ou link) aparecerá essa página com os detalhes do plano */
+    .container-ver_plano {
+        padding: 35px;
     }
-        #pagina .anuncie h2 {
-            font: 40px "Trebuchet MS", Arial, Helvetica, sans-serif;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-        #pagina .anuncie p {
-            font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
-            font-weight: lighter;
-            text-align: justify;
-        }
 
-    /* Imagem - Benefícios, presente na página 'Anunciar' */
-    .anuncie-imagem {
+    .conteudo-ver_plano {
+        background-color: var(--color-lightgray);
+        border-radius: 10px;
+    }
+
+    .container-title-ver_empresa {
         display: flex;
         justify-content: center;
     }
-    .anuncie-imagem img {
-        max-width: 80%;
-        width: 450px;
-        height: auto;
-        box-sizing: border-box;
-     }
 
-    /* 'Media Query' - para telas menores que 800px */
-    @media screen and (max-width: 800px) {
+    .label-para-nome_do_plano {
+        display: flex;
+        justify-content: center;
+        background-color: var(--color-darkgray);
+        padding: 10px;
+        border-radius: 5px 5px 0 0;
+        margin-bottom: 30px;
+    }
+        .label-para-nome_do_plano h1 {
+            color: var(--color-white);
+            font-size: 2.2rem;
+            font-weight: bold;
+        }
+    
+        .conteudo-ver_plano .text-center p {
+            font-size: 1.4rem;
+            margin-top: 15px;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
 
-        #pagina .anuncie h2 {
-            font: 25px "Trebuchet MS", Arial, Helvetica, sans-serif;
-            font-weight: 600;
+        .label-para-descricao_plano {
+            display: flex;
+            justify-content: center;
+            background-color: var(--color-darkgray);
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
             margin-bottom: 20px;
         }
-        #pagina .anuncie p {
-            font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        }
-        #pagina .anuncie {
-            font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
-        }
-        
-    }
-/*--------------------------------------------------------------------------------------*/
+            .label-para-descricao_plano h1 {
+                color: var(--color-white);
+                font-size: 2.2rem;
+                font-weight: bold;
+            }
 
-    /* PÁGINA - paginador */
+        .conteudo-ver_plano .card-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+           
+        .container-buttons-ver_plano{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-content: baseline;
+            margin-top: 20px;
+        }
+
+        .card-block_plano {
+            padding: 15px;
+        }
+
+    /* Estilização da parte de Textual da página Anúnciar */
+    .anunciar {
+        font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
+        background-color: var(--color-white);
+        border-radius: 0 30px;
+        border: solid black 1px;
+        margin: 30px auto;
+        padding: 30px;
+    }
+
+    .anunciar .cotainer_conteudo_anunciar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    }
+       
+    .anunciar h2 {
+        font: 40px "Trebuchet MS", Arial, Helvetica, sans-serif;
+        font-weight: 800;
+        margin-bottom: 30px;
+    }
+
+    .anunciar .container_conteudo_anunciar p {
+        margin-bottom: 30px;
+        text-align: justify;
+    }
+
+    .anunciar .container_img_anunciar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+    }
+        .anunciar .container_img_anunciar img {
+            width: 60%;
+            height: auto;
+        
+        }
+
+        /* 'Media Query' - para telas menores que 800px */
+        @media screen and (max-width: 800px) {
+            .container_conteudo_anunciar {
+                flex-direction: column;
+            }
+
+            .anunciar h2 {
+                font: 25px "Trebuchet MS", Arial, Helvetica, sans-serif;
+                font-weight: 800;
+                margin-bottom: 15px;
+            }
+
+            .anunciar {
+                font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
+            }
+        }
+
+/*-------------------------------------------------------------------------------------*/
+/* Criando configurações customizadas para modificar o Footer */
+.footer_global {
+    width: 100%;
+    height: 200px;
+    background-color: var(--color-darkgray);
+    color: var(--color-lightgray);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 20px;
+    border: 2px solid var(--color-darkgray);
+    border-radius: 0 0px 10px 10px;
+}
+
+    .footer_global .conteudo h3 {
+        text-align: center;
+        font-size: 1.6rem;
+        margin-bottom: 30px;
+    }
+
+    .footer_global .item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+        .footer_global .item span {
+            margin-right: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Estilização dos ícones */
+        .container-buttons-ver_empresa {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-content: baseline;
+            margin-top: 20px;
+        }
+            .footer_global .item span img {
+                width: 30px;
+                height: auto;
+            }
+
+             .footer_global .item span img:hover {
+                opacity: 50%;
+                transition: 0.5s;
+            }
+
+.footer_global .cc_footer {
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 5px;
+}
+
+
+/* ------------------------------------------------------------------------------------------------- */
+/* PÁGINA - paginador */
     #pagina .paginador {
         display: block;
         float: right;
         margin: 10px 0 5px 0;
     }
-
     #pagina .anuncie_ok h2 {
         font: 18px "Trebuchet MS", Arial, Helvetica, sans-serif;
         font-weight: bold;
@@ -309,31 +753,26 @@ body {
         text-transform: uppercase;
         margin: 0 0 5px 0;
     }
-
     #pagina .anuncie_ok p {
         font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
         color: #392a5e;
         margin: 10px;
     }
-
     #pagina .anuncie_ok a {
         font-weight: bold;
         color: #f30;
     }
-
     #pagina .paginador a {
         padding: 3px 5px;
         margin: 0 1px;
         border: 1px solid #069;
         font-weight: bold;
     }
-
         #pagina .paginador a:hover {
             background: #069;
             color: #571515;
             text-decoration: none;
         }
-
     #pagina .enviado {
         font: 16px Arial, Helvetica, sans-serif;
         font-weight: bold;
@@ -342,18 +781,12 @@ body {
         background: #fff;
         margin: 0 0 10px 0;
     }
-
     #pagina .error {
         font: 14px Arial, Helvetica, sans-serif;
         font-weight: bold;
         color: #900;
     }
 
-/* Banner 
-#banner{
-    background-image: url(~/images/imgBeneficios.png)
-}
-*/
 /*--------------------------------------------------------------------------------------*/
 
 .form-inline {
@@ -370,7 +803,4 @@ body {
     */
     float:right;
 }
-.precoPlano {
-    font-size: 10px;
-    
-}
+________________________________________________________________________________________________

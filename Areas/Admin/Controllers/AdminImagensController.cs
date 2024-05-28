@@ -9,7 +9,6 @@ using DocumentFormat.OpenXml.Drawing.Charts;
 namespace Cartools.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
     public class AdminImagensController : Controller
     {
         private readonly ConfigurationImagens _myConfig;
