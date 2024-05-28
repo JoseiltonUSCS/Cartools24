@@ -1,0 +1,23 @@
+﻿﻿@{
+    ViewData["Title"] = "Consultar Agendamentos";
+}
+
+<h1>Consultar Agendamentos</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome do Cliente</th>
+            <th>Data do Agendamento</th>
+            <th>Serviço</th>
+            <th>Horário</th>
+        </tr>
+    </thead>
+    <tbody id="tabelaAgendamentos">
+        <!-- Os agendamentos serão inseridos aqui dinamicamente pelo JavaScript -->
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="~/js/consultaAgendamento.js"></script>
+}
