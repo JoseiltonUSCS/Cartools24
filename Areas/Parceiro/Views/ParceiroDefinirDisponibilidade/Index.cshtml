@@ -1,0 +1,200 @@
+﻿@{
+    ViewData["Title"] = "Definir Disponibilidade";
+}
+
+<style>
+    .datas-selecionadas {
+        gap: 10px;
+        max-width: 130px;
+        background-color: #f0f0f0; /* Cinza */
+        border-radius: 10px; /* Bordas arredondadas */
+        padding: 10px; /* Espaçamento interno */
+    }
+
+    .remover-data {
+        background: none;
+        border: none;
+        font-size: 12px;
+        cursor: pointer;
+        padding: 10px;
+        margin: 0;
+    }
+
+
+    .data-column {
+        width: 50%;
+    }
+
+    .data-item {
+        position: relative;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        background-color: #f0f0f0;
+        padding: 5px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+        .data-item span {
+            flex: 1;
+        }
+
+        .data-item button {
+            border: none;
+            background: none;
+            font-size: 10px;
+            cursor: pointer;
+            margin-left: 3px;
+            margin-top: -12px;
+        }
+
+    .modal-body {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    .hora-selecionada {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+        .hora-selecionada input[type="time"] {
+            flex: 1;
+            margin-right: 5px;
+            height: auto;
+            padding: 2px 5px;
+            font-size: 12px;
+        }
+
+    .remover-hora {
+        border: none;
+        background-color: transparent;
+        font-size: 12px;
+        cursor: pointer;
+    }
+
+    .modal-header .close {
+        outline: none;
+        border: none;
+        background-color: transparent;
+    }
+</style>
+
+<h1>Definir Disponibilidade</h1>
+
+<div style="display: flex;">
+    <div>
+        <p>Selecione os dias disponíveis para agendamento:</p>
+        <div id="calendar"></div>
+        <button id="btnSalvarDisponibilidade" class="btn btn-primary" style="margin-top: 20px;">Salvar Disponibilidade</button>
+    </div>
+    <div style="flex: 1; margin-left: 20vh; margin-top: 5vh;">
+        <p style="margin-top: 7px; margin-bottom: 7px;">Datas selecionadas:</p>
+        <div class="datas-selecionadas" id="diasSelecionados">
+            <div class="data-column" id="column1"></div>
+            <div class="data-column" id="column2"></div>
+        </div>
+        <button id="btnSelecionarHoras" class="btn btn-primary" style="margin-top: 20px;" disabled>Definir horários</button>
+    </div>
+</div>
+
+<!-- _ModalHours.cshtml -->
+<div id="modalHoras" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Definir horários disponíveis</h5>
+                <button type="button" class="close" aria-label="Close" id="btnFecharModal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <button id="btnAdicionarHora" class="btn btn-primary" disabled title="Clique para adicionar campos de horas" style="cursor: not-allowed;">+</button>
+            </div>
+            <div class="modal-footer">
+                <button id="btnCancelarHoras" type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button id="btnConfirmarHoras" type="button" class="btn btn-primary">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal de sucesso -->
+<div id="modalSucesso" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Sucesso!</h5>
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                As datas e horários foram salvos com sucesso.
+            </div>
+            <div class="modal-footer">
+                <button id="btnSucessoOK" type="button" class="btn btn-primary">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <style>
+        /* Estilo personalizado para o calendário */
+        #calendario {
+            font-family: Arial, sans-serif;
+            width: 300px;
+            margin: 20px auto;
+        }
+
+        /* Estilo para o cabeçalho do calendário */
+        .ui-datepicker-header {
+            background-color: black;
+            color: white;
+            font-size: 18px;
+            padding: 10px;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        /* Estilo para os dias da semana */
+        .ui-datepicker-week-end, .ui-datepicker-week-end a {
+            color: #66bb6a; /* Verde */
+        }
+
+        /* Estilo para os dias do calendário */
+        .ui-datepicker-calendar {
+            background-color: white;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        /* Estilo para os dias selecionáveis */
+        .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+            color: black;
+        }
+
+        /* Estilo para o dia atual */
+        .ui-datepicker-today {
+            background-color: #66bb6a; /* Verde */
+            color: white;
+        }
+
+        /* Estilo para os links de navegação */
+        .ui-datepicker-prev span, .ui-datepicker-next span {
+            background-color: black;
+            color: white;
+            padding: 3px;
+            border-radius: 3px;
+        }
+    </style>
+    <script src="~/js/definirDisponibilidade.js"></script>
+}
