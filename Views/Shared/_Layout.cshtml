@@ -17,82 +17,93 @@
     <div class="container-fluid">
         <header>
             <!-- <BarraNav"> -->
-            <nav class="navbar navbar-expand-lg navbar-toggleable-lg navbar-black bg-black border-bottom box-shadow">
-                <div class="md-3 container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-toggleable-lg navbar-black bg-black box-shadow fixed-top">
+                <div class="container-fluid">
                     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                        <img src="~/images/logo.png" />
+                        <img src="~/images/logo_cartools.png" />
                     </a>
-                    <div class="md-6 justify-content-lg-around navbar-collapse collapse d-lg-inline-flex flex-lg-row ">
-
+                    <div class="justify-content-lg-around navbar-collapse collapse d-lg-inline-flex flex-lg-row col-md-4 col-lg-6  ">
+                        <!-- link/ícone Carrinho de Compras -->
                         @await Component.InvokeAsync("CarrinhoCompraResumo")
-
+                        <!--Link de acesso à página HOME-->
                         <a class="nav-link text-light" asp-area=""
                            asp-controller="Home" asp-action="Index">
                             <p class="space"></p><h4>Home</h4>
                         </a>
-
+                        <!--Link de acesso à página SOBRE NÓS-->
                         <a class="nav-link text-light" asp-area=""
                            asp-controller="Home" asp-action="SobreNos">
                             <p class="space"></p><h4>Sobre nós</h4>
                         </a>
-
+                        <!--Link de acesso à página ANUNCIAR-->
                         <a class="nav-link text-light" asp-area=""
                            asp-controller="Plano" asp-action="Index">
                             <p class="space"></p><h4>Anunciar</h4>
                         </a>
+                    </div>
 
-
+                    <div class="justify-content-lg-around navbar-collapse collapse d-lg-inline-flex flex-lg-row ">
                         <!-- Formulário de login navbar -->
                         @await Html.PartialAsync("_LoginPartial")
 
                         <!--Link de acesso à página do administrador-->
                         @if (User.IsInRole("Admin"))
                         {
-                            <a class="nav-link-underline-primary text-light" asp-area="Admin" asp-controller="Admin" asp-action="Index">Admin</a>
+                            <a class="nav-link-underline-primary text-light" asp-area="Admin" asp-controller="Admin" asp-action="Index">
+                                Área do Administrador <!-- Exibe o nome de usuário -->
+                            </a>
                         }
+
                         <!--Link de acesso à página do parceiro/lojista/oficina-->
                         @if (User.IsInRole("Parceiro"))
                         {
-                            <a class="nav-link-underline-primary text-light" asp-area="Parceiro" asp-controller="Parceiro" asp-action="Index">Parceiro</a>
+                            <a class="nav-link-underline-primary text-light" asp-area="Parceiro" asp-controller="Parceiro" asp-action="Index">
+                                Área do Parceiro <!-- Exibe o nome de usuário -->
+                            </a>
+                        }
+                        <!--Link de acesso à página do cliente-->
+                        @if (User.IsInRole("Member"))
+                        {
+                            <a class="nav-link-underline-primary text-light" asp-area="" asp-controller="Home" asp-action="Index">
+                                Área do Cliente <!-- Exibe o nome de usuário -->
+                            </a>
                         }
                     </div>
                 </div>
             </nav>
         </header>
 
-        <main class="card border-0 mt-0 bg-light" role="main">
+        <main class="card border-0 bg-light" role="main">
             @RenderBody()
         </main>
+
+        <footer class="footer_global">
+            <div class="container">
+                <div class="conteudo">
+                    <h3>Qualquer dúvida ou sugestão fale conosco!</h3>
+                    <div class="item">
+                        <span><img src="~/images/Envelope-icon23.jpg" alt="Ícone de envelope" /></span>
+                        <span><a href="mailto:stefani.bispo@uscsonline.com.br">Fale conosco</a></span>
+                    </div>
+                    <div class="item">
+                        <span>
+                            <a href="https://api.whatsapp.com/send?phone=5511953033392&text=Olá,%20tudo%20bem?%20" target="_blank" class="btn btn-whats">
+                                <img src="~/images/logo_whats.png" alt="Ícone do WhatsApp" />
+                            </a>
+                        </span>
+                        <span>(11) 99999-8888</span>
+                    </div>
+                    <div class="item">
+                        <span><img src="~/images/Home-iconred.png" alt="Ícone de casa" /></span>
+                        <span>Av. Presidente Kennedy S/N - São Caetano do Sul/SP</span>
+                    </div>
+                </div>
+                <div class="cc_footer">
+                    &copy; @DateTime.Now.Year - Cartools <a href="/Home/SobreNos"></a>
+                </div>
+            </div>
+        </footer>
     </div>
-
-    <footer class="footer_global">
-        <div class="container">
-            <div class="conteudo">
-                <h3>Qualquer dúvida ou sugestão fale conosco!</h3>
-                <div class="item">
-                    <span><img src="~/images/Envelope-icon23.jpg" alt="Ícone de envelope" /></span>
-                    <span><a href="mailto:stefani.bispo@uscsonline.com.br">Fale conosco</a></span>
-                </div>
-                <div class="item">
-                    <span>
-                        <a href="https://api.whatsapp.com/send?phone=5511953033392&text=Olá,%20tudo%20bem?%20" target="_blank" class="btn btn-whats">
-                            <img src="~/images/logo_whats.png" alt="Ícone do WhatsApp" />
-                        </a>
-                    </span>
-                    <span>(11) 99999-8888</span>
-                </div>
-                <div class="item">
-                    <span><img src="~/images/Home-iconred.png" alt="Ícone de casa" /></span>
-                    <span>Av. Presidente Kennedy - São Caetano do Sul</span>
-                </div>
-            </div>
-            <div class="cc_footer">
-                &copy; @DateTime.Now.Year - Cartools - <a href="/Home/Privacy">Privacy</a>
-            </div>
-        </div>
-        
-    </footer>
-
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>

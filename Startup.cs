@@ -80,6 +80,13 @@ public class Startup
             });
         });
 
+        services.AddAuthorization(options =>
+        {
+            options.AddPolicy("Member", politica_parceiro =>
+            {
+                politica_parceiro.RequireRole("Member");
+            });
+        });
 
 
         services.AddControllersWithViews();
@@ -92,8 +99,6 @@ public class Startup
 
         services.AddMemoryCache();
         services.AddSession();
-
-
     }
 
     //This method gets called by the runtime. Use this method to configure
@@ -133,11 +138,15 @@ public class Startup
         {
             endpoints.MapControllerRoute(
                  name: "areas",
-                 pattern: "{area:exists}/{controller=Parceiro}/{action=Index}/{id?}");
+                 pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
             endpoints.MapControllerRoute(
-                  name: "areas",
-                  pattern: "{area:exists}/{controller=Admin}/{action=Index}/{id?}");
+                 name: "Admin",
+                 pattern: "{area:exists}/{controller=Admin}/{action=Index}/{id?}");
+
+            endpoints.MapControllerRoute(
+                  name: "Parceiro",
+                  pattern: "{area:exists}/{controller=Parceiro}/{action=Index}/{id?}");
             
             endpoints.MapControllerRoute(
                 name: "servicoFiltro",

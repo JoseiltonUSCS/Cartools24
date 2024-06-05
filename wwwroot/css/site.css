@@ -1,3 +1,4 @@
+/* ConfiguraÁıes globais */
 :root {
     --color-lightgray: #D9D9D9;
     --color-white: #fff;
@@ -6,6 +7,9 @@
     --color-gray: #A6A6A6;
     --color-greenbutton: #DBF227;
     --color-bluebutton: #0087CC;
+    --color-lightblue: #59B5D9;
+    --color-greendark: #157347;
+    --color-greenlight: #568C54;
 }
 
 * {
@@ -27,14 +31,19 @@ body {
     padding: 0 20px;
 }
 
+main {
+    margin-top: 80px;
+}
+
 @media (min-width: 768px) {
   html {font-size: 16px;}
 }
 
-.anuncianteBusca{
- border-radius: 15px;
-}
+/*--------------------------------------------------------------------------------------*/
 
+.anuncianteBusca{
+ border-radius: 30px;
+}
 .btnempresa {
     background-color: var(--color-black);
     border-radius: 9px;
@@ -44,6 +53,9 @@ body {
     width: 150px;
     height: 50px;
 }
+
+/*--------------------------------------------------------------------------------------*/
+/* Navbar - main */
 .barraNav {
     display: flex;
     flex-direction: row;
@@ -51,6 +63,58 @@ body {
     color: var(--color-black);
     background-color: deepskyblue;
 }
+.navbar-brand img {
+    width: 50px;
+    height: auto;
+}
+
+.information-middle_banner {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    text-align: center;
+}
+    .information-middle_banner p {
+        font-size: 0.9rem;
+    }
+    .information-middle_banner p:first-child {
+        font-weight: bold;
+    }
+
+.input_servico_custom-banner {
+    width: 300px;
+    font-size: 1rem;
+    margin-right: 10px;
+    border: solid var(--color-black) 1px;
+}
+    .input_servico_custom-banner:hover {
+        border: solid var(--color-black) 2px;
+    }
+
+.input_cidade_custom-banner {
+    width: 300px;
+    font-size: 1rem;
+    border: solid var(--color-black) 1px;
+}
+    .input_cidade_custom-banner:hover {
+        border: solid var(--color-black) 2px;
+    }
+
+/* 'Media Query - inputs' - para telas menores que 800px */
+@media screen and (max-width: 800px) {
+    .input_servico_custom-banner {
+        width: 145px;
+        font-size: 1rem;
+        margin-right: 10px;
+    }
+    .input_cidade_custom-banner {
+        width: 175px;
+        font-size: 1rem;
+    }
+}
+
+/*--------------------------------------------------------------------------------------*/
+
 .btnPlano {
     background-color: var(--color-greenbutton);
     width: 180px;
@@ -108,20 +172,17 @@ main {
 
 
 /*--------------------------------------------------------------------------------------*/
-/*P√°gina*/
-
-
+/*P·gina*/
 body {
     background-color: var(--color-darkgray);
 }
-/* Conte√∫do P√°gina */
+/* Conte˙do P·gina */
 #box {
     width: 860px;
     margin: 0 auto;
     background-color: var(--color-white);
 }
 
-/*P√ÅGINA*/
 #pagina {
     background: #fff;
     padding: 10px;
@@ -131,26 +192,25 @@ body {
 }
 
 /*--------------------------------------------------------------------------------------*/
-/* P√ÅGINA - 'Home' */
+/* P¡GINA - 'Home' */
 
-/* Card-empresa - configurando apenas o texto da descri√ß√£o detalhada */
-
+/* Card-empresa - configurando apenas o texto da descriÁ„o detalhada */
 .conteudo-card-empresa {
-    padding: 10px;
+    padding: 5px;
     height: 100%;
 }
 
     .conteudo-card-empresa h1 a {
         text-decoration: none;
-        color: var(--color-bluebutton);
-        font-size: 1.8rem;
+        color: var(--color-darkgray);
+        font-size: 1.5rem;
         font-weight: 700;
     }
    
     .conteudo-card-empresa h2 a {
         text-decoration: none;
-        color: var(--color-bluebutton);
-        font-size: 1.2rem;
+        color: var(--color-darkgray);
+        font-size: 1.1rem;
         font-weight: 600;
     }
         .conteudo-card-empresa h1 a:hover,
@@ -160,26 +220,22 @@ body {
         }
 
     .conteudo-card-empresa h1 {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
     .conteudo-card-empresa h2 {
-        margin-top: 10px;
+        margin-bottom: 15px;
     }
 
     .conteudo-card-empresa .descricao-detalhada-empresa p {
         text-align: justify;
         font-size: 0.8rem;
     }
-    .conteudo-card-empresa .preco-estimado-servico-empresa {
-        margin-bottom: 15px;
-    }
-
-    /* Criando um rounded custom para configurar a borda da imagem, para configurar na linha de estiliza√ß√£o BootStrap */
+    
     .img-custom_servicoCard {
         border-radius: 10px;
         max-width: 100%;
         width: 280px;
-        height: 195px;
+        height: 180px;
         margin-bottom: 20px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         border: 1px solid var(--color-darkgray);
@@ -189,63 +245,48 @@ body {
             transition: 0.5s;
         }
 
-    /* Estilaiza√ß√£o dos bot√µes 'Agendar Servi√ßo' e "√çcone do Whats" no card de Servi√ßos da P√°gina Home */
-    .container-buttons {
+    /* EstilaizaÁ„o dos botıes 'Agendar ServiÁo' e "Õcone do Whats" no card de ServiÁos da P·gina Home */
+    .container-button {
         display: flex;
-        flex-direction: row;
         justify-content: center;
-        align-content: baseline;
+        align-content: center;
     }
-        .container-btn-whats .btn-whats img {
-            width: 30px;
-            height: auto;
-        }
-            .container-buttons .btn-whats img:hover {
-                opacity: 50%;
-                transition: 0.5s;
-            }
 
-        /* Criando um configura√ß√µes customizadas para modificar a estiliza√ß√£o do bot√£o 'Agendar Servi√ßo', para configurar na linha de estiliza√ß√£o BootStrap */
-        .btn_custom-agendar_servico {
+        /* Criando um configuraÁıes customizadas para modificar a estilizaÁ„o do bot„o 'Agendar ServiÁo', para configurar na linha de estilizaÁ„o BootStrap */
+        .btn_custom-agendar_servico_home {
            width: 200px;
            height: 50px;
            font-size: 1rem;
            font-weight: 600;
-           padding: 10px;
-           margin-right: 15px;
+           padding: 8px;
            background-color: var(--color-bluebutton);
            border: 2px solid var(--color-bluebutton);
         }
-            .btn_custom-agendar_servico:hover {
+            .btn_custom-agendar_servico_home:hover {
                 background-color: var(--color-lightblue);
                 border: 2px solid var(--color-bluebutton);
                 transition: 0.5s;
             }
 
-    /* Criando um display custom para configurar a div-container dos cards, na linha de estiliza√ß√£o BootStrap, 
-        para padronizar o tamanho dos cards independente do tamanho dos conte√∫dos de cada um.
+    /* Criando um display custom para configurar a div-container dos cards, na linha de estilizaÁ„o BootStrap, 
+        para padronizar o tamanho dos cards independente do tamanho dos conte˙dos de cada um.
     */
     .div-card_custom {
         display: flex;
     }
 
 
-    /* Configura√ß√£o css do 'filtro ativo' para mostrar o filtro que foi aplicado na pesquisa */
-    .filtro-ativo {
-        padding: 10px;
-        margin-bottom: -10px;
-    }
-        .filtro-ativo p {
-            font-size: 1.2rem;
-            font-weight: 400;
-        }
-        .filtro-ativo h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
+    /* ConfiguraÁ„o css do 'filtro ativo' para mostrar o filtro que foi aplicado na pesquisa */
+
+.filtro-ativo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: -10px;
+    margin-left: 120px;
+}
 
 /*--------------------------------------------------------------------------------------*/
-/* P√ÅGINA - 'Ver Empresa' (Details.cshtml) */
+/* P¡GINA - 'Ver Empresa' (Details.cshtml) */
 .container-ver_empresa {
     padding: 35px;
 }
@@ -287,7 +328,7 @@ body {
     }
 
     .card-block {
-        padding: 15px;
+        padding: 25px 50px 5px 50px;
     }
 
     .card-block .container-title-ver_empresa h2 {
@@ -295,7 +336,7 @@ body {
         margin-top: 15px;
         font-weight: 600;
     }
-        .card-block .card-adress {
+        .card-block .card-detail {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -303,61 +344,83 @@ body {
         }
 
     
-    /* Estilaiza√ß√£o dos bot√µes 'Voltar ao menu de servi√ßos', 'Agendar Servi√ßo' e "√çcone do Whats" no card de Servi√ßos da P√°gina Ver Empresa */
+    /* EstilaizaÁ„o dos botıes 'Voltar ao menu de serviÁos', 'Agendar ServiÁo' e "Õcone do Whats" no card de ServiÁos da P·gina Ver Empresa */
     .container-buttons-ver_empresa {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        align-content: baseline;
+        align-content: center;
         margin-top: 20px;
     }
-   
 
-    .container-buttons-ver_empresa .container-btn-whats .btn-whats img {
-        width: 30px;
-        height: auto;
-    }
-
-        .container-buttons-ver_empresa .btn-whats img:hover {
-            opacity: 50%;
-            transition: 0.5s;
+        /* Criando um configuraÁıes customizadas para modificar a estilizaÁ„o do bot„o 'Agendar ServiÁo', para configurar na linha de estilizaÁ„o BootStrap */
+        .container-buttons-ver_empresa {
+            display: flex;
+            justify-content: center; 
+            align-items: baseline; 
         }
 
-/* Criando um configura√ß√µes customizadas para modificar a estiliza√ß√£o do bot√£o 'Voltar' e 'Agendar Servi√ßo', para configurar na linha de estiliza√ß√£o BootStrap */
-    .btn_custom-voltar {
-        width: 200px;
-        height: 50px;
-        background-color: var(--color-darkgray);
-        color: var(--color-white);
-        font-size: 1rem;
-        font-weight: 600;
-        padding: 10px;
-        margin-right: 15px;
-        border: 2px solid var(--color-gray);
-    }
-        .btn_custom-voltar:hover {
-            background-color: var(--color-lightgray);
+        .btn_custom-agendar_servico {
+            width: 200px;
+            height: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 10px;
+            margin-right: 15px;
+            background-color: var(--color-bluebutton);
+            border: 2px solid var(--color-bluebutton);
+        }
+
+            .btn_custom-agendar_servico:hover {
+                background-color: var(--color-lightblue);
+                border: 2px solid var(--color-bluebutton);
+                transition: 0.5s;
+            }
+
+        .container-buttons-ver_empresa .btn-whats img {
+            width: auto;
+            height: 40px;
+        }
+
+            .container-buttons-ver_empresa .btn-whats img:hover {
+                opacity: 50%;
+                transition: 0.5s;
+            }
+
+        /* Criando um configuraÁıes customizadas para modificar a estilizaÁ„o do bot„o 'Voltar' e 'Agendar ServiÁo', para configurar na linha de estilizaÁ„o BootStrap */
+        .btn_custom-voltar {
+            width: 200px;
+            height: 50px;
+            background-color: var(--color-darkgray);
+            color: var(--color-white);
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 10px;
+            margin-right: 15px;
             border: 2px solid var(--color-gray);
-            color: var(--color-black);
-            transition: 0.5s;
         }
 
+            .btn_custom-voltar:hover {
+                background-color: var(--color-lightgray);
+                border: 2px solid var(--color-gray);
+                color: var(--color-black);
+                transition: 0.5s;
+            }
 
-
-        /* P√ÅGINA - 'Ver Empresa'  -> utiliza essa estiliza√ß√£o */
-        /* Criando um rounded custom para configurar a borda da imagem, para configurar na linha de estiliza√ß√£o BootStrap */
+   
+        /* Criando um rounded custom para configurar a borda da imagem, para configurar na linha de estilizaÁ„o BootStrap */
         .img-custom {
             border-radius: 10px;
             max-width: 100%;
             width: 500px;
-            height: auto;
+            height: 290px;
             margin-bottom: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             border: 1px solid var(--color-darkgray);
         }
 
 /*--------------------------------------------------------------------------------------*/
-/* P√°gina - 'Sobre N√≥s' */
+/* P·gina - 'Sobre NÛs' */
 .sobrenos {
     font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
     background-color: var(--color-white);
@@ -428,9 +491,9 @@ body {
 
 
 /*--------------------------------------------------------------------------------------*/
-/* P√ÅGINA - Anunciar */
+/* P¡GINA - Anunciar */
 
-/* Card Planos - estiliza√ß√£o */
+/* Card Planos - estilizaÁ„o */
 .conteudo-card-plano {
     padding: 5px;
     height: 100%;
@@ -489,13 +552,13 @@ body {
         }
     
 
-     /* Criando um rounded custom para configurar a borda dos cards de 'Empresas - Home' 'Planos - Anunciar', para configurar na linha de estiliza√ß√£o BootStrap */
+     /* Criando um rounded custom para configurar a borda dos cards de 'Empresas - Home' 'Planos - Anunciar', para configurar na linha de estilizaÁ„o BootStrap */
      .rounded-custom {
          border-radius: 10px;
          border: 2px solid var(--color-black);
      }
 
-    /* Estiliza√ß√£o de 'Ver Planos' ao clicar no plano (imagem ou link) aparecer√° essa p√°gina com os detalhes do plano */
+    /* EstilizaÁ„o de 'Ver Planos' ao clicar no plano (imagem ou link) aparecer· essa p·gina com os detalhes do plano */
     .container-ver_plano {
         padding: 35px;
     }
@@ -545,10 +608,12 @@ body {
                 font-weight: bold;
             }
 
-        .conteudo-ver_plano .card-text p {
-            text-align: justify;
+        .conteudo-ver_plano .card-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-
+           
         .container-buttons-ver_plano{
             display: flex;
             flex-direction: row;
@@ -561,7 +626,7 @@ body {
             padding: 15px;
         }
 
-/* Estiliza√ß√£o da parte de Textual da p√°gina An√∫nciar */
+    /* EstilizaÁ„o da parte de Textual da p·gina An˙nciar */
     .anunciar {
         font: 20px "Trebuchet MS", Arial, Helvetica, sans-serif;
         background-color: var(--color-white);
@@ -620,17 +685,16 @@ body {
         }
 
 /*-------------------------------------------------------------------------------------*/
-/* Criando configura√ß√µes customizadas para modificar o Footer */
+/* Criando configuraÁıes customizadas para modificar o Footer */
 .footer_global {
-    margin-left: 1%;
-    width: 98%;
-    height: 300px;
-    background-color: var(--color-black);
+    width: 100%;
+    height: 200px;
+    background-color: var(--color-darkgray);
     color: var(--color-lightgray);
     font-size: 1rem;
     font-weight: 600;
     padding: 20px;
-    border: 2px solid var(--color-lightgray);
+    border: 2px solid var(--color-darkgray);
     border-radius: 0 0px 10px 10px;
 }
 
@@ -650,7 +714,7 @@ body {
             margin-bottom: 20px;
         }
 
-        /* Estiliza√ß√£o dos √≠cones */
+        /* EstilizaÁ„o dos Ìcones */
         .container-buttons-ver_empresa {
             display: flex;
             flex-direction: row;
@@ -668,23 +732,20 @@ body {
                 transition: 0.5s;
             }
 
-         .footer_global .cc_footer{
-             text-align: center;
-              margin-top: 10px;
-         }
-
-
-
+.footer_global .cc_footer {
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 5px;
+}
 
 
 /* ------------------------------------------------------------------------------------------------- */
-/* P√ÅGINA - paginador */
+/* P¡GINA - paginador */
     #pagina .paginador {
         display: block;
         float: right;
         margin: 10px 0 5px 0;
     }
-
     #pagina .anuncie_ok h2 {
         font: 18px "Trebuchet MS", Arial, Helvetica, sans-serif;
         font-weight: bold;
@@ -692,31 +753,26 @@ body {
         text-transform: uppercase;
         margin: 0 0 5px 0;
     }
-
     #pagina .anuncie_ok p {
         font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
         color: #392a5e;
         margin: 10px;
     }
-
     #pagina .anuncie_ok a {
         font-weight: bold;
         color: #f30;
     }
-
     #pagina .paginador a {
         padding: 3px 5px;
         margin: 0 1px;
         border: 1px solid #069;
         font-weight: bold;
     }
-
         #pagina .paginador a:hover {
             background: #069;
             color: #571515;
             text-decoration: none;
         }
-
     #pagina .enviado {
         font: 16px Arial, Helvetica, sans-serif;
         font-weight: bold;
@@ -725,7 +781,6 @@ body {
         background: #fff;
         margin: 0 0 10px 0;
     }
-
     #pagina .error {
         font: 14px Arial, Helvetica, sans-serif;
         font-weight: bold;
@@ -748,3 +803,4 @@ body {
     */
     float:right;
 }
+________________________________________________________________________________________________

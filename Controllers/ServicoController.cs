@@ -13,57 +13,22 @@ namespace Cartools.Controllers
         {
             _servicoRepository = servicoRepository;
         }
-        /*
-        public IActionResult List(string local)
-        {
-            
-            IEnumerable<Servico> servicos;
-            string localAtual = string.Empty;
-
-            //Se eu não definir nenhuma categoria o retorno será todos os serviços, ordenado por ID,  do contrário o retorno trará apenas os serviços inclusos na categoria solicitada
-
-            if (string.IsNullOrEmpty(local))
-            {
-                servicos = _servicoRepository.Servicos.OrderBy(s => s.ServicoId);
-                localAtual = "Todos os serviços";
-            }
-            else
-            {   
-                //busca por cidade na barra de navegação
-                servicos = _servicoRepository.Servicos.Where( l => l.Local.Cidade.Equals(local)).OrderBy(s => s.Nome);
-
-                localAtual = local;
-            }
-
-            var servicosListViewModel = new ServicoListViewModel
-            {
-                Servicos = servicos,
-                LocalAtual = localAtual
-            };
-                    return View(servicosListViewModel);
-
-        }
-        // busca serviço por digitação no input do menu de navegação
-        */
         public IActionResult Details(int servicoId)
         {
             var servico = _servicoRepository.Servicos.FirstOrDefault(s => s.ServicoId == servicoId);
             return View(servico);
         }
 
-
-
-
         //Filtra por Serviço e Cidade
         public ViewResult Search(string searchString, string local)
         {   
             IEnumerable<Servico> servicos;
-            string localAtual = string.Empty;
+            string resultadoBusca = string.Empty;
            
             if ((searchString == "Serviço") && (local == "Cidade"))                 
             {
                 servicos = _servicoRepository.Servicos.OrderBy(s => s.Nome);
-                localAtual = "Todos os Servicos encontrados";      
+                resultadoBusca = "Todos os Servicos encontrados";      
             }
             else if(!(searchString == "Serviço") && (local == "Cidade"))
             {
@@ -72,16 +37,16 @@ namespace Cartools.Controllers
                           .Where(s => s.Nome.ToLower().Contains(searchString.ToLower()));
 
                 if (servicos.Any())
-                    localAtual = "Resultado da busca por Serviço:";
+                    resultadoBusca = "Resultado da busca por Serviço:";
             }
             else if((searchString == "Serviço") && !(local == "Cidade"))
             {
                 //Filtrar por Cidade
                 servicos = _servicoRepository.Servicos.Where(l => l.Local.Cidade.Contains(local)).OrderBy(l => l.Local.Cidade);
                 if (servicos.Any())
-                    localAtual = "Resultado da busca por Cidade:";
+                    resultadoBusca = "Resultado da busca por Cidade:";
                 else
-                    localAtual = "Nenhum serviço/cidade foi encontrado";
+                    resultadoBusca = "Nenhum serviço/cidade foi encontrado";
             }
             else //Filtrar por cidade e Serviço
             {
@@ -91,16 +56,16 @@ namespace Cartools.Controllers
                 //Filtrar por serviço
                 servicos = servicos.Where(s => s.Nome.Contains(searchString)).OrderBy(s => s.Nome);
                 if (servicos.Any())
-                    localAtual = $"Resultado da busca por \"Serviço\" na \"Cidade\" de {local}";
+                    resultadoBusca = $"Resultado da busca por \"Serviço\" na \"Cidade\" de {local}";
                 else
-                    localAtual = "Nenhum serviço foi encontrado com esse filtro...";
+                    resultadoBusca = "Nenhum serviço foi encontrado com esse filtro...";
             }
 
             return View("~/Views/Servico/List.cshtml", new ServicoListViewModel
             {
 
                 Servicos = servicos.OrderBy(s => s.Nome),
-                LocalAtual = localAtual
+                ResultadoBusca = resultadoBusca
             });
         }
     }

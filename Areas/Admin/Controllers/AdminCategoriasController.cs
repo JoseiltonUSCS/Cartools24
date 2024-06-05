@@ -13,7 +13,6 @@ using ReflectionIT.Mvc.Paging;
 namespace Cartools.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles="Admin")]
     public class AdminCategoriasController : Controller
     {
         private readonly AppDbContext _context;

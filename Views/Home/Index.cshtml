@@ -1,70 +1,60 @@
 ﻿@model HomeViewModel
 <!--Banner com Campos de busca - select-->
-<div id="banner" class="card text-dark" style="padding:10px;">
+<div>
+    <div id="banner" class="card text-dark fixed-top" style="padding-top:10px; background-color:#CDD5C6; margin:85px 31px 0 31px;">
 
-    <div class="card-body" style="padding:0;">
-        <!--
-        <img class="card-img" src="~/images/bannerRascunhoAltura (2).png" />
-        -->
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-                <h1 class="card-title mx-4">CarTools</h1>
-                <p class="card-text mx-4">
-                    Aplique o filtro ao lado de acordo com a sua necessidade!<br />
-                    A <strong>Cartools</strong> traz praticidade para quem busca os serviços, e favorece as empresas parceiras.
-                </p>
-            </div>
-            <div class="col-xs-13 col-sm-13 col-md-7 col-lg-5 col-xl-5">
-                <h4>Encontre a loja mais perto de você!</h4>
+        <div class="card-body" style="padding:0;">           
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                    <h1 class="card-title mx-4">CarTools</h1>
+                    <p class="card-text mx-4">
+                        A <strong>Cartools</strong> traz praticidade para quem busca os serviços, e favorece as empresas parceiras.
+                    </p>
+                </div>
+                <div class="col-xs-13 col-sm-13 col-md-7 col-lg-5 col-xl-5">
 
-                <div class="d-flex flex-column">
-                    <form asp-controller="Servico" asp-action="Search" method="get">
-                        <div class="d-flex flex-row" style="align-items:center;">
-                            <select class="form-select form-select-sm mb-4" name="searchString" aria-label=".form-select-sm example" style="width: 300px; font-size:1.2em;">
-                                <option selected>Serviço</option>
-                                <option value="Polimento">Polimento</option>
-                                <option value="Cristalização">Cristalização</option>
-                                <option value="Lavagem Simples">Lavagem Simples</option>
-                                <option value="Martelinho de Ouro">Martelinho de Ouro</option>
-                                <option value="Envelopamento">Envelopamento</option>
-                                <option value="Pintura">Pintura</option>
-                                <option value="OxiSanitização">OxiSanitização</option>
-                                <option value="Higienização">Higienização</option>
-                                <option value="Funilaria e Pintura">Funilaria e Pintura</option>
-                            </select>
-                            <select class="form-select form-select-sm mb-4" name="local" aria-label=".form-select-sm example" style="width: 300px;font-size:1.2em; ">
-                                <option selected>Cidade</option>
-                                <option value="Santo André">Santo André</option>
-                                <option value="São Bernardo do Campo">São Bernardo do Campo</option>
-                                <option value="São Caetano do Sul">São Caetano do Sul</option>
-                                <option value="São Paulo">São Paulo</option>
-                            </select>
-                            <button class="btn btn-primary " type="submit" style="float:left; width:50px; height:35px; margin:0 0 22px 10px;">Ok</button>
-                        </div>
-                    </form>
+                    <div class="information-middle_banner">
+                        <p>Encontre a loja mais perto de você.</p>
+                        <p>Aplique o filtro ao lado de acordo com a sua necessidade!</p>
+                    </div>
+
+                    <div class="d-flex flex-column">
+                        <form asp-controller="Servico" asp-action="Search" method="get">
+                            <div class="d-flex flex-row" style="align-items:center;">
+                                <select class="form-select form-select-sm mb-4 input_servico_custom-banner" name="searchString" aria-label=".form-select-sm example">
+                                    <option selected>Serviço</option>
+                                    <option value="Polimento">Polimento</option>
+                                    <option value="Cristalização">Cristalização</option>
+                                    <option value="Lavagem Simples">Lavagem Simples</option>
+                                    <option value="Martelinho de Ouro">Martelinho de Ouro</option>
+                                    <option value="Envelopamento">Envelopamento</option>
+                                    <option value="Pintura">Pintura</option>
+                                    <option value="OxiSanitização">OxiSanitização</option>
+                                    <option value="Higienização">Higienização</option>
+                                    <option value="Funilaria e Pintura">Funilaria e Pintura</option>
+                                </select>
+                                <select class="form-select form-select-sm mb-4 input_cidade_custom-banner" name="local" aria-label=".form-select-sm example">
+                                    <option selected>Cidade</option>
+                                    <option value="Santo André">Santo André</option>
+                                    <option value="São Bernardo do Campo">São Bernardo do Campo</option>
+                                    <option value="São Caetano do Sul">São Caetano do Sul</option>
+                                    <option value="São Paulo">São Paulo</option>
+                                </select>
+                                <button class="btn btn-primary" type="submit" style="float:left; width:100px; height:35px; margin:0 0 22px 10px;">Filtrar</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div class="col-xs-11 col-sm-11 col-md-5 col-lg-3 col-xl-3"></div>
         </div>
     </div>
-</div>
 
-<div class="container">
-    <div class="row">
-        @foreach (var servico in Model.ServicosPreferidos)
-        {
-            <partial name="_ServicosResumo" for="@servico" />
-        }
-    </div>
-    <div>
-        <nav aria-label="Page navigation">
-            <ul class="mt-4 pagination pagination-md d-flex justify-content-center">
-                <li class="page-item"><a class="page-link text-dark" href="#">Anterior</a></li>
-                <li class="page-item"><a class="page-link text-dark" href="#">1</a></li>
-                <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
-                <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
-                <li class="page-item"><a class="page-link text-dark" href="#">Próxima</a></li>
-            </ul>
-        </nav>
+    <div class="container" style="margin-top: 190px;">
+        <div class="row ">
+            @foreach (var servico in Model.ServicosPreferidos)
+            {
+                <partial name="_ServicosResumo" for="@servico" />
+            }
+        </div>
     </div>
 </div>
