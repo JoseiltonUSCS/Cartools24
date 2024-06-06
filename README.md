@@ -14,19 +14,19 @@ A plataforma permitirá que as empresas apresentem os seus serviços de forma de
 </p>
 
 
-### Preview - Simulação de navegação de Clientes 🚘🧍‍♂️
+## Preview - Simulação de navegação de Clientes 🚘🧍‍♂️
 <p align="center">
   <img height="350" width="500" src="wwwroot/images/.github/Cliente_Navegacao.gif">
 </p>
 
 
-### Preview - Simulação de navegação de Usuários Parceiros 🏬👨‍🔧
+## Preview - Simulação de navegação de Usuários Parceiros 🏬👨‍🔧
 <p align="center">
   <img height="350" width="500" src="wwwroot/images/.github/Parceiro__Navegacao.gif">
 </p>
 
 
-### Preview - Simulação de navegação do Administrador do Sistema 🏬👨‍🔧
+## Preview - Simulação de navegação do Administrador do Sistema 🏬👨‍🔧
 <p align="center">
   <img height="350" width="500" src="wwwroot/images/.github/Admin_Navegacao.gif">
 </p>
