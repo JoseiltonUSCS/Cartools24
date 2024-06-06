@@ -20,7 +20,7 @@ A plataforma permitirá que as empresas apresentem os seus serviços de forma de
 
 ### Preview - Simulação de navegação de Usuários Parceiros 🏬👨‍🔧
 <p align="center">
-  <img height="500" width="500" src="wwwroot/images/.github/Parceiro__Navegacao.gif">
+  <img height="350" width="500" src="wwwroot/images/.github/Parceiro__Navegacao.gif">
 </p>
 
 ### Preview - Simulação de navegação do Administrador do Sistema 🏬👨‍🔧
