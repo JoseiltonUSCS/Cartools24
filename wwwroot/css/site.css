@@ -377,10 +377,17 @@ body {
                 transition: 0.5s;
             }
 
+
+    /* Criando um configurações customizadas para modificar a estilização do botão 'Whats', para configurar na linha de estilização BootStrap */
+    .container-buttons-ver_empresa .btn-whats {
+        background-color: transparent;
+        border: none;
+    }
         .container-buttons-ver_empresa .btn-whats img {
-            width: auto;
-            height: 40px;
-        }
+                width: auto;
+                height: 40px;
+            }
+
 
             .container-buttons-ver_empresa .btn-whats img:hover {
                 opacity: 50%;

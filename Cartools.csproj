@@ -126,6 +126,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="wwwroot\images\.github\Admin_Navegacao.gif" />
+    <Content Include="wwwroot\images\.github\Cliente_Navegacao.gif" />
+    <Content Include="wwwroot\images\.github\Parceiro__Navegacao.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Bootstrap.v3.Datetimepicker.CSS" Version="4.17.49" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.21" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.21">
