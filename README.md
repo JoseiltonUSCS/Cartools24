@@ -13,20 +13,24 @@ O projeto consiste na criação de um sistema de anúncios de serviços de esté
 A plataforma permitirá que as empresas apresentem os seus serviços de forma detalhada e atraente. Cada empresa terá seu perfil personalizado, no qual poderá atualizar as informações exibidas. Os clientes, por sua vez, terão acesso a essas informações de maneira intuitiva e poderão buscar e agendar serviços com facilidade. 
 </p>
 
+
 ### Preview - Simulação de navegação de Clientes 🚘🧍‍♂️
 <p align="center">
-  <img src="wwwroot/images/.github/Cliente_Navegacao.gif">
+  <img height="350" width="500" src="wwwroot/images/.github/Cliente_Navegacao.gif">
 </p>
+
 
 ### Preview - Simulação de navegação de Usuários Parceiros 🏬👨‍🔧
 <p align="center">
   <img height="350" width="500" src="wwwroot/images/.github/Parceiro__Navegacao.gif">
 </p>
 
+
 ### Preview - Simulação de navegação do Administrador do Sistema 🏬👨‍🔧
 <p align="center">
-  <img src="wwwroot/images/.github/Admin_Navegacao.gif">
+  <img height="350" width="500" src="wwwroot/images/.github/Admin_Navegacao.gif">
 </p>
+
 
 ## Arquitetura do Sistema 🏛️
 - MVC
